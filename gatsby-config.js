@@ -29,18 +29,10 @@ module.exports = {
       },
     },
     `gatsby-plugin-netlify`,
-    {
-      resolve: `gatsby-plugin-chakra-ui`,
-      options: {
-        isResettingCSS: true,
-        isUsingColorMode: false,
-      },
-    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
     // Must be at the end of the plugins
     `gatsby-plugin-client-side-redirect`,
-
   ],
 }

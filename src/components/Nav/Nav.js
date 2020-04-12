@@ -12,7 +12,7 @@ export const Nav = ({
 
   return (
     <Box
-      background={`linear-gradient(45deg, ${theme.colors.brand[500]}, ${theme.colors.brand[600]})`}
+      background={theme.gradients.brand}
       color="white"
       position="fixed"
       top="0"

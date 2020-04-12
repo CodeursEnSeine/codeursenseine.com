@@ -7,7 +7,7 @@ import Image from "../../components/image"
 import SEO from "../../components/seo"
 
 const IndexPage = () => (
-  <Layout>
+  <Layout theme="ces">
     <SEO title="Home" />
     <h1>Hi people</h1>
     <p>Welcome to your new Gatsby site.</p>
@@ -15,7 +15,9 @@ const IndexPage = () => (
     <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
       <Image />
     </div>
-    <Button variantColor="brand" as={Link} to="/page-2/">Go to page 2</Button>
+    <Button variantColor="brand" as={Link} to="/page-2/">
+      Go to page 2
+    </Button>
   </Layout>
 )
 
