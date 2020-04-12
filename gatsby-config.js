@@ -3,6 +3,7 @@ module.exports = {
     title: `Codeurs en Seine`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
     author: `@codeursenseine`,
+    currentYear: `2020`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -28,6 +29,7 @@ module.exports = {
       },
     },
     `gatsby-plugin-netlify`,
+    `gatsby-plugin-client-side-redirect`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

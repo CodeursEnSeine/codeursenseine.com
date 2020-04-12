@@ -1,11 +1,22 @@
 import React, { useEffect } from "react"
+import { useStaticQuery, graphql } from "gatsby"
 
 const IndexPage = () => {
-  useEffect(() => {
-    // window.location.href = "/2020/"
-  }, [])
+  const data = useStaticQuery(graphql`
+    query SiteCurrentYearQuery {
+      site {
+        siteMetadata {
+          currentYear
+        }
+      }
+    }
+  `)
 
-  return <meta httpEquiv="refresh" content="0; url=/2020" />
+  useEffect(() => {
+    window.location.href = `/${data.site.siteMetadata.currentYear}`
+  }, [data.site.siteMetadata.currentYear])
+
+  return <React.Fragment />
 }
 
 export default IndexPage
