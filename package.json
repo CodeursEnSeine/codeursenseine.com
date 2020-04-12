@@ -22,6 +22,7 @@
     "react": "16.12.0",
     "react-dom": "16.12.0",
     "react-helmet": "5.2.1",
+    "react-icons": "3.9.0",
     "typeface-lato": "0.0.75",
     "typeface-montserrat": "0.0.75"
   },
@@ -37,7 +38,7 @@
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "yarn develop",
-    "dev": "yarn develop",
+    "dev": "yarn develop --host 0.0.0.0",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
