@@ -1,0 +1,55 @@
+import React from "react"
+import { Link } from "gatsby"
+import { Box, Heading, Text } from "@chakra-ui/core"
+import slugify from "slugify"
+import Layout from "../components/layout"
+
+const generateMeetupLink = (meetup) =>
+  `/meetups/events/${slugify(meetup.frontmatter.slug, {
+    strict: true,
+    lower: true,
+  })}`
+
+const Meetups = ({ data }) => {
+  return (
+    <Layout theme="meetup">
+      {data.allMdx.nodes.map((meetup) => (
+        <Box as={Link} to={generateMeetupLink(meetup)}>
+          <Heading as="h3" color="brand.700" size="lg">
+            {meetup.frontmatter.title}
+          </Heading>
+          <Text>
+            Meetup le {meetup.frontmatter.meetup_date} de{" "}
+            {meetup.frontmatter.meetup_start_time} à{" "}
+            {meetup.frontmatter.meetup_end_time}
+          </Text>
+          <Text>{meetup.frontmatter.meetup_location}</Text>
+        </Box>
+      ))}
+    </Layout>
+  )
+}
+
+export default Meetups
+
+export const meetupsPageQuery = graphql`
+  query {
+    allMdx(
+      sort: { fields: frontmatter___meetup_date, order: DESC }
+      filter: {
+        frontmatter: { published: { ne: false }, meetup_date: { ne: null } }
+      }
+    ) {
+      nodes {
+        frontmatter {
+          title
+          meetup_location
+          meetup_date(formatString: "dddd DD MMMM YYYY", locale: "fr-FR")
+          meetup_end_time
+          meetup_start_time
+          slug
+        }
+      }
+    }
+  }
+`

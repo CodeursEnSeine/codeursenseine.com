@@ -45,14 +45,13 @@ exports.createPages = async ({ graphql, actions }) => {
   // Create meetup post pages.
   const meetupsEdges = meetups.data.allMdx.edges
 
-  const meetupPost = path.resolve(`./src/templates/MeetupPost/index.js`)
-  meetupsEdges.forEach(meetup => {
+  meetupsEdges.forEach((meetup) => {
     createPage({
-      path: `meetups/${slugify(meetup.node.frontmatter.slug, {
+      path: `/meetups/events/${slugify(meetup.node.frontmatter.slug, {
         strict: true,
         lower: true,
       })}`,
-      component: meetupPost,
+      component: path.resolve(`./src/templates/MeetupPost/index.js`),
       context: {
         id: meetup.node.id,
       },
