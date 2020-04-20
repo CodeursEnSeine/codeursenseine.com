@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
-import { Box, Heading, Text } from "@chakra-ui/core"
+import { Box, Button, Flex, Heading, Text } from "@chakra-ui/core"
 import slugify from "slugify"
 import Layout from "../components/layout"
 
@@ -14,6 +14,23 @@ const generateMeetupLink = (meetup) => {
 const Meetups = ({ data }) => {
   return (
     <Layout theme="meetup">
+      <Flex justify="space-between">
+        <Box>
+          <Text>Retrouvez Codeurs en Seine toute l'année !</Text>
+          <Text as="strong">Meetups Codeurs en Seine</Text>
+        </Box>
+        <Box>
+          <Button
+            as={Link}
+            to="/meetups/sponsors"
+            variant="outline"
+            variantColor="brand"
+          >
+            Devenir sponsor
+          </Button>
+        </Box>
+      </Flex>
+      <Heading as="h1">Tous les meetups</Heading>
       {data.allMdx.nodes.map((meetup) => (
         <Box as={Link} to={generateMeetupLink(meetup)}>
           <Heading as="h3" color="brand.700" size="lg">

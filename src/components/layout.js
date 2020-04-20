@@ -62,6 +62,7 @@ const Layout = ({ children, theme = "ces" }) => {
           as="main"
           ml={{ [navBreakpoint]: navDesktopWidth }}
           mt={{ base: navTopbarHeight, [navBreakpoint]: "0" }}
+          width="100%"
           position="relative"
           zIndex="1"
         >
