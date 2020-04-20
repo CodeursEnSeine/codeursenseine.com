@@ -1,5 +1,6 @@
 import React from "react"
-import { Box, IconButton, useTheme } from "@chakra-ui/core"
+import { Link, useStaticQuery, graphql } from "gatsby"
+import { Box, IconButton, useTheme, Stack } from "@chakra-ui/core"
 import { FiX } from "react-icons/fi"
 
 export const Nav = ({
@@ -9,6 +10,17 @@ export const Nav = ({
   ...props
 }) => {
   const theme = useTheme()
+
+  const data = useStaticQuery(graphql`
+    query SiteTitleQuery {
+      site {
+        siteMetadata {
+          title
+          currentYear
+        }
+      }
+    }
+  `)
 
   return (
     <Box
@@ -29,7 +41,6 @@ export const Nav = ({
       as="nav"
       {...props}
     >
-      Nav
       <IconButton
         variant="unstyled"
         aria-label="Menu"
@@ -37,6 +48,12 @@ export const Nav = ({
         icon={FiX}
         onClick={() => onNavClose()}
       />
+      <Stack>
+        <Link to={`${data.site.siteMetadata.currentYear}`}>
+          Edition {data.site.siteMetadata.currentYear}
+        </Link>
+        <Link to="/meetups">Meetups</Link>
+      </Stack>
     </Box>
   )
 }

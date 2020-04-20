@@ -9,6 +9,7 @@ import {
 } from "@chakra-ui/core"
 import { Nav, NavTopbar } from "./Nav"
 import themes from "../themes"
+import { Mdx } from "../renderers/Mdx"
 
 const updateCssViewportHeight = () => {
   let vh = window.innerHeight * 0.01
@@ -64,7 +65,7 @@ const Layout = ({ children, theme = "ces" }) => {
           position="relative"
           zIndex="1"
         >
-          {children}
+          <Mdx>{children}</Mdx>
         </Box>
       </Flex>
     </ThemeProvider>

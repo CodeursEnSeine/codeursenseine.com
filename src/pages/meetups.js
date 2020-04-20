@@ -1,14 +1,15 @@
 import React from "react"
-import { Link } from "gatsby"
+import { graphql, Link } from "gatsby"
 import { Box, Heading, Text } from "@chakra-ui/core"
 import slugify from "slugify"
 import Layout from "../components/layout"
 
-const generateMeetupLink = (meetup) =>
-  `/meetups/events/${slugify(meetup.frontmatter.slug, {
+const generateMeetupLink = (meetup) => {
+  return `/meetups/events/${slugify(meetup.frontmatter.slug, {
     strict: true,
     lower: true,
   })}`
+}
 
 const Meetups = ({ data }) => {
   return (
@@ -18,6 +19,9 @@ const Meetups = ({ data }) => {
           <Heading as="h3" color="brand.700" size="lg">
             {meetup.frontmatter.title}
           </Heading>
+          {meetup.frontmatter.excerpt !== "" && (
+            <Text>{meetup.frontmatter.excerpt}</Text>
+          )}
           <Text>
             Meetup le {meetup.frontmatter.meetup_date} de{" "}
             {meetup.frontmatter.meetup_start_time} à{" "}
@@ -43,11 +47,17 @@ export const meetupsPageQuery = graphql`
       nodes {
         frontmatter {
           title
+          excerpt
           meetup_location
           meetup_date(formatString: "dddd DD MMMM YYYY", locale: "fr-FR")
           meetup_end_time
           meetup_start_time
           slug
+        }
+        parent {
+          ... on File {
+            name
+          }
         }
       }
     }
