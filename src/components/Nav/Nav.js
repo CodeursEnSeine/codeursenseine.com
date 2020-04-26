@@ -1,8 +1,9 @@
 import React from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
-import { Box, IconButton, useTheme, Stack, Flex } from "@chakra-ui/core"
+import { IconButton, useTheme, Stack, Flex } from "@chakra-ui/core"
 import { FiX } from "react-icons/fi"
 import { Logo } from "../Logo"
+import { NavSocial } from "./"
 
 export const Nav = ({
   breakpoint,
@@ -24,7 +25,8 @@ export const Nav = ({
   `)
 
   return (
-    <Box
+    <Flex
+      direction="column"
       background={theme.gradients.brand}
       color="white"
       position="fixed"
@@ -58,6 +60,9 @@ export const Nav = ({
         </Link>
         <Link to="/meetups">Meetups</Link>
       </Stack>
-    </Box>
+      <Stack mt="auto">
+        <NavSocial />
+      </Stack>
+    </Flex>
   )
 }
