@@ -1,12 +1,14 @@
 import React from "react"
-import { Box, IconButton, useTheme } from "@chakra-ui/core"
+import { Flex, IconButton, useTheme } from "@chakra-ui/core"
 import { FiMenu } from "react-icons/fi"
+import { Logo } from "../Logo"
 
 export const NavTopbar = ({ onNavOpen = () => {}, ...props }) => {
   const theme = useTheme()
 
   return (
-    <Box
+    <Flex
+      as="nav"
       d={{ md: "none" }}
       background={theme.gradients.brand}
       color="white"
@@ -15,17 +17,18 @@ export const NavTopbar = ({ onNavOpen = () => {}, ...props }) => {
       left="0"
       right="0"
       zIndex="2"
-      as="nav"
+      align="center"
       {...props}
     >
-      Topbar
+      <Logo w="4.5" h="2.5rem" />
       <IconButton
         variant="unstyled"
         aria-label="Menu"
         d="inline-flex"
         icon={FiMenu}
+        ml="auto"
         onClick={() => onNavOpen()}
       />
-    </Box>
+    </Flex>
   )
 }

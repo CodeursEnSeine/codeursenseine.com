@@ -1,7 +1,8 @@
 import React from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
-import { Box, IconButton, useTheme, Stack, Image, Flex } from "@chakra-ui/core"
+import { Box, IconButton, useTheme, Stack, Flex } from "@chakra-ui/core"
 import { FiX } from "react-icons/fi"
+import { Logo } from "../Logo"
 
 export const Nav = ({
   breakpoint,
@@ -50,13 +51,7 @@ export const Nav = ({
       />
       <Stack>
         <Flex p="2" align="center" justify="center">
-          <Image
-            src={theme.logos.white}
-            ignoreFallback
-            w="10rem"
-            h="5.5rem"
-            alt={theme.logos.alt}
-          />
+          <Logo w="10rem" h="5.5rem" />
         </Flex>
         <Link to={`${data.site.siteMetadata.currentYear}`}>
           Edition {data.site.siteMetadata.currentYear}
