@@ -59,8 +59,8 @@ const socialLinks = [
 
 export const NavSocial = (props) => {
   return (
-    <Stack spacing="1" p="2" textAlign="center" {...props}>
-      <Link href="mailto:contact@codeursenseine.com">
+    <Stack spacing="1" textAlign="center" {...props}>
+      <Link href="mailto:contact@codeursenseine.com" fontSize="sm">
         contact@codeursenseine.com
       </Link>
       <Stack isInline spacing="0" justify="center" flexWrap="wrap">
