@@ -3,7 +3,7 @@ import LogoWhite from "./logos/ces-white.svg"
 
 const logos = {
   alt: "Codeurs en Seine",
-  white: LogoWhite
+  white: LogoWhite,
 }
 
 const colors = {

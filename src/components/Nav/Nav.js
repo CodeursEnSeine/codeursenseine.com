@@ -1,13 +1,6 @@
 import React from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
-import {
-  Box,
-  IconButton,
-  useTheme,
-  Stack,
-  Image,
-  Flex,
-} from "@chakra-ui/core"
+import { Box, IconButton, useTheme, Stack, Image, Flex } from "@chakra-ui/core"
 import { FiX } from "react-icons/fi"
 
 export const Nav = ({

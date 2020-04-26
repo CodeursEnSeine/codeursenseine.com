@@ -3,7 +3,7 @@ import LogoWhite from "./logos/meetup-white.svg"
 
 const logos = {
   alt: "Codeurs en Seine - Meetups",
-  white: LogoWhite
+  white: LogoWhite,
 }
 
 const colors = {
