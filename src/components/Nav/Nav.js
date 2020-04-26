@@ -1,6 +1,13 @@
 import React from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
-import { Box, IconButton, useTheme, Stack } from "@chakra-ui/core"
+import {
+  Box,
+  IconButton,
+  useTheme,
+  Stack,
+  Image,
+  Flex,
+} from "@chakra-ui/core"
 import { FiX } from "react-icons/fi"
 
 export const Nav = ({
@@ -49,6 +56,15 @@ export const Nav = ({
         onClick={() => onNavClose()}
       />
       <Stack>
+        <Flex p="2" align="center" justify="center">
+          <Image
+            src={theme.logos.white}
+            ignoreFallback
+            w="10rem"
+            h="5.5rem"
+            alt={theme.logos.alt}
+          />
+        </Flex>
         <Link to={`${data.site.siteMetadata.currentYear}`}>
           Edition {data.site.siteMetadata.currentYear}
         </Link>

@@ -1,4 +1,10 @@
 import { theme } from "@chakra-ui/core"
+import LogoWhite from "./logos/ces-white.svg"
+
+const logos = {
+  alt: "Codeurs en Seine",
+  white: LogoWhite
+}
 
 const colors = {
   ...theme.colors,
@@ -17,7 +23,7 @@ const colors = {
 }
 
 const gradients = {
-  brand: `linear-gradient(45deg, ${colors.brand[500]}, ${colors.brand[600]})`,
+  brand: `linear-gradient(45deg, #007dc5, #034ea2)`,
 }
 
 const shadows = {
@@ -37,4 +43,5 @@ export default {
   colors,
   shadows,
   gradients,
+  logos,
 }
