@@ -32,7 +32,7 @@ const Meetups = ({ data }) => {
       </Flex>
       <Heading as="h1">Tous les meetups</Heading>
       {data.allMdx.nodes.map((meetup) => (
-        <Box as={Link} to={generateMeetupLink(meetup)}>
+        <Box key={meetup.parent.name} as={Link} to={generateMeetupLink(meetup)}>
           <Heading as="h3" color="brand.700" size="lg">
             {meetup.frontmatter.title}
           </Heading>
