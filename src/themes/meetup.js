@@ -22,6 +22,11 @@ const colors = {
   },
 }
 
+const fonts = {
+  body: 'Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;',
+  heading: 'Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif',
+}
+
 const gradients = {
   brand: `linear-gradient(45deg, #39bb9d, #199fa7)`,
 }
@@ -41,6 +46,7 @@ const shadows = {
 export default {
   ...theme,
   colors,
+  fonts,
   shadows,
   gradients,
   logos,
