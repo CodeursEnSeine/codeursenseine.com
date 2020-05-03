@@ -67,6 +67,11 @@ function SEO({ description, lang, meta, title }) {
           name: `twitter:description`,
           content: metaDescription,
         },
+        // TODO: remove me when going in production
+        {
+          name: `robots`,
+          content: `noindex, nofollow`,
+        },
       ].concat(meta)}
     />
   )
