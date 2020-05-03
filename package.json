@@ -26,8 +26,8 @@
     "react-helmet": "6.0.0",
     "react-icons": "3.9.0",
     "slugify": "1.4.0",
-    "typeface-lato": "0.0.75",
-    "typeface-montserrat": "0.0.75"
+    "typeface-lato": "^0.0.75",
+    "typeface-montserrat": "^0.0.75"
   },
   "devDependencies": {
     "prettier": "2.0.4"
