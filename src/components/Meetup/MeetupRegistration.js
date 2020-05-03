@@ -1,6 +1,7 @@
 import React from "react"
-import { Button, Flex, Text, useTheme } from "@chakra-ui/core"
+import { Button, Text } from "@chakra-ui/core"
 import PropTypes from "prop-types"
+import { Card } from "../Card"
 
 const propTypes = {
   metadata: PropTypes.shape({
@@ -13,17 +14,12 @@ const propTypes = {
 }
 
 export const MeetupRegistration = ({ metadata, ...props }) => {
-  const theme = useTheme()
-
   return (
-    <Flex
-      p={4}
-      direction="column"
-      align="center"
+    <Card
+      alignItems="center"
       as="a"
       href={metadata.meetup_register_link}
-      background={theme.gradients.brand}
-      borderRadius="md"
+      variant="primary"
       {...props}
     >
       <Text fontWeight="bold" color="white" fontSize="lg">
@@ -40,7 +36,7 @@ export const MeetupRegistration = ({ metadata, ...props }) => {
       >
         Inscrivez-vous !
       </Button>
-    </Flex>
+    </Card>
   )
 }
 

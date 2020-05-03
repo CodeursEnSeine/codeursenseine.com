@@ -3,16 +3,21 @@ import { graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import Layout from "../../components/layout"
 import { MeetupRegistration, MeetupTitle } from "../../components/Meetup"
+import { Box, Stack } from "@chakra-ui/core"
 
 const MeetupPost = ({ data }) => {
   const { body, frontmatter } = data.mdx
 
   return (
     <Layout theme="meetup">
-      <MeetupTitle metadata={frontmatter} />
-      <MeetupRegistration metadata={frontmatter} />
-      <MDXRenderer>{body}</MDXRenderer>
-      <MeetupRegistration metadata={frontmatter} />
+      <Stack spacing={8}>
+        <MeetupTitle metadata={frontmatter} />
+        <MeetupRegistration metadata={frontmatter} />
+        <Box>
+          <MDXRenderer>{body}</MDXRenderer>
+        </Box>
+        <MeetupRegistration metadata={frontmatter} />
+      </Stack>
     </Layout>
   )
 }

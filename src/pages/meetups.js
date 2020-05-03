@@ -1,8 +1,9 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
-import { Box, Button, Flex, Heading, Text } from "@chakra-ui/core"
+import { Box, Button, Flex, Heading, Stack, Text } from "@chakra-ui/core"
 import slugify from "slugify"
 import Layout from "../components/layout"
+import { Card } from "../components/Card"
 
 const generateMeetupLink = (meetup) => {
   return `/meetups/events/${slugify(meetup.frontmatter.slug, {
@@ -30,23 +31,45 @@ const Meetups = ({ data }) => {
           </Button>
         </Box>
       </Flex>
-      <Heading as="h1">Tous les meetups</Heading>
-      {data.allMdx.nodes.map((meetup) => (
-        <Box key={meetup.parent.name} as={Link} to={generateMeetupLink(meetup)}>
-          <Heading as="h3" color="brand.700" size="lg">
-            {meetup.frontmatter.title}
-          </Heading>
-          {meetup.frontmatter.excerpt !== "" && (
-            <Text>{meetup.frontmatter.excerpt}</Text>
-          )}
-          <Text>
-            Meetup le {meetup.frontmatter.meetup_date} de{" "}
-            {meetup.frontmatter.meetup_start_time} à{" "}
-            {meetup.frontmatter.meetup_end_time}
-          </Text>
-          <Text>{meetup.frontmatter.meetup_location}</Text>
-        </Box>
-      ))}
+      <Heading as="h1" fontWeight="normal" mb={6}>
+        Tous les meetups
+      </Heading>
+      <Stack spacing={6}>
+        {data.allMdx.nodes.map((meetup) => (
+          <Card
+            key={meetup.parent.name}
+            as={Link}
+            to={generateMeetupLink(meetup)}
+            isLink
+          >
+            <Stack>
+              <Box>
+                <Heading
+                  as="h3"
+                  color="brand.700"
+                  size="lg"
+                  fontWeight="normal"
+                >
+                  {meetup.frontmatter.title}
+                </Heading>
+                {meetup.frontmatter.excerpt !== "" && (
+                  <Text>{meetup.frontmatter.excerpt}</Text>
+                )}
+              </Box>
+              <Box>
+                <Text fontWeight="bold">
+                  Meetup le {meetup.frontmatter.meetup_date} de{" "}
+                  {meetup.frontmatter.meetup_start_time} à{" "}
+                  {meetup.frontmatter.meetup_end_time}
+                </Text>
+                <Text color="gray.500">
+                  {meetup.frontmatter.meetup_location}
+                </Text>
+              </Box>
+            </Stack>
+          </Card>
+        ))}
+      </Stack>
     </Layout>
   )
 }

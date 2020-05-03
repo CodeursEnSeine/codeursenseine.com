@@ -41,6 +41,7 @@ const shadows = {
     rgba(32, 47, 71, 0.04) 0px -0.25rem 0.5rem -0.125rem,
     rgba(32, 47, 71, 0.03) 0px 0px 0px 0.0625rem;
   `,
+  brand: `0 0.25rem 1.25rem rgba(0, 167, 150, 0.2)`,
 }
 
 export default {

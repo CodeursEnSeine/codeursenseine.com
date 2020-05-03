@@ -66,7 +66,9 @@ const Layout = ({ children, theme = "ces" }) => {
           position="relative"
           zIndex="1"
         >
-          <Mdx>{children}</Mdx>
+          <Box maxWidth="75rem" marginX="auto" p={6}>
+            <Mdx>{children}</Mdx>
+          </Box>
         </Box>
       </Flex>
     </ThemeProvider>
