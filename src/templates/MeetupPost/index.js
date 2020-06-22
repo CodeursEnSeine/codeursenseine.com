@@ -1,16 +1,27 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
-import Layout from "../../components/layout"
-import { MeetupRegistration, MeetupTitle } from "../../components/Meetup"
-import { Box, Stack } from "@chakra-ui/core"
+import {
+  MeetupRegistration,
+  MeetupTitle,
+  MeetupLayout,
+} from "../../components/Meetup"
+import { Box, Button, Link as LinkUI, Stack } from "@chakra-ui/core"
 
 const MeetupPost = ({ data }) => {
   const { body, frontmatter } = data.mdx
 
   return (
-    <Layout theme="meetup">
+    <MeetupLayout>
       <Stack spacing={8}>
+        <LinkUI
+          as={Link}
+          to="/meetups"
+          textDecoration="underline"
+          color="brand.600"
+        >
+          Retour à la liste des meetups
+        </LinkUI>
         <MeetupTitle metadata={frontmatter} />
         <MeetupRegistration metadata={frontmatter} />
         <Box>
@@ -18,7 +29,7 @@ const MeetupPost = ({ data }) => {
         </Box>
         <MeetupRegistration metadata={frontmatter} />
       </Stack>
-    </Layout>
+    </MeetupLayout>
   )
 }
 
