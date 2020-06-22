@@ -28,6 +28,7 @@ exports.createPages = async ({ graphql, actions }) => {
                 ... on File {
                   name
                   relativeDirectory
+                  sourceInstanceName
                 }
               }
             }
@@ -46,16 +47,18 @@ exports.createPages = async ({ graphql, actions }) => {
   const meetupsEdges = meetups.data.allMdx.edges
 
   meetupsEdges.forEach((meetup) => {
-    createPage({
-      path: `/meetups/events/${slugify(meetup.node.frontmatter.slug, {
-        strict: true,
-        lower: true,
-      })}`,
-      component: path.resolve(`./src/templates/MeetupPost/index.js`),
-      context: {
-        id: meetup.node.id,
-      },
-    })
+    if (meetup.node.parent.sourceInstanceName === "meetups") {
+      createPage({
+        path: `/meetups/events/${slugify(meetup.node.frontmatter.slug, {
+          strict: true,
+          lower: true,
+        })}`,
+        component: path.resolve(`./src/templates/MeetupPost/index.js`),
+        context: {
+          id: meetup.node.id,
+        },
+      })
+    }
   })
 
   return null

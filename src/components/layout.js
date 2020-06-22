@@ -10,7 +10,6 @@ import {
 import { Nav, NavTopbar } from "./Nav"
 import themes from "../themes"
 import { Mdx } from "../renderers/Mdx"
-import SEO from "./seo"
 
 const updateCssViewportHeight = () => {
   let vh = window.innerHeight * 0.01
@@ -45,7 +44,6 @@ const Layout = ({ children, theme = "ces" }) => {
   return (
     <ThemeProvider theme={themes[theme]}>
       <CSSReset />
-      <SEO />
       <Flex
         minH="100vh"
         background="white"

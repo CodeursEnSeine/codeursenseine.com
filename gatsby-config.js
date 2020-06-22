@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Codeurs en Seine`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    description: `Rencontre de codeuses & codeurs à Rouen`,
     author: `@codeursenseine`,
     currentYear: `2020`,
   },
@@ -11,6 +11,13 @@ module.exports = {
       options: {
         path: `${__dirname}/content/meetups`,
         name: `meetups`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/sponsors`,
+        name: `sponsors`,
       },
     },
     {
