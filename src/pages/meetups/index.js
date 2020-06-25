@@ -2,8 +2,8 @@ import React from "react"
 import { graphql, Link } from "gatsby"
 import { Box, Heading, Stack, Text } from "@chakra-ui/core"
 import slugify from "slugify"
-import { Card } from "../components/Card"
-import { MeetupLayout } from "../components/Meetup"
+import { Card } from "../../components/Card"
+import { MeetupLayout } from "../../components/Meetup"
 
 const generateMeetupLink = (meetup) => {
   return `/meetups/events/${slugify(meetup.frontmatter.slug, {

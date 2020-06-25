@@ -6,7 +6,8 @@ import {
   MeetupTitle,
   MeetupLayout,
 } from "../../components/Meetup"
-import { Box, Button, Link as LinkUI, Stack } from "@chakra-ui/core"
+import { Box, Stack } from "@chakra-ui/core"
+import { A } from "../../components/A"
 
 const MeetupPost = ({ data }) => {
   const { body, frontmatter } = data.mdx
@@ -14,14 +15,9 @@ const MeetupPost = ({ data }) => {
   return (
     <MeetupLayout>
       <Stack spacing={8}>
-        <LinkUI
-          as={Link}
-          to="/meetups"
-          textDecoration="underline"
-          color="brand.600"
-        >
+        <A as={Link} to="/meetups">
           Retour à la liste des meetups
-        </LinkUI>
+        </A>
         <MeetupTitle metadata={frontmatter} />
         <MeetupRegistration metadata={frontmatter} />
         <Box>

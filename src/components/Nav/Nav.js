@@ -62,6 +62,7 @@ export const Nav = ({
           Edition {data.site.siteMetadata.currentYear}
         </Link>
         <Link to="/meetups">Meetups</Link>
+        <Link to="/meetups/sponsors">Sponsors</Link>
       </Stack>
       <Stack mt="auto" p="2" mb="2">
         <NavSocial />

@@ -40,7 +40,7 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "start": "yarn develop",
+    "start": "yarn dev",
     "dev": "yarn develop --host 0.0.0.0",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
