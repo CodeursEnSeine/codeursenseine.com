@@ -4,7 +4,7 @@ import { Box, Button, Flex, Text } from "@chakra-ui/core"
 
 export const MeetupHeader = () => {
   return (
-    <Flex justify="space-between" my={10}>
+    <Flex justify="space-between" mb={10}>
       <Box>
         <Text>Retrouvez Codeurs en Seine toute l'année !</Text>
         <Text as="strong">Meetups Codeurs en Seine</Text>

@@ -3,7 +3,7 @@ import { Link, useStaticQuery, graphql } from "gatsby"
 import { IconButton, useTheme, Stack, Flex } from "@chakra-ui/core"
 import { FiX } from "react-icons/fi"
 import { Logo } from "../Logo"
-import { NavSocial, NavPreviousYears } from "./"
+import { NavSocial, NavPreviousYears, NavLink } from "./"
 
 export const Nav = ({
   breakpoint,
@@ -54,15 +54,27 @@ export const Nav = ({
         right="0"
         onClick={() => onNavClose()}
       />
-      <Stack>
+      <Stack px="2">
         <Flex p="2" align="center" justify="center">
           <Logo w="10rem" h="5.5rem" />
         </Flex>
-        <Link to={`${data.site.siteMetadata.currentYear}`}>
-          Edition {data.site.siteMetadata.currentYear}
-        </Link>
-        <Link to="/meetups">Meetups</Link>
-        <Link to="/meetups/sponsors">Sponsors</Link>
+        <Stack>
+          <NavLink
+            isMain
+            as={Link}
+            to={`/${data.site.siteMetadata.currentYear}`}
+          >
+            Édition {data.site.siteMetadata.currentYear}
+          </NavLink>
+        </Stack>
+        <Stack spacing="0">
+          <NavLink isMain as={Link} to="/meetups">
+            Meetups
+          </NavLink>
+          <NavLink as={Link} to="/meetups/sponsors">
+            Sponsors
+          </NavLink>
+        </Stack>
       </Stack>
       <Stack mt="auto" p="2" mb="2">
         <NavSocial />

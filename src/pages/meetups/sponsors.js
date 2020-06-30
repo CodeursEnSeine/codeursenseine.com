@@ -66,8 +66,8 @@ const Sponsors = ({ data }) => {
         Sponsors
       </Heading>
       <Grid templateColumns="1fr 1fr 1fr" gap={8}>
-        {data.allFile.nodes.map((sponsor) => (
-          <Card as="article">
+        {data.allFile.nodes.map((sponsor, index) => (
+          <Card key={index} as="article">
             <Link
               href={sponsor.childMdx.frontmatter.link}
               title={sponsor.childMdx.frontmatter.name}
