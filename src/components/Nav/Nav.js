@@ -56,7 +56,10 @@ export const Nav = ({
       />
       <Stack px="2">
         <Flex p="2" align="center" justify="center">
-          <Logo w="10rem" h="5.5rem" />
+          {/* TODO: if possible, set to current year to avoid multiple redirect */}
+          <Link to="/">
+            <Logo w="10rem" h="5.5rem" />
+          </Link>
         </Flex>
         <Stack>
           <NavLink
