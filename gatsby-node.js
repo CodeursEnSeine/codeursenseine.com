@@ -10,6 +10,7 @@ exports.createPages = async ({ graphql, actions }) => {
     isPermanent: true,
   })
 
+  // -------------------- CREATING MEETUPS PAGE ---------------------
   const meetups = await graphql(
     `
       {

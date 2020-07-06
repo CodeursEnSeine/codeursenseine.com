@@ -56,8 +56,7 @@ export const Nav = ({
       />
       <Stack px="2">
         <Flex p="2" align="center" justify="center">
-          {/* TODO: if possible, set to current year to avoid multiple redirect */}
-          <Link to="/">
+          <Link to={`/${data.site.siteMetadata.currentYear}`}>
             <Logo w="10rem" h="5.5rem" />
           </Link>
         </Flex>
@@ -76,6 +75,11 @@ export const Nav = ({
           </NavLink>
           <NavLink as={Link} to="/meetups/sponsors">
             Sponsors
+          </NavLink>
+        </Stack>
+        <Stack>
+          <NavLink isMain as={Link} to="/devoxx4kids" title="Devoxx4Kids">
+            Devoxx4Kids
           </NavLink>
         </Stack>
       </Stack>

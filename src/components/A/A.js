@@ -6,5 +6,12 @@ import { Link } from "@chakra-ui/core"
  * name clash with Link from gatsby.
  */
 export const A = ({ ...props }) => {
-  return <Link color="brand.600" textDecoration="underline" {...props} />
+  // Avoid security issues by setting rel attribute when target is "_blank"
+  // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#Security_and_privacy
+  const addons =
+    props?.target === "_blank" ? { rel: "noopener noreferrer" } : {}
+
+  return (
+    <Link color="brand.600" textDecoration="underline" {...props} {...addons} />
+  )
 }
