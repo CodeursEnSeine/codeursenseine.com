@@ -68,6 +68,7 @@ exports.createPages = async ({ graphql, actions }) => {
       site {
         siteMetadata {
           currentYear
+          description
         }
       }
       allFile(
@@ -100,6 +101,7 @@ exports.createPages = async ({ graphql, actions }) => {
     component: path.resolve(`./src/templates/Organisers/index.js`),
     context: {
       organisers: organisersQuery.data.allFile.nodes,
+      siteMetadata: organisersQuery.data.site.siteMetadata,
     },
   })
 

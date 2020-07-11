@@ -4,71 +4,112 @@ import { FaTwitter, FaGithub, FaLinkedin } from "react-icons/fa"
 import Layout from "../../components/layout"
 import SEO from "../../components/seo"
 
+import { A } from "../../components/A"
+import { Header } from "../../components/Header"
+
 const Organisers = ({ pageContext }) => {
-  const { organisers } = pageContext
+  const { organisers, siteMetadata } = pageContext
 
   return (
     <Layout theme="ces">
       <SEO title="Organisateurs | Codeurs en Seine" />
-      <Heading>Équipe</Heading>
-      <Text mb={8}>
-        Codeurs en Seine est propulsé par une équipe de bénévoles passionnés :
-      </Text>
-      <Grid templateColumns="repeat(5, 1fr)" gap={6}>
-        {organisers.map((organiser) => (
-          <Stack alignItems="center">
-            <Image
-              src={organiser.childMdx.frontmatter.image.publicURL}
-              size="100px"
-              borderRadius={4}
-            />
-            <Text textAlign="center" color="brand.500">
-              {organiser.childMdx.frontmatter.name}
-            </Text>
-            <Stack isInline>
-              {organiser.childMdx.frontmatter.twitter && (
-                <IconButton
-                  as="a"
-                  target="_blank"
-                  href={organiser.childMdx.frontmatter.twitter}
-                  aria-label={`${organiser.childMdx.frontmatter.name} Twitter`}
-                  icon={FaTwitter}
-                  variant="ghost"
-                  variantColor="brand"
-                  size="sm"
-                  d="inline-flex"
-                />
-              )}
-              {organiser.childMdx.frontmatter.linkedin && (
-                <IconButton
-                  as="a"
-                  target="_blank"
-                  href={organiser.childMdx.frontmatter.linkedin}
-                  aria-label={`${organiser.childMdx.frontmatter.name} Linkedin`}
-                  icon={FaLinkedin}
-                  variant="ghost"
-                  variantColor="brand"
-                  size="sm"
-                  d="inline-flex"
-                />
-              )}
-              {organiser.childMdx.frontmatter.github && (
-                <IconButton
-                  as="a"
-                  target="_blank"
-                  href={organiser.childMdx.frontmatter.github}
-                  aria-label={`${organiser.childMdx.frontmatter.name} GitHub`}
-                  icon={FaGithub}
-                  variant="ghost"
-                  variantColor="brand"
-                  size="sm"
-                  d="inline-flex"
-                />
-              )}
+      <Header description={siteMetadata.description}>Codeurs en Seine</Header>
+      <Heading as="h1" mb={8}>
+        Organisateurs
+      </Heading>
+
+      <Stack spacing={6}>
+        <Heading size="lg">Associations</Heading>
+        <Text>
+          Codeurs en Seine est une association dont le but est la promotion et
+          le partage des pratiques et des nouveautés technologiques entre les
+          acteurs du développement informatique.
+        </Text>
+
+        <Text>
+          En plus de la conférence annuelle Codeurs en Seine, nous organisons
+          des meetups et des ateliers tout au long de l'année, sur Rouen et ses
+          environs.
+        </Text>
+
+        <Text>
+          Codeurs en Seine représente le Normandy Java User Group et Normandy
+          Agile User Group.
+        </Text>
+
+        <Text>
+          Elle est également une étape de l'
+          <A href="http://www.agiletour.org/">Agile Tour</A>.
+        </Text>
+        <Heading size="lg">Équipe</Heading>
+        <Text mb={8}>
+          Codeurs en Seine est propulsé par une équipe de bénévoles passionnés :
+        </Text>
+        <Grid
+          templateColumns={[
+            "repeat(2, 1fr)",
+            "repeat(3, 1fr)",
+            "repeat(4, 1fr)",
+            "repeat(5, 1fr)",
+            "repeat(6, 1fr)",
+          ]}
+          gap={6}
+        >
+          {organisers.map((organiser) => (
+            <Stack alignItems="center">
+              <Image
+                src={organiser.childMdx.frontmatter.image.publicURL}
+                size="100px"
+                borderRadius={4}
+              />
+              <Text textAlign="center" color="brand.500">
+                {organiser.childMdx.frontmatter.name}
+              </Text>
+              <Stack isInline>
+                {organiser.childMdx.frontmatter.twitter && (
+                  <IconButton
+                    as="a"
+                    target="_blank"
+                    href={organiser.childMdx.frontmatter.twitter}
+                    aria-label={`${organiser.childMdx.frontmatter.name} Twitter`}
+                    icon={FaTwitter}
+                    variant="ghost"
+                    variantColor="brand"
+                    size="sm"
+                    d="inline-flex"
+                  />
+                )}
+                {organiser.childMdx.frontmatter.linkedin && (
+                  <IconButton
+                    as="a"
+                    target="_blank"
+                    href={organiser.childMdx.frontmatter.linkedin}
+                    aria-label={`${organiser.childMdx.frontmatter.name} Linkedin`}
+                    icon={FaLinkedin}
+                    variant="ghost"
+                    variantColor="brand"
+                    size="sm"
+                    d="inline-flex"
+                  />
+                )}
+                {organiser.childMdx.frontmatter.github && (
+                  <IconButton
+                    as="a"
+                    target="_blank"
+                    href={organiser.childMdx.frontmatter.github}
+                    aria-label={`${organiser.childMdx.frontmatter.name} GitHub`}
+                    icon={FaGithub}
+                    variant="ghost"
+                    variantColor="brand"
+                    size="sm"
+                    d="inline-flex"
+                  />
+                )}
+              </Stack>
             </Stack>
-          </Stack>
-        ))}
-      </Grid>
+          ))}
+        </Grid>
+      </Stack>
     </Layout>
   )
 }

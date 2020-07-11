@@ -1,15 +1,13 @@
 import React from "react"
 import { Link } from "gatsby"
-import { Box, Button, Flex, Text } from "@chakra-ui/core"
+import { Button } from "@chakra-ui/core"
+import { Header } from "../Header"
 
 export const MeetupHeader = () => {
   return (
-    <Flex justify="space-between" mb={10}>
-      <Box>
-        <Text>Retrouvez Codeurs en Seine toute l'année !</Text>
-        <Text as="strong">Meetups Codeurs en Seine</Text>
-      </Box>
-      <Box>
+    <Header
+      description="Retrouvez Codeurs en Seine toute l'année !"
+      actions={
         <Button
           as={Link}
           to="/meetups/sponsors"
@@ -18,7 +16,9 @@ export const MeetupHeader = () => {
         >
           Devenir sponsor
         </Button>
-      </Box>
-    </Flex>
+      }
+    >
+      Meetups Codeurs en Seine
+    </Header>
   )
 }
