@@ -62,5 +62,46 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   })
 
+  // -------------------------- CREATING ORGANISERS PAGE -----------------------
+  const organisersQuery = await graphql(`
+    {
+      site {
+        siteMetadata {
+          currentYear
+        }
+      }
+      allFile(
+        filter: {
+          sourceInstanceName: { eq: "organisers" }
+          extension: { eq: "mdx" }
+        }
+        sort: { fields: childMdx___frontmatter___name }
+      ) {
+        nodes {
+          childMdx {
+            frontmatter {
+              name
+              image {
+                publicURL
+              }
+              twitter
+              github
+              linkedin
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  createPage({
+    // todo : get current year
+    path: `/${organisersQuery.data.site.siteMetadata.currentYear}/organisateurs`,
+    component: path.resolve(`./src/templates/Organisers/index.js`),
+    context: {
+      organisers: organisersQuery.data.allFile.nodes,
+    },
+  })
+
   return null
 }

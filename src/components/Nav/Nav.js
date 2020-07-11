@@ -68,6 +68,12 @@ export const Nav = ({
           >
             Édition {data.site.siteMetadata.currentYear}
           </NavLink>
+          <NavLink
+            as={Link}
+            to={`/${data.site.siteMetadata.currentYear}/organisateurs`}
+          >
+            Organisateurs
+          </NavLink>
         </Stack>
         <Stack spacing="0">
           <NavLink isMain as={Link} to="/meetups">

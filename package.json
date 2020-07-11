@@ -20,6 +20,7 @@
     "gatsby-plugin-sharp": "2.6.18",
     "gatsby-source-filesystem": "2.3.18",
     "gatsby-transformer-sharp": "2.5.10",
+    "prompt": "^1.0.0",
     "prop-types": "15.7.2",
     "react": "16.13.1",
     "react-dom": "16.13.1",
@@ -37,6 +38,7 @@
   ],
   "license": "MIT",
   "scripts": {
+    "add:organiser": "node ./scripts/new-organiser.js",
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
