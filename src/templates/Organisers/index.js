@@ -56,7 +56,10 @@ const Organisers = ({ pageContext }) => {
           gap={6}
         >
           {organisers.map((organiser) => (
-            <Stack alignItems="center">
+            <Stack
+              alignItems="center"
+              key={organiser.childMdx.frontmatter.name}
+            >
               <Image
                 src={organiser.childMdx.frontmatter.image.publicURL}
                 size="100px"

@@ -39,7 +39,6 @@ exports.createPages = async ({ graphql, actions }) => {
     `
   )
 
-  // TODO Check if it is really useful.
   if (meetups.errors) {
     throw meetups.errors
   }
@@ -96,12 +95,53 @@ exports.createPages = async ({ graphql, actions }) => {
   `)
 
   createPage({
-    // todo : get current year
     path: `/${organisersQuery.data.site.siteMetadata.currentYear}/organisateurs`,
     component: path.resolve(`./src/templates/Organisers/index.js`),
     context: {
       organisers: organisersQuery.data.allFile.nodes,
       siteMetadata: organisersQuery.data.site.siteMetadata,
+    },
+  })
+
+  // -------------------- CREATING SPONSORS PAGE ---------------------
+  const sponsorsPageQuery = await graphql(`
+    {
+      site {
+        siteMetadata {
+          currentYear
+          description
+        }
+      }
+      allFile(
+        filter: {
+          sourceInstanceName: { eq: "sponsors" }
+          childMdx: { frontmatter: { sponsor: { ne: null } } }
+        }
+        sort: { order: ASC, fields: childMdx___frontmatter___name }
+      ) {
+        nodes {
+          childMdx {
+            frontmatter {
+              name
+              link
+              logo {
+                publicURL
+              }
+              sponsor
+            }
+            body
+          }
+        }
+      }
+    }
+  `)
+
+  createPage({
+    path: `/${sponsorsPageQuery.data.site.siteMetadata.currentYear}/sponsors`,
+    component: path.resolve(`./src/templates/SponsorsPage/index.js`),
+    context: {
+      siteMetadata: sponsorsPageQuery.data.site.siteMetadata,
+      sponsors: sponsorsPageQuery.data.allFile.nodes,
     },
   })
 
