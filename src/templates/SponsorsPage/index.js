@@ -29,7 +29,7 @@ const SponsorsPage = ({ pageContext }) => {
         relativePath: { eq: "ces/dossier-sponsoring.jpg" }
       ) {
         childImageSharp {
-          fluid(maxWidth: 250) {
+          fluid(maxWidth: 250, quality: 80) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -37,18 +37,7 @@ const SponsorsPage = ({ pageContext }) => {
     }
   `)
 
-  const platiniumSponsors = sponsors.filter(
-    (sponsor) => sponsor.childMdx.frontmatter.sponsor === "platinium"
-  )
-  const goldSponsors = sponsors.filter(
-    (sponsor) => sponsor.childMdx.frontmatter.sponsor === "gold"
-  )
-  const silverSponsors = sponsors.filter(
-    (sponsor) => sponsor.childMdx.frontmatter.sponsor === "silver"
-  )
-  const bronzeSponsors = sponsors.filter(
-    (sponsor) => sponsor.childMdx.frontmatter.sponsor === "bronze"
-  )
+  const sponsorLevels = ["platinium", "gold", "silver", "bronze"]
 
   return (
     <Layout theme="ces">
@@ -58,9 +47,17 @@ const SponsorsPage = ({ pageContext }) => {
         Devenir Sponsor
       </Heading>
 
-      <Grid templateColumns="1fr 2fr" mb={8}>
-        <Box maxWidth="250px" shadow="0 .25rem 1.25rem rgba(0,102,179,0.2)">
-          <Img fluid={data.placeholderImage.childImageSharp.fluid} />
+      <Grid templateColumns={["1fr", "1fr", "1fr 2fr"]} gap={8} mb={8}>
+        <Box maxWidth="250px" boxShadow="brand">
+          <A
+            href="https://drive.google.com/file/d/193DWebJh2DGqPQjj5xPQlJ2jkx1CBuBr/view?usp=sharing"
+            title="Dossier de sponsoring"
+          >
+            <Img
+              fluid={data.placeholderImage.childImageSharp.fluid}
+              alt="Première page du dossier de sponsoring"
+            />
+          </A>
         </Box>
         <Box>
           <Stack spacing={8}>
@@ -107,40 +104,51 @@ const SponsorsPage = ({ pageContext }) => {
           </Stack>
         </Box>
       </Grid>
-      <Divider />
+      <Divider mb={6} />
       <Stack spacing={6}>
-        {goldSponsors.length > 0 && (
-          <>
-            <Heading>Sponsors gold</Heading>
-            <Grid templateColumns="1fr 1fr" gap={8}>
-              {goldSponsors.map((sponsor) => (
-                <Card key={sponsor.childMdx.frontmatter.name} as="article">
-                  <Link
-                    href={sponsor.childMdx.frontmatter.link}
-                    title={sponsor.childMdx.frontmatter.name}
-                  >
-                    <Image
-                      src={sponsor.childMdx.frontmatter.logo.publicURL}
-                      alt={sponsor.childMdx.frontmatter.name}
-                      m="auto"
-                    />
-                  </Link>
-                  <Divider />
-                  <Heading as="h3" size="lg">
-                    <A
-                      href={sponsor.childMdx.frontmatter.link}
-                      title={sponsor.childMdx.frontmatter.name}
-                    >
-                      {sponsor.childMdx.frontmatter.name}
-                    </A>
-                  </Heading>
+        {sponsorLevels.map((level) => {
+          const thisLevelSponsors = sponsors.filter(
+            (sponsor) => sponsor.childMdx.frontmatter.sponsor === level
+          )
 
-                  <MDXRenderer>{sponsor.childMdx.body}</MDXRenderer>
-                </Card>
-              ))}
-            </Grid>
-          </>
-        )}
+          return (
+            thisLevelSponsors.length > 0 && (
+              <Stack spacing={6} key={level}>
+                <Heading size="lg" color="brand.700" fontWeight="normal">
+                  Sponsors {level}
+                </Heading>
+                <Grid templateColumns="1fr 1fr" gap={8}>
+                  {thisLevelSponsors.map((sponsor) => (
+                    <Card key={sponsor.childMdx.frontmatter.name} as="article">
+                      <Link
+                        href={sponsor.childMdx.frontmatter.link}
+                        title={sponsor.childMdx.frontmatter.name}
+                      >
+                        <Image
+                          src={sponsor.childMdx.frontmatter.logo.publicURL}
+                          alt={sponsor.childMdx.frontmatter.name}
+                          m="auto"
+                        />
+                      </Link>
+                      <Divider />
+                      <Heading as="h3" size="lg">
+                        <A
+                          href={sponsor.childMdx.frontmatter.link}
+                          title={sponsor.childMdx.frontmatter.name}
+                        >
+                          {sponsor.childMdx.frontmatter.name}
+                        </A>
+                      </Heading>
+
+                      <MDXRenderer>{sponsor.childMdx.body}</MDXRenderer>
+                    </Card>
+                  ))}
+                </Grid>
+                <Divider />
+              </Stack>
+            )
+          )
+        })}
       </Stack>
     </Layout>
   )
