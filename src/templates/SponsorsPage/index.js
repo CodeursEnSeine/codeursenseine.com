@@ -41,7 +41,7 @@ const SponsorsPage = ({ pageContext }) => {
 
   return (
     <Layout theme="ces">
-      <SEO title="Sponsors | Codeurs en Seine" />
+      <SEO title="Sponsors" />
       <Header description={siteMetadata.description}>Codeurs en Seine</Header>
       <Heading as="h1" mb={8}>
         Devenir Sponsor

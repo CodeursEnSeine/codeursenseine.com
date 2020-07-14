@@ -18,7 +18,7 @@ const Organisers = ({ pageContext }) => {
 
   return (
     <Layout theme="ces">
-      <SEO title="Organisateurs | Codeurs en Seine" />
+      <SEO title="Organisateurs" />
       <Header description={siteMetadata.description}>Codeurs en Seine</Header>
       <Heading as="h1" mb={8}>
         Organisateurs
