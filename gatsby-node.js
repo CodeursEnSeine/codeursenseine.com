@@ -61,8 +61,7 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   })
 
-  // -------------------------- CREATING ORGANISERS PAGE -----------------------
-  const organisersQuery = await graphql(`
+  const metadataQuery = await graphql(`
     {
       site {
         siteMetadata {
@@ -70,6 +69,12 @@ exports.createPages = async ({ graphql, actions }) => {
           description
         }
       }
+    }
+  `)
+
+  // -------------------------- CREATING ORGANISERS PAGE -----------------------
+  const organisersQuery = await graphql(`
+    {
       allFile(
         filter: {
           sourceInstanceName: { eq: "organisers" }
@@ -95,23 +100,17 @@ exports.createPages = async ({ graphql, actions }) => {
   `)
 
   createPage({
-    path: `/${organisersQuery.data.site.siteMetadata.currentYear}/organisateurs`,
+    path: `/${metadataQuery.data.site.siteMetadata.currentYear}/organisateurs`,
     component: path.resolve(`./src/templates/Organisers/index.js`),
     context: {
       organisers: organisersQuery.data.allFile.nodes,
-      siteMetadata: organisersQuery.data.site.siteMetadata,
+      siteMetadata: metadataQuery.data.site.siteMetadata,
     },
   })
 
   // -------------------- CREATING SPONSORS PAGE ---------------------
   const sponsorsPageQuery = await graphql(`
     {
-      site {
-        siteMetadata {
-          currentYear
-          description
-        }
-      }
       allFile(
         filter: {
           sourceInstanceName: { eq: "sponsors" }
@@ -137,11 +136,20 @@ exports.createPages = async ({ graphql, actions }) => {
   `)
 
   createPage({
-    path: `/${sponsorsPageQuery.data.site.siteMetadata.currentYear}/sponsors`,
+    path: `/${metadataQuery.data.site.siteMetadata.currentYear}/sponsors`,
     component: path.resolve(`./src/templates/SponsorsPage/index.js`),
     context: {
-      siteMetadata: sponsorsPageQuery.data.site.siteMetadata,
+      siteMetadata: metadataQuery.data.site.siteMetadata,
       sponsors: sponsorsPageQuery.data.allFile.nodes,
+    },
+  })
+
+  // -------------------- CREATING CoC PAGE ---------------------
+  createPage({
+    path: `/${metadataQuery.data.site.siteMetadata.currentYear}/code-of-conduct`,
+    component: path.resolve(`./src/templates/CoCPage/index.js`),
+    context: {
+      siteMetadata: metadataQuery.data.site.siteMetadata,
     },
   })
 

@@ -1,4 +1,5 @@
 import React from "react"
+import {} from "gatsby"
 import { PseudoBox } from "@chakra-ui/core"
 
 export const NavLink = ({
@@ -27,8 +28,8 @@ export const NavLink = ({
             left: 4,
             right: 4,
             bottom: "0.3rem",
-            h: "0.1rem",
-            bg: "brand.400",
+            height: "0.1rem",
+            background: "brand.400",
           }
         }
       >

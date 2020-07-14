@@ -80,6 +80,12 @@ export const Nav = ({
           >
             Sponsors
           </NavLink>
+          <NavLink
+            as={Link}
+            to={`/${data.site.siteMetadata.currentYear}/code-of-conduct`}
+          >
+            Code of Conduct
+          </NavLink>
         </Stack>
         <Stack spacing="0">
           <NavLink isMain as={Link} to="/meetups">

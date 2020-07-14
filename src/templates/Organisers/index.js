@@ -10,6 +10,12 @@ import { Header } from "../../components/Header"
 const Organisers = ({ pageContext }) => {
   const { organisers, siteMetadata } = pageContext
 
+  const socials = [
+    { name: "twitter", icon: FaTwitter },
+    { name: "linkedin", icon: FaLinkedin },
+    { name: "github", icon: FaGithub },
+  ]
+
   return (
     <Layout theme="ces">
       <SEO title="Organisateurs | Codeurs en Seine" />
@@ -48,8 +54,8 @@ const Organisers = ({ pageContext }) => {
         <Grid
           templateColumns={[
             "repeat(2, 1fr)",
-            "repeat(3, 1fr)",
             "repeat(4, 1fr)",
+            "repeat(3, 1fr)",
             "repeat(5, 1fr)",
             "repeat(6, 1fr)",
           ]}
@@ -61,6 +67,7 @@ const Organisers = ({ pageContext }) => {
               key={organiser.childMdx.frontmatter.name}
             >
               <Image
+                boxShadow="brand"
                 src={organiser.childMdx.frontmatter.image.publicURL}
                 size="100px"
                 borderRadius={4}
@@ -69,44 +76,22 @@ const Organisers = ({ pageContext }) => {
                 {organiser.childMdx.frontmatter.name}
               </Text>
               <Stack isInline>
-                {organiser.childMdx.frontmatter.twitter && (
-                  <IconButton
-                    as="a"
-                    target="_blank"
-                    href={organiser.childMdx.frontmatter.twitter}
-                    aria-label={`${organiser.childMdx.frontmatter.name} Twitter`}
-                    icon={FaTwitter}
-                    variant="ghost"
-                    variantColor="brand"
-                    size="sm"
-                    d="inline-flex"
-                  />
-                )}
-                {organiser.childMdx.frontmatter.linkedin && (
-                  <IconButton
-                    as="a"
-                    target="_blank"
-                    href={organiser.childMdx.frontmatter.linkedin}
-                    aria-label={`${organiser.childMdx.frontmatter.name} Linkedin`}
-                    icon={FaLinkedin}
-                    variant="ghost"
-                    variantColor="brand"
-                    size="sm"
-                    d="inline-flex"
-                  />
-                )}
-                {organiser.childMdx.frontmatter.github && (
-                  <IconButton
-                    as="a"
-                    target="_blank"
-                    href={organiser.childMdx.frontmatter.github}
-                    aria-label={`${organiser.childMdx.frontmatter.name} GitHub`}
-                    icon={FaGithub}
-                    variant="ghost"
-                    variantColor="brand"
-                    size="sm"
-                    d="inline-flex"
-                  />
+                {socials.map(
+                  (social) =>
+                    organiser.childMdx.frontmatter[social.name] && (
+                      <IconButton
+                        key={social.name}
+                        as="a"
+                        target="_blank"
+                        href={organiser.childMdx.frontmatter[social.name]}
+                        aria-label={`${organiser.childMdx.frontmatter.name} ${social.name}`}
+                        icon={social.icon}
+                        variant="ghost"
+                        variantColor="brand"
+                        size="sm"
+                        d="inline-flex"
+                      />
+                    )
                 )}
               </Stack>
             </Stack>
