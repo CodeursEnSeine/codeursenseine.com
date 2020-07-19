@@ -9,7 +9,7 @@ export const MeetupLayout = ({ children, title }) => {
   return (
     <Layout theme="meetup">
       <SEO title={title} />
-      <Grid templateColumns="2fr 1fr" gap={8}>
+      <Grid templateColumns={{ base: "1fr", md: "2.5fr 1fr" }} gap={8}>
         <Box>{children}</Box>
         <Stack spacing={10}>
           <MeetupSponsors />

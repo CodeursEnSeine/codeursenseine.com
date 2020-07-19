@@ -67,7 +67,7 @@ const Layout = ({ children, theme = "ces" }) => {
           position="relative"
           zIndex="1"
         >
-          <Box maxWidth="75rem" marginX="auto" p={6}>
+          <Box maxWidth="60rem" marginX="auto" p={6}>
             <PageHeader />
             <Mdx>{children}</Mdx>
           </Box>
