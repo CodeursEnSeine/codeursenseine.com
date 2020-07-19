@@ -1,5 +1,14 @@
 import React from "react"
-import { Grid, Heading, Text, Image, Stack, IconButton } from "@chakra-ui/core"
+import {
+  Grid,
+  Heading,
+  Text,
+  Image,
+  Stack,
+  Flex,
+  IconButton,
+  AspectRatioBox,
+} from "@chakra-ui/core"
 import { FaTwitter, FaGithub, FaLinkedin } from "react-icons/fa"
 import Layout from "../../components/layout"
 import SEO from "../../components/seo"
@@ -51,31 +60,25 @@ const Organisers = ({ pageContext }) => {
         <Text mb={8}>
           Codeurs en Seine est propulsé par une équipe de bénévoles passionnés :
         </Text>
-        <Grid
-          templateColumns={[
-            "repeat(2, 1fr)",
-            "repeat(4, 1fr)",
-            "repeat(3, 1fr)",
-            "repeat(5, 1fr)",
-            "repeat(6, 1fr)",
-          ]}
-          gap={6}
-        >
+        <Grid templateColumns="repeat(auto-fit, minmax(6rem, 1fr))" gap={6}>
           {organisers.map((organiser) => (
             <Stack
               alignItems="center"
               key={organiser.childMdx.frontmatter.name}
             >
-              <Image
-                boxShadow="brand"
-                src={organiser.childMdx.frontmatter.image.publicURL}
-                size="100px"
-                borderRadius={4}
-              />
-              <Text textAlign="center" color="brand.500">
+              <AspectRatioBox ratio={1} w="6em" maxW="100%">
+                <Image
+                  src={organiser.childMdx.frontmatter.image.publicURL}
+                  alt={organiser.childMdx.frontmatter.name}
+                  boxShadow="brand"
+                  objectFit="cover"
+                  borderRadius={4}
+                />
+              </AspectRatioBox>
+              <Text textAlign="center" fontSize="sm">
                 {organiser.childMdx.frontmatter.name}
               </Text>
-              <Stack isInline>
+              <Flex flexWrap="wrap">
                 {socials.map(
                   (social) =>
                     organiser.childMdx.frontmatter[social.name] && (
@@ -93,7 +96,7 @@ const Organisers = ({ pageContext }) => {
                       />
                     )
                 )}
-              </Stack>
+              </Flex>
             </Stack>
           ))}
         </Grid>
