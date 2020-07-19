@@ -36,7 +36,7 @@ export const PageHeader = () => {
 
   return (
     <Flex alignItems="center" justify="space-between" mb={10}>
-      <Box>
+      <Box d={{ base: "none", md: "block" }}>
         <Text fontFamily="heading" fontSize="sm" color="brand.900">
           {data.pretitle}
         </Text>
