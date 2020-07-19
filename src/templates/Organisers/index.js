@@ -66,6 +66,7 @@ const Organisers = ({ pageContext }) => {
             >
               <AspectRatioBox ratio={1} w="6em" maxW="100%">
                 <Image
+                  fallbackSrc="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
                   src={organiser.childMdx.frontmatter.image.publicURL}
                   alt={organiser.childMdx.frontmatter.name}
                   boxShadow="brand"
