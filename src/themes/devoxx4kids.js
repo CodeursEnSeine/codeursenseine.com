@@ -1,6 +1,11 @@
 import { theme } from "@chakra-ui/core"
 import LogoWhite from "./logos/ces-white.svg"
 
+const data = {
+  pretitle: "Ateliers de programmation pour les 8-14 ans à Rouen",
+  title: "Devoxx4kids Rouen",
+}
+
 const logos = {
   alt: "Codeurs en Seine",
   white: LogoWhite,
@@ -46,6 +51,8 @@ const shadows = {
 
 export default {
   ...theme,
+  themeName: "devoxx4kids",
+  data,
   colors,
   fonts,
   shadows,

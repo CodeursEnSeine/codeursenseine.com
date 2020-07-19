@@ -14,10 +14,9 @@ import Layout from "../../components/layout"
 import SEO from "../../components/seo"
 
 import { A } from "../../components/A"
-import { Header } from "../../components/Header"
 
 const Organisers = ({ pageContext }) => {
-  const { organisers, siteMetadata } = pageContext
+  const { organisers } = pageContext
 
   const socials = [
     { name: "twitter", icon: FaTwitter },
@@ -28,7 +27,6 @@ const Organisers = ({ pageContext }) => {
   return (
     <Layout theme="ces">
       <SEO title="Organisateurs" />
-      <Header description={siteMetadata.description}>Codeurs en Seine</Header>
       <Heading as="h1" mb={8}>
         Organisateurs
       </Heading>

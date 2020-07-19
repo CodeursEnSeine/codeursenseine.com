@@ -13,15 +13,12 @@ import {
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import { Card } from "../../components/Card"
 import SEO from "../../components/seo"
-import { MeetupHeader } from "../../components/Meetup"
 import { A } from "../../components/A"
 
 const Sponsors = ({ data }) => {
   return (
     <Layout theme="meetup">
       <SEO title="Sponsors" />
-
-      <MeetupHeader />
 
       <Heading as="h1" fontWeight="normal" mb={6}>
         Devenir Sponsor ?

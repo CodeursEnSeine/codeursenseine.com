@@ -1,6 +1,11 @@
 import { theme } from "@chakra-ui/core"
 import LogoWhite from "./logos/ces-white.svg"
 
+const data = {
+  pretitle: "Rencontre de codeuses & codeurs à Rouen",
+  title: "La conférence IT en Normandie",
+}
+
 const logos = {
   alt: "Codeurs en Seine",
   white: LogoWhite,
@@ -46,6 +51,8 @@ const shadows = {
 
 export default {
   ...theme,
+  themeName: "ces",
+  data,
   colors,
   fonts,
   shadows,

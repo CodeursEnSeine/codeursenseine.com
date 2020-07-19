@@ -35,11 +35,6 @@ const IndexPage = () => {
     <Layout theme="devoxx4kids">
       <SEO title="Devoxx4Kids" />
 
-      <Text as="small">
-        Ateliers de programmation pour les 8-14 ans à Rouen
-      </Text>
-      <Heading as="h1">Devoxx4kids Rouen</Heading>
-
       <Box maxWidth="300px" mx="auto" my={8}>
         <Img fluid={data.placeholderImage.childImageSharp.fluid} />
       </Box>
@@ -89,10 +84,10 @@ const IndexPage = () => {
             width="560"
             height="315"
             src="https://www.youtube.com/embed/ZszuY9bmIRk"
-            frameborder="0"
+            frameBorder="0"
             title="Devoxx4kids 19 Janvier 2019"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
+            allowFullScreen
           ></iframe>
         </Flex>
         <Box textAlign="center">

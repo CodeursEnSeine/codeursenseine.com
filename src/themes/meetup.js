@@ -1,6 +1,11 @@
 import { theme } from "@chakra-ui/core"
 import LogoWhite from "./logos/meetup-white.svg"
 
+const data = {
+  pretitle: "Retrouvez Codeurs en Seine toute l'année !",
+  title: "Meetups Codeurs en Seine",
+}
+
 const logos = {
   alt: "Codeurs en Seine - Meetups",
   white: LogoWhite,
@@ -46,6 +51,8 @@ const shadows = {
 
 export default {
   ...theme,
+  themeName: "meetup",
+  data,
   colors,
   fonts,
   shadows,

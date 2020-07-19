@@ -16,12 +16,11 @@ import Layout from "../../components/layout"
 import SEO from "../../components/seo"
 
 import { A } from "../../components/A"
-import { Header } from "../../components/Header"
 import { Card } from "../../components/Card"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 
 const SponsorsPage = ({ pageContext }) => {
-  const { siteMetadata, sponsors } = pageContext
+  const { sponsors } = pageContext
 
   const data = useStaticQuery(graphql`
     query {
@@ -42,7 +41,6 @@ const SponsorsPage = ({ pageContext }) => {
   return (
     <Layout theme="ces">
       <SEO title="Sponsors" />
-      <Header description={siteMetadata.description}>Codeurs en Seine</Header>
       <Heading as="h1" mb={8}>
         Devenir Sponsor
       </Heading>

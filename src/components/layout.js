@@ -8,6 +8,7 @@ import {
   CSSReset,
 } from "@chakra-ui/core"
 import { Nav, NavTopbar } from "./Nav"
+import { PageHeader } from "./PageHeader"
 import themes from "../themes"
 import { Mdx } from "../renderers/Mdx"
 
@@ -67,6 +68,7 @@ const Layout = ({ children, theme = "ces" }) => {
           zIndex="1"
         >
           <Box maxWidth="75rem" marginX="auto" p={6}>
+            <PageHeader />
             <Mdx>{children}</Mdx>
           </Box>
         </Box>
