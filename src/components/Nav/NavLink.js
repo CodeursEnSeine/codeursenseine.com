@@ -28,8 +28,8 @@ export const NavLink = ({
             left: 4,
             right: 4,
             bottom: "0.3rem",
-            height: "0.1rem",
-            background: "brand.400",
+            height: "0.15rem",
+            bg: "brand.400",
           }
         }
       >
