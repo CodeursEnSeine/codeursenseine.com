@@ -48,6 +48,7 @@ const Layout = ({ children, theme = "ces" }) => {
       <Flex
         minH="100vh"
         background="white"
+        color="brand.900"
         style={{
           minHeight: "calc(var(--vh, 1vh) * 100)",
         }}
