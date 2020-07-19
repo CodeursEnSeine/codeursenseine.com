@@ -1,5 +1,6 @@
 import React from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
+import { useLocation } from "@reach/router"
 import { IconButton, useTheme, Stack, Flex } from "@chakra-ui/core"
 import { FiX } from "react-icons/fi"
 import { Logo } from "../Logo"
@@ -12,6 +13,7 @@ export const Nav = ({
   ...props
 }) => {
   const theme = useTheme()
+  const { pathname } = useLocation()
 
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
@@ -68,32 +70,39 @@ export const Nav = ({
           >
             Édition {data.site.siteMetadata.currentYear}
           </NavLink>
-          <NavLink
-            as={Link}
-            to={`/${data.site.siteMetadata.currentYear}/organisateurs`}
-          >
-            Organisateurs
-          </NavLink>
-          <NavLink
-            as={Link}
-            to={`/${data.site.siteMetadata.currentYear}/sponsors`}
-          >
-            Sponsors
-          </NavLink>
-          <NavLink
-            as={Link}
-            to={`/${data.site.siteMetadata.currentYear}/code-of-conduct`}
-          >
-            Code of Conduct
-          </NavLink>
+          {pathname.startsWith(`/${data.site.siteMetadata.currentYear}`) && (
+            <>
+              <NavLink
+                as={Link}
+                to={`/${data.site.siteMetadata.currentYear}/organisateurs`}
+              >
+                Organisateurs
+              </NavLink>
+              <NavLink
+                isActive={true}
+                as={Link}
+                to={`/${data.site.siteMetadata.currentYear}/sponsors`}
+              >
+                Sponsors
+              </NavLink>
+              <NavLink
+                as={Link}
+                to={`/${data.site.siteMetadata.currentYear}/code-of-conduct`}
+              >
+                Code of Conduct
+              </NavLink>
+            </>
+          )}
         </Stack>
         <Stack spacing="0">
           <NavLink isMain as={Link} to="/meetups">
             Meetups
           </NavLink>
-          <NavLink as={Link} to="/meetups/sponsors">
-            Sponsors
-          </NavLink>
+          {pathname.startsWith("/meetups") && (
+            <NavLink as={Link} to="/meetups/sponsors">
+              Sponsors
+            </NavLink>
+          )}
         </Stack>
         <Stack>
           <NavLink isMain as={Link} to="/devoxx4kids" title="Devoxx4Kids">

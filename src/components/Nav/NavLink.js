@@ -1,15 +1,24 @@
 import React from "react"
-import {} from "gatsby"
+import { useLocation } from "@reach/router"
 import { PseudoBox } from "@chakra-ui/core"
 
 export const NavLink = ({
   children = null,
   isMain = false,
-  isActive = false,
+  to = "",
   ...rest
 }) => {
+  const { pathname } = useLocation()
+  const isActive = pathname === to
+
   return (
-    <PseudoBox role="group" d="block" textAlign={{ md: "right" }} {...rest}>
+    <PseudoBox
+      role="group"
+      d="block"
+      textAlign={{ md: "right" }}
+      to={to}
+      {...rest}
+    >
       <PseudoBox
         as="span"
         d="inline-flex"
