@@ -2,7 +2,7 @@ import { useStaticQuery, graphql } from "gatsby"
 
 export const useAssociations = () =>
   useStaticQuery(graphql`
-    query Associations {
+    {
       allFile(
         filter: {
           sourceInstanceName: { eq: "associations" }
@@ -14,6 +14,7 @@ export const useAssociations = () =>
         nodes {
           childMdx {
             frontmatter {
+              name
               link
               logo {
                 publicURL
