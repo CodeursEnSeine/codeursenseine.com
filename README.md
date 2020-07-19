@@ -24,6 +24,14 @@
 
     Open the `codeursenseine-new` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
 
+## 👩‍💻👨‍💻 Create a new organiser
+
+To quickly create a new organiser, you can run the following command:
+
+```shell
+yarn new:organiser
+```
+
 ## 🧐 What's inside?
 
 A quick look at the top-level files and directories you'll see in a Gatsby project.

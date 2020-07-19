@@ -38,7 +38,7 @@
   ],
   "license": "MIT",
   "scripts": {
-    "add:organiser": "node ./scripts/new-organiser.js",
+    "new:organiser": "node ./scripts/new-organiser.js",
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
