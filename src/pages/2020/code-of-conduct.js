@@ -2,15 +2,11 @@ import React from "react"
 import { Heading, Text, Stack, Divider } from "@chakra-ui/core"
 import Layout from "../../components/layout"
 import SEO from "../../components/seo"
-import { Header } from "../../components/Header"
 import { A } from "../../components/A"
 
-const CoCPage = ({ pageContext }) => (
+const CoCPage = () => (
   <Layout theme="ces">
     <SEO title="Code de conduite" />
-    <Header description={pageContext.siteMetadata.description}>
-      Codeurs en Seine
-    </Header>
     <Stack spacing={6}>
       <Heading as="h1">Code de conduite</Heading>
       <Text>
@@ -108,7 +104,9 @@ const CoCPage = ({ pageContext }) => (
         meetups.
       </Text>
       <Divider />
-      <Heading as="h1">Code of Conduct</Heading>
+      <Heading as="h1" id="jump-to-gb">
+        Code of Conduct
+      </Heading>
       <Text>
         All attendees, speakers, sponsors and volunteers at our conference are
         required to agree with the following code of conduct. Organisers will

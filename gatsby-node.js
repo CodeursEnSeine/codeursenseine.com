@@ -144,14 +144,5 @@ exports.createPages = async ({ graphql, actions }) => {
     },
   })
 
-  // -------------------- CREATING CoC PAGE ---------------------
-  createPage({
-    path: `/${metadataQuery.data.site.siteMetadata.currentYear}/code-of-conduct`,
-    component: path.resolve(`./src/templates/CoCPage/index.js`),
-    context: {
-      siteMetadata: metadataQuery.data.site.siteMetadata,
-    },
-  })
-
   return null
 }
