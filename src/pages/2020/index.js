@@ -2,9 +2,9 @@ import React from "react"
 import { Link } from "gatsby"
 import { Button } from "@chakra-ui/core"
 
-import Layout from "../../components/layout"
-import Image from "../../components/image"
-import SEO from "../../components/seo"
+import Layout from "components/layout"
+import Image from "components/image"
+import SEO from "components/seo"
 
 const IndexPage = () => (
   <Layout theme="ces">

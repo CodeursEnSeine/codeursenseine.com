@@ -7,6 +7,9 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: `gatsby-alias-imports`,
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/content/meetups`,
