@@ -51,7 +51,7 @@ const shadows = {
 
 export default {
   ...theme,
-  themeName: "meetup",
+  themeName: "meetups",
   data,
   colors,
   fonts,

@@ -7,7 +7,7 @@ import { MeetupAssociations } from "./MeetupAssociations"
 
 export const MeetupLayout = ({ children, title }) => {
   return (
-    <Layout theme="meetup">
+    <Layout theme="meetups">
       <SEO title={title} />
       <Grid templateColumns={{ base: "1fr", md: "2.5fr 1fr" }} gap={8}>
         <Box>{children}</Box>

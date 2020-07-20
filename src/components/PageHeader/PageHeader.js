@@ -15,7 +15,7 @@ export const PageHeader = () => {
 
   const getButtons = () => {
     switch (themeName) {
-      case "meetup":
+      case "meetups":
         return (
           <Button as={Link} to="/meetups/sponsors" variantColor="brand">
             Devenir sponsor

@@ -1,6 +1,7 @@
 import React from "react"
 import { MDXProvider } from "@mdx-js/react"
 import { Divider, Heading, Link, List, ListItem, Text } from "@chakra-ui/core"
+import slugify from "slugify"
 
 const A = (props) => (
   <Link
@@ -11,11 +12,31 @@ const A = (props) => (
     {...props}
   />
 )
-const H1 = (props) => (
-  <Heading as="h1" fontWeight="normal" fontSize="3xl" my="0.5em" {...props} />
+const H1 = ({ children, ...props }) => (
+  <Heading
+    as="h1"
+    fontWeight="normal"
+    fontSize="3xl"
+    my="0.5em"
+    children={children}
+    id={slugify(children, {
+      lower: true,
+    })}
+    {...props}
+  />
 )
-const H2 = (props) => (
-  <Heading as="h2" fontWeight="normal" fontSize="2xl" my="0.5em" {...props} />
+const H2 = ({ children, ...props }) => (
+  <Heading
+    as="h2"
+    fontWeight="normal"
+    fontSize="2xl"
+    my="0.5em"
+    children={children}
+    id={slugify(children, {
+      lower: true,
+    })}
+    {...props}
+  />
 )
 const H3 = (props) => (
   <Heading as="h3" fontWeight="normal" fontSize="xl" my="0.5em" {...props} />

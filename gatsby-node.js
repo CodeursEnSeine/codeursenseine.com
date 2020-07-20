@@ -72,6 +72,10 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
+  if (metadataQuery.errors) {
+    throw metadataQuery.errors
+  }
+
   // -------------------------- CREATING ORGANISERS PAGE -----------------------
   const organisersQuery = await graphql(`
     {
@@ -98,6 +102,10 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     }
   `)
+
+  if (organisersQuery.errors) {
+    throw organisersQuery.errors
+  }
 
   createPage({
     path: `/${metadataQuery.data.site.siteMetadata.currentYear}/organisateurs`,
@@ -135,6 +143,10 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
+  if (sponsorsPageQuery.errors) {
+    throw sponsorsPageQuery.errors
+  }
+
   createPage({
     path: `/${metadataQuery.data.site.siteMetadata.currentYear}/sponsors`,
     component: path.resolve(`./src/templates/SponsorsPage/index.js`),
@@ -142,6 +154,47 @@ exports.createPages = async ({ graphql, actions }) => {
       siteMetadata: metadataQuery.data.site.siteMetadata,
       sponsors: sponsorsPageQuery.data.allFile.nodes,
     },
+  })
+
+  // -------------------- CREATING DYNAMIC PAGES --------------------------
+  const pagesQuery = await graphql(`
+    {
+      allFile(filter: { sourceInstanceName: { eq: "pages" } }) {
+        nodes {
+          childMdx {
+            id
+            frontmatter {
+              title
+              navigation
+              order
+            }
+            body
+          }
+          name
+          relativeDirectory
+        }
+      }
+    }
+  `)
+
+  if (pagesQuery.errors) {
+    throw pagesQuery.errors
+  }
+
+  pagesQuery.data.allFile.nodes.forEach((page) => {
+    const pagePath =
+      page.relativeDirectory === "ces"
+        ? `/${metadataQuery.data.site.siteMetadata.currentYear}/${page.name}`
+        : `/${page.relativeDirectory}/${page.name}`
+
+    createPage({
+      path: pagePath,
+      component: path.resolve(`./src/templates/PageLayout.js`),
+      context: {
+        body: page.childMdx.body,
+        theme: page.relativeDirectory,
+      },
+    })
   })
 
   return null

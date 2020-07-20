@@ -17,7 +17,7 @@ import { A } from "../../components/A"
 
 const Sponsors = ({ data }) => {
   return (
-    <Layout theme="meetup">
+    <Layout theme="meetups">
       <SEO title="Sponsors" />
 
       <Heading as="h1" fontWeight="normal" mb={6}>
