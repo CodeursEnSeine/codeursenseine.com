@@ -19,7 +19,7 @@ const Meetups = ({ data }) => {
         <Heading as="h1" fontWeight="normal" mb={6}>
           Tous les meetups
         </Heading>
-        {data.allMdx.nodes.map((meetup) => (
+        {data.allFile.nodes.map(({ childMdx: meetup }) => (
           <Card
             key={meetup.parent.name}
             as={Link}
@@ -60,27 +60,32 @@ const Meetups = ({ data }) => {
 
 export default Meetups
 
-export const meetupsPageQuery = graphql`
-  query {
-    allMdx(
-      sort: { fields: frontmatter___meetup_date, order: DESC }
+export const query = graphql`
+  query Meetups {
+    allFile(
+      sort: { fields: childMdx___frontmatter___meetup_date, order: DESC }
       filter: {
-        frontmatter: { published: { ne: false }, meetup_date: { ne: null } }
+        sourceInstanceName: { eq: "meetups" }
+        childMdx: {
+          frontmatter: { published: { ne: false }, meetup_date: { ne: null } }
+        }
       }
     ) {
       nodes {
-        frontmatter {
-          title
-          excerpt
-          meetup_location
-          meetup_date(formatString: "dddd DD MMMM YYYY", locale: "fr-FR")
-          meetup_end_time
-          meetup_start_time
-          slug
-        }
-        parent {
-          ... on File {
-            name
+        childMdx {
+          frontmatter {
+            title
+            excerpt
+            meetup_location
+            meetup_date(formatString: "dddd DD MMMM YYYY", locale: "fr-FR")
+            meetup_end_time
+            meetup_start_time
+            slug
+          }
+          parent {
+            ... on File {
+              name
+            }
           }
         }
       }
