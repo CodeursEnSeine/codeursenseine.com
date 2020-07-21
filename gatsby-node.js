@@ -191,6 +191,8 @@ exports.createPages = async ({ graphql, actions }) => {
         ? page.name === "index"
           ? `/${metadataQuery.data.site.siteMetadata.currentYear}`
           : `/${metadataQuery.data.site.siteMetadata.currentYear}/${page.name}`
+        : page.name === "index"
+        ? `/${page.relativeDirectory}`
         : `/${page.relativeDirectory}/${page.name}`
 
     createPage({
