@@ -16,15 +16,44 @@ export const Nav = ({
   const { pathname } = useLocation()
 
   const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
+    query {
       site {
         siteMetadata {
-          title
           currentYear
+        }
+      }
+      allFile(
+        filter: {
+          sourceInstanceName: { eq: "pages" }
+          childMdx: { frontmatter: { navigation: { eq: true } } }
+        }
+        sort: { fields: childMdx___frontmatter___order }
+      ) {
+        edges {
+          node {
+            childMdx {
+              frontmatter {
+                title
+                order
+              }
+            }
+            relativeDirectory
+            name
+          }
         }
       }
     }
   `)
+
+  const groupedPages = data.allFile.edges.reduce((previousValues, current) => {
+    if (!previousValues[current.node.relativeDirectory]) {
+      previousValues[current.node.relativeDirectory] = []
+    }
+
+    previousValues[current.node.relativeDirectory].push(current.node)
+
+    return previousValues
+  }, {})
 
   return (
     <Flex
@@ -85,12 +114,16 @@ export const Nav = ({
               >
                 Sponsors
               </NavLink>
-              <NavLink
-                as={Link}
-                to={`/${data.site.siteMetadata.currentYear}/code-of-conduct`}
-              >
-                Code of Conduct
-              </NavLink>
+              {groupedPages["ces"] &&
+                groupedPages["ces"].map((page) => (
+                  <NavLink
+                    key={page.name}
+                    as={Link}
+                    to={`/${data.site.siteMetadata.currentYear}/${page.name}`}
+                  >
+                    {page.childMdx.frontmatter.title}
+                  </NavLink>
+                ))}
             </>
           )}
         </Stack>
@@ -99,9 +132,21 @@ export const Nav = ({
             Meetups
           </NavLink>
           {pathname.startsWith("/meetups") && (
-            <NavLink as={Link} to="/meetups/sponsors">
-              Sponsors
-            </NavLink>
+            <>
+              <NavLink as={Link} to="/meetups/sponsors">
+                Sponsors
+              </NavLink>
+              {groupedPages["meetups"] &&
+                groupedPages["meetups"].map((page) => (
+                  <NavLink
+                    key={page.name}
+                    as={Link}
+                    to={`/meetups/${page.name}`}
+                  >
+                    {page.childMdx.frontmatter.title}
+                  </NavLink>
+                ))}
+            </>
           )}
         </Stack>
         <Stack>

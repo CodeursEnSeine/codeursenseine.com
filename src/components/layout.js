@@ -31,17 +31,6 @@ const navDesktopWidth = "30vw"
 const Layout = ({ children, theme = "ces" }) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
 
-  // const data = useStaticQuery(graphql`
-  //   query SiteTitleQuery {
-  //     site {
-  //       siteMetadata {
-  //         title
-  //         currentYear
-  //       }
-  //     }
-  //   }
-  // `)
-
   return (
     <ThemeProvider theme={themes[theme]}>
       <CSSReset />

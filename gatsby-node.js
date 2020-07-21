@@ -188,7 +188,9 @@ exports.createPages = async ({ graphql, actions }) => {
   pagesQuery.data.allFile.nodes.forEach((page) => {
     const pagePath =
       page.relativeDirectory === "ces"
-        ? `/${metadataQuery.data.site.siteMetadata.currentYear}/${page.name}`
+        ? page.name === "index"
+          ? `/${metadataQuery.data.site.siteMetadata.currentYear}`
+          : `/${metadataQuery.data.site.siteMetadata.currentYear}/${page.name}`
         : `/${page.relativeDirectory}/${page.name}`
 
     createPage({
@@ -196,6 +198,7 @@ exports.createPages = async ({ graphql, actions }) => {
       component: path.resolve(`./src/templates/PageLayout.js`),
       context: {
         body: page.childMdx.body,
+        title: page.childMdx.frontmatter.title,
         theme: page.relativeDirectory,
       },
     })
