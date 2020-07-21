@@ -92,7 +92,7 @@ const Sponsors = ({ data }) => {
 export default Sponsors
 
 export const query = graphql`
-  query MeetupsSponsors {
+  query {
     allFile(
       filter: {
         sourceInstanceName: { eq: "sponsors" }

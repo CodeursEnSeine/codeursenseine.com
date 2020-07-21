@@ -2,7 +2,7 @@ import { useStaticQuery, graphql } from "gatsby"
 
 export const useSponsors = () =>
   useStaticQuery(graphql`
-    {
+    query {
       allFile(
         filter: {
           sourceInstanceName: { eq: "sponsors" }

@@ -64,8 +64,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `codeurs-en-seine`,
-        short_name: `starter`,
+        name: `Codeurs en Seine`,
+        short_name: `Codeurs en Seine`,
         start_url: `/`,
         background_color: `#034ea2`,
         theme_color: `#034ea2`,
@@ -73,10 +73,10 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
-    `gatsby-plugin-netlify`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
+
     // Must be at the end of the plugins
     `gatsby-plugin-client-side-redirect`,
   ],

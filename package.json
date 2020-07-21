@@ -15,7 +15,6 @@
     "gatsby-plugin-client-side-redirect": "1.1.0",
     "gatsby-plugin-manifest": "2.4.19",
     "gatsby-plugin-mdx": "1.2.27",
-    "gatsby-plugin-netlify": "2.3.11",
     "gatsby-plugin-offline": "3.2.19",
     "gatsby-plugin-react-helmet": "3.3.10",
     "gatsby-plugin-sharp": "2.6.20",
@@ -34,9 +33,6 @@
   "devDependencies": {
     "prettier": "2.0.5"
   },
-  "keywords": [
-    "gatsby"
-  ],
   "license": "MIT",
   "scripts": {
     "new:organiser": "node ./scripts/new-organiser.js",

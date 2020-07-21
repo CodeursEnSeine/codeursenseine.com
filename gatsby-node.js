@@ -4,16 +4,20 @@ const slugify = require(`slugify`)
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage, createRedirect } = actions
 
-  createRedirect({
-    fromPath: "/2019",
-    toPath: "https://archive.codeursenseine.com/2019",
-    isPermanent: true,
-  })
+  const YEARS = [2013, 2014, 2015, 2016, 2017, 2018, 2019]
+
+  YEARS.forEach((year) =>
+    createRedirect({
+      fromPath: `/${year}`,
+      toPath: `https://archive.codeursenseine.com/${year}`,
+      isPermanent: true,
+    })
+  )
 
   // -------------------- CREATING MEETUPS PAGE ---------------------
   const meetups = await graphql(
     `
-      {
+      query {
         allMdx(
           sort: { fields: frontmatter___meetup_date, order: DESC }
           filter: { frontmatter: { published: { ne: false } } }
@@ -62,7 +66,7 @@ exports.createPages = async ({ graphql, actions }) => {
   })
 
   const metadataQuery = await graphql(`
-    {
+    query {
       site {
         siteMetadata {
           currentYear
@@ -78,7 +82,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   // -------------------------- CREATING ORGANISERS PAGE -----------------------
   const organisersQuery = await graphql(`
-    {
+    query {
       allFile(
         filter: {
           sourceInstanceName: { eq: "organisers" }
@@ -118,7 +122,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   // -------------------- CREATING SPONSORS PAGE ---------------------
   const sponsorsPageQuery = await graphql(`
-    {
+    query {
       allFile(
         filter: {
           sourceInstanceName: { eq: "sponsors" }
@@ -158,7 +162,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   // -------------------- CREATING DYNAMIC PAGES --------------------------
   const pagesQuery = await graphql(`
-    {
+    query {
       allFile(filter: { sourceInstanceName: { eq: "pages" } }) {
         nodes {
           childMdx {
