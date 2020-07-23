@@ -1,13 +1,10 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
-import {
-  MeetupRegistration,
-  MeetupTitle,
-  MeetupLayout,
-} from "../../components/Meetup"
 import { Box, Stack } from "@chakra-ui/core"
-import { A } from "../../components/A"
+import { MeetupRegistration, MeetupTitle } from "components/Meetup"
+import MeetupLayout from "components/Meetup/MeetupLayout"
+import { A } from "components/A"
 
 const MeetupPost = ({ data }) => {
   const { body, frontmatter } = data.mdx
@@ -29,10 +26,8 @@ const MeetupPost = ({ data }) => {
   )
 }
 
-export default MeetupPost
-
-export const pageQuery = graphql`
-  query MeetupPostBySlug($id: String!) {
+export const query = graphql`
+  query MeetupPostById($id: String!) {
     mdx(id: { eq: $id }) {
       body
       frontmatter {
@@ -46,3 +41,5 @@ export const pageQuery = graphql`
     }
   }
 `
+
+export default MeetupPost

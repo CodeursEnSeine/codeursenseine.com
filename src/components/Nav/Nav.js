@@ -16,7 +16,7 @@ export const Nav = ({
   const { pathname } = useLocation()
 
   const data = useStaticQuery(graphql`
-    query {
+    query NavPagesQuery {
       site {
         siteMetadata {
           currentYear
@@ -45,7 +45,7 @@ export const Nav = ({
     }
   `)
 
-  const groupedPages = data.allFile.edges.reduce((previousValues, current) => {
+  const groupedPages = data?.allFile.edges.reduce((previousValues, current) => {
     if (!previousValues[current.node.relativeDirectory]) {
       previousValues[current.node.relativeDirectory] = []
     }

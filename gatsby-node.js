@@ -1,4 +1,3 @@
-const path = require(`path`)
 const slugify = require(`slugify`)
 
 exports.createPages = async ({ graphql, actions }) => {
@@ -22,19 +21,18 @@ exports.createPages = async ({ graphql, actions }) => {
           sort: { fields: frontmatter___meetup_date, order: DESC }
           filter: { frontmatter: { published: { ne: false } } }
         ) {
-          edges {
-            node {
-              id
-              frontmatter {
-                slug
-                published
-              }
-              parent {
-                ... on File {
-                  name
-                  relativeDirectory
-                  sourceInstanceName
-                }
+          nodes {
+            id
+            frontmatter {
+              slug
+              published
+              meetup_date
+            }
+            parent {
+              ... on File {
+                name
+                relativeDirectory
+                sourceInstanceName
               }
             }
           }
@@ -48,18 +46,21 @@ exports.createPages = async ({ graphql, actions }) => {
   }
 
   // Create meetup post pages.
-  const meetupsEdges = meetups.data.allMdx.edges
+  const meetupsNodes = meetups.data.allMdx.nodes
 
-  meetupsEdges.forEach((meetup) => {
-    if (meetup.node.parent.sourceInstanceName === "meetups") {
+  meetupsNodes.forEach((meetup) => {
+    if (
+      meetup.parent.sourceInstanceName === "meetups" &&
+      meetup.frontmatter.meetup_date
+    ) {
       createPage({
-        path: `/meetups/events/${slugify(meetup.node.frontmatter.slug, {
+        path: `/meetups/events/${slugify(meetup.frontmatter.slug, {
           strict: true,
           lower: true,
         })}`,
-        component: path.resolve(`./src/templates/MeetupPost/index.js`),
+        component: require.resolve(`./src/templates/meetup-post.js`),
         context: {
-          id: meetup.node.id,
+          id: meetup.id,
         },
       })
     }
@@ -113,7 +114,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   createPage({
     path: `/${metadataQuery.data.site.siteMetadata.currentYear}/organisateurs`,
-    component: path.resolve(`./src/templates/Organisers/index.js`),
+    component: require.resolve(`./src/templates/Organisers/index.js`),
     context: {
       organisers: organisersQuery.data.allFile.nodes,
       siteMetadata: metadataQuery.data.site.siteMetadata,
@@ -153,7 +154,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   createPage({
     path: `/${metadataQuery.data.site.siteMetadata.currentYear}/sponsors`,
-    component: path.resolve(`./src/templates/SponsorsPage/index.js`),
+    component: require.resolve(`./src/templates/SponsorsPage/index.js`),
     context: {
       siteMetadata: metadataQuery.data.site.siteMetadata,
       sponsors: sponsorsPageQuery.data.allFile.nodes,
@@ -197,7 +198,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
     createPage({
       path: pagePath,
-      component: path.resolve(`./src/templates/PageLayout.js`),
+      component: require.resolve(`./src/templates/PageLayout.js`),
       context: {
         body: page.childMdx.body,
         title: page.childMdx.frontmatter.title,

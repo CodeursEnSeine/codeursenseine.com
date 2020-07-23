@@ -1,76 +1,129 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
-import { Box, Heading, Stack, Text } from "@chakra-ui/core"
-import slugify from "slugify"
-import { Card } from "components/Card"
-import { MeetupLayout } from "components/Meetup"
+import { Box, Grid, Stack, Heading, Image, Flex, Text } from "@chakra-ui/core"
+import Layout from "components/layout"
 
-const generateMeetupLink = (meetup) => {
-  return `/meetups/events/${slugify(meetup.frontmatter.slug, {
-    strict: true,
-    lower: true,
-  })}`
-}
+import { Card } from "components/Card"
+import SEO from "components/seo"
+import { generateMeetupLink } from "../../utils/generateMeetupLink"
 
 const Meetups = ({ data }) => {
   console.log(data)
 
+  const meetups = data.meetups.nodes.filter(
+    (meetup) =>
+      meetup.childMdx &&
+      meetup.childMdx.frontmatter &&
+      meetup.childMdx.frontmatter.meetup_date !== null
+  )
+
+  console.log(meetups)
+
   return (
-    <MeetupLayout title="Meetups">
-      <Stack spacing={6}>
-        <Heading as="h1" fontWeight="normal" mb={6}>
-          Tous les meetups
-        </Heading>
-        {data.allFile.nodes.map(({ childMdx: meetup }) => (
-          <Card
-            key={meetup.parent.name}
-            as={Link}
-            to={generateMeetupLink(meetup)}
-            isLink
-          >
-            <Stack>
-              <Box>
-                <Heading
-                  as="h3"
-                  color="brand.700"
-                  size="lg"
-                  fontWeight="normal"
+    <Layout theme="meetups">
+      <SEO title="Meetups" />
+      <Grid templateColumns={{ base: "1fr", md: "2.5fr 1fr" }} gap={8}>
+        <Box>
+          <Stack spacing={6}>
+            <Heading as="h1" fontWeight="normal" mb={6}>
+              Tous les meetups
+            </Heading>
+            {meetups.map(({ childMdx: meetup }) => (
+              <Card
+                key={meetup.parent.name}
+                as={Link}
+                to={generateMeetupLink(meetup)}
+                isLink
+              >
+                <Stack>
+                  <Box>
+                    <Heading
+                      as="h3"
+                      color="brand.700"
+                      size="lg"
+                      fontWeight="normal"
+                    >
+                      {meetup.frontmatter.title}
+                    </Heading>
+                    {meetup.frontmatter.excerpt !== "" && (
+                      <Text>{meetup.frontmatter.excerpt}</Text>
+                    )}
+                  </Box>
+                  <Box>
+                    <Text fontWeight="bold">
+                      Meetup le {meetup.frontmatter.meetup_date} de{" "}
+                      {meetup.frontmatter.meetup_start_time} à{" "}
+                      {meetup.frontmatter.meetup_end_time}
+                    </Text>
+                    <Text color="gray.500">
+                      {meetup.frontmatter.meetup_location}
+                    </Text>
+                  </Box>
+                </Stack>
+              </Card>
+            ))}
+          </Stack>
+        </Box>
+        <Stack spacing={10}>
+          <Stack spacing={6}>
+            <Heading as="h2" size="lg" fontWeight="normal" mb={8}>
+              Sponsors meetups
+            </Heading>
+            <Grid templateColumns="1fr 1fr" gap={4}>
+              {data.sponsors.nodes.map(({ childMdx: sponsor }) => (
+                <Card
+                  isLink
+                  as="a"
+                  href={sponsor.frontmatter.link}
+                  title={sponsor.frontmatter.name}
+                  key={sponsor.frontmatter.name}
+                  p={0}
                 >
-                  {meetup.frontmatter.title}
-                </Heading>
-                {meetup.frontmatter.excerpt !== "" && (
-                  <Text>{meetup.frontmatter.excerpt}</Text>
-                )}
-              </Box>
-              <Box>
-                <Text fontWeight="bold">
-                  Meetup le {meetup.frontmatter.meetup_date} de{" "}
-                  {meetup.frontmatter.meetup_start_time} à{" "}
-                  {meetup.frontmatter.meetup_end_time}
-                </Text>
-                <Text color="gray.500">
-                  {meetup.frontmatter.meetup_location}
-                </Text>
-              </Box>
-            </Stack>
-          </Card>
-        ))}
-      </Stack>
-    </MeetupLayout>
+                  <Image
+                    src={sponsor.frontmatter.logo.publicURL}
+                    alt={sponsor.frontmatter.name}
+                  />
+                </Card>
+              ))}
+            </Grid>
+          </Stack>
+          <Stack spacing={6}>
+            <Heading as="h2" size="lg" fontWeight="normal" mb={8}>
+              Associations
+            </Heading>
+            <Grid templateColumns="1fr 1fr" gap={4}>
+              {data.associations.nodes.map(({ childMdx: association }) => (
+                <Card
+                  isLink
+                  as="a"
+                  href={association.frontmatter.link}
+                  title={association.frontmatter.name}
+                  key={association.frontmatter.name}
+                  p={0}
+                >
+                  <Flex align="center" justify="center">
+                    <Image
+                      src={association.frontmatter.logo.publicURL}
+                      alt={association.frontmatter.name}
+                    />
+                  </Flex>
+                </Card>
+              ))}
+            </Grid>
+          </Stack>
+        </Stack>
+      </Grid>
+    </Layout>
   )
 }
 
-export default Meetups
-
 export const query = graphql`
-  query MeetupsQuery {
-    allFile(
+  {
+    meetups: allFile(
       sort: { fields: childMdx___frontmatter___meetup_date, order: DESC }
       filter: {
+        childMdx: { frontmatter: { published: { ne: false } } }
         sourceInstanceName: { eq: "meetups" }
-        childMdx: {
-          frontmatter: { published: { ne: false }, meetup_date: { ne: null } }
-        }
       }
     ) {
       nodes {
@@ -92,5 +145,46 @@ export const query = graphql`
         }
       }
     }
+    sponsors: allFile(
+      filter: {
+        sourceInstanceName: { eq: "sponsors" }
+        childMdx: { frontmatter: { isMeetupSponsor: { eq: true } } }
+      }
+      sort: { order: ASC, fields: childMdx___frontmatter___name }
+    ) {
+      nodes {
+        childMdx {
+          frontmatter {
+            name
+            link
+            logo {
+              publicURL
+            }
+          }
+        }
+      }
+    }
+    associations: allFile(
+      filter: {
+        sourceInstanceName: { eq: "associations" }
+        internal: {}
+        extension: { eq: "mdx" }
+      }
+      sort: { fields: childMdx___frontmatter___name }
+    ) {
+      nodes {
+        childMdx {
+          frontmatter {
+            name
+            link
+            logo {
+              publicURL
+            }
+          }
+        }
+      }
+    }
   }
 `
+
+export default Meetups
