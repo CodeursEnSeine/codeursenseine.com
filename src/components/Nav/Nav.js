@@ -29,28 +29,28 @@ export const Nav = ({
         }
         sort: { fields: childMdx___frontmatter___order }
       ) {
-        edges {
-          node {
-            childMdx {
-              frontmatter {
-                title
-                order
-              }
+        nodes {
+          childMdx {
+            frontmatter {
+              title
+              order
             }
-            relativeDirectory
-            name
           }
+          relativeDirectory
+          name
         }
       }
     }
   `)
 
-  const groupedPages = data?.allFile.edges.reduce((previousValues, current) => {
-    if (!previousValues[current.node.relativeDirectory]) {
-      previousValues[current.node.relativeDirectory] = []
+  console.log(data)
+
+  const groupedPages = data.allFile.nodes.reduce((previousValues, current) => {
+    if (!previousValues[current.relativeDirectory]) {
+      previousValues[current.relativeDirectory] = []
     }
 
-    previousValues[current.node.relativeDirectory].push(current.node)
+    previousValues[current.relativeDirectory].push(current)
 
     return previousValues
   }, {})

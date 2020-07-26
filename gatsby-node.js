@@ -3,8 +3,9 @@ const slugify = require(`slugify`)
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage, createRedirect } = actions
 
+  // Create redirect for the past years. Maybe extract the array so it's not
+  // hardcoded.
   const YEARS = [2013, 2014, 2015, 2016, 2017, 2018, 2019]
-
   YEARS.forEach((year) =>
     createRedirect({
       fromPath: `/${year}`,
