@@ -1,6 +1,7 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
+import { MDXRenderer } from "gatsby-plugin-mdx"
 import {
   Button,
   Grid,
@@ -12,12 +13,12 @@ import {
   Box,
   Divider,
 } from "@chakra-ui/core"
-import Layout from "../../components/layout"
-import SEO from "../../components/seo"
+import Layout from "components/layout"
+import SEO from "components/seo"
 
-import { A } from "../../components/A"
-import { Card } from "../../components/Card"
-import { MDXRenderer } from "gatsby-plugin-mdx"
+import { A } from "components/A"
+import { Card } from "components/Card"
+import { StackInline } from "components/StackInline"
 
 const SponsorsPage = ({ pageContext }) => {
   const { sponsors } = pageContext
@@ -46,8 +47,12 @@ const SponsorsPage = ({ pageContext }) => {
       </Heading>
 
       <Grid templateColumns={["1fr", "1fr", "1fr 2fr"]} gap={8} mb={8}>
-        <Box maxWidth="250px" boxShadow="brand">
+        <Box maxWidth="250px">
           <A
+            d="block"
+            boxShadow="brand"
+            overflow="hidden"
+            borderRadius="md"
             href="https://drive.google.com/file/d/193DWebJh2DGqPQjj5xPQlJ2jkx1CBuBr/view?usp=sharing"
             title="Dossier de sponsoring"
           >
@@ -79,10 +84,16 @@ const SponsorsPage = ({ pageContext }) => {
               </A>{" "}
               et contactez-nous à l'adresse{" "}
               <A href="mailto:contact@codeursenseine.com">
-                contact@codeursenseine.com.
+                contact@codeursenseine.com
               </A>
+              .
             </Text>
-            <Stack spacing={8} isInline>
+            <StackInline
+              spacing="4"
+              childProps={{
+                flexGrow: { base: 1, md: 0 },
+              }}
+            >
               <Button
                 as="a"
                 href="https://drive.google.com/file/d/193DWebJh2DGqPQjj5xPQlJ2jkx1CBuBr/view?usp=sharing"
@@ -98,7 +109,7 @@ const SponsorsPage = ({ pageContext }) => {
               >
                 Convention de sponsoring
               </Button>
-            </Stack>
+            </StackInline>
           </Stack>
         </Box>
       </Grid>
