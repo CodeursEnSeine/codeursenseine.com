@@ -36,6 +36,7 @@ const Layout = ({ children, theme = "ces" }) => {
       <CSSReset />
       <Flex
         minH="100vh"
+        maxW="100vw"
         background="white"
         color="brand.900"
         style={{
@@ -44,11 +45,12 @@ const Layout = ({ children, theme = "ces" }) => {
       >
         <Nav
           isOpen={isOpen}
+          maxW="100vw"
           w={{ base: "100%", [navBreakpoint]: navDesktopWidth }}
           breakpoint={navBreakpoint}
           onNavClose={onClose}
         />
-        <NavTopbar h={navTopbarHeight} onNavOpen={onOpen} />
+        <NavTopbar maxW="100vw" h={navTopbarHeight} onNavOpen={onOpen} />
         <Box
           as="main"
           ml={{ [navBreakpoint]: navDesktopWidth }}
@@ -57,7 +59,13 @@ const Layout = ({ children, theme = "ces" }) => {
           position="relative"
           zIndex="1"
         >
-          <Box maxWidth="60rem" marginX="auto" p={6}>
+          <Box
+            maxWidth="60rem"
+            width="100%"
+            overflow="auto"
+            marginX="auto"
+            p={6}
+          >
             <PageHeader />
             <Mdx>{children}</Mdx>
           </Box>
