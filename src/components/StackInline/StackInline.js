@@ -1,7 +1,7 @@
 import React from "react"
 import { Flex, useTheme } from "@chakra-ui/core"
 
-export const StackWrap = ({ children, spacing = "2", ...rest }) => {
+export const StackInline = ({ children, spacing = "2", ...rest }) => {
   const theme = useTheme()
   const spacingCss = theme.space[spacing] ?? spacing
 
