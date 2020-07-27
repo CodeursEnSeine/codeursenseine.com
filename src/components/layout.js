@@ -25,7 +25,7 @@ if (typeof window !== "undefined") {
 }
 
 const navBreakpoint = "md"
-const navTopbarHeight = "3rem"
+const navTopbarHeight = "3.4rem"
 const navDesktopWidth = "30vw"
 
 const Layout = ({ children, theme = "ces" }) => {

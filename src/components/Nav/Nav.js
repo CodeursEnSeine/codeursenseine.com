@@ -56,6 +56,7 @@ export const Nav = ({
   return (
     <Flex
       direction="column"
+      alignItems={{ [breakpoint]: "flex-end" }}
       background={theme.gradients.brand}
       color="white"
       position="fixed"
@@ -73,90 +74,98 @@ export const Nav = ({
       as="nav"
       {...props}
     >
-      <IconButton
-        variant="unstyled"
-        aria-label="Menu"
-        d={{ base: "inline-flex", [breakpoint]: "none" }}
-        icon={FiX}
-        position="absolute"
-        top="0"
-        right="0"
-        onClick={() => onNavClose()}
-      />
-      <Stack px="2">
-        <Flex p="2" align="center" justify="center">
-          <Link to={`/${data.site.siteMetadata.currentYear}`}>
-            <Logo w="10rem" h="5.5rem" />
-          </Link>
-        </Flex>
-        <Stack>
-          <NavLink
-            isMain
-            as={Link}
-            to={`/${data.site.siteMetadata.currentYear}`}
+      <Flex direction="column" flexGrow={1}>
+        <IconButton
+          variant="unstyled"
+          aria-label="Menu"
+          d={{ base: "inline-flex", [breakpoint]: "none" }}
+          icon={FiX}
+          position="absolute"
+          top="0"
+          right="0"
+          onClick={() => onNavClose()}
+        />
+        <Stack px="2">
+          <Flex
+            px="2"
+            pt="4vh"
+            pb="2vh"
+            align="center"
+            justify={{ base: "center", [breakpoint]: "flex-end" }}
           >
-            Édition {data.site.siteMetadata.currentYear}
-          </NavLink>
-          {pathname.startsWith(`/${data.site.siteMetadata.currentYear}`) && (
-            <>
-              <NavLink
-                as={Link}
-                to={`/${data.site.siteMetadata.currentYear}/organisateurs`}
-              >
-                Organisateurs
-              </NavLink>
-              <NavLink
-                isActive={true}
-                as={Link}
-                to={`/${data.site.siteMetadata.currentYear}/sponsors`}
-              >
-                Sponsors
-              </NavLink>
-              {groupedPages["ces"] &&
-                groupedPages["ces"].map((page) => (
-                  <NavLink
-                    key={page.name}
-                    as={Link}
-                    to={`/${data.site.siteMetadata.currentYear}/${page.name}`}
-                  >
-                    {page.childMdx.frontmatter.title}
-                  </NavLink>
-                ))}
-            </>
-          )}
+            <Link to={`/${data.site.siteMetadata.currentYear}`}>
+              <Logo w={{ base: "8rem", [breakpoint]: "12rem" }} />
+            </Link>
+          </Flex>
+          <Stack>
+            <NavLink
+              isMain
+              as={Link}
+              to={`/${data.site.siteMetadata.currentYear}`}
+            >
+              Édition {data.site.siteMetadata.currentYear}
+            </NavLink>
+            {pathname.startsWith(`/${data.site.siteMetadata.currentYear}`) && (
+              <>
+                <NavLink
+                  as={Link}
+                  to={`/${data.site.siteMetadata.currentYear}/organisateurs`}
+                >
+                  Organisateurs
+                </NavLink>
+                <NavLink
+                  isActive={true}
+                  as={Link}
+                  to={`/${data.site.siteMetadata.currentYear}/sponsors`}
+                >
+                  Sponsors
+                </NavLink>
+                {groupedPages["ces"] &&
+                  groupedPages["ces"].map((page) => (
+                    <NavLink
+                      key={page.name}
+                      as={Link}
+                      to={`/${data.site.siteMetadata.currentYear}/${page.name}`}
+                    >
+                      {page.childMdx.frontmatter.title}
+                    </NavLink>
+                  ))}
+              </>
+            )}
+          </Stack>
+          <Stack spacing="0">
+            <NavLink isMain as={Link} to="/meetups">
+              Meetups
+            </NavLink>
+            {pathname.startsWith("/meetups") && (
+              <>
+                <NavLink as={Link} to="/meetups/sponsors">
+                  Sponsors
+                </NavLink>
+                {groupedPages["meetups"] &&
+                  groupedPages["meetups"].map((page) => (
+                    <NavLink
+                      key={page.name}
+                      as={Link}
+                      to={`/meetups/${page.name}`}
+                    >
+                      {page.childMdx.frontmatter.title}
+                    </NavLink>
+                  ))}
+              </>
+            )}
+          </Stack>
+          <Stack>
+            <NavLink isMain as={Link} to="/devoxx4kids" title="Devoxx4Kids">
+              Devoxx4Kids
+            </NavLink>
+          </Stack>
         </Stack>
-        <Stack spacing="0">
-          <NavLink isMain as={Link} to="/meetups">
-            Meetups
-          </NavLink>
-          {pathname.startsWith("/meetups") && (
-            <>
-              <NavLink as={Link} to="/meetups/sponsors">
-                Sponsors
-              </NavLink>
-              {groupedPages["meetups"] &&
-                groupedPages["meetups"].map((page) => (
-                  <NavLink
-                    key={page.name}
-                    as={Link}
-                    to={`/meetups/${page.name}`}
-                  >
-                    {page.childMdx.frontmatter.title}
-                  </NavLink>
-                ))}
-            </>
-          )}
+        <Stack mt="auto" p="4" mb="2">
+          <NavSocial />
+          <NavPreviousYears />
         </Stack>
-        <Stack>
-          <NavLink isMain as={Link} to="/devoxx4kids" title="Devoxx4Kids">
-            Devoxx4Kids
-          </NavLink>
-        </Stack>
-      </Stack>
-      <Stack mt="auto" p="2" mb="2">
-        <NavSocial />
-        <NavPreviousYears />
-      </Stack>
+      </Flex>
     </Flex>
   )
 }
