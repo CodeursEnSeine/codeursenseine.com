@@ -1,7 +1,12 @@
 import React from "react"
 import { Flex, useTheme } from "@chakra-ui/core"
 
-export const StackInline = ({ children, spacing = "2", ...rest }) => {
+export const StackInline = ({
+  children,
+  spacing = "2",
+  childProps = {},
+  ...rest
+}) => {
   const theme = useTheme()
   const spacingCss = theme.space[spacing] ?? spacing
 
@@ -9,6 +14,7 @@ export const StackInline = ({ children, spacing = "2", ...rest }) => {
     return React.cloneElement(element, {
       marginLeft: spacing,
       marginBottom: spacing,
+      ...childProps,
     })
   })
 
