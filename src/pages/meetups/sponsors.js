@@ -2,7 +2,7 @@ import React from "react"
 import Layout from "../../components/layout"
 import { graphql } from "gatsby"
 import {
-  Grid,
+  SimpleGrid,
   Image,
   Link,
   Divider,
@@ -11,9 +11,9 @@ import {
   Stack,
 } from "@chakra-ui/core"
 import { MDXRenderer } from "gatsby-plugin-mdx"
-import { Card } from "../../components/Card"
-import SEO from "../../components/seo"
-import { A } from "../../components/A"
+import { Card } from "components/Card"
+import SEO from "components/seo"
+import { A } from "components/A"
 
 const Sponsors = ({ data }) => {
   return (
@@ -62,7 +62,7 @@ const Sponsors = ({ data }) => {
       <Heading as="h2" fontWeight="normal" size="lg" mb={6}>
         Sponsors
       </Heading>
-      <Grid templateColumns="1fr 1fr 1fr" gap={8}>
+      <SimpleGrid columns={{ base: 1, sm: 2, lg: 3 }} gap={8}>
         {data.allFile.nodes.map((sponsor, index) => (
           <Card key={index} as="article">
             <Link
@@ -84,7 +84,7 @@ const Sponsors = ({ data }) => {
             <MDXRenderer>{sponsor.childMdx.body}</MDXRenderer>
           </Card>
         ))}
-      </Grid>
+      </SimpleGrid>
     </Layout>
   )
 }
