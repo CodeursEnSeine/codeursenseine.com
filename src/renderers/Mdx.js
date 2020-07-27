@@ -15,8 +15,6 @@ const A = (props) => (
 const H1 = ({ children, ...props }) => (
   <Heading
     as="h1"
-    fontWeight="normal"
-    fontSize="3xl"
     my="0.5em"
     children={children}
     id={slugify(children, {

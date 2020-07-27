@@ -21,7 +21,7 @@ const Meetups = ({ data }) => {
       <Grid templateColumns={{ base: "1fr", md: "2.5fr 1fr" }} gap={8}>
         <Box>
           <Stack spacing={6}>
-            <Heading as="h1" fontWeight="normal" mb={6}>
+            <Heading as="h1" mb={6}>
               Tous les meetups
             </Heading>
             {meetups.map(({ childMdx: meetup }) => (
