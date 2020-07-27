@@ -8,16 +8,12 @@ import SEO from "components/seo"
 import { generateMeetupLink } from "../../utils/generateMeetupLink"
 
 const Meetups = ({ data }) => {
-  console.log(data)
-
   const meetups = data.meetups.nodes.filter(
     (meetup) =>
       meetup.childMdx &&
       meetup.childMdx.frontmatter &&
       meetup.childMdx.frontmatter.meetup_date !== null
   )
-
-  console.log(meetups)
 
   return (
     <Layout theme="meetups">

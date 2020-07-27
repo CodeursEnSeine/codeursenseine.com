@@ -43,8 +43,6 @@ export const Nav = ({
     }
   `)
 
-  console.log(data)
-
   const groupedPages = data.allFile.nodes.reduce((previousValues, current) => {
     if (!previousValues[current.relativeDirectory]) {
       previousValues[current.relativeDirectory] = []
