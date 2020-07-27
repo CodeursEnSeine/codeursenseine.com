@@ -1,14 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
-import {
-  useTheme,
-  Box,
-  Button,
-  Flex,
-  Stack,
-  Text,
-  Heading,
-} from "@chakra-ui/core"
+import { useTheme, Box, Button, Flex, Text, Heading } from "@chakra-ui/core"
+import { ButtonGroup } from "components/ButtonGroup"
 
 export const PageHeader = () => {
   const { themeName, data } = useTheme()
@@ -44,7 +37,9 @@ export const PageHeader = () => {
           {data.title}
         </Heading>
       </Box>
-      <Stack isInline>{getButtons()}</Stack>
+      <ButtonGroup justifyContent="center" flexGrow={{ base: 1, md: 0 }}>
+        {getButtons()}
+      </ButtonGroup>
     </Flex>
   )
 }
