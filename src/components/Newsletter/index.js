@@ -1,5 +1,5 @@
 import React from "react"
-import { Button, Flex, Input, Stack, Text } from "@chakra-ui/core"
+import { Button, Input, Stack, Text } from "@chakra-ui/core"
 
 import { Card } from "components/Card"
 import { StackInline } from "components/StackInline"
