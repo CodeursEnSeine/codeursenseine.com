@@ -78,7 +78,7 @@ export const NavSocial = (props) => {
               aria-label={social.name}
               icon={social.icon}
               variant="unstyled"
-              size="sm"
+              size="md"
               d="inline-flex"
             />
           </Tooltip>

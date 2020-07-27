@@ -80,6 +80,7 @@ export const Nav = ({
           aria-label="Menu"
           d={{ base: "inline-flex", [breakpoint]: "none" }}
           icon={FiX}
+          size="lg"
           position="absolute"
           top="0"
           right="0"

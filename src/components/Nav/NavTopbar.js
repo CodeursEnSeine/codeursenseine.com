@@ -39,6 +39,7 @@ export const NavTopbar = ({ onNavOpen = () => {}, ...props }) => {
         aria-label="Menu"
         d="inline-flex"
         icon={FiMenu}
+        size="lg"
         onClick={() => onNavOpen()}
       />
     </Flex>
