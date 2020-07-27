@@ -18,7 +18,7 @@ import SEO from "components/seo"
 
 import { A } from "components/A"
 import { Card } from "components/Card"
-import { StackInline } from "components/StackInline"
+import { ButtonGroup } from "components/ButtonGroup"
 
 const SponsorsPage = ({ pageContext }) => {
   const { sponsors } = pageContext
@@ -88,12 +88,7 @@ const SponsorsPage = ({ pageContext }) => {
               </A>
               .
             </Text>
-            <StackInline
-              spacing="4"
-              childProps={{
-                flexGrow: { base: 1, md: 0 },
-              }}
-            >
+            <ButtonGroup>
               <Button
                 as="a"
                 href="https://drive.google.com/file/d/193DWebJh2DGqPQjj5xPQlJ2jkx1CBuBr/view?usp=sharing"
@@ -109,7 +104,7 @@ const SponsorsPage = ({ pageContext }) => {
               >
                 Convention de sponsoring
               </Button>
-            </StackInline>
+            </ButtonGroup>
           </Stack>
         </Box>
       </Grid>

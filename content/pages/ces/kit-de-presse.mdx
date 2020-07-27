@@ -5,6 +5,7 @@ order: 90
 ---
 
 import { Button, Stack } from "@chakra-ui/core"
+import { ButtonGroup } from "components/ButtonGroup"
 
 # Presse
 
@@ -14,7 +15,7 @@ Pour toute demande, contacter l'association Codeurs en Seine : [contact@codeurse
 
 Si vous souhaitez parler de Codeurs en Seine sur votre site, blog ou autre média, vous pouvez utiliser les ressources suivantes.
 
-<Stack isInline>
+<ButtonGroup>
   <Button
     variantColor="brand"
     as="a"
@@ -25,6 +26,7 @@ Si vous souhaitez parler de Codeurs en Seine sur votre site, blog ou autre médi
     Logos et photos
   </Button>
   <Button
+    variant="outline"
     variantColor="brand"
     as="a"
     href="https://drive.google.com/drive/folders/1ZU53FU646gCzHY-4QuRgNa4ilA6ajxOx?usp=sharing"
@@ -33,4 +35,4 @@ Si vous souhaitez parler de Codeurs en Seine sur votre site, blog ou autre médi
   >
     Communiqués de presse
   </Button>
-</Stack>
+</ButtonGroup>
