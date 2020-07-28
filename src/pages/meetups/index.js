@@ -8,6 +8,8 @@ import SEO from "components/seo"
 import { generateMeetupLink } from "../../utils/generateMeetupLink"
 
 const Meetups = ({ data }) => {
+  console.log(data.meetups.nodes)
+
   const meetups = data.meetups.nodes.filter(
     (meetup) =>
       meetup.childMdx &&
@@ -118,7 +120,9 @@ export const query = graphql`
     meetups: allFile(
       sort: { fields: childMdx___frontmatter___meetup_date, order: DESC }
       filter: {
-        childMdx: { frontmatter: { published: { ne: false } } }
+        childMdx: {
+          frontmatter: { published: { ne: false }, meetup_date: { ne: null } }
+        }
         sourceInstanceName: { eq: "meetups" }
       }
     ) {
