@@ -65,6 +65,7 @@ const Layout = ({ children, theme = "ces" }) => {
             overflow="auto"
             marginX="auto"
             p={6}
+            pb={16}
           >
             <PageHeader />
             <Mdx>{children}</Mdx>
