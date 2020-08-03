@@ -20,7 +20,7 @@ const Sponsors = ({ data }) => {
     <Layout theme="meetups">
       <SEO title="Sponsors" />
 
-      <Heading as="h1" fontWeight="normal" mb={6}>
+      <Heading as="h1" mb={6}>
         Devenir Sponsor ?
       </Heading>
 
