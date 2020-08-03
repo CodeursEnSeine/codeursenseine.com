@@ -26,13 +26,8 @@ const Meetups = ({ data }) => {
             <Heading as="h1" mb={6}>
               Tous les meetups
             </Heading>
-            {meetups.map(({ childMdx: meetup }) => (
-              <Card
-                key={meetup.parent.name}
-                as={Link}
-                to={generateMeetupLink(meetup)}
-                isLink
-              >
+            {meetups.map(({ childMdx: meetup, name }) => (
+              <Card key={name} as={Link} to={generateMeetupLink(meetup)} isLink>
                 <Stack>
                   <Box>
                     <Heading
@@ -118,11 +113,9 @@ const Meetups = ({ data }) => {
 export const query = graphql`
   {
     meetups: allFile(
-      sort: { fields: childMdx___frontmatter___meetup_date, order: DESC }
+      sort: { fields: name, order: DESC }
       filter: {
-        childMdx: {
-          frontmatter: { published: { ne: false }, meetup_date: { ne: null } }
-        }
+        childMdx: { frontmatter: { published: { ne: false } } }
         sourceInstanceName: { eq: "meetups" }
       }
     ) {
@@ -137,12 +130,8 @@ export const query = graphql`
             meetup_start_time
             slug
           }
-          parent {
-            ... on File {
-              name
-            }
-          }
         }
+        name
       }
     }
     sponsors: allFile(

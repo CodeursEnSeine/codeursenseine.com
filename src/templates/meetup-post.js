@@ -10,7 +10,7 @@ const MeetupPost = ({ data }) => {
   const { body, frontmatter } = data.mdx
 
   return (
-    <MeetupLayout>
+    <MeetupLayout title={frontmatter.title}>
       <Stack spacing={8}>
         <A as={Link} to="/meetups">
           Retour à la liste des meetups
