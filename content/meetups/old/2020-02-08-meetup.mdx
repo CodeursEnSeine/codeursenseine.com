@@ -14,8 +14,10 @@ meetup_start_time:    19h00
 meetup_end_time:      22h00
 meetup_location:      À Seine Innopolis, 72 Rue de la République, Le Petit Quevilly
 meetup_register_link: https://www.meetup.com/fr-FR/codeursenseine/events/268555503/
-
 ---
+
+import { Stack } from "@chakra-ui/core"
+import { MeetupSpeaker } from "components/Meetup"
 
 ## Les sujets de la soirée
 
@@ -37,19 +39,27 @@ Nous vous présenterons comment nous gérons, depuis 2 ans, en 24/7, des platef
 
 ## Les intervenants
 
-### Ludovic Piot
+<Stack spacing={6}>
+  <MeetupSpeaker speaker={{
+    name: "Ludovic Piot",
+    avatar: "https://pbs.twimg.com/profile_images/973490992853716992/lnvZBJHU_400x400.jpg",
+    twitter: "lpiot",
+    bio: `
+Ludovic est tombé dans le _DevOps_ en 2004, soit… 3 ans avant l'invention du mot DevOps.
+A l'époque, il fait des déploiements en Infra as Code sur les premiers serveurs blade, en bare-metal.
+Il adore aider les équipes projet à gagner en autonomie via l'usage  d'outils et d'automatisation
+et à travers une collaboration libre et sans contrainte. C'est donc tout naturellement qu'il a
+accueilli \`Docker\` et \`Kubernetes\` comme les outils ultimes pour l'aider dans sa marotte favorite.
+En meetups comme en conférences, il aime partager son amour pour le Cloud, l'Infra as Code, le DevOps
+et les sujets d'optimisation de performance.
+    `
+  }} />
 
-<img src="https://pbs.twimg.com/profile_images/973490992853716992/lnvZBJHU_400x400.jpg" alt="Ludovic Piot" width="120" class="alignleft" />
-
-Ludovic est tombé dans le _DevOps_ en 2004, soit… 3 ans avant l'invention du mot DevOps.  A l'époque, il fait des déploiements en Infra as Code sur les premiers serveurs blade, en bare-metal.
-Il adore aider les équipes projet à gagner en autonomie via l'usage  d'outils et d'automatisation et à travers une collaboration libre et sans contrainte. C'est donc tout naturellement qu'il a accueilli `Docker` et `Kubernetes` comme les outils ultimes pour l'aider dans sa marotte favorite. En meetups comme en conférences, il aime partager son amour pour le Cloud, l'Infra as Code, le DevOps et les sujets d'optimisation de performance.
-
-Twitter : [@lpiot](https://twitter.com/lpiot)
-
-### Adrien Blind
-
-<img src="https://pbs.twimg.com/profile_images/618386388002701312/U8C1qDpi_400x400.jpg" alt="Adrien Blind" width="120" class="alignleft" />
-
+  <MeetupSpeaker speaker={{
+    name: "Adrien Blind",
+    avatar: "https://pbs.twimg.com/profile_images/618386388002701312/U8C1qDpi_400x400.jpg",
+    twitter: "adrienblind",
+    bio: `
 Adrien est DataOps Evangelist chez Saagie, une solution accélérant et 
 industrialisant le delivery et l’exécution des projets data & AI. 
 Précédemment, Adrien était Thought Leader chez Société Générale, en 
@@ -57,20 +67,30 @@ charge de l’adoption des pratiques et technologies émergentes
 (blockchain, serverless…) ; il y a également été en charge du 
 déploiement des pratiques DevOps (infra-as-code, feature teams…) et des 
 technos associées (delivery pipelines, Docker, …) au sein de la DSI.
-
+<br />
+<br />
 En marge de ses activités professionnelles, Adrien est également très 
 impliqué dans l’écosystème technologique, étant Docker Captain auprès de
- Docker Inc., ainsi que manager des communautés Meetup Docker, 
+Docker Inc., ainsi que manager des communautés Meetup Docker, 
 Kubernetes et Serverless Architecture de Paris.
+    `
+  }} />
 
-Twitter : [@adrienblind](https://twitter.com/adrienblind)
+  <MeetupSpeaker speaker={{
+    name: "Laurent Grangeau",
+    avatar: "https://pbs.twimg.com/profile_images/1007639151812988929/ln3iUxxF_400x400.jpg",
+    twitter: "laurentgrangeau",
+    bio: `
+Laurent Grangeau est un Cloud Solution Architect avec plus de 10 ans
+d'expérience. Ancien développeur Java, il a depuis développé en.NET, avec
+l'agilité et DevOps en tête. Il expérimente avec les fournisseurs de cloud
+computing depuis plus de 5 ans. Passionné de Docker depuis le début, il a
+fait l’expérience de construire des microservices et des systèmes
+distribués. Il aime automatiser les choses et exécuter des applications
+distribuées à l'échelle.
+    `
+  }} />
 
-### Laurent Grangeau
-
-<img src="https://pbs.twimg.com/profile_images/1007639151812988929/ln3iUxxF_400x400.jpg" alt="Laurent Grangeau" width="120" class="alignleft" />
-
-Laurent Grangeau est un Cloud Solution Architect avec plus de 10 ans d'expérience. Ancien développeur Java, il a depuis développé en.NET, avec l'agilité et DevOps en tête. Il expérimente avec les fournisseurs de cloud computing depuis plus de 5 ans. Passionné de Docker depuis le début, il a fait l’expérience de construire des microservices et des systèmes distribués. Il aime automatiser les choses et exécuter des applications distribuées à l'échelle.
-
-Twitter : [@laurentgrangeau](https://twitter.com/laurentgrangeau)
+</Stack>
 
 ---

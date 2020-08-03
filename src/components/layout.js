@@ -9,8 +9,8 @@ import {
 } from "@chakra-ui/core"
 import { Nav, NavTopbar } from "./Nav"
 import { PageHeader } from "./PageHeader"
-import themes from "../themes"
-import { Mdx } from "../renderers/Mdx"
+import themes from "themes"
+import { Mdx } from "renderers/Mdx"
 
 const updateCssViewportHeight = () => {
   let vh = window.innerHeight * 0.01
