@@ -1,0 +1,1 @@
+export { SponsorCard } from "./SponsorCard"

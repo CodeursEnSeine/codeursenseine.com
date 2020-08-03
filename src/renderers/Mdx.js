@@ -15,7 +15,7 @@ const A = (props) => (
 const H1 = ({ children, ...props }) => (
   <Heading
     as="h1"
-    my="0.5em"
+    mb="0.5em"
     children={children}
     id={slugify(children, {
       lower: true,
@@ -28,7 +28,7 @@ const H2 = ({ children, ...props }) => (
     as="h2"
     fontWeight="normal"
     fontSize="2xl"
-    my="0.5em"
+    mb="0.5em"
     children={children}
     id={slugify(children, {
       lower: true,
@@ -37,19 +37,19 @@ const H2 = ({ children, ...props }) => (
   />
 )
 const H3 = (props) => (
-  <Heading as="h3" fontWeight="normal" fontSize="xl" my="0.5em" {...props} />
+  <Heading as="h3" fontWeight="normal" fontSize="xl" mb="0.5em" {...props} />
 )
 const H4 = (props) => (
-  <Heading as="h4" fontWeight="normal" fontSize="lg" my="0.5em" {...props} />
+  <Heading as="h4" fontWeight="normal" fontSize="lg" mb="0.5em" {...props} />
 )
-const H5 = (props) => <Heading as="h5" fontSize="md" my="0.5em" {...props} />
-const H6 = (props) => <Heading as="h6" fontSize="xs" my="0.5em" {...props} />
+const H5 = (props) => <Heading as="h5" fontSize="md" mb="0.5em" {...props} />
+const H6 = (props) => <Heading as="h6" fontSize="xs" mb="0.5em" {...props} />
 const HR = (props) => <Divider my={8} {...props} />
 const UL = (props) => (
-  <List styleType="disc" stylePos="outside" ml="1em" my="1em" {...props} />
+  <List styleType="disc" stylePos="outside" ml="1em" mb="1em" {...props} />
 )
 const LI = (props) => <ListItem {...props} />
-const P = (props) => <Text my="1em" {...props} />
+const P = (props) => <Text mb="1em" {...props} />
 
 const components = {
   a: A,

@@ -1,7 +1,7 @@
 import React from "react"
 import { PseudoBox, useTheme } from "@chakra-ui/core"
 
-export const Card = ({ isLink, variant, ...props }) => {
+export const Card = React.forwardRef(({ isLink, variant, ...props }, ref) => {
   const theme = useTheme()
 
   const primary = {
@@ -11,6 +11,7 @@ export const Card = ({ isLink, variant, ...props }) => {
 
   return (
     <PseudoBox
+      ref={ref}
       position="relative"
       d="flex"
       flexDirection="column"
@@ -37,4 +38,4 @@ export const Card = ({ isLink, variant, ...props }) => {
       {...props}
     />
   )
-}
+})
