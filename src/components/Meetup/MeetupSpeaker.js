@@ -4,12 +4,26 @@ import { Remarkable } from "remarkable"
 import { A } from "components/A"
 
 export const MeetupSpeaker = ({ speaker, ...props }) => {
-  const md = new Remarkable({
+  const md = new Remarkable("full", {
     html: true,
   })
-  const bio = md.render(speaker.bio)
 
-  console.log(bio)
+  // Save original method to invoke.
+  var originalRender = md.renderer.rules.link_open
+
+  md.renderer.rules.link_open = function () {
+    // Invoke original method first.
+    let result = originalRender.apply(null, arguments)
+
+    result = result.replace(
+      ">",
+      'target="_blank" rel="noopener noreferrer" class="remarkable-link">'
+    )
+
+    return result
+  }
+
+  const bio = md.render(speaker.bio)
 
   return (
     <Stack spacing={2} {...props}>
@@ -27,7 +41,10 @@ export const MeetupSpeaker = ({ speaker, ...props }) => {
           borderRadius={4}
         />
         <Stack>
-          <Box dangerouslySetInnerHTML={{ __html: bio }} />
+          <Box
+            className="remarkable"
+            dangerouslySetInnerHTML={{ __html: bio }}
+          />
           {speaker.twitter && (
             <Text>
               Twitter :{" "}

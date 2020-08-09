@@ -1,3 +1,9 @@
 html {
   background-color: #222;
 }
+
+/* Remarkable override, mainly used for MDX speaker render. */
+.remarkable .remarkable-link {
+  color: hsl(174 90% 35%);
+  text-decoration: underline;
+}

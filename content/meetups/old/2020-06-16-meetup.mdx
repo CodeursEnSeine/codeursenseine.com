@@ -17,6 +17,8 @@ meetup_register_link: https://www.meetup.com/codeursenseine/events/271335835/
 
 ---
 
+import { MeetupSpeakers } from "components/Meetup"
+
 ### Lien vers la chaine Twitch de Codeurs en Seine
 
 <a href="https://www.twitch.tv/codeursenseine" class="ces-c-button">twitch.tv/codeursenseine</a>
@@ -32,20 +34,14 @@ Quelles sont les précautions à prendre quand on travaille de chez soi ? ...
 
 Tant de questions et d'autres autour desquelles nous allons discuter.
 
-<div class="ces-l-grid">
-
-  <div class="ces-l-grid__item is-1_2 is-1_4@xxs is-1_2@md is-1_4@lg">
-    <h5>Alexandre Duval</h5>
-    <div><img src="https://pbs.twimg.com/profile_images/971504371212144640/Sds2GZgE_400x400.jpg" alt="Alexandre Duval" width="120" /></div>
-    <a href="https://twitter.com/KannarFr">@KannarFr</a>
-  </div>
-
-  <div class="ces-l-grid__item is-1_2 is-1_4@xxs is-1_2@md is-1_4@lg">
-    <h5>William Bartlett</h5>
-    <div><img src="/images/meetups/speakers/william-bartlett.jpg" alt="William Bartlett" width="120" /></div>
-    <a href="https://twitter.com/bartlettstarman">@bartlettstarman</a>
-  </div>
-
-</div>
+<MeetupSpeakers speakers={[{
+  name: "Alexandre Duval",
+  avatar: "https://pbs.twimg.com/profile_images/971504371212144640/Sds2GZgE_400x400.jpg",
+  twitter: "KannarFr",
+}, {
+  name: "William Bartlett",
+  avatar: "/images/meetups/speakers/william-bartlett.jpg",
+  twitter: "bartlettstarman",
+}]} />
 
 ---
