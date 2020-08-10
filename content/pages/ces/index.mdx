@@ -3,17 +3,54 @@ title: Édition 2020
 order: 1
 ---
 
-import { Text } from "@chakra-ui/core"
+import { Text, Stack, Flex, Box, Heading, Button } from "@chakra-ui/core"
 import { A } from "components/A"
+import { Card } from "components/Card"
 import { Newsletter } from "components/Newsletter"
+import { ButtonGroup } from "components/ButtonGroup"
 
-Voici la page de l'édition 2020.
+<Stack spacing="16">
+  <Card
+    variant="primary"
+  >
+    <Flex align="center" direction={{ base: 'column', lg: 'row'}}>
+      <Box flex="1">
+        <Heading fontSize="2xl">
+          Édition 2020
+        </Heading>
+        <Text>
+          Cette année <strong>Codeurs en Seine</strong> revient, mais de façon différente.
+          En effet, nous vous proposons une édition <strong>100% en ligne</strong> et répartie sur tout le mois de Novembre.
+        </Text>
+        <Text fontWeight="bold">
+          Ce sera donc 8 soirées spéciales, du 3 au 26 Novembre&nbsp;!
+        </Text>
+      </Box>
+      <ButtonGroup
+        pt={{ base: 4, lg: 0 }}
+        pl={{ lg: 4 }}
+        spacing={4}
+        maxW={{ lg: '16rem' }}
+        childProps={{ w: { base: 'full', xs: 'auto', lg: 'full'} }}
+      >
+        <Button variant="outline" _hover={{ color: 'brand.600', bg: 'white' }}>
+          Découvrir le programme
+        </Button>
+        <Button color="brand.600">
+          Je m'inscris
+        </Button>
+      </ButtonGroup>
+    </Flex>
+  </Card>
 
-<Newsletter mb={6}/>
+  <Stack spacing="4">
+    <Newsletter />
+    <Text textAlign="center">
+      Suivez nous sur <A href="https://twitter.com/codeursenseine">Twitter</A>,{" "}
+      <A href="http://facebook.com/codeursenseine">Facebook</A> ou{" "}
+      <A href="https://fr.linkedin.com/company/codeurs-en-seine">Linkedin</A> pour
+      connaître rapidement toutes les news.
+    </Text>
+  </Stack>
 
-<Text textAlign="center">
-  Suivez nous sur <A href="https://twitter.com/codeursenseine">Twitter</A>,{" "}
-  <A href="http://facebook.com/codeursenseine">Facebook</A> ou{" "}
-  <A href="https://fr.linkedin.com/company/codeurs-en-seine">Linkedin</A> pour
-  connaître rapidement toutes les news.
-</Text>
+</Stack>
