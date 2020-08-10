@@ -1,0 +1,37 @@
+---
+title: Programme
+navigation: true
+order: 2
+---
+
+import {
+  Heading,
+  Stack,
+  Box,
+  Text,
+  Button,
+} from "@chakra-ui/core"
+import { Link } from "gatsby"
+import { Card } from "components/Card"
+
+<Stack>
+  <Heading as="h1" mb={8}>
+    Programme
+  </Heading>
+  <Card to="https://app.codeursenseine.com/" as={Link} mt={5} isLink>
+    <Stack align="center">
+      <Box>
+        <Text>
+          La Progressive Web Application Codeurs en Seine est disponible pour une expérience hors-ligne
+          et la possibilité de créer votre programme personnalisé.
+        </Text>
+      </Box>
+      <Button
+        as="a"
+        variantColor="brand"
+      >
+        Ouvrir l'application mobile
+      </Button>
+    </Stack>
+  </Card>
+</Stack>
