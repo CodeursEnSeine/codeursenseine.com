@@ -22,36 +22,37 @@ export const Nav = ({
           currentYear
         }
       }
-      allFile(
-        filter: {
-          sourceInstanceName: { eq: "pages" }
-          childMdx: { frontmatter: { navigation: { eq: true } } }
-        }
-        sort: { fields: childMdx___frontmatter___order }
+      allMdx(
+        filter: { frontmatter: { navigation: { eq: true } } }
+        sort: { fields: frontmatter___order }
       ) {
         nodes {
-          childMdx {
-            frontmatter {
-              title
-              order
+          frontmatter {
+            title
+          }
+          parent {
+            ... on File {
+              id
+              name
+              relativeDirectory
             }
           }
-          relativeDirectory
-          name
         }
       }
     }
   `)
 
-  const groupedPages = data.allFile.nodes.reduce((previousValues, current) => {
-    if (!previousValues[current.relativeDirectory]) {
-      previousValues[current.relativeDirectory] = []
+  const groupedPages = data.allMdx.nodes.reduce((previousValues, current) => {
+    if (!previousValues[current.parent.relativeDirectory]) {
+      previousValues[current.parent.relativeDirectory] = []
     }
 
-    previousValues[current.relativeDirectory].push(current)
+    previousValues[current.parent.relativeDirectory].push(current)
 
     return previousValues
   }, {})
+
+  const currentYear = data.site.siteMetadata.currentYear
 
   return (
     <Flex
@@ -94,41 +95,34 @@ export const Nav = ({
             align="center"
             justify={{ base: "center", [breakpoint]: "flex-end" }}
           >
-            <Link to={`/${data.site.siteMetadata.currentYear}`}>
+            <Link to={`/${currentYear}`}>
               <Logo w={{ base: "8rem", [breakpoint]: "12rem" }} />
             </Link>
           </Flex>
           <Stack>
-            <NavLink
-              isMain
-              as={Link}
-              to={`/${data.site.siteMetadata.currentYear}`}
-            >
-              Édition {data.site.siteMetadata.currentYear}
+            <NavLink isMain as={Link} to={`/${currentYear}`}>
+              Édition {currentYear}
             </NavLink>
-            {pathname.startsWith(`/${data.site.siteMetadata.currentYear}`) && (
+            {pathname.startsWith(`/${currentYear}`) && (
               <>
-                <NavLink
-                  as={Link}
-                  to={`/${data.site.siteMetadata.currentYear}/organisateurs`}
-                >
+                <NavLink as={Link} to={`/${currentYear}/organisateurs`}>
                   Organisateurs
                 </NavLink>
                 <NavLink
                   isActive={true}
                   as={Link}
-                  to={`/${data.site.siteMetadata.currentYear}/sponsors`}
+                  to={`/${currentYear}/sponsors`}
                 >
                   Sponsors
                 </NavLink>
                 {groupedPages["ces"] &&
                   groupedPages["ces"].map((page) => (
                     <NavLink
-                      key={page.name}
+                      key={page.parent.name}
                       as={Link}
-                      to={`/${data.site.siteMetadata.currentYear}/${page.name}`}
+                      to={`/${currentYear}/${page.parent.name}`}
                     >
-                      {page.childMdx.frontmatter.title}
+                      {page.frontmatter.title}
                     </NavLink>
                   ))}
               </>

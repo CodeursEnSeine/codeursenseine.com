@@ -5,6 +5,8 @@ order: 1
 
 import { A } from "components/A"
 import { Devoxx4Kids } from "components/Images/Devoxx4Kids"
+import SEO from "components/seo"
+import { OGImage } from "components/OG"
 import {
   Heading,
   Text,
@@ -15,6 +17,9 @@ import {
   Divider,
   Flex,
 } from "@chakra-ui/core"
+
+<SEO title="Devoxx4Kids" />
+<OGImage path="/images/devoxx4kids/social.jpg" />
 
 <Box maxWidth="300px" mx="auto" my={8}>
   <Devoxx4Kids />

@@ -9,7 +9,7 @@ exports.createPages = async ({ graphql, actions }) => {
   YEARS.forEach((year) =>
     createRedirect({
       fromPath: `/${year}`,
-      toPath: `https://archive.codeursenseine.com/${year}`,
+      toPath: `https://archives-1X.codeursenseine.com/${year}`,
       isPermanent: true,
     })
   )
@@ -204,6 +204,7 @@ exports.createPages = async ({ graphql, actions }) => {
         body: page.childMdx.body,
         title: page.childMdx.frontmatter.title,
         theme: page.relativeDirectory,
+        pagePath,
       },
     })
   })
