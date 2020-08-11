@@ -19,6 +19,7 @@ import SEO from "components/seo"
 import { A } from "components/A"
 import { Card } from "components/Card"
 import { ButtonGroup } from "components/ButtonGroup"
+import { OGImage } from "components/OG"
 
 const SponsorsPage = ({ pageContext }) => {
   const { sponsors } = pageContext
@@ -41,6 +42,7 @@ const SponsorsPage = ({ pageContext }) => {
 
   return (
     <Layout theme="ces">
+      <OGImage path="/images/ces/social.jpg" />
       <SEO title="Sponsors" />
       <Heading as="h1" mb={8}>
         Devenir Sponsor
