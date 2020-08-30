@@ -8,8 +8,6 @@ import SEO from "components/seo"
 import { generateMeetupLink } from "../../utils/generateMeetupLink"
 
 const Meetups = ({ data }) => {
-  console.log(data.meetups.nodes)
-
   const meetups = data.meetups.nodes.filter(
     (meetup) =>
       meetup.childMdx &&
@@ -19,7 +17,15 @@ const Meetups = ({ data }) => {
 
   return (
     <Layout theme="meetups">
-      <SEO title="Meetups" />
+      <SEO
+        title="Meetups"
+        meta={[
+          {
+            property: `og:image`,
+            content: `${process.env.GATSBY_ORIGIN}/images/meetups/social.jpg`,
+          },
+        ]}
+      />
       <Grid templateColumns={{ base: "1fr", md: "2.5fr 1fr" }} gap={8}>
         <Box>
           <Stack spacing={6}>

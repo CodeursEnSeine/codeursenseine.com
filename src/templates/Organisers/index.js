@@ -14,6 +14,7 @@ import Layout from "../../components/layout"
 import SEO from "../../components/seo"
 
 import { A } from "../../components/A"
+import { OGImage } from "components/OG"
 
 const Organisers = ({ pageContext }) => {
   const { organisers } = pageContext
@@ -26,6 +27,7 @@ const Organisers = ({ pageContext }) => {
 
   return (
     <Layout theme="ces">
+      <OGImage path="/images/ces/social.jpg" />
       <SEO title="Organisateurs" />
       <Heading as="h1" mb={8}>
         Organisateurs

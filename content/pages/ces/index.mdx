@@ -3,17 +3,95 @@ title: Édition 2020
 order: 1
 ---
 
-import { Text } from "@chakra-ui/core"
+import { Text, Stack, Flex, Box, Heading, Button, Image } from "@chakra-ui/core"
+import { Link } from "gatsby"
 import { A } from "components/A"
+import { Card } from "components/Card"
 import { Newsletter } from "components/Newsletter"
+import { ButtonGroup } from "components/ButtonGroup"
+import { OGImage } from "components/OG"
 
-Voici la page de l'édition 2020.
+<OGImage path="/images/ces/social.jpg" />
+<Stack spacing="16">
+  <Card
+    variant="primary"
+  >
+    <Flex align="center" justify="center" direction={{ base: 'column', lg: 'row'}}>
+      <Box maxW="60ch">
+        <Heading fontSize="2xl">
+          Édition 2020
+        </Heading>
+        <Text>
+          Cette année <strong>Codeurs en Seine</strong> revient, mais de façon différente.
+          En effet, nous vous proposons une édition <strong>100% en ligne</strong> et répartie sur tout le mois de Novembre.
+        </Text>
+        <Text fontWeight="bold">
+          Ce sera donc 8 soirées spéciales, du 3 au 26 Novembre&nbsp;!
+        </Text>
+      </Box>
+      <Box
+        ml={{ lg: 'auto' }}
+        pt={{ base: 4, lg: 0 }}
+        pl={{ lg: 4 }}
+        maxW={{ lg: '16rem' }}
+        w="full"
+      >
+        <ButtonGroup
+          spacing={4}
+          align="center"
+          childProps={{ w: { base: 'full', xs: 'auto', lg: 'full'} }}
+        >
+          <Text color="brand.50" fontSize="sm" fontWeight="bold" textAlign="center">
+            Soutenez l'édition 2020
+          </Text>
+          <Button as={Link} to="sponsors" color="brand.600">
+            Devenir sponsor
+          </Button>
+          {/* <Button variant="outline" _hover={{ color: 'brand.600', bg: 'white' }}>
+            Découvrir le programme
+          </Button> */}
+        </ButtonGroup>
+      </Box>
+    </Flex>
+  </Card>
 
-<Newsletter mb={6}/>
+  <Stack isInline spacing="8" align="flex-start" justify="center">
+    <Stack maxW="60ch">
+      <Heading as="h3" fontSize="xl">
+        Des soirées par la communauté pour la communauté
+      </Heading>
+      <Text>
+        Codeurs en Seine c'est en temps normal une journée de <strong>conférences gratuite</strong> qui se déroule à Rouen, pour découvrir, apprendre et partager autour du monde du développement.
+      </Text>
+      <Text>
+        Mais, au vu des circonstances mondiales sur l'épidémie, nous ne souhaitons pas vous faire prendre un risque en rassemblant 1000 personnes au même endroit cette année.
+      </Text>
+      <Text>
+        Après beaucoup de débats en interne, nous avons choisi <strong>un format plus adapté et agréable pour cette version en ligne</strong> de cette année.
+      </Text>
+      <Text>
+        C'est donc <strong>8 soirées</strong> que l'on vous propose cette année. Avec chaque soir, une conférence de 45 min suivit d'un temps de questions / réponses.
+      </Text>
+    </Stack>
+    {/* <Box w="2xl" maxW="full" borderRadius="lg" overflow="hidden">
+      <Image src="https://bit.ly/sage-adebayo" alt="" />
+    </Box> */}
+  </Stack>
 
-<Text textAlign="center">
-  Suivez nous sur <A href="https://twitter.com/codeursenseine">Twitter</A>,{" "}
-  <A href="http://facebook.com/codeursenseine">Facebook</A> ou{" "}
-  <A href="https://fr.linkedin.com/company/codeurs-en-seine">Linkedin</A> pour
-  connaître rapidement toutes les news.
-</Text>
+  <Stack spacing="4">
+    <Newsletter />
+    <Text textAlign="center">
+      Suivez nous sur <A href="https://twitter.com/codeursenseine">Twitter</A>,{" "}
+      <A href="http://facebook.com/codeursenseine">Facebook</A> ou{" "}
+      <A href="https://fr.linkedin.com/company/codeurs-en-seine">Linkedin</A> pour
+      connaître rapidement toutes les news.
+    </Text>
+  </Stack>
+
+  <Flex align="center" justify="center">
+    <a href="https://www.netlify.com">
+      <img src="https://www.netlify.com/img/global/badges/netlify-light.svg" alt="Deploys by Netlify" />
+    </a>
+  </Flex>
+
+</Stack>
