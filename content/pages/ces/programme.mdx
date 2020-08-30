@@ -10,9 +10,13 @@ import {
   Box,
   Text,
   Button,
+  Flex,
+  Badge,
+  Icon,
 } from "@chakra-ui/core"
 import { Link } from "gatsby"
 import { Card } from "components/Card"
+import { Programme } from "components/Programme"
 
 <Stack>
   <Heading as="h1" mb={8}>
@@ -23,6 +27,9 @@ import { Card } from "components/Card"
     L'édition 2020 se déroulera sous forme de Meetups en ligne sur Twitch, 2 fois par semaine durant tout le mois de novembre, soit un total
     de 8 meetups. Nous vous acceuillons à partir de 21h les mardis et 19h les jeudi sur Twitch !
   </Text>
+
+  <Programme />
+
   <Card to="https://twitch.tv/codeursenseine" as={Link} mt={5} isLink>
     <Stack align="center">
       <Box>
