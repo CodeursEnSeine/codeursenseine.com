@@ -1,18 +1,7 @@
 const slugify = require(`slugify`)
 
 exports.createPages = async ({ graphql, actions }) => {
-  const { createPage, createRedirect } = actions
-
-  // Create redirect for the past years. Maybe extract the array so it's not
-  // hardcoded.
-  const YEARS = [2013, 2014, 2015, 2016, 2017, 2018, 2019]
-  YEARS.forEach((year) =>
-    createRedirect({
-      fromPath: `/${year}`,
-      toPath: `https://archives-1X.codeursenseine.com/${year}`,
-      isPermanent: true,
-    })
-  )
+  const { createPage } = actions
 
   // -------------------- CREATING MEETUPS PAGE ---------------------
   const meetups = await graphql(
@@ -125,25 +114,22 @@ exports.createPages = async ({ graphql, actions }) => {
   // -------------------- CREATING SPONSORS PAGE ---------------------
   const sponsorsPageQuery = await graphql(`
     query {
-      allFile(
-        filter: {
-          sourceInstanceName: { eq: "sponsors" }
-          childMdx: { frontmatter: { sponsor: { ne: null } } }
-        }
-        sort: { order: ASC, fields: childMdx___frontmatter___name }
+      allMdx(
+        filter: { frontmatter: { sponsor: { ne: null } } }
+        sort: { order: ASC, fields: frontmatter___name }
       ) {
         nodes {
-          childMdx {
-            frontmatter {
-              name
-              link
-              logo {
-                publicURL
-              }
-              sponsor
+          frontmatter {
+            name
+            link
+            logo {
+              publicURL
             }
-            body
+            sponsor
+            isDonator
           }
+          body
+          excerpt(pruneLength: 1000)
         }
       }
     }
@@ -158,7 +144,7 @@ exports.createPages = async ({ graphql, actions }) => {
     component: require.resolve(`./src/templates/SponsorsPage/index.js`),
     context: {
       siteMetadata: metadataQuery.data.site.siteMetadata,
-      sponsors: sponsorsPageQuery.data.allFile.nodes,
+      sponsors: sponsorsPageQuery.data.allMdx.nodes,
     },
   })
 

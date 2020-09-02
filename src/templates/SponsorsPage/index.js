@@ -1,25 +1,23 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
-import { MDXRenderer } from "gatsby-plugin-mdx"
 import {
   Button,
   Grid,
   Heading,
   Text,
-  Image,
   Stack,
-  Link,
   Box,
   Divider,
+  SimpleGrid,
 } from "@chakra-ui/core"
 import Layout from "components/layout"
 import SEO from "components/seo"
 
 import { A } from "components/A"
-import { Card } from "components/Card"
 import { ButtonGroup } from "components/ButtonGroup"
 import { OGImage } from "components/OG"
+import { SponsorCard } from "components/Sponsors"
 
 const SponsorsPage = ({ pageContext }) => {
   const { sponsors } = pageContext
@@ -38,7 +36,13 @@ const SponsorsPage = ({ pageContext }) => {
     }
   `)
 
-  const sponsorLevels = ["platinium", "gold", "silver", "bronze"]
+  const sponsorLevels = [
+    "platinium",
+    "gold",
+    "silver",
+    "bronze",
+    "Meetup Online",
+  ]
 
   return (
     <Layout theme="ces">
@@ -114,7 +118,7 @@ const SponsorsPage = ({ pageContext }) => {
       <Stack spacing={6}>
         {sponsorLevels.map((level) => {
           const thisLevelSponsors = sponsors.filter(
-            (sponsor) => sponsor.childMdx.frontmatter.sponsor === level
+            (sponsor) => sponsor.frontmatter.sponsor === level
           )
 
           return (
@@ -123,33 +127,20 @@ const SponsorsPage = ({ pageContext }) => {
                 <Heading size="lg" color="brand.700" fontWeight="normal">
                   Sponsors {level}
                 </Heading>
-                <Grid templateColumns="1fr 1fr" gap={8}>
-                  {thisLevelSponsors.map((sponsor) => (
-                    <Card key={sponsor.childMdx.frontmatter.name} as="article">
-                      <Link
-                        href={sponsor.childMdx.frontmatter.link}
-                        title={sponsor.childMdx.frontmatter.name}
-                      >
-                        <Image
-                          src={sponsor.childMdx.frontmatter.logo.publicURL}
-                          alt={sponsor.childMdx.frontmatter.name}
-                          m="auto"
-                        />
-                      </Link>
-                      <Divider />
-                      <Heading as="h3" size="lg">
-                        <A
-                          href={sponsor.childMdx.frontmatter.link}
-                          title={sponsor.childMdx.frontmatter.name}
-                        >
-                          {sponsor.childMdx.frontmatter.name}
-                        </A>
-                      </Heading>
-
-                      <MDXRenderer>{sponsor.childMdx.body}</MDXRenderer>
-                    </Card>
+                <SimpleGrid columns={{ base: 1, sm: 2, lg: 3 }} gap={8}>
+                  {thisLevelSponsors.map((sponsor, index) => (
+                    <SponsorCard
+                      key={index}
+                      name={sponsor.frontmatter.name}
+                      link={sponsor.frontmatter.link}
+                      logoSrc={sponsor.frontmatter.logo.publicURL}
+                      excerpt={sponsor.excerpt}
+                      isDonator={sponsor.frontmatter.isDonator}
+                    >
+                      {sponsor.body}
+                    </SponsorCard>
                   ))}
-                </Grid>
+                </SimpleGrid>
                 <Divider />
               </Stack>
             )
