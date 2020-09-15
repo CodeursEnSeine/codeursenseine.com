@@ -3,6 +3,7 @@ import { Tooltip, Stack, Link, IconButton } from "@chakra-ui/core"
 import {
   FaTwitter,
   FaYoutube,
+  FaTwitch,
   FaGithub,
   FaFacebook,
   FaLinkedin,
@@ -22,6 +23,11 @@ const socialLinks = [
     name: "Youtube",
     icon: FaYoutube,
     link: "https://www.youtube.com/channel/UCWujmG5rANxJI0nHbMFs08w/playlists",
+  },
+  {
+    name: "Twitch",
+    icon: FaTwitch,
+    link: "https://www.twitch.tv/codeursenseine/",
   },
   {
     name: "GitHub",
