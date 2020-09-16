@@ -1,5 +1,5 @@
 import React from "react"
-import { ThemeProvider } from "@chakra-ui/core"
+import { CSSReset, ThemeProvider } from "@chakra-ui/core"
 import themes from "../src/themes"
 
 export const globalTypes = {
@@ -22,6 +22,7 @@ export const parameters = {
 export const decorators = [
   (Story, context) => (
     <ThemeProvider theme={themes[context.globals.theme]}>
+      <CSSReset />
       <Story />
     </ThemeProvider>
   ),
