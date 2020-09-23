@@ -59,8 +59,9 @@ const SponsorsPage = ({ pageContext }) => {
             boxShadow="brand"
             overflow="hidden"
             borderRadius="md"
-            href="https://drive.google.com/file/d/193DWebJh2DGqPQjj5xPQlJ2jkx1CBuBr/view?usp=sharing"
+            href="https://drive.google.com/file/d/1ZRwEPKAw3WMtUOAoRbXqvu6mWGHySJr5/view?usp=sharing"
             title="Dossier de sponsoring"
+            target="_blank"
           >
             <Img
               fluid={data.placeholderImage.childImageSharp.fluid}
@@ -81,11 +82,11 @@ const SponsorsPage = ({ pageContext }) => {
             </Text>
             <Text>
               Si vous souhaitez soutenir l'événement, téléchargez{" "}
-              <A href="https://drive.google.com/file/d/193DWebJh2DGqPQjj5xPQlJ2jkx1CBuBr/view?usp=sharing">
+              <A href="https://drive.google.com/file/d/1ZRwEPKAw3WMtUOAoRbXqvu6mWGHySJr5/view?usp=sharing" target="_blank">
                 le dossier de sponsoring
               </A>
               ,{" "}
-              <A href="https://docs.google.com/document/d/11vZJ_M08rcrFLDBu2NaeMRpD7zv7ZWSqWEvxR6xGXYw/edit?usp=sharing">
+              <A href="https://drive.google.com/file/d/1ROJCES_q8mklHQnw0V9gzigQx2DfUckR/view?usp=sharing" target="_blank">
                 la convention de sponsoring
               </A>{" "}
               et contactez-nous à l'adresse{" "}
@@ -97,14 +98,14 @@ const SponsorsPage = ({ pageContext }) => {
             <ButtonGroup>
               <Button
                 as="a"
-                href="https://drive.google.com/file/d/193DWebJh2DGqPQjj5xPQlJ2jkx1CBuBr/view?usp=sharing"
+                href="https://drive.google.com/file/d/1ZRwEPKAw3WMtUOAoRbXqvu6mWGHySJr5/view?usp=sharing" target="_blank"
                 variantColor="brand"
               >
                 Dossier de sponsoring
               </Button>
               <Button
                 as="a"
-                href="https://docs.google.com/document/d/11vZJ_M08rcrFLDBu2NaeMRpD7zv7ZWSqWEvxR6xGXYw/edit?usp=sharing"
+                href="https://drive.google.com/file/d/1ROJCES_q8mklHQnw0V9gzigQx2DfUckR/view?usp=sharing" target="_blank"
                 variantColor="brand"
                 variant="outline"
               >
