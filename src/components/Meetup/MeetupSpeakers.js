@@ -8,7 +8,7 @@ export const MeetupSpeakers = ({ speakers, ...props }) => (
   <StackInline spacing={10} {...props}>
     {speakers &&
       speakers.map((speaker) => (
-        <Box>
+        <Box key={speaker.twitter}>
           <Heading as="h5" size="sm" color="brand.900">
             {speaker.name}
           </Heading>
