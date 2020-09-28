@@ -15,12 +15,20 @@ import {
   useDisclosure,
   AspectRatioBox,
   Scale,
+  Badge,
 } from "@chakra-ui/core"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import { Card } from "components/Card"
 import { A } from "components/A"
 
-export const SponsorCard = ({ logoSrc, link, name, excerpt, children }) => {
+export const SponsorCard = ({
+  logoSrc,
+  link,
+  name,
+  excerpt,
+  children,
+  isDonator,
+}) => {
   const containerRef = React.useRef()
   const contentRef = React.useRef()
   const [isExpandable, setIsExpandable] = React.useState(false)
@@ -56,9 +64,12 @@ export const SponsorCard = ({ logoSrc, link, name, excerpt, children }) => {
             </AspectRatioBox>
           </Link>
           <Divider />
-          <A href={link} title={name} target="_blank">
-            {name}
-          </A>
+          <Box d="flex" alignItems="baseline">
+            <A href={link} title={name} target="_blank">
+              {name}
+            </A>
+            {isDonator && <Badge ml={2}>Mécénat</Badge>}
+          </Box>
           <Text fontSize="sm">{excerpt}</Text>
         </Box>
         {isExpandable && (
@@ -92,7 +103,12 @@ export const SponsorCard = ({ logoSrc, link, name, excerpt, children }) => {
           <Modal isOpen onClose={onClose} preserveScrollBarGap>
             <ModalOverlay opacity={styles.opacity} />
             <ModalContent {...styles}>
-              <ModalHeader fontSize="xl">{name}</ModalHeader>
+              <ModalHeader fontSize="xl">
+                <Box>
+                  <Text>{name}</Text>
+                  {isDonator && <Badge>Mécénat</Badge>}
+                </Box>
+              </ModalHeader>
               <ModalCloseButton />
               <ModalBody>
                 <MDXRenderer>{children}</MDXRenderer>

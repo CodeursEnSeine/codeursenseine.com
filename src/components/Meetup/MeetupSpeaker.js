@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from "prop-types"
 import { Heading, Image, Stack, Text, Box } from "@chakra-ui/core"
 import { Remarkable } from "remarkable"
 import { A } from "components/A"
@@ -60,4 +61,13 @@ export const MeetupSpeaker = ({ speaker, ...props }) => {
       </Stack>
     </Stack>
   )
+}
+
+MeetupSpeaker.propTypes = {
+  speaker: PropTypes.shape({
+    bio: PropTypes.string,
+    avatar: PropTypes.string,
+    name: PropTypes.string,
+    twitter: PropTypes.string,
+  }).isRequired,
 }

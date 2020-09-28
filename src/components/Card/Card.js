@@ -1,7 +1,8 @@
-import React from "react"
+import React, { forwardRef } from "react"
+import PropTypes from "prop-types"
 import { PseudoBox, useTheme } from "@chakra-ui/core"
 
-export const Card = React.forwardRef(({ isLink, variant, ...props }, ref) => {
+export const Card = forwardRef(({ isLink, variant, ...props }, ref) => {
   const theme = useTheme()
 
   const primary = {
@@ -39,3 +40,8 @@ export const Card = React.forwardRef(({ isLink, variant, ...props }, ref) => {
     />
   )
 })
+
+Card.propTypes = {
+  isLink: PropTypes.bool,
+  variant: PropTypes.oneOf(["", "primary"]),
+}
