@@ -52,18 +52,22 @@ export const SponsorCard = ({
         p={0}
       >
         <Box ref={contentRef} p={6}>
-          <Link
-            d="block"
-            href={link}
-            title={name}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <AspectRatioBox ratio={320 / 190}>
-              <Image src={logoSrc} alt={name} objectFit="fit" />
-            </AspectRatioBox>
-          </Link>
-          <Divider />
+          {logoSrc && (
+            <>
+              <Link
+                d="block"
+                href={link}
+                title={name}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <AspectRatioBox ratio={320 / 190}>
+                  <Image src={logoSrc} alt={name} objectFit="fit" />
+                </AspectRatioBox>
+              </Link>
+              <Divider />
+            </>
+          )}
           <Box d="flex" alignItems="baseline">
             <A href={link} title={name} target="_blank">
               {name}
