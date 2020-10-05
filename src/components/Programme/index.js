@@ -27,6 +27,7 @@ export const Programme = () => {
               speaker,
               isKeynote,
               description,
+              meetupLink
             }
           }
         }

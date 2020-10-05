@@ -16,6 +16,7 @@ import {
   Badge,
   Icon,
 } from "@chakra-ui/core"
+import { Link } from "gatsby"
 import dayjs from "dayjs"
 import "dayjs/locale/fr"
 import { Card } from "components/Card"
@@ -100,12 +101,17 @@ export const ConferenceCard = ({ conference }) => {
             </DrawerBody>
 
             {
-              conference.meetupLink && (
+              conference.childMdx.frontmatter.meetupLink && (
                 <DrawerFooter display="flex" flexDirection="column">
                   <Button variant="outline" mb={3} onClick={onClose}>
                     Annuler
                   </Button>
-                  <Button variantColor="brand">
+                  <Button
+                    variantColor="brand"
+                    as={Link}
+                    target="_blank"
+                    to={conference.childMdx.frontmatter.meetupLink}
+                  >
                     S'inscrire 
                   </Button>
                 </DrawerFooter>
