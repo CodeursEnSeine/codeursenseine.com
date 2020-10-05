@@ -47,7 +47,7 @@ export const ConferenceCard = ({ conference }) => {
             </Badge>
           )}
         </Stack>
-        <Card flex="0.7">
+        <Card flex="0.7" onClick={onOpen} as="a" isLink>
           <Heading fontSize="md">{conference.childMdx.frontmatter.title}</Heading>
           <Text mt={2}>{conference.childMdx.frontmatter.speaker}</Text>
           <Button
@@ -62,6 +62,7 @@ export const ConferenceCard = ({ conference }) => {
           </Button>
         </Card>
       </Flex>
+      
       <Drawer
         size="md"
         isOpen={isOpen}
