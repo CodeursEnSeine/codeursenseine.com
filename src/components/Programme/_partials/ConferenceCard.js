@@ -99,14 +99,18 @@ export const ConferenceCard = ({ conference }) => {
               {conference.childMdx.frontmatter.description}
             </DrawerBody>
 
-            <DrawerFooter display="flex" flexDirection="column">
-              <Button variant="outline" mb={3} onClick={onClose}>
-                Annuler
-              </Button>
-              <Button variantColor="brand">
-                S'inscrire 
-              </Button>
-            </DrawerFooter>
+            {
+              conference.meetupLink && (
+                <DrawerFooter display="flex" flexDirection="column">
+                  <Button variant="outline" mb={3} onClick={onClose}>
+                    Annuler
+                  </Button>
+                  <Button variantColor="brand">
+                    S'inscrire 
+                  </Button>
+                </DrawerFooter>
+              )
+            }
           </DrawerContent>
         </DrawerOverlay>
       </Drawer>
