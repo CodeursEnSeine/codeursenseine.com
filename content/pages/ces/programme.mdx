@@ -1,0 +1,48 @@
+---
+title: Programme
+navigation: true
+order: 2
+---
+
+import {
+  Heading,
+  Stack,
+  Box,
+  Text,
+  Button,
+  Flex,
+  Badge,
+  Icon,
+} from "@chakra-ui/core"
+import { Link } from "gatsby"
+import { Card } from "components/Card"
+import { Programme } from "components/Programme"
+
+<Stack>
+  <Heading as="h1" mb={8}>
+    Programme
+  </Heading>
+  <Text>
+    Cette année, au vu du contexte actuel lié à l'épidémie du COVID, nous vous proposons une édition un peu particulière :
+    L'édition 2020 se déroulera sous forme de Meetups en ligne sur Twitch, 2 fois par semaine durant tout le mois de novembre, soit un total
+    de 8 meetups. Nous vous acceuillons à partir de 21h les mardis et 19h les jeudi sur Twitch !
+  </Text>
+
+  <Programme />
+
+  <Card to="https://twitch.tv/codeursenseine" as={Link} mt={5} isLink>
+    <Stack align="center">
+      <Box>
+        <Text>
+          Lien vers la chaîne Twitch de Codeurs en Seine
+        </Text>
+      </Box>
+      <Button
+        as="a"
+        variantColor="brand"
+      >
+        twitch.tv/codeursenseine
+      </Button>
+    </Stack>
+  </Card>
+</Stack>

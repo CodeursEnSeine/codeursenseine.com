@@ -25,6 +25,7 @@ export const Card = forwardRef(({ isLink, variant, ...props }, ref) => {
         isLink
           ? {
               borderColor: "brand.600",
+              cursor: "pointer"
             }
           : {}
       }
