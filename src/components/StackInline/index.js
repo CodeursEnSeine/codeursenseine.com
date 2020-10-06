@@ -1,1 +1,1 @@
-export { StackInline } from "./StackInline"
+export { StackInline } from "./StackInline";

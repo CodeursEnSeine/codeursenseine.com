@@ -1,30 +1,30 @@
-import React from "react"
-import PropTypes from "prop-types"
-import { Heading, Image, Stack, Text, Box } from "@chakra-ui/core"
-import { Remarkable } from "remarkable"
-import { A } from "components/A"
+import React from "react";
+import PropTypes from "prop-types";
+import { Heading, Image, Stack, Text, Box } from "@chakra-ui/core";
+import { Remarkable } from "remarkable";
+import { A } from "components/A";
 
 export const MeetupSpeaker = ({ speaker, ...props }) => {
   const md = new Remarkable("full", {
     html: true,
-  })
+  });
 
   // Save original method to invoke.
-  var originalRender = md.renderer.rules.link_open
+  var originalRender = md.renderer.rules.link_open;
 
   md.renderer.rules.link_open = function () {
     // Invoke original method first.
-    let result = originalRender.apply(null, arguments)
+    let result = originalRender.apply(null, arguments);
 
     result = result.replace(
       ">",
       'target="_blank" rel="noopener noreferrer" class="remarkable-link">'
-    )
+    );
 
-    return result
-  }
+    return result;
+  };
 
-  const bio = md.render(speaker.bio)
+  const bio = md.render(speaker.bio);
 
   return (
     <Stack spacing={2} {...props}>
@@ -60,8 +60,8 @@ export const MeetupSpeaker = ({ speaker, ...props }) => {
         </Stack>
       </Stack>
     </Stack>
-  )
-}
+  );
+};
 
 MeetupSpeaker.propTypes = {
   speaker: PropTypes.shape({
@@ -70,4 +70,4 @@ MeetupSpeaker.propTypes = {
     name: PropTypes.string,
     twitter: PropTypes.string,
   }).isRequired,
-}
+};

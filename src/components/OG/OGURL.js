@@ -1,5 +1,5 @@
-import React from "react"
-import { Helmet } from "react-helmet"
+import React from "react";
+import { Helmet } from "react-helmet";
 
 export const OGURL = ({ path }) => (
   <Helmet
@@ -10,4 +10,4 @@ export const OGURL = ({ path }) => (
       },
     ]}
   />
-)
+);

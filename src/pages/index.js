@@ -1,5 +1,5 @@
-import React, { useEffect } from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import React, { useEffect } from "react";
+import { useStaticQuery, graphql } from "gatsby";
 
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
@@ -10,13 +10,13 @@ const IndexPage = () => {
         }
       }
     }
-  `)
+  `);
 
   useEffect(() => {
-    window.location.href = `/${data.site.siteMetadata.currentYear}`
-  }, [data.site.siteMetadata.currentYear])
+    window.location.href = `/${data.site.siteMetadata.currentYear}`;
+  }, [data.site.siteMetadata.currentYear]);
 
-  return <React.Fragment />
-}
+  return <React.Fragment />;
+};
 
-export default IndexPage
+export default IndexPage;

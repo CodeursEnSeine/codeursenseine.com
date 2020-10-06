@@ -87,4 +87,4 @@ module.exports = {
     // Must be at the end of the plugins
     `gatsby-plugin-client-side-redirect`,
   ],
-}
+};

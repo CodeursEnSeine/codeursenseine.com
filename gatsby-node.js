@@ -1,7 +1,7 @@
-const slugify = require(`slugify`)
+const slugify = require(`slugify`);
 
 exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions
+  const { createPage } = actions;
 
   // -------------------- CREATING MEETUPS PAGE ---------------------
   const meetups = await graphql(
@@ -29,14 +29,14 @@ exports.createPages = async ({ graphql, actions }) => {
         }
       }
     `
-  )
+  );
 
   if (meetups.errors) {
-    throw meetups.errors
+    throw meetups.errors;
   }
 
   // Create meetup post pages.
-  const meetupsNodes = meetups.data.allMdx.nodes
+  const meetupsNodes = meetups.data.allMdx.nodes;
 
   meetupsNodes.forEach((meetup) => {
     if (
@@ -52,9 +52,9 @@ exports.createPages = async ({ graphql, actions }) => {
         context: {
           id: meetup.id,
         },
-      })
+      });
     }
-  })
+  });
 
   const metadataQuery = await graphql(`
     query {
@@ -65,10 +65,10 @@ exports.createPages = async ({ graphql, actions }) => {
         }
       }
     }
-  `)
+  `);
 
   if (metadataQuery.errors) {
-    throw metadataQuery.errors
+    throw metadataQuery.errors;
   }
 
   // -------------------------- CREATING ORGANISERS PAGE -----------------------
@@ -96,10 +96,10 @@ exports.createPages = async ({ graphql, actions }) => {
         }
       }
     }
-  `)
+  `);
 
   if (organisersQuery.errors) {
-    throw organisersQuery.errors
+    throw organisersQuery.errors;
   }
 
   createPage({
@@ -109,7 +109,7 @@ exports.createPages = async ({ graphql, actions }) => {
       organisers: organisersQuery.data.allFile.nodes,
       siteMetadata: metadataQuery.data.site.siteMetadata,
     },
-  })
+  });
 
   // -------------------- CREATING SPONSORS PAGE ---------------------
   const sponsorsPageQuery = await graphql(`
@@ -133,10 +133,10 @@ exports.createPages = async ({ graphql, actions }) => {
         }
       }
     }
-  `)
+  `);
 
   if (sponsorsPageQuery.errors) {
-    throw sponsorsPageQuery.errors
+    throw sponsorsPageQuery.errors;
   }
 
   createPage({
@@ -146,7 +146,7 @@ exports.createPages = async ({ graphql, actions }) => {
       siteMetadata: metadataQuery.data.site.siteMetadata,
       sponsors: sponsorsPageQuery.data.allMdx.nodes,
     },
-  })
+  });
 
   // -------------------- CREATING DYNAMIC PAGES --------------------------
   const pagesQuery = await graphql(`
@@ -167,10 +167,10 @@ exports.createPages = async ({ graphql, actions }) => {
         }
       }
     }
-  `)
+  `);
 
   if (pagesQuery.errors) {
-    throw pagesQuery.errors
+    throw pagesQuery.errors;
   }
 
   pagesQuery.data.allFile.nodes.forEach((page) => {
@@ -181,7 +181,7 @@ exports.createPages = async ({ graphql, actions }) => {
           : `/${metadataQuery.data.site.siteMetadata.currentYear}/${page.name}`
         : page.name === "index"
         ? `/${page.relativeDirectory}`
-        : `/${page.relativeDirectory}/${page.name}`
+        : `/${page.relativeDirectory}/${page.name}`;
 
     createPage({
       path: pagePath,
@@ -192,8 +192,8 @@ exports.createPages = async ({ graphql, actions }) => {
         theme: page.relativeDirectory,
         pagePath,
       },
-    })
-  })
+    });
+  });
 
-  return null
-}
+  return null;
+};

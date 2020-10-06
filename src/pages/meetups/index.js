@@ -1,11 +1,11 @@
-import React from "react"
-import { graphql, Link } from "gatsby"
-import { Box, Grid, Stack, Heading, Image, Flex, Text } from "@chakra-ui/core"
-import Layout from "components/layout"
+import React from "react";
+import { graphql, Link } from "gatsby";
+import { Box, Grid, Stack, Heading, Image, Flex, Text } from "@chakra-ui/core";
+import Layout from "components/layout";
 
-import { Card } from "components/Card"
-import SEO from "components/seo"
-import { generateMeetupLink } from "../../utils/generateMeetupLink"
+import { Card } from "components/Card";
+import SEO from "components/seo";
+import { generateMeetupLink } from "../../utils/generateMeetupLink";
 
 const Meetups = ({ data }) => {
   const meetups = data.meetups.nodes.filter(
@@ -13,7 +13,7 @@ const Meetups = ({ data }) => {
       meetup.childMdx &&
       meetup.childMdx.frontmatter &&
       meetup.childMdx.frontmatter.meetup_date !== null
-  )
+  );
 
   return (
     <Layout theme="meetups">
@@ -113,8 +113,8 @@ const Meetups = ({ data }) => {
         </Stack>
       </Grid>
     </Layout>
-  )
-}
+  );
+};
 
 export const query = graphql`
   {
@@ -180,6 +180,6 @@ export const query = graphql`
       }
     }
   }
-`
+`;
 
-export default Meetups
+export default Meetups;

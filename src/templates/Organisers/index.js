@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 import {
   Grid,
   Heading,
@@ -8,22 +8,22 @@ import {
   Flex,
   IconButton,
   AspectRatioBox,
-} from "@chakra-ui/core"
-import { FaTwitter, FaGithub, FaLinkedin } from "react-icons/fa"
-import Layout from "../../components/layout"
-import SEO from "../../components/seo"
+} from "@chakra-ui/core";
+import { FaTwitter, FaGithub, FaLinkedin } from "react-icons/fa";
+import Layout from "../../components/layout";
+import SEO from "../../components/seo";
 
-import { A } from "../../components/A"
-import { OGImage } from "components/OG"
+import { A } from "../../components/A";
+import { OGImage } from "components/OG";
 
 const Organisers = ({ pageContext }) => {
-  const { organisers } = pageContext
+  const { organisers } = pageContext;
 
   const socials = [
     { name: "twitter", icon: FaTwitter },
     { name: "linkedin", icon: FaLinkedin },
     { name: "github", icon: FaGithub },
-  ]
+  ];
 
   return (
     <Layout theme="ces">
@@ -103,7 +103,7 @@ const Organisers = ({ pageContext }) => {
         </Grid>
       </Stack>
     </Layout>
-  )
-}
+  );
+};
 
-export default Organisers
+export default Organisers;

@@ -1,8 +1,8 @@
-import React from "react"
-import PropTypes from "prop-types"
-import { Box, Heading, Image } from "@chakra-ui/core"
-import { A } from "components/A"
-import { StackInline } from "components/StackInline"
+import React from "react";
+import PropTypes from "prop-types";
+import { Box, Heading, Image } from "@chakra-ui/core";
+import { A } from "components/A";
+import { StackInline } from "components/StackInline";
 
 export const MeetupSpeakers = ({ speakers, ...props }) => (
   <StackInline spacing={10} {...props}>
@@ -29,7 +29,7 @@ export const MeetupSpeakers = ({ speakers, ...props }) => (
         </Box>
       ))}
   </StackInline>
-)
+);
 
 MeetupSpeakers.propTypes = {
   speakers: PropTypes.arrayOf(
@@ -39,4 +39,4 @@ MeetupSpeakers.propTypes = {
       twitter: PropTypes.string,
     })
   ),
-}
+};

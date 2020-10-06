@@ -1,35 +1,35 @@
-import React from "react"
-import PropTypes from "prop-types"
+import React from "react";
+import PropTypes from "prop-types";
 import {
   Box,
   Flex,
   useDisclosure,
   ThemeProvider,
   CSSReset,
-} from "@chakra-ui/core"
-import { Nav, NavTopbar } from "./Nav"
-import { PageHeader } from "./PageHeader"
-import themes from "themes"
-import { Mdx } from "renderers/Mdx"
+} from "@chakra-ui/core";
+import { Nav, NavTopbar } from "./Nav";
+import { PageHeader } from "./PageHeader";
+import themes from "themes";
+import { Mdx } from "renderers/Mdx";
 
 const updateCssViewportHeight = () => {
-  let vh = window.innerHeight * 0.01
-  document.documentElement.style.setProperty("--vh", `${vh}px`)
-}
+  let vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty("--vh", `${vh}px`);
+};
 
 if (typeof window !== "undefined") {
-  updateCssViewportHeight()
+  updateCssViewportHeight();
   window.addEventListener("resize", () => {
-    updateCssViewportHeight()
-  })
+    updateCssViewportHeight();
+  });
 }
 
-const navBreakpoint = "md"
-const navTopbarHeight = "3.4rem"
-const navDesktopWidth = "30vw"
+const navBreakpoint = "md";
+const navTopbarHeight = "3.4rem";
+const navDesktopWidth = "30vw";
 
 const Layout = ({ children, theme = "ces" }) => {
-  const { isOpen, onOpen, onClose } = useDisclosure()
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <ThemeProvider theme={themes[theme]}>
@@ -73,11 +73,11 @@ const Layout = ({ children, theme = "ces" }) => {
         </Box>
       </Flex>
     </ThemeProvider>
-  )
-}
+  );
+};
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
-}
+};
 
-export default Layout
+export default Layout;

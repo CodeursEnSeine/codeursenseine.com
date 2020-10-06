@@ -1,6 +1,6 @@
-import React from "react"
-import { useLocation } from "@reach/router"
-import { PseudoBox } from "@chakra-ui/core"
+import React from "react";
+import { useLocation } from "@reach/router";
+import { PseudoBox } from "@chakra-ui/core";
 
 export const NavLink = ({
   children = null,
@@ -8,8 +8,8 @@ export const NavLink = ({
   to = "",
   ...rest
 }) => {
-  const { pathname } = useLocation()
-  const isActive = pathname === to
+  const { pathname } = useLocation();
+  const isActive = pathname === to;
 
   return (
     <PseudoBox
@@ -45,5 +45,5 @@ export const NavLink = ({
         {children}
       </PseudoBox>
     </PseudoBox>
-  )
-}
+  );
+};

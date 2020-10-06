@@ -1,14 +1,14 @@
-import React, { forwardRef } from "react"
-import PropTypes from "prop-types"
-import { PseudoBox, useTheme } from "@chakra-ui/core"
+import React, { forwardRef } from "react";
+import PropTypes from "prop-types";
+import { PseudoBox, useTheme } from "@chakra-ui/core";
 
 export const Card = forwardRef(({ isLink, variant, ...props }, ref) => {
-  const theme = useTheme()
+  const theme = useTheme();
 
   const primary = {
     background: theme.gradients.brand,
     color: "white",
-  }
+  };
 
   return (
     <PseudoBox
@@ -39,10 +39,10 @@ export const Card = forwardRef(({ isLink, variant, ...props }, ref) => {
       {...(variant === "primary" ? primary : {})}
       {...props}
     />
-  )
-})
+  );
+});
 
 Card.propTypes = {
   isLink: PropTypes.bool,
   variant: PropTypes.oneOf(["", "primary"]),
-}
+};

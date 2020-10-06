@@ -1,6 +1,6 @@
-import React from "react"
-import { CSSReset, ThemeProvider } from "@chakra-ui/core"
-import themes from "../src/themes"
+import React from "react";
+import { CSSReset, ThemeProvider } from "@chakra-ui/core";
+import themes from "../src/themes";
 
 export const globalTypes = {
   theme: {
@@ -13,11 +13,11 @@ export const globalTypes = {
       items: ["ces", "meetups", "devoxx4kids"],
     },
   },
-}
+};
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
-}
+};
 
 export const decorators = [
   (Story, context) => (
@@ -26,4 +26,4 @@ export const decorators = [
       <Story />
     </ThemeProvider>
   ),
-]
+];

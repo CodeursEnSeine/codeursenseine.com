@@ -1,15 +1,15 @@
-import { theme } from "@chakra-ui/core"
-import LogoWhite from "./logos/meetup-white.svg"
+import { theme } from "@chakra-ui/core";
+import LogoWhite from "./logos/meetup-white.svg";
 
 const data = {
   pretitle: "Retrouvez Codeurs en Seine toute l'année !",
   title: "Meetups Codeurs en Seine",
-}
+};
 
 const logos = {
   alt: "Codeurs en Seine - Meetups",
   white: LogoWhite,
-}
+};
 
 const colors = {
   ...theme.colors,
@@ -25,16 +25,16 @@ const colors = {
     800: "#044A42",
     900: "#011B17",
   },
-}
+};
 
 const fonts = {
   body: 'Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;',
   heading: 'Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif',
-}
+};
 
 const gradients = {
   brand: `linear-gradient(45deg, #39bb9d, #199fa7)`,
-}
+};
 
 const shadows = {
   ...theme.shadows,
@@ -47,7 +47,7 @@ const shadows = {
     rgba(32, 47, 71, 0.03) 0px 0px 0px 0.0625rem;
   `,
   brand: `0 0.25rem 1.25rem rgba(0, 167, 150, 0.2)`,
-}
+};
 
 export default {
   ...theme,
@@ -58,4 +58,4 @@ export default {
   shadows,
   gradients,
   logos,
-}
+};

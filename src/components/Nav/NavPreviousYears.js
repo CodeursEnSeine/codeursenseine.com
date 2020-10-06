@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 import {
   Box,
   Button,
@@ -7,14 +7,14 @@ import {
   MenuList,
   MenuItem,
   Text,
-} from "@chakra-ui/core"
-import { FiRewind } from "react-icons/fi"
+} from "@chakra-ui/core";
+import { FiRewind } from "react-icons/fi";
 
-const years = [2013, 2014, 2015, 2016, 2017, 2018, 2019]
+const years = [2013, 2014, 2015, 2016, 2017, 2018, 2019];
 
 const IconRewind = (props) => (
   <Box as={FiRewind} opacity="0.4" display="inline-block" mr="2" {...props} />
-)
+);
 
 export const NavPreviousYears = (props) => {
   return (
@@ -46,5 +46,5 @@ export const NavPreviousYears = (props) => {
         </MenuList>
       </Menu>
     </Box>
-  )
-}
+  );
+};

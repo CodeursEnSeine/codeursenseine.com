@@ -1,9 +1,9 @@
-import React from "react"
-import { graphql, useStaticQuery } from "gatsby"
-import { Stack, SimpleGrid } from "@chakra-ui/core"
-import dayjs from "dayjs"
-import "dayjs/locale/fr"
-import { ConferenceCard } from "components/Programme/_partials/ConferenceCard"
+import React from "react";
+import { graphql, useStaticQuery } from "gatsby";
+import { Stack, SimpleGrid } from "@chakra-ui/core";
+import dayjs from "dayjs";
+import "dayjs/locale/fr";
+import { ConferenceCard } from "components/Programme/_partials/ConferenceCard";
 
 export const Programme = () => {
   const data = useStaticQuery(graphql`
@@ -28,15 +28,15 @@ export const Programme = () => {
         }
       }
     }
-  `)
+  `);
 
-  dayjs.locale("fr")
+  dayjs.locale("fr");
 
   const conferences = data.allFile.nodes.sort(
     (a, b) =>
       new Date(a.childMdx.frontmatter.eventDate) -
       new Date(b.childMdx.frontmatter.eventDate)
-  )
+  );
 
   return (
     <Stack mt={5}>
@@ -46,5 +46,5 @@ export const Programme = () => {
         ))}
       </SimpleGrid>
     </Stack>
-  )
-}
+  );
+};

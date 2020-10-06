@@ -1,6 +1,6 @@
-import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
-import Img from "gatsby-image"
+import React from "react";
+import { useStaticQuery, graphql } from "gatsby";
+import Img from "gatsby-image";
 import {
   Button,
   Grid,
@@ -10,17 +10,17 @@ import {
   Box,
   Divider,
   SimpleGrid,
-} from "@chakra-ui/core"
-import Layout from "components/layout"
-import SEO from "components/seo"
+} from "@chakra-ui/core";
+import Layout from "components/layout";
+import SEO from "components/seo";
 
-import { A } from "components/A"
-import { ButtonGroup } from "components/ButtonGroup"
-import { OGImage } from "components/OG"
-import { SponsorCard } from "components/Sponsors"
+import { A } from "components/A";
+import { ButtonGroup } from "components/ButtonGroup";
+import { OGImage } from "components/OG";
+import { SponsorCard } from "components/Sponsors";
 
 const SponsorsPage = ({ pageContext }) => {
-  const { sponsors } = pageContext
+  const { sponsors } = pageContext;
 
   const data = useStaticQuery(graphql`
     query {
@@ -34,7 +34,7 @@ const SponsorsPage = ({ pageContext }) => {
         }
       }
     }
-  `)
+  `);
 
   const sponsorLevels = [
     "platinium",
@@ -43,7 +43,7 @@ const SponsorsPage = ({ pageContext }) => {
     "bronze",
     "Meetup Online",
     "Technique",
-  ]
+  ];
 
   return (
     <Layout theme="ces">
@@ -129,7 +129,7 @@ const SponsorsPage = ({ pageContext }) => {
         {sponsorLevels.map((level) => {
           const thisLevelSponsors = sponsors.filter(
             (sponsor) => sponsor.frontmatter.sponsor === level
-          )
+          );
 
           return (
             thisLevelSponsors.length > 0 && (
@@ -154,11 +154,11 @@ const SponsorsPage = ({ pageContext }) => {
                 <Divider />
               </Stack>
             )
-          )
+          );
         })}
       </Stack>
     </Layout>
-  )
-}
+  );
+};
 
-export default SponsorsPage
+export default SponsorsPage;

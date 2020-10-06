@@ -1,5 +1,5 @@
-import React from "react"
-import { Tooltip, Stack, Link, IconButton } from "@chakra-ui/core"
+import React from "react";
+import { Tooltip, Stack, Link, IconButton } from "@chakra-ui/core";
 import {
   FaTwitter,
   FaYoutube,
@@ -11,7 +11,7 @@ import {
   FaRss,
   FaSpotify,
   FaItunesNote,
-} from "react-icons/fa"
+} from "react-icons/fa";
 
 const socialLinks = [
   {
@@ -61,7 +61,7 @@ const socialLinks = [
     link:
       "https://itunes.apple.com/fr/podcast/codeurs-en-seine/id1454150414?mt=2",
   },
-]
+];
 
 export const NavSocial = (props) => {
   return (
@@ -91,5 +91,5 @@ export const NavSocial = (props) => {
         ))}
       </Stack>
     </Stack>
-  )
-}
+  );
+};

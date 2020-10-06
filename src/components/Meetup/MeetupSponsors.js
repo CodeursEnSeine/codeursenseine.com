@@ -1,7 +1,7 @@
-import React from "react"
-import { graphql, useStaticQuery } from "gatsby"
-import { SimpleGrid } from "@chakra-ui/core"
-import { SponsorCard } from "components/Sponsors"
+import React from "react";
+import { graphql, useStaticQuery } from "gatsby";
+import { SimpleGrid } from "@chakra-ui/core";
+import { SponsorCard } from "components/Sponsors";
 
 export const MeetupSponsors = () => {
   const data = useStaticQuery(graphql`
@@ -28,7 +28,7 @@ export const MeetupSponsors = () => {
         }
       }
     }
-  `)
+  `);
 
   return (
     <SimpleGrid columns={{ base: 1, sm: 2, lg: 3 }} gap={8}>
@@ -44,5 +44,5 @@ export const MeetupSponsors = () => {
         </SponsorCard>
       ))}
     </SimpleGrid>
-  )
-}
+  );
+};

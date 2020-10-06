@@ -1,10 +1,10 @@
-import React from "react"
-import { Link, useStaticQuery, graphql } from "gatsby"
-import { useLocation } from "@reach/router"
-import { IconButton, useTheme, Stack, Flex } from "@chakra-ui/core"
-import { FiX } from "react-icons/fi"
-import { Logo } from "../Logo"
-import { NavSocial, NavPreviousYears, NavLink } from "./"
+import React from "react";
+import { Link, useStaticQuery, graphql } from "gatsby";
+import { useLocation } from "@reach/router";
+import { IconButton, useTheme, Stack, Flex } from "@chakra-ui/core";
+import { FiX } from "react-icons/fi";
+import { Logo } from "../Logo";
+import { NavSocial, NavPreviousYears, NavLink } from "./";
 
 export const Nav = ({
   breakpoint,
@@ -12,8 +12,8 @@ export const Nav = ({
   onNavClose = () => {},
   ...props
 }) => {
-  const theme = useTheme()
-  const { pathname } = useLocation()
+  const theme = useTheme();
+  const { pathname } = useLocation();
 
   const data = useStaticQuery(graphql`
     query NavPagesQuery {
@@ -40,19 +40,19 @@ export const Nav = ({
         }
       }
     }
-  `)
+  `);
 
   const groupedPages = data.allMdx.nodes.reduce((previousValues, current) => {
     if (!previousValues[current.parent.relativeDirectory]) {
-      previousValues[current.parent.relativeDirectory] = []
+      previousValues[current.parent.relativeDirectory] = [];
     }
 
-    previousValues[current.parent.relativeDirectory].push(current)
+    previousValues[current.parent.relativeDirectory].push(current);
 
-    return previousValues
-  }, {})
+    return previousValues;
+  }, {});
 
-  const currentYear = data.site.siteMetadata.currentYear
+  const currentYear = data.site.siteMetadata.currentYear;
 
   return (
     <Flex
@@ -162,5 +162,5 @@ export const Nav = ({
         </Stack>
       </Flex>
     </Flex>
-  )
-}
+  );
+};

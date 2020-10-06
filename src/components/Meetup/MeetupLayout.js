@@ -1,9 +1,9 @@
-import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
-import { Box, Grid, Stack, Heading, Image, Flex } from "@chakra-ui/core"
-import SEO from "components/seo"
-import Layout from "components/layout"
-import { Card } from "components/Card"
+import React from "react";
+import { useStaticQuery, graphql } from "gatsby";
+import { Box, Grid, Stack, Heading, Image, Flex } from "@chakra-ui/core";
+import SEO from "components/seo";
+import Layout from "components/layout";
+import { Card } from "components/Card";
 
 const MeetupLayout = ({ children, title }) => {
   const data = useStaticQuery(graphql`
@@ -48,7 +48,7 @@ const MeetupLayout = ({ children, title }) => {
         }
       }
     }
-  `)
+  `);
 
   return (
     <Layout theme="meetups">
@@ -105,7 +105,7 @@ const MeetupLayout = ({ children, title }) => {
         </Stack>
       </Grid>
     </Layout>
-  )
-}
+  );
+};
 
-export default MeetupLayout
+export default MeetupLayout;

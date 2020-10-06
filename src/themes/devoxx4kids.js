@@ -1,15 +1,15 @@
-import { theme } from "@chakra-ui/core"
-import LogoWhite from "./logos/ces-white.svg"
+import { theme } from "@chakra-ui/core";
+import LogoWhite from "./logos/ces-white.svg";
 
 const data = {
   pretitle: "Ateliers de programmation pour les 8-14 ans à Rouen",
   title: "Devoxx4kids Rouen",
-}
+};
 
 const logos = {
   alt: "Codeurs en Seine",
   white: LogoWhite,
-}
+};
 
 const colors = {
   ...theme.colors,
@@ -25,16 +25,16 @@ const colors = {
     800: "#451e01",
     900: "#1b0600",
   },
-}
+};
 
 const fonts = {
   body: 'Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;',
   heading: 'Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif',
-}
+};
 
 const gradients = {
   brand: `linear-gradient(45deg, #e8ae3c, #e8953c)`,
-}
+};
 
 const shadows = {
   ...theme.shadows,
@@ -47,7 +47,7 @@ const shadows = {
     rgba(32, 47, 71, 0.03) 0px 0px 0px 0.0625rem;
   `,
   brand: `0 0.25rem 1.25rem rgba(0, 102, 179, 0.2)`,
-}
+};
 
 export default {
   ...theme,
@@ -58,4 +58,4 @@ export default {
   shadows,
   gradients,
   logos,
-}
+};

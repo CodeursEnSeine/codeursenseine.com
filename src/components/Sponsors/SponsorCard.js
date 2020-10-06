@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 import {
   Image,
   Link,
@@ -16,10 +16,10 @@ import {
   AspectRatioBox,
   Scale,
   Badge,
-} from "@chakra-ui/core"
-import { MDXRenderer } from "gatsby-plugin-mdx"
-import { Card } from "components/Card"
-import { A } from "components/A"
+} from "@chakra-ui/core";
+import { MDXRenderer } from "gatsby-plugin-mdx";
+import { Card } from "components/Card";
+import { A } from "components/A";
 
 export const SponsorCard = ({
   logoSrc,
@@ -29,18 +29,18 @@ export const SponsorCard = ({
   children,
   isDonator,
 }) => {
-  const containerRef = React.useRef()
-  const contentRef = React.useRef()
-  const [isExpandable, setIsExpandable] = React.useState(false)
-  const { isOpen, onOpen, onClose } = useDisclosure()
+  const containerRef = React.useRef();
+  const contentRef = React.useRef();
+  const [isExpandable, setIsExpandable] = React.useState(false);
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   React.useEffect(() => {
     if (containerRef.current && contentRef.current) {
       setIsExpandable(
         contentRef.current.offsetHeight - containerRef.current.offsetHeight > 0
-      )
+      );
     }
-  }, [setIsExpandable])
+  }, [setIsExpandable]);
 
   return (
     <>
@@ -122,5 +122,5 @@ export const SponsorCard = ({
         )}
       </Scale>
     </>
-  )
-}
+  );
+};

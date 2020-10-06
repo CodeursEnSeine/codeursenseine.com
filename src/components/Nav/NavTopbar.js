@@ -1,11 +1,18 @@
-import React from "react"
-import { Box, Text, Heading, Flex, IconButton, useTheme } from "@chakra-ui/core"
-import { FiMenu } from "react-icons/fi"
-import { Logo } from "../Logo"
-import { Link } from "gatsby"
+import React from "react";
+import {
+  Box,
+  Text,
+  Heading,
+  Flex,
+  IconButton,
+  useTheme,
+} from "@chakra-ui/core";
+import { FiMenu } from "react-icons/fi";
+import { Logo } from "../Logo";
+import { Link } from "gatsby";
 
 export const NavTopbar = ({ onNavOpen = () => {}, ...props }) => {
-  const theme = useTheme()
+  const theme = useTheme();
 
   return (
     <Flex
@@ -43,5 +50,5 @@ export const NavTopbar = ({ onNavOpen = () => {}, ...props }) => {
         onClick={() => onNavOpen()}
       />
     </Flex>
-  )
-}
+  );
+};

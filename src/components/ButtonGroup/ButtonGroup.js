@@ -1,5 +1,5 @@
-import React from "react"
-import { StackInline } from "components/StackInline"
+import React from "react";
+import { StackInline } from "components/StackInline";
 
 export const ButtonGroup = ({ childProps = {}, ...rest }) => {
   return (
@@ -8,5 +8,5 @@ export const ButtonGroup = ({ childProps = {}, ...rest }) => {
       childProps={{ flexGrow: { base: 1, sm: 0 }, ...childProps }}
       {...rest}
     />
-  )
-}
+  );
+};

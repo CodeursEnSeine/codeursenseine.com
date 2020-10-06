@@ -1,15 +1,15 @@
-import React from "react"
+import React from "react";
 
-import { MeetupSpeaker } from "./MeetupSpeaker"
+import { MeetupSpeaker } from "./MeetupSpeaker";
 
 export default {
   title: "Components/MeetupSpeaker",
   component: MeetupSpeaker,
-}
+};
 
-const Template = (args) => <MeetupSpeaker {...args} />
+const Template = (args) => <MeetupSpeaker {...args} />;
 
-export const Default = Template.bind({})
+export const Default = Template.bind({});
 Default.args = {
   speaker: {
     name: "Segun Adebayo",
@@ -17,4 +17,4 @@ Default.args = {
     avatar: "https://bit.ly/sage-adebayo",
     twitter: "thesegunadebayo",
   },
-}
+};

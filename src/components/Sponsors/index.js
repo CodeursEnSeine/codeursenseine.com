@@ -1,1 +1,1 @@
-export { SponsorCard } from "./SponsorCard"
+export { SponsorCard } from "./SponsorCard";

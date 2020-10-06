@@ -1,8 +1,8 @@
-import React from "react"
-import { Button, Input, Stack, Text } from "@chakra-ui/core"
+import React from "react";
+import { Button, Input, Stack, Text } from "@chakra-ui/core";
 
-import { Card } from "components/Card"
-import { StackInline } from "components/StackInline"
+import { Card } from "components/Card";
+import { StackInline } from "components/StackInline";
 
 export const Newsletter = ({ ...props }) => {
   return (
@@ -41,5 +41,5 @@ export const Newsletter = ({ ...props }) => {
         </form>
       </Stack>
     </Card>
-  )
-}
+  );
+};

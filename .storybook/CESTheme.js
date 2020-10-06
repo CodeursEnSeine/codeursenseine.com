@@ -1,4 +1,4 @@
-import { create } from "@storybook/theming/create"
+import { create } from "@storybook/theming/create";
 
 export default create({
   base: "light",
@@ -9,4 +9,4 @@ export default create({
   fontBase: 'Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;',
 
   brandUrl: "https://codeursenseine.com",
-})
+});

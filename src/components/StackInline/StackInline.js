@@ -1,5 +1,5 @@
-import React from "react"
-import { Flex, useTheme } from "@chakra-ui/core"
+import React from "react";
+import { Flex, useTheme } from "@chakra-ui/core";
 
 export const StackInline = ({
   children,
@@ -7,16 +7,16 @@ export const StackInline = ({
   childProps = {},
   ...rest
 }) => {
-  const theme = useTheme()
-  const spacingCss = theme.space[spacing] ?? spacing
+  const theme = useTheme();
+  const spacingCss = theme.space[spacing] ?? spacing;
 
   const _children = React.Children.map(children, (element) => {
     return React.cloneElement(element, {
       marginLeft: spacing,
       marginBottom: spacing,
       ...childProps,
-    })
-  })
+    });
+  });
 
   return (
     <Flex
@@ -27,5 +27,5 @@ export const StackInline = ({
     >
       {_children}
     </Flex>
-  )
-}
+  );
+};

@@ -1,1 +1,1 @@
-export { A } from "./A"
+export { A } from "./A";

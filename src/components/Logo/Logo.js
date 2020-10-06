@@ -1,8 +1,8 @@
-import React from "react"
-import { useTheme, Image } from "@chakra-ui/core"
+import React from "react";
+import { useTheme, Image } from "@chakra-ui/core";
 
 export const Logo = (props) => {
-  const theme = useTheme()
+  const theme = useTheme();
 
   return (
     <Image
@@ -11,5 +11,5 @@ export const Logo = (props) => {
       alt={theme.logos.alt}
       {...props}
     />
-  )
-}
+  );
+};

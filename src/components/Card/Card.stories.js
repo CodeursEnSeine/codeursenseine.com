@@ -1,16 +1,16 @@
-import React from "react"
-import { Text } from "@chakra-ui/core"
+import React from "react";
+import { Text } from "@chakra-ui/core";
 
-import { Card } from "."
+import { Card } from ".";
 
 export default {
   title: "Components/Card",
   component: Card,
-}
+};
 
-const Template = (args) => <Card {...args} />
+const Template = (args) => <Card {...args} />;
 
-export const Default = Template.bind({})
+export const Default = Template.bind({});
 Default.args = {
   children: (
     <Text>
@@ -25,16 +25,16 @@ Default.args = {
       Ipsum.
     </Text>
   ),
-}
+};
 
-export const Link = Template.bind({})
+export const Link = Template.bind({});
 Link.args = {
   ...Default.args,
   isLink: true,
-}
+};
 
-export const Primary = Template.bind({})
+export const Primary = Template.bind({});
 Primary.args = {
   ...Default.args,
   variant: "primary",
-}
+};

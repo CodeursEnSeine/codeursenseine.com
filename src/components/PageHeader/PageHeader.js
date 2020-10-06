@@ -1,10 +1,10 @@
-import React from "react"
-import { Link } from "gatsby"
-import { useTheme, Box, Button, Flex, Text, Heading } from "@chakra-ui/core"
-import { ButtonGroup } from "components/ButtonGroup"
+import React from "react";
+import { Link } from "gatsby";
+import { useTheme, Box, Button, Flex, Text, Heading } from "@chakra-ui/core";
+import { ButtonGroup } from "components/ButtonGroup";
 
 export const PageHeader = () => {
-  const { themeName, data } = useTheme()
+  const { themeName, data } = useTheme();
 
   const getButtons = () => {
     switch (themeName) {
@@ -13,19 +13,19 @@ export const PageHeader = () => {
           <Button as={Link} to="/meetups/sponsors" variantColor="brand">
             Devenir sponsor
           </Button>
-        )
+        );
 
       case "devoxx4kids":
-        return null
+        return null;
 
       default:
         return (
           <Button as={Link} to="/2020/sponsors" variantColor="brand">
             Devenir sponsor
           </Button>
-        )
+        );
     }
-  }
+  };
 
   return (
     <Flex
@@ -46,5 +46,5 @@ export const PageHeader = () => {
         {getButtons()}
       </ButtonGroup>
     </Flex>
-  )
-}
+  );
+};

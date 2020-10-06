@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 import {
   useDisclosure,
   Heading,
@@ -15,17 +15,17 @@ import {
   Flex,
   Badge,
   Icon,
-} from "@chakra-ui/core"
-import { Link } from "gatsby"
-import dayjs from "dayjs"
-import "dayjs/locale/fr"
-import { Card } from "components/Card"
+} from "@chakra-ui/core";
+import { Link } from "gatsby";
+import dayjs from "dayjs";
+import "dayjs/locale/fr";
+import { Card } from "components/Card";
 
 export const ConferenceCard = ({ conference }) => {
-  const { isOpen, onOpen, onClose } = useDisclosure()
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   const capitalizeFirstLetter = (string) =>
-    string.charAt(0).toUpperCase() + string.slice(1)
+    string.charAt(0).toUpperCase() + string.slice(1);
 
   return (
     <Stack>
@@ -129,5 +129,5 @@ export const ConferenceCard = ({ conference }) => {
         </DrawerOverlay>
       </Drawer>
     </Stack>
-  )
-}
+  );
+};

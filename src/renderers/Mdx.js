@@ -1,7 +1,7 @@
-import React from "react"
-import { MDXProvider } from "@mdx-js/react"
-import { Divider, Heading, Link, List, ListItem, Text } from "@chakra-ui/core"
-import slugify from "slugify"
+import React from "react";
+import { MDXProvider } from "@mdx-js/react";
+import { Divider, Heading, Link, List, ListItem, Text } from "@chakra-ui/core";
+import slugify from "slugify";
 
 const A = (props) => (
   <Link
@@ -11,7 +11,7 @@ const A = (props) => (
     _focus={{ textDecoration: "none" }}
     {...props}
   />
-)
+);
 const H1 = ({ children, ...props }) => (
   <Heading
     as="h1"
@@ -22,7 +22,7 @@ const H1 = ({ children, ...props }) => (
     })}
     {...props}
   />
-)
+);
 const H2 = ({ children, ...props }) => (
   <Heading
     as="h2"
@@ -35,21 +35,21 @@ const H2 = ({ children, ...props }) => (
     })}
     {...props}
   />
-)
+);
 const H3 = (props) => (
   <Heading as="h3" fontWeight="normal" fontSize="xl" mb="0.5em" {...props} />
-)
+);
 const H4 = (props) => (
   <Heading as="h4" fontWeight="normal" fontSize="lg" mb="0.5em" {...props} />
-)
-const H5 = (props) => <Heading as="h5" fontSize="md" mb="0.5em" {...props} />
-const H6 = (props) => <Heading as="h6" fontSize="xs" mb="0.5em" {...props} />
-const HR = (props) => <Divider my={8} {...props} />
+);
+const H5 = (props) => <Heading as="h5" fontSize="md" mb="0.5em" {...props} />;
+const H6 = (props) => <Heading as="h6" fontSize="xs" mb="0.5em" {...props} />;
+const HR = (props) => <Divider my={8} {...props} />;
 const UL = (props) => (
   <List styleType="disc" stylePos="outside" ml="1em" mb="1em" {...props} />
-)
-const LI = (props) => <ListItem {...props} />
-const P = (props) => <Text mb="1em" {...props} />
+);
+const LI = (props) => <ListItem {...props} />;
+const P = (props) => <Text mb="1em" {...props} />;
 
 const components = {
   a: A,
@@ -63,8 +63,8 @@ const components = {
   li: LI,
   p: P,
   ul: UL,
-}
+};
 
 export const Mdx = ({ children }) => (
   <MDXProvider components={components}>{children}</MDXProvider>
-)
+);

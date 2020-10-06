@@ -1,7 +1,7 @@
-import React from "react"
-import { Button, Text } from "@chakra-ui/core"
-import PropTypes from "prop-types"
-import { Card } from "../Card"
+import React from "react";
+import { Button, Text } from "@chakra-ui/core";
+import PropTypes from "prop-types";
+import { Card } from "../Card";
 
 const propTypes = {
   metadata: PropTypes.shape({
@@ -11,7 +11,7 @@ const propTypes = {
     meetup_end_time: PropTypes.string.isRequired,
     meetup_location: PropTypes.string.isRequired,
   }).isRequired,
-}
+};
 
 export const MeetupRegistration = ({ metadata, ...props }) => {
   return (
@@ -37,7 +37,7 @@ export const MeetupRegistration = ({ metadata, ...props }) => {
         Inscrivez-vous !
       </Button>
     </Card>
-  )
-}
+  );
+};
 
-MeetupRegistration.propTypes = propTypes
+MeetupRegistration.propTypes = propTypes;
