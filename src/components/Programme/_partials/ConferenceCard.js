@@ -15,6 +15,7 @@ import {
   Flex,
   Badge,
   Icon,
+  Grid,
 } from "@chakra-ui/core";
 import { Link } from "gatsby";
 import dayjs from "dayjs";
@@ -29,21 +30,24 @@ export const ConferenceCard = ({ conference }) => {
 
   return (
     <Stack>
-      <Flex mt={3}>
-        <Stack flex="0.3" p={5}>
-          <Flex align="center">
-            <Text>
-              {capitalizeFirstLetter(
-                dayjs(conference.childMdx.frontmatter.eventDate).format(
-                  "dddd D MMM"
-                )
-              )}
+      <Grid templateColumns={["repeat(1, 1fr)", "repeat(1, 1fr) repeat(1, 2fr)"]} mt={3}>
+        <Stack p={5}>
+          <Stack display={["flex", "block"]} flexDir="row" align="center">
+            <Flex align="center">
+              <Text mt={[2, 0]}>
+                {capitalizeFirstLetter(
+                  dayjs(conference.childMdx.frontmatter.eventDate).format(
+                    "dddd D MMM"
+                  )
+                )}
+              </Text>
+              <Icon display={["none", "block"]} name="chevron-right" ml={2} />
+            </Flex>
+            <Text ml={[2, 0]} mt={[2, 0]}>
+              {`${conference.childMdx.frontmatter.startHour} - ${conference.childMdx.frontmatter.endHour}`}
             </Text>
-            <Icon name="chevron-right" ml={2} />
-          </Flex>
-          <Text>
-            {`${conference.childMdx.frontmatter.startHour} - ${conference.childMdx.frontmatter.endHour}`}
-          </Text>
+            <Icon display={["block", "none"]} name="chevron-down" ml={2} />
+          </Stack>
           {conference.childMdx.frontmatter.isKeynote && (
             <Badge variantColor="brand" width="fit-content">
               Keynote
@@ -53,9 +57,9 @@ export const ConferenceCard = ({ conference }) => {
         <Card
           borderLeftWidth={2}
           borderLeftColor="brand.600"
-          flex="0.7"
           onClick={onOpen}
           as="a"
+          href="#"
           isLink
         >
           <Heading fontSize="md">
@@ -63,17 +67,15 @@ export const ConferenceCard = ({ conference }) => {
           </Heading>
           <Text mt={2}>{conference.childMdx.frontmatter.speaker}</Text>
           <Button
-            as="a"
             variantColor="brand"
             variant="link"
             width="fit-content"
             mt={2}
-            onClick={onOpen}
           >
             Voir le détails et s'inscrire
           </Button>
         </Card>
-      </Flex>
+      </Grid>
 
       <Drawer size="md" isOpen={isOpen} placement="right" onClose={onClose}>
         <DrawerOverlay>
@@ -106,7 +108,7 @@ export const ConferenceCard = ({ conference }) => {
               </Text>
             </DrawerHeader>
 
-            <DrawerBody>
+            <DrawerBody overflow="auto">
               {conference.childMdx.frontmatter.description}
             </DrawerBody>
 
