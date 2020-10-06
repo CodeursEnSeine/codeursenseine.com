@@ -30,16 +30,14 @@ import { Programme } from "components/Programme"
 
   <Programme />
 
-  <Card to="https://twitch.tv/codeursenseine" as={Link} mt={5} isLink>
+  <Card to="https://twitch.tv/codeursenseine" as={Link} mt={8} isLink variant="primary">
     <Stack align="center">
-      <Box>
-        <Text>
-          Lien vers la chaîne Twitch de Codeurs en Seine
-        </Text>
-      </Box>
+      <Text>
+        Suivez nous sur Twicth pour ne manquer aucune conférence.
+      </Text>
       <Button
         as="a"
-        variantColor="brand"
+        color="brand.600"
       >
         twitch.tv/codeursenseine
       </Button>
