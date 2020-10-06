@@ -105,7 +105,7 @@ export const ConferenceCard = ({ conference }) => {
               conference.childMdx.frontmatter.meetupLink && (
                 <DrawerFooter display="flex" flexDirection="column">
                   <Button variant="outline" mb={3} onClick={onClose}>
-                    Annuler
+                    Fermer
                   </Button>
                   <Button
                     variantColor="brand"
