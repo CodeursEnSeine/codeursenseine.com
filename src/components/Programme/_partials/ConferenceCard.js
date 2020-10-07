@@ -112,21 +112,23 @@ export const ConferenceCard = ({ conference }) => {
               {conference.childMdx.frontmatter.description}
             </DrawerBody>
 
-            {conference.childMdx.frontmatter.meetupLink && (
-              <DrawerFooter display="flex" flexDirection="column">
-                <Button variant="outline" mb={3} onClick={onClose}>
-                  Annuler
-                </Button>
-                <Button
-                  variantColor="brand"
-                  as={Link}
-                  target="_blank"
-                  to={conference.childMdx.frontmatter.meetupLink}
-                >
-                  S'inscrire
-                </Button>
-              </DrawerFooter>
-            )}
+            {
+              conference.childMdx.frontmatter.meetupLink && (
+                <DrawerFooter display="flex" flexDirection="column">
+                  <Button variant="outline" mb={3} onClick={onClose}>
+                    Fermer
+                  </Button>
+                  <Button
+                    variantColor="brand"
+                    as={Link}
+                    target="_blank"
+                    to={conference.childMdx.frontmatter.meetupLink}
+                  >
+                    S'inscrire 
+                  </Button>
+                </DrawerFooter>
+              )
+            }
           </DrawerContent>
         </DrawerOverlay>
       </Drawer>
