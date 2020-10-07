@@ -30,7 +30,10 @@ export const ConferenceCard = ({ conference }) => {
 
   return (
     <Stack>
-      <Grid templateColumns={["repeat(1, 1fr)", "repeat(1, 1fr) repeat(1, 2fr)"]} mt={3}>
+      <Grid
+        templateColumns={["repeat(1, 1fr)", "repeat(1, 1fr) repeat(1, 2fr)"]}
+        mt={3}
+      >
         <Stack p={5}>
           <Stack display={["flex", "block"]} flexDir="row" align="center">
             <Flex align="center">
@@ -58,8 +61,6 @@ export const ConferenceCard = ({ conference }) => {
           borderLeftWidth={2}
           borderLeftColor="brand.600"
           onClick={onOpen}
-          as="a"
-          href="#"
           isLink
         >
           <Heading fontSize="md">
@@ -112,23 +113,21 @@ export const ConferenceCard = ({ conference }) => {
               {conference.childMdx.frontmatter.description}
             </DrawerBody>
 
-            {
-              conference.childMdx.frontmatter.meetupLink && (
-                <DrawerFooter display="flex" flexDirection="column">
-                  <Button variant="outline" mb={3} onClick={onClose}>
-                    Fermer
-                  </Button>
-                  <Button
-                    variantColor="brand"
-                    as={Link}
-                    target="_blank"
-                    to={conference.childMdx.frontmatter.meetupLink}
-                  >
-                    S'inscrire 
-                  </Button>
-                </DrawerFooter>
-              )
-            }
+            {conference.childMdx.frontmatter.meetupLink && (
+              <DrawerFooter display="flex" flexDirection="column">
+                <Button variant="outline" mb={3} onClick={onClose}>
+                  Fermer
+                </Button>
+                <Button
+                  variantColor="brand"
+                  as={Link}
+                  target="_blank"
+                  to={conference.childMdx.frontmatter.meetupLink}
+                >
+                  S'inscrire
+                </Button>
+              </DrawerFooter>
+            )}
           </DrawerContent>
         </DrawerOverlay>
       </Drawer>

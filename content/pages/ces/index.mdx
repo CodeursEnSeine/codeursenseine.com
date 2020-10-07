@@ -10,6 +10,7 @@ import { Card } from "components/Card"
 import { Newsletter } from "components/Newsletter"
 import { ButtonGroup } from "components/ButtonGroup"
 import { OGImage } from "components/OG"
+import { SponsorsList } from "components/Sponsors"
 
 <OGImage path="/images/ces/social.jpg" />
 <Stack spacing="16">
@@ -99,7 +100,9 @@ import { OGImage } from "components/OG"
     </Text>
   </Stack>
 
-  <Flex align="center" justify="center">
+  <SponsorsList />
+
+  <Flex align="center" justify="center" mt={8}>
     <a href="https://www.netlify.com">
       <img src="https://www.netlify.com/img/global/badges/netlify-light.svg" alt="Deploys by Netlify" />
     </a>

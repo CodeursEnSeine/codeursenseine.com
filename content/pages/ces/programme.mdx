@@ -17,6 +17,7 @@ import {
 import { Link } from "gatsby"
 import { Card } from "components/Card"
 import { Programme } from "components/Programme"
+import { SponsorsList } from "components/Sponsors"
 
 <Stack>
   <Heading as="h1" mb={8}>
@@ -30,13 +31,12 @@ import { Programme } from "components/Programme"
 
   <Programme />
 
-  <Card to="https://twitch.tv/codeursenseine" as={Link} mt={8} isLink variant="primary">
+  <Card href="https://twitch.tv/codeursenseine" as="a" my={8} isLink variant="primary">
     <Stack align="center">
       <Text>
         Suivez nous sur Twitch pour ne manquer aucune conférence.
       </Text>
       <Button
-        as="a"
         color="brand.600"
       >
         twitch.tv/codeursenseine
@@ -44,3 +44,5 @@ import { Programme } from "components/Programme"
     </Stack>
   </Card>
 </Stack>
+
+<SponsorsList />
