@@ -21,9 +21,9 @@ export const Programme = () => {
               endHour
               speaker
               isKeynote
-              description
               meetupLink
             }
+            body
           }
         }
       }
