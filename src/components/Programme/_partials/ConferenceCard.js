@@ -74,7 +74,7 @@ export const ConferenceCard = ({ conference }) => {
             width="fit-content"
             mt={2}
           >
-            Voir le détails et s'inscrire
+            Voir les détails et s'inscrire
           </Button>
         </Card>
       </Grid>
