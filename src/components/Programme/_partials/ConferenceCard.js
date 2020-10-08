@@ -21,6 +21,7 @@ import { Link } from "gatsby";
 import dayjs from "dayjs";
 import "dayjs/locale/fr";
 import { Card } from "components/Card";
+import { MDXRenderer } from "gatsby-plugin-mdx";
 
 export const ConferenceCard = ({ conference }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -110,7 +111,7 @@ export const ConferenceCard = ({ conference }) => {
             </DrawerHeader>
 
             <DrawerBody overflow="auto">
-              {conference.childMdx.frontmatter.description}
+              <MDXRenderer>{conference.childMdx.body}</MDXRenderer>
             </DrawerBody>
 
             {conference.childMdx.frontmatter.meetupLink && (
