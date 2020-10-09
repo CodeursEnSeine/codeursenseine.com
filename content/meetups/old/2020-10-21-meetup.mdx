@@ -1,0 +1,75 @@
+---
+layout: meetups-post
+group: meetups
+category: meetup
+
+slug: introduction-au-stream-processing
+published: true
+
+title: "Introduction au Stream Processing - par Nicolas Frankel"
+excerpt: "Du traitement par lot au stream processing, évolution, différences, cas d'usage et live demo !"
+
+meetup_date:          2020-10-21
+meetup_start_time:    19h00
+meetup_end_time:      20h00
+meetup_location:      Diffusion sur Twitch sur la chaine CodeursEnSeine
+meetup_register_link: https://www.meetup.com/fr-FR/codeursenseine/events/273818012/
+
+---
+
+import { MeetupSpeakers } from "components/Meetup"
+
+### Lien vers la chaine Twitch de Codeurs en Seine
+
+<a href="https://www.twitch.tv/codeursenseine">twitch.tv/codeursenseine</a>
+
+---
+
+### Meetup : Introduction au Stream Processing
+
+Data streaming is the new black: dans cette introduction au stream processing
+et avec une démo amusante, Nicoals va nous montrer en quoi cela consiste et
+comment on peut en tirer parti.
+
+Alors que «les logiciels mangent le monde», ceux qui sont capables de gérer
+au mieux l'énorme masse de données sortiront vainqueurs.
+
+Le modèle de traitement par lots nous sert fidèlement depuis des décennies.
+Cependant, il pourrait avoir atteint la fin de son utilité pour tous, sauf
+certains cas d'utilisation très spécifiques. À mesure que le rythme des
+entreprises augmente, la plupart du temps, les décideurs préfèrent des
+données immédiates, même si légèrement fausses plus tôt que des données
+précises à 100% plus tard. Le traitement de flux de données - ou Stream
+Processing - correspond exactement à cet usage: au lieu de gérer l'ensemble
+des données, gérez-en des parties dès qu'elles sont disponibles.
+
+Dans cet exposé, Nicolas définira le contexte dans lequel l'ancien modèle de
+traitement par lots (Batch Processing) est né, les raisons qui sous-tendent
+le nouveau modèle de traitement de flux (Stream Processing), comment ils se
+comparent, quels sont leurs avantages et inconvénients, et une liste des
+technologies existantes mettant en œuvre ce dernier avec leurs
+caractéristiques les plus marquantes. Il terminera en décrivant en détail un
+cas d’utilisation possible du streaming de données qui n’est pas possible
+avec des lots: afficher en temps (quasi) réel tous les trains en Suisse et
+leur position sur une carte. Il passera en revue toutes les exigences et
+la conception. Enfin, en utilisant un point de terminaison OpenData et la
+plate-forme Hazelcast, il tentera de nous impressionner avec la mise en œuvre
+d'une démonstration fonctionnelle.
+
+<MeetupSpeakers speakers={[{
+  name: "Nicolas Frankel",
+  avatar: "https://pbs.twimg.com/profile_images/1063110424306929664/9pYrPAp6_400x400.jpg",
+  twitter: "nicolas_frankel",
+  description: ""
+}]} />
+
+Nicolas Frankel possède plus de 15 ans d'expérience dans le conseil pour de
+nombreux clients différents, dans un large éventail de contextes (tels que
+les télécommunications, la banque, les assurances, la grande distribution et
+le secteur public). Il affectionne généralement les technologies Java/JavaEE
+et Spring, mais avec des intérêts spécifiques tels que les applications
+Internet riches, les tests, CI / CD et DevOps. Actuellement Nicolas travaille
+pour Hazelcast et il officie également en tant que professeur dans des
+universités et écoles supérieures, et est formateur et triple auteur de livres.
+
+---
