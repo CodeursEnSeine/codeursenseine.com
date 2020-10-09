@@ -1,4 +1,5 @@
 import React from "react";
+import parse from "html-react-parser";
 import { graphql, Link } from "gatsby";
 import { Box, Grid, Stack, Heading, Image, Flex, Text } from "@chakra-ui/core";
 import Layout from "components/layout";
@@ -42,7 +43,7 @@ const Meetups = ({ data }) => {
                       size="lg"
                       fontWeight="normal"
                     >
-                      {meetup.frontmatter.title}
+                      {parse(meetup.frontmatter.title)}
                     </Heading>
                     {meetup.frontmatter.excerpt !== "" && (
                       <Text>{meetup.frontmatter.excerpt}</Text>
