@@ -105,26 +105,21 @@ export const Nav = ({
             </NavLink>
             {pathname.startsWith(`/${currentYear}`) && (
               <>
+                <NavLink as={Link} to={`/${currentYear}/programme`}>
+                  Programme
+                </NavLink>
+                <NavLink as={Link} to={`/${currentYear}/sponsors`}>
+                  Sponsors
+                </NavLink>
                 <NavLink as={Link} to={`/${currentYear}/organisateurs`}>
                   Organisateurs
                 </NavLink>
-                <NavLink
-                  isActive={true}
-                  as={Link}
-                  to={`/${currentYear}/sponsors`}
-                >
-                  Sponsors
+                <NavLink as={Link} to={`/${currentYear}/kit-de-presse`}>
+                  Kit de presse
                 </NavLink>
-                {groupedPages["ces"] &&
-                  groupedPages["ces"].map((page) => (
-                    <NavLink
-                      key={page.parent.name}
-                      as={Link}
-                      to={`/${currentYear}/${page.parent.name}`}
-                    >
-                      {page.frontmatter.title}
-                    </NavLink>
-                  ))}
+                <NavLink as={Link} to={`/${currentYear}/code-of-conduct`}>
+                  Code de conduite
+                </NavLink>
               </>
             )}
           </Stack>

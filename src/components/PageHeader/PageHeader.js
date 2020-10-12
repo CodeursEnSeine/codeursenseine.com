@@ -19,11 +19,7 @@ export const PageHeader = () => {
         return null;
 
       default:
-        return (
-          <Button as={Link} to="/2020/sponsors" variantColor="brand">
-            Devenir sponsor
-          </Button>
-        );
+        return null;
     }
   };
 
