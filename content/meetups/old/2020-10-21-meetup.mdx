@@ -1,12 +1,8 @@
 ---
-layout: meetups-post
-group: meetups
-category: meetup
-
 slug: introduction-au-stream-processing
 published: true
 
-title: "Introduction au Stream Processing - par Nicolas Frankel"
+title: "Introduction au Stream Processing"
 excerpt: "Du traitement par lot au stream processing, évolution, différences, cas d'usage et live demo !"
 
 meetup_date:          2020-10-21
@@ -14,10 +10,9 @@ meetup_start_time:    19h00
 meetup_end_time:      20h00
 meetup_location:      Diffusion sur Twitch sur la chaine CodeursEnSeine
 meetup_register_link: https://www.meetup.com/fr-FR/codeursenseine/events/273818012/
-
 ---
 
-import { MeetupSpeakers } from "components/Meetup"
+import { MeetupSpeaker } from "components/Meetup"
 
 ### Lien vers la chaine Twitch de Codeurs en Seine
 
@@ -56,13 +51,11 @@ la conception. Enfin, en utilisant un point de terminaison OpenData et la
 plate-forme Hazelcast, il tentera de nous impressionner avec la mise en œuvre
 d'une démonstration fonctionnelle.
 
-<MeetupSpeakers speakers={[{
+<MeetupSpeaker speaker={{
   name: "Nicolas Frankel",
   avatar: "https://pbs.twimg.com/profile_images/1063110424306929664/9pYrPAp6_400x400.jpg",
   twitter: "nicolas_frankel",
-  description: ""
-}]} />
-
+  bio: `
 Nicolas Frankel possède plus de 15 ans d'expérience dans le conseil pour de
 nombreux clients différents, dans un large éventail de contextes (tels que
 les télécommunications, la banque, les assurances, la grande distribution et
@@ -71,5 +64,9 @@ et Spring, mais avec des intérêts spécifiques tels que les applications
 Internet riches, les tests, CI / CD et DevOps. Actuellement Nicolas travaille
 pour Hazelcast et il officie également en tant que professeur dans des
 universités et écoles supérieures, et est formateur et triple auteur de livres.
+`
+}} />
+
+
 
 ---
