@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Heading } from "@chakra-ui/core";
+import parse from "html-react-parser";
 
 const propTypes = {
   metadata: PropTypes.shape({
@@ -11,7 +12,7 @@ const propTypes = {
 export const MeetupTitle = ({ metadata, ...props }) => {
   return (
     <Heading as="h1" fontWeight="normal" {...props}>
-      {metadata.title}
+      {parse(metadata.title)}
     </Heading>
   );
 };
