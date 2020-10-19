@@ -12,6 +12,8 @@ export const PageHeader = () => {
         variant="outline"
         variantColor="brand"
         as="a"
+        target="_blank"
+        rel="noopener noreferrer"
         href="https://www.helloasso.com/associations/codeurs-en-seine/formulaires/1/widget"
       >
         Faire un don
