@@ -21,6 +21,7 @@ import { Link } from "gatsby";
 import dayjs from "dayjs";
 import "dayjs/locale/fr";
 import { Card } from "components/Card";
+import { MDXRenderer } from "gatsby-plugin-mdx";
 
 export const ConferenceCard = ({ conference }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -30,7 +31,10 @@ export const ConferenceCard = ({ conference }) => {
 
   return (
     <Stack>
-      <Grid templateColumns={["repeat(1, 1fr)", "repeat(1, 1fr) repeat(1, 2fr)"]} mt={3}>
+      <Grid
+        templateColumns={["repeat(1, 1fr)", "repeat(1, 1fr) repeat(1, 2fr)"]}
+        mt={3}
+      >
         <Stack p={5}>
           <Stack display={["flex", "block"]} flexDir="row" align="center">
             <Flex align="center">
@@ -58,8 +62,6 @@ export const ConferenceCard = ({ conference }) => {
           borderLeftWidth={2}
           borderLeftColor="brand.600"
           onClick={onOpen}
-          as="a"
-          href="#"
           isLink
         >
           <Heading fontSize="md">
@@ -72,7 +74,7 @@ export const ConferenceCard = ({ conference }) => {
             width="fit-content"
             mt={2}
           >
-            Voir le détails et s'inscrire
+            Voir les détails et s'inscrire
           </Button>
         </Card>
       </Grid>
@@ -109,13 +111,13 @@ export const ConferenceCard = ({ conference }) => {
             </DrawerHeader>
 
             <DrawerBody overflow="auto">
-              {conference.childMdx.frontmatter.description}
+              <MDXRenderer>{conference.childMdx.body}</MDXRenderer>
             </DrawerBody>
 
             {conference.childMdx.frontmatter.meetupLink && (
               <DrawerFooter display="flex" flexDirection="column">
                 <Button variant="outline" mb={3} onClick={onClose}>
-                  Annuler
+                  Fermer
                 </Button>
                 <Button
                   variantColor="brand"

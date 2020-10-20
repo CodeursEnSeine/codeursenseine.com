@@ -17,6 +17,7 @@ import {
 import { Link } from "gatsby"
 import { Card } from "components/Card"
 import { Programme } from "components/Programme"
+import { SponsorsList } from "components/Sponsors"
 
 <Stack>
   <Heading as="h1" mb={8}>
@@ -25,18 +26,17 @@ import { Programme } from "components/Programme"
   <Text>
     Cette année, au vu du contexte actuel lié à l'épidémie du COVID, nous vous proposons une édition un peu particulière :
     L'édition 2020 se déroulera sous forme de Meetups en ligne sur Twitch, au moins 2 fois par semaine pour le mois de novembre et pour un total de 9 meetups.
-    Nous vous acceuillons à partir de 21h les mardis et jeudis sur Twitch !
+    Nous vous accueillons à partir de 21h les mardis et jeudis sur Twitch !
   </Text>
 
   <Programme />
 
-  <Card to="https://twitch.tv/codeursenseine" as={Link} mt={8} isLink variant="primary">
+  <Card href="https://twitch.tv/codeursenseine" as="a" my={8} isLink variant="primary">
     <Stack align="center">
       <Text>
-        Suivez nous sur Twicth pour ne manquer aucune conférence.
+        Suivez nous sur Twitch pour ne manquer aucune conférence.
       </Text>
       <Button
-        as="a"
         color="brand.600"
       >
         twitch.tv/codeursenseine
@@ -44,3 +44,5 @@ import { Programme } from "components/Programme"
     </Stack>
   </Card>
 </Stack>
+
+<SponsorsList />

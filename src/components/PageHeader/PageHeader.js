@@ -7,22 +7,42 @@ export const PageHeader = () => {
   const { themeName, data } = useTheme();
 
   const getButtons = () => {
+    const donationButton = (
+      <Button
+        variant="outline"
+        variantColor="brand"
+        as="a"
+        target="_blank"
+        rel="noopener noreferrer"
+        href="https://www.helloasso.com/associations/codeurs-en-seine/formulaires/1/widget"
+      >
+        Faire un don
+      </Button>
+    );
+
     switch (themeName) {
       case "meetups":
         return (
-          <Button as={Link} to="/meetups/sponsors" variantColor="brand">
-            Devenir sponsor
-          </Button>
+          <ButtonGroup justifyContent="center" flexGrow={{ base: 1, md: 0 }}>
+            <Button as={Link} to="/meetups/sponsors" variantColor="brand">
+              Devenir sponsor
+            </Button>
+            {donationButton}
+          </ButtonGroup>
         );
 
       case "devoxx4kids":
-        return null;
+        return (
+          <ButtonGroup justifyContent="center" flexGrow={{ base: 1, md: 0 }}>
+            {donationButton}
+          </ButtonGroup>
+        );
 
       default:
         return (
-          <Button as={Link} to="/2020/sponsors" variantColor="brand">
-            Devenir sponsor
-          </Button>
+          <ButtonGroup justifyContent="center" flexGrow={{ base: 1, md: 0 }}>
+            {donationButton}
+          </ButtonGroup>
         );
     }
   };
@@ -42,9 +62,7 @@ export const PageHeader = () => {
           {data.title}
         </Heading>
       </Box>
-      <ButtonGroup justifyContent="center" flexGrow={{ base: 1, md: 0 }}>
-        {getButtons()}
-      </ButtonGroup>
+      {getButtons()}
     </Flex>
   );
 };

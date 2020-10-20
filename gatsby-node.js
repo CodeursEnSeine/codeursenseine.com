@@ -151,7 +151,12 @@ exports.createPages = async ({ graphql, actions }) => {
   // -------------------- CREATING DYNAMIC PAGES --------------------------
   const pagesQuery = await graphql(`
     query {
-      allFile(filter: { sourceInstanceName: { eq: "pages" } }) {
+      allFile(
+        filter: {
+          sourceInstanceName: { eq: "pages" }
+          extension: { eq: "mdx" }
+        }
+      ) {
         nodes {
           childMdx {
             id
