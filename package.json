@@ -22,6 +22,7 @@
     "gatsby-remark-images": "3.3.36",
     "gatsby-source-filesystem": "2.3.35",
     "gatsby-transformer-sharp": "2.5.18",
+    "gatsby-plugin-feed": "2.24.84",
     "html-react-parser": "^0.14.0",
     "prompt": "1.0.0",
     "prop-types": "15.7.2",
