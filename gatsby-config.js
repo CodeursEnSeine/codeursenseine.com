@@ -8,6 +8,7 @@ module.exports = {
   plugins: [
     {
       resolve: `gatsby-alias-imports`,
+      resolve: `gatsby-plugin-feed`,
     },
     {
       resolve: `gatsby-source-filesystem`,
