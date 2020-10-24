@@ -1,14 +1,16 @@
+const slugify = require(`slugify`);
+
 module.exports = {
   siteMetadata: {
     title: `Codeurs en Seine`,
     description: `Rencontre de codeuses & codeurs à Rouen`,
+    siteUrl: `https://www.codeursenseine.com`,
     author: `@codeursenseine`,
     currentYear: `2020`,
   },
   plugins: [
     {
       resolve: `gatsby-alias-imports`,
-      resolve: `gatsby-plugin-feed`,
     },
     {
       resolve: `gatsby-source-filesystem`,
@@ -79,9 +81,10 @@ module.exports = {
         theme_color: `#034ea2`,
         display: `minimal-ui`,
         icon: `src/images/ces.png`, // This path is relative to the root of the site.
-      },  
-     },
+      },
+    },
     {
+      resolve: `gatsby-plugin-feed`,
       options: {
         query: `
           {
@@ -97,38 +100,52 @@ module.exports = {
         `,
         feeds: [
           {
-            serialize: ({ query: { site, allMarkdownRemark } }) => {
-              return allMarkdownRemark.edges.map(edge => {
-                return Object.assign({}, edge.node.frontmatter, {
-                  description: edge.node.excerpt,
-                  date: edge.node.frontmatter.date,
-                  url: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                  guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                  custom_elements: [{ "content:encoded": edge.node.html }],
-                })
-              })
+            serialize: ({ query: { site, allFile } }) => {
+              return allFile.nodes.map((node) => {
+                return Object.assign(
+                  {},
+                  {
+                    title: node.childMdx.frontmatter.title,
+                    description: node.childMdx.excerpt,
+                    date: node.childMdx.frontmatter.meetup_date,
+                    url: `${site.siteMetadata.siteUrl}/meetups/events/${slugify(
+                      node.childMdx.frontmatter.slug,
+                      {
+                        strict: true,
+                        lower: true,
+                      }
+                    )}`,
+                    guid: `${
+                      site.siteMetadata.siteUrl
+                    }/meetups/events/${slugify(node.childMdx.frontmatter.slug, {
+                      strict: true,
+                      lower: true,
+                    })}`,
+                    // custom_elements: [
+                    //   { "content:encoded": node.childMdx.html },
+                    // ],
+                  }
+                );
+              });
             },
             query: `
               {
-                allMarkdownRemark(
-                  sort: { order: DESC, fields: [frontmatter___date] },
-                ) {
-                  edges {
-                    node {
-                      excerpt
-                      html
-                      fields { slug }
+                allFile(filter: {sourceInstanceName: {eq: "meetups"}, childMdx: {frontmatter: {published: {eq: true}}}}, sort: {order: DESC, fields: childMdx___frontmatter___meetup_date}) {
+                  nodes {
+                    childMdx {
                       frontmatter {
+                        meetup_date
+                        slug
                         title
-                        date
                       }
+                      excerpt
                     }
                   }
                 }
               }
             `,
-            output: "/rss.xml",
-            title: "RSS Feed",
+            output: "/meetups/rss.xml",
+            title: "Meetups - Codeurs en Seine",
           },
         ],
       },
