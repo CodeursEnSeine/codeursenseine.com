@@ -1,7 +1,10 @@
+const slugify = require(`slugify`);
+
 module.exports = {
   siteMetadata: {
     title: `Codeurs en Seine`,
     description: `Rencontre de codeuses & codeurs à Rouen`,
+    siteUrl: `https://www.codeursenseine.com`,
     author: `@codeursenseine`,
     currentYear: `2020`,
   },
@@ -80,11 +83,72 @@ module.exports = {
         icon: `src/images/ces.png`, // This path is relative to the root of the site.
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
-
-    // Must be at the end of the plugins
-    `gatsby-plugin-client-side-redirect`,
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+                site_url: siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allFile } }) => {
+              return allFile.nodes.map((node) => {
+                return Object.assign(
+                  {},
+                  {
+                    title: node.childMdx.frontmatter.title,
+                    description: node.childMdx.excerpt,
+                    date: node.childMdx.frontmatter.meetup_date,
+                    url: `${site.siteMetadata.siteUrl}/meetups/events/${slugify(
+                      node.childMdx.frontmatter.slug,
+                      {
+                        strict: true,
+                        lower: true,
+                      }
+                    )}`,
+                    guid: `${
+                      site.siteMetadata.siteUrl
+                    }/meetups/events/${slugify(node.childMdx.frontmatter.slug, {
+                      strict: true,
+                      lower: true,
+                    })}`,
+                    // custom_elements: [
+                    //   { "content:encoded": node.childMdx.html },
+                    // ],
+                  }
+                );
+              });
+            },
+            query: `
+              {
+                allFile(filter: {sourceInstanceName: {eq: "meetups"}, childMdx: {frontmatter: {published: {eq: true}}}}, sort: {order: DESC, fields: childMdx___frontmatter___meetup_date}) {
+                  nodes {
+                    childMdx {
+                      frontmatter {
+                        meetup_date
+                        slug
+                        title
+                      }
+                      excerpt
+                    }
+                  }
+                }
+              }
+            `,
+            output: "/meetups/rss.xml",
+            title: "Meetups - Codeurs en Seine",
+          },
+        ],
+      },
+    },
   ],
 };
