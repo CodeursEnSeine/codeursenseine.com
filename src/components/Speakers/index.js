@@ -6,7 +6,7 @@ import "dayjs/locale/fr";
 import { SpeakerCard } from "components/Speakers/_partials/SpeakerCard";
 
 export const Speakers = () => {
-  const speakers = useStaticQuery(graphql`
+  const data = useStaticQuery(graphql`
     query {
       allFile(
         filter: { sourceInstanceName: { eq: "speakers" } }
@@ -21,6 +21,8 @@ export const Speakers = () => {
               company
               bio
               References
+              twitterLink
+              githubLink
             }
             body
           }
@@ -31,9 +33,11 @@ export const Speakers = () => {
 
   dayjs.locale("fr");
 
+  const speakers = data.allFile.nodes.filter(speaker => speaker.childMdx);
+
   return (
-    <Stack mt={5}>
-      <SimpleGrid columns={[1, null, null, 2]}>
+    <Stack my={5}>
+      <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={5}>
         {speakers.map((speaker, index) => (
           <SpeakerCard key={`speaker-${index}`} speaker={speaker} />
         ))}
