@@ -3,7 +3,6 @@ import "dayjs/locale/fr";
 import {
   Heading,
   Text,
-  Button,
   Flex,
   Box,
   Image,
