@@ -4,9 +4,23 @@ navigation: true
 order: 60
 ---
 
-import { Box, Heading, SimpleGrid, Stack, Text } from "@chakra-ui/core";
+import { Box, Button, Divider, Heading, SimpleGrid, Stack, Text } from "@chakra-ui/core";
+import { StackInline } from "components/StackInline";
 
 <Stack spacing={8}>
+  <Heading size="lg">Photos de l'édition 2019</Heading>
+  <StackInline>
+    <Button
+      as="a"
+      href="https://drive.google.com/drive/folders/1Tri7CxDlvc9r6u-tH9Zb65xdQH6uOruY?usp=sharing"
+      variantColor="brand"
+    >
+      Photos par Arnaud Lemercier
+    </Button>
+  </StackInline>
+
+  <Divider />
+
   <Heading size="lg">Codeurs en Seine : Bilan de l’édition 2019</Heading>
 
   <Text>
