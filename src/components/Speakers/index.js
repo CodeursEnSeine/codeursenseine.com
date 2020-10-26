@@ -35,10 +35,12 @@ export const Speakers = () => {
 
   const speakers = data.allFile.nodes.filter(speaker => speaker.childMdx);
 
+  const speakersSorted = speakers.sort((a, b) => (a.childMdx.name > b.childMdx.name) ? 1 : ((b.childMdx.name > a.childMdx.name) ? -1 : 0)); 
+
   return (
     <Stack my={5}>
       <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={5}>
-        {speakers.map((speaker, index) => (
+        {speakersSorted.map((speaker, index) => (
           <SpeakerCard key={`speaker-${index}`} speaker={speaker} />
         ))}
       </SimpleGrid>
