@@ -35,7 +35,7 @@ export const Speakers = () => {
 
   const speakers = data.allFile.nodes.filter(speaker => speaker.childMdx);
 
-  const speakersSorted = speakers.sort((a, b) => (a.childMdx.name > b.childMdx.name) ? 1 : ((b.childMdx.name > a.childMdx.name) ? -1 : 0)); 
+  const speakersSorted = speakers.sort((a, b) => (a.childMdx.frontmatter.name > b.childMdx.frontmatter.name) ? 1 : ((b.childMdx.frontmatter.name > a.childMdx.frontmatter.name) ? -1 : 0)); 
 
   return (
     <Stack my={5}>
