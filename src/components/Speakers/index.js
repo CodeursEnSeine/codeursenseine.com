@@ -1,8 +1,6 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import { Stack, SimpleGrid } from "@chakra-ui/core";
-import dayjs from "dayjs";
-import "dayjs/locale/fr";
 import { SpeakerCard } from "components/Speakers/_partials/SpeakerCard";
 
 export const Speakers = () => {
@@ -10,6 +8,7 @@ export const Speakers = () => {
     query {
       allFile(
         filter: { sourceInstanceName: { eq: "speakers" } }
+        sort: { fields: childMdx___frontmatter___name }
       ) {
         nodes {
           childMdx {
@@ -19,8 +18,6 @@ export const Speakers = () => {
                 publicURL
               }
               company
-              bio
-              References
               twitterLink
               githubLink
             }
@@ -31,16 +28,12 @@ export const Speakers = () => {
     }
   `);
 
-  dayjs.locale("fr");
-
-  const speakers = data.allFile.nodes.filter(speaker => speaker.childMdx);
-
-  const speakersSorted = speakers.sort((a, b) => (a.childMdx.frontmatter.name > b.childMdx.frontmatter.name) ? 1 : ((b.childMdx.frontmatter.name > a.childMdx.frontmatter.name) ? -1 : 0)); 
+  const speakers = data.allFile.nodes.filter((speaker) => speaker.childMdx);
 
   return (
     <Stack my={5}>
       <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={5}>
-        {speakersSorted.map((speaker, index) => (
+        {speakers.map((speaker, index) => (
           <SpeakerCard key={`speaker-${index}`} speaker={speaker} />
         ))}
       </SimpleGrid>
