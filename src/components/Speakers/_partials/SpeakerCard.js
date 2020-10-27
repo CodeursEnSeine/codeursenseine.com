@@ -20,7 +20,6 @@ export const SpeakerCard = ({ speaker }) => {
     },
     company,
     bio,
-    References,
     twitterLink,
     githubLink,
   } = speaker?.childMdx?.frontmatter;
@@ -76,19 +75,9 @@ export const SpeakerCard = ({ speaker }) => {
           )}
         </Box>
       </Flex>
-      <Box>
-        <Text mt={4}>{bio}</Text>
-        {References && (
-          <Box mt={5}>
-            <Heading fontSize="sm">
-              Références
-            </Heading>
-            <Text mt={1}>
-              {References}
-            </Text>
-          </Box>
+        {bio && (
+          <Text mt={4}>{bio}</Text>
         )}
-      </Box>
     </Card>
   );
 };
