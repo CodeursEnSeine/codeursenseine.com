@@ -108,6 +108,9 @@ export const Nav = ({
                 <NavLink as={Link} to={`/${currentYear}/programme`}>
                   Programme
                 </NavLink>
+                <NavLink as={Link} to={`/${currentYear}/speakers`}>
+                  Intervenants
+                </NavLink>
                 <NavLink as={Link} to={`/${currentYear}/sponsors`}>
                   Sponsors
                 </NavLink>
