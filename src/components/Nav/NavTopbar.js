@@ -9,10 +9,20 @@ import {
 } from "@chakra-ui/core";
 import { FiMenu } from "react-icons/fi";
 import { Logo } from "../Logo";
-import { Link } from "gatsby";
+import { graphql, useStaticQuery, Link } from "gatsby";
 
 export const NavTopbar = ({ onNavOpen = () => {}, ...props }) => {
   const theme = useTheme();
+
+  const data = useStaticQuery(graphql`
+    query NavTopbarQuery {
+      site {
+        siteMetadata {
+          currentYear
+        }
+      }
+    }
+  `);
 
   return (
     <Flex
@@ -29,8 +39,7 @@ export const NavTopbar = ({ onNavOpen = () => {}, ...props }) => {
       align="center"
       {...props}
     >
-      {/* TODO: if possible, set the link to current year to avoid multiple redirect */}
-      <Link to="/">
+      <Link to={`/${data.site.siteMetadata.currentYear}`}>
         <Logo w="4.5" h="2.5rem" pl="2" />
       </Link>
       <Box textAlign="center">
