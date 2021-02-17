@@ -1,5 +1,4 @@
 # Codeurs en Seine New Website
-
 ## 🚀 Quick start
 
 1.  **Install dependencies**
@@ -30,6 +29,22 @@ To quickly create a new organiser, you can run the following command:
 
 ```shell
 yarn new:organiser
+```
+
+## ⚙️ Generate an archive
+
+### Redirection
+
+Add year-1 redirection in `publib-archive/netlify.toml`.
+
+### Build Archive
+
+Update the `package.json` `archive:XXXX` where `XXXX` is the year, script with
+the year to generate. Create the archive and serve it:
+
+```shell
+yarn archive:XXXX # generate a new archive
+yarn archive:serve # serve the archive to check if everything is alright
 ```
 
 ## 🧐 What's inside?
@@ -74,10 +89,3 @@ A quick look at the top-level files and directories you'll see in a Gatsby proje
 
 12. **`README.md`**: A text file containing useful reference information about your project.
 
-## 🎓 Learning Gatsby
-
-Looking for more guidance? Full documentation for Gatsby lives [on the website](https://www.gatsbyjs.org/). Here are some places to start:
-
-- **For most developers, we recommend starting with our [in-depth tutorial for creating a site with Gatsby](https://www.gatsbyjs.org/tutorial/).** It starts with zero assumptions about your level of ability and walks through every step of the process.
-
-- **To dive straight into code samples, head [to our documentation](https://www.gatsbyjs.org/docs/).** In particular, check out the _Guides_, _API Reference_, and _Advanced Tutorials_ sections in the sidebar.

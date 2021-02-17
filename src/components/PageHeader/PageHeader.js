@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "gatsby";
 import { useTheme, Box, Button, Flex, Text, Heading } from "@chakra-ui/core";
 import { ButtonGroup } from "components/ButtonGroup";
+import { Card } from "components/Card";
+import { StackInline } from "components/StackInline";
 
 export const PageHeader = () => {
   const { themeName, data } = useTheme();
@@ -48,21 +50,40 @@ export const PageHeader = () => {
   };
 
   return (
-    <Flex
-      alignItems="center"
-      justify="space-between"
-      pb={5}
-      my={{ base: 0, md: "4vh" }}
-    >
-      <Box d={{ base: "none", md: "block" }} color="brand.800">
-        <Text fontFamily="heading" fontSize="sm">
-          {data.pretitle}
-        </Text>
-        <Heading as="h4" fontSize="lg">
-          {data.title}
-        </Heading>
-      </Box>
-      {getButtons()}
-    </Flex>
+    <>
+      <Flex
+        alignItems="center"
+        justify="space-between"
+        pb={5}
+        my={{ base: 0, md: "4vh" }}
+      >
+        <Box d={{ base: "none", md: "block" }} color="brand.800">
+          <Text fontFamily="heading" fontSize="sm">
+            {data.pretitle}
+          </Text>
+          <Heading as="h4" fontSize="lg">
+            {data.title}
+          </Heading>
+        </Box>
+        {getButtons()}
+      </Flex>
+      {process.env.GATSBY_ARCHIVE && (
+        <Card bg="red.600" color="white" mb={8}>
+          <StackInline alignItems="center">
+            <Text fontWeight="bold" flex={1} fontSize="lg">
+              Vous visitez le site d'une édition précédente.
+            </Text>
+            <Button
+              as="a"
+              rel="nopener norefferer"
+              href="https://www.codeursenseine.com"
+              color="brand.600"
+            >
+              Voir l'édition actuelle
+            </Button>
+          </StackInline>
+        </Card>
+      )}
+    </>
   );
 };

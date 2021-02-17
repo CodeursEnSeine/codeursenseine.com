@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useStaticQuery, graphql } from "gatsby";
+import { Link, useStaticQuery, graphql, withPrefix } from "gatsby";
 import { useLocation } from "@reach/router";
 import { IconButton, useTheme, Stack, Flex } from "@chakra-ui/core";
 import { FiX } from "react-icons/fi";
@@ -103,7 +103,7 @@ export const Nav = ({
             <NavLink isMain as={Link} to={`/${currentYear}`}>
               Édition {currentYear}
             </NavLink>
-            {pathname.startsWith(`/${currentYear}`) && (
+            {pathname.startsWith(withPrefix(`/${currentYear}`)) && (
               <>
                 <NavLink as={Link} to={`/${currentYear}/programme`}>
                   Programme
@@ -133,7 +133,7 @@ export const Nav = ({
             <NavLink isMain as={Link} to="/meetups">
               Meetups
             </NavLink>
-            {pathname.startsWith("/meetups") && (
+            {pathname.startsWith(withPrefix("/meetups")) && (
               <>
                 <NavLink as={Link} to="/meetups/sponsors">
                   Sponsors

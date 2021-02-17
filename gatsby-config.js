@@ -1,6 +1,9 @@
 const slugify = require(`slugify`);
 
 module.exports = {
+  pathPrefix: process.env.GATSBY_ARCHIVE
+    ? `/archive-${process.env.GATSBY_ARCHIVE}`
+    : undefined,
   siteMetadata: {
     title: `Codeurs en Seine`,
     description: `Rencontre de codeuses & codeurs à Rouen`,
