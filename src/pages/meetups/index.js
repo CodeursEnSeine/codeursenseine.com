@@ -6,7 +6,8 @@ import Layout from "components/layout";
 
 import { Card } from "components/Card";
 import SEO from "components/seo";
-import { generateMeetupLink } from "../../utils/generateMeetupLink";
+import { generateMeetupLink } from "utils/generateMeetupLink";
+import RedirectCodeursEnSeine from "components/RedirectCodeursEnSeine";
 
 const Meetups = ({ data }) => {
   const meetups = data.meetups.nodes.filter(
@@ -15,6 +16,10 @@ const Meetups = ({ data }) => {
       meetup.childMdx.frontmatter &&
       meetup.childMdx.frontmatter.meetup_date !== null
   );
+
+  if (process.env.GATSBY_ARCHIVE) {
+    return <RedirectCodeursEnSeine path="/meetups" />;
+  }
 
   return (
     <Layout theme="meetups">
