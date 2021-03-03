@@ -115,7 +115,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const sponsorsPageQuery = await graphql(`
     query {
       allMdx(
-        filter: { frontmatter: { sponsor: { ne: null } } }
+        filter: { frontmatter: { sponsor: { ne: "disabled" } } }
         sort: { order: ASC, fields: frontmatter___name }
       ) {
         nodes {
@@ -150,11 +150,12 @@ exports.createPages = async ({ graphql, actions }) => {
 
   // -------------------- CREATING DYNAMIC PAGES --------------------------
   const pagesQuery = await graphql(`
-    query {
+    {
       allFile(
         filter: {
           sourceInstanceName: { eq: "pages" }
           extension: { eq: "mdx" }
+          childMdx: { frontmatter: { published: { ne: false } } }
         }
       ) {
         nodes {

@@ -9,7 +9,7 @@ module.exports = {
     description: `Rencontre de codeuses & codeurs à Rouen`,
     siteUrl: `https://www.codeursenseine.com`,
     author: `@codeursenseine`,
-    currentYear: `2020`,
+    currentYear: `2021`,
   },
   plugins: [
     {

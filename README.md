@@ -31,13 +31,15 @@ To quickly create a new organiser, you can run the following command:
 yarn new:organiser
 ```
 
-## ⚙️ Generate an archive
+## Create a new year
 
-### Redirection
+### Archive past year
+
+#### Redirection
 
 Add year-1 redirection in `publib-archive/netlify.toml`.
 
-### Build Archive
+#### Build Archive
 
 Update the `package.json` `archive:XXXX` where `XXXX` is the year, script with
 the year to generate. Create the archive and serve it:
@@ -46,6 +48,26 @@ the year to generate. Create the archive and serve it:
 yarn archive:XXXX # generate a new archive
 yarn archive:serve # serve the archive to check if everything is alright
 ```
+
+#### Tag
+
+Tag the latest commit.
+
+`git tag -a archive-XXXX -m "Archive XXXX"`
+
+### Initialize the new year website
+
+#### Clean the content
+
+Change the `currentYear` in `gatsby-config.js` and edit the content of the pages.
+
+#### Create Netlify redirect
+
+Create past year redirection in `netlify.toml`.
+
+#### Add the past year in the Nav
+
+Add the past year in the `src/components/Nav/NavPreviousYears.js` component.
 
 ## 🧐 What's inside?
 

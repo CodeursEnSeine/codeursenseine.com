@@ -14,13 +14,11 @@ import { SponsorsList } from "components/Sponsors"
 
 <OGImage path="/images/ces/social.jpg" />
 <Stack spacing="16">
-  <Card
-    variant="primary"
-  >
+  <Card variant="primary">
     <Flex align="center" justify="center" direction={{ base: 'column', lg: 'row'}}>
       <Box maxW="60ch">
         <Heading fontSize="2xl">
-          Édition 2020
+          Édition 2021
         </Heading>
         <Text>
           <strong>
@@ -28,13 +26,13 @@ import { SponsorsList } from "components/Sponsors"
           </strong>
         </Text>
         <Text>
-          Coronavirus oblige, l'édition 2020 de Codeurs en Seine sera différente des années précédentes avec des conférences réparties sur l'ensemble du mois de novembre et <strong>100% en ligne</strong>.
+          Codeurs en Seine continu sur sa lancée, et sera présent en 2021.
         </Text>
         <Text>
-          Retrouvez-nous pour <strong>9 soirées spéciales, du 3 Novembre au 1er Décembre 2020.</strong>
+          Retrouvez-nous pour une édition particulière<strong>le jeudi 18 novembre au Kindarena de Rouen</strong>
         </Text>
       </Box>
-      <Box
+      {/* <Box
         ml={{ lg: 'auto' }}
         pt={{ base: 4, lg: 0 }}
         pl={{ lg: 4 }}
@@ -50,36 +48,9 @@ import { SponsorsList } from "components/Sponsors"
             Découvrir le programme
           </Button>
         </ButtonGroup>
-      </Box>
+      </Box> */}
     </Flex>
   </Card>
-
-  <Stack isInline spacing="8" align="flex-start" justify="center">
-    <Stack maxW="60ch" spacing={4}>
-      <Heading as="h3" fontSize="xl">
-        9 conférences par la communauté pour la communauté en novembre 2020
-      </Heading>
-      <Text>
-        Nouveau format pour novembre 2020 : l'équipe Codeurs en Seine vous propose 9 soirées spéciales durant tout le mois de novembre sur des conférences aux thèmes divers et variés.
-      </Text>
-      <Text>
-        Le format change mais le fond reste le même : découvrir, apprendre et partager autour du monde du développement.
-      </Text>
-      <Text>
-        C'est donc 9 soirées thématiques que nous vous proposons cette année. Avec chaque soir, une conférence de 45 min suivie d'un temps de questions / réponses. Le tout proposé entièrement en ligne.
-      </Text>
-      <Heading as="h3" fontSize="xl" mt={8}>
-        Pourquoi changer de format en 2020 ?
-      </Heading>
-      <Text>
-        Au vu des circonstances mondiales concernant l'épidémie du Coronavirus, nous ne souhaitions pas vous faire prendre de risques en rassemblant 1000 personnes au même endroit. Après beaucoup de débats au sein de l'équipe Codeurs en Seine, nous avons choisi un format plus adapté et agréable pour une version en ligne de l'édition 2020.
-      </Text>
-      <Text>
-        Nous espérons pouvoir de nouveau vous proposer une journée de conférences gratuites en novembre 2021.
-        Mais d'ici là, n'oubliez pas votre masque et restez connecté pour découvrir l'ensemble du programme de novembre 2020.
-      </Text>
-    </Stack>
-  </Stack>
 
   <Stack spacing="4">
     <Newsletter />
