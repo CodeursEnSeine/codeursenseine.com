@@ -7,7 +7,7 @@ import {
   MenuList,
   MenuItem,
   Text,
-} from "@chakra-ui/core";
+} from "@chakra-ui/react";
 import { FiRewind } from "react-icons/fi";
 
 const years = [2013, 2014, 2015, 2016, 2017, 2018, 2019];
@@ -26,7 +26,7 @@ export const NavPreviousYears = (props) => {
           variant="unstyled"
           d="inline-flex"
           alignItems="center"
-          leftIcon={IconRewind}
+          leftIcon={<IconRewind />}
         >
           Sites des éditions précédentes
         </MenuButton>

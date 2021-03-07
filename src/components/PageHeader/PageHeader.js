@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "gatsby";
-import { useTheme, Box, Button, Flex, Text, Heading } from "@chakra-ui/core";
+import { useTheme, Box, Button, Flex, Text, Heading } from "@chakra-ui/react";
 import { ButtonGroup } from "components/ButtonGroup";
 import { Card } from "components/Card";
 import { StackInline } from "components/StackInline";
@@ -12,7 +12,7 @@ export const PageHeader = () => {
     const donationButton = (
       <Button
         variant="outline"
-        variantColor="brand"
+        colorScheme="brand"
         as="a"
         target="_blank"
         rel="noopener noreferrer"
@@ -26,7 +26,7 @@ export const PageHeader = () => {
       case "meetups":
         return (
           <ButtonGroup justifyContent="center" flexGrow={{ base: 1, md: 0 }}>
-            <Button as={Link} to="/meetups/sponsors" variantColor="brand">
+            <Button as={Link} to="/meetups/sponsors" colorScheme="brand">
               Devenir sponsor
             </Button>
             {donationButton}
@@ -61,7 +61,7 @@ export const PageHeader = () => {
           <Text fontFamily="heading" fontSize="sm">
             {data.pretitle}
           </Text>
-          <Heading as="h4" fontSize="lg">
+          <Heading as="h4" fontSize="lg" lineHeight="1rem">
             {data.title}
           </Heading>
         </Box>

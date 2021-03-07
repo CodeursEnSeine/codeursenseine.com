@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Heading, Image, Stack, Text, Box } from "@chakra-ui/core";
+import { Heading, Image, Stack, Text, Box } from "@chakra-ui/react";
 import { Remarkable } from "remarkable";
 import { A } from "components/A";
 
@@ -33,7 +33,7 @@ export const MeetupSpeaker = ({ speaker, ...props }) => {
       </Heading>
       <Stack isInline spacing={6}>
         <Image
-          size={{ base: "5rem", sm: "7.5rem" }}
+          boxSize={{ base: "5rem", sm: "7.5rem" }}
           flex="none"
           objectFit="cover"
           src={speaker.avatar}

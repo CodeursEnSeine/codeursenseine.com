@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useStaticQuery, graphql, withPrefix } from "gatsby";
 import { useLocation } from "@reach/router";
-import { IconButton, useTheme, Stack, Flex } from "@chakra-ui/core";
+import { IconButton, useTheme, Stack, Flex } from "@chakra-ui/react";
 import { FiX } from "react-icons/fi";
 import { Logo } from "../Logo";
 import { NavSocial, NavPreviousYears, NavLink } from "./";
@@ -53,8 +53,8 @@ export const Nav = ({
           variant="unstyled"
           aria-label="Menu"
           d={{ base: "inline-flex", [breakpoint]: "none" }}
-          icon={FiX}
-          size="lg"
+          icon={<FiX />}
+          boxSize="lg"
           position="absolute"
           top="0"
           right="0"

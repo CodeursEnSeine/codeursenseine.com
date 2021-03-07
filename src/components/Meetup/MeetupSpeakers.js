@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Box, Heading, Image } from "@chakra-ui/core";
+import { Box, Heading, Image } from "@chakra-ui/react";
 import { A } from "components/A";
 import { StackInline } from "components/StackInline";
 
@@ -13,7 +13,7 @@ export const MeetupSpeakers = ({ speakers, ...props }) => (
             {speaker.name}
           </Heading>
           <Image
-            size="7.5rem"
+            boxSize="7.5rem"
             objectFit="cover"
             src={speaker.avatar}
             alt={speaker.name}

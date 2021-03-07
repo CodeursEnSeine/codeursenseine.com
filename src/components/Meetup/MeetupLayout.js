@@ -1,6 +1,6 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
-import { Box, Grid, Stack, Heading, Image, Flex } from "@chakra-ui/core";
+import { Box, Grid, Stack, Heading, Image, Flex } from "@chakra-ui/react";
 import SEO from "components/seo";
 import Layout from "components/layout";
 import { Card } from "components/Card";

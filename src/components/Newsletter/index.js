@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Input, Stack, Text } from "@chakra-ui/core";
+import { Button, Input, Stack, Text } from "@chakra-ui/react";
 
 import { Card } from "components/Card";
 import { StackInline } from "components/StackInline";
@@ -29,7 +29,7 @@ export const Newsletter = ({ ...props }) => {
               flexGrow={1}
             />
             <Button
-              variantColor="brand"
+              colorScheme="brand"
               type="submit"
               name="subscribe"
               id="mc-embedded-subscribe"

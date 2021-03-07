@@ -1,6 +1,6 @@
 import React from "react";
 import { MDXProvider } from "@mdx-js/react";
-import { Divider, Heading, Link, List, ListItem, Text } from "@chakra-ui/core";
+import { Divider, Heading, Link, List, ListItem, Text } from "@chakra-ui/react";
 import slugify from "slugify";
 
 const A = (props) => (
@@ -46,7 +46,7 @@ const H5 = (props) => <Heading as="h5" fontSize="md" mb="0.5em" {...props} />;
 const H6 = (props) => <Heading as="h6" fontSize="xs" mb="0.5em" {...props} />;
 const HR = (props) => <Divider my={8} {...props} />;
 const UL = (props) => (
-  <List styleType="disc" stylePos="outside" ml="1em" mb="1em" {...props} />
+  <List styleType="disc" stylePosition="outside" ml="1em" mb="1em" {...props} />
 );
 const LI = (props) => <ListItem {...props} />;
 const P = (props) => <Text mb="1em" {...props} />;

@@ -1,4 +1,4 @@
-import { theme } from "@chakra-ui/core";
+import { theme } from "@chakra-ui/react";
 import LogoWhite from "./logos/ces-white.svg";
 
 const data = {

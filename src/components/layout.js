@@ -1,12 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {
-  Box,
-  Flex,
-  useDisclosure,
-  ThemeProvider,
-  CSSReset,
-} from "@chakra-ui/core";
+import { Box, Flex, useDisclosure, ChakraProvider } from "@chakra-ui/react";
 import { Nav, NavTopbar } from "./Nav";
 import { PageHeader } from "./PageHeader";
 import themes from "themes";
@@ -32,8 +26,7 @@ const Layout = ({ children, theme = "ces" }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
-    <ThemeProvider theme={themes[theme]}>
-      <CSSReset />
+    <ChakraProvider theme={themes[theme]}>
       <Flex
         minH="100vh"
         maxW="100vw"
@@ -72,7 +65,7 @@ const Layout = ({ children, theme = "ces" }) => {
           </Box>
         </Box>
       </Flex>
-    </ThemeProvider>
+    </ChakraProvider>
   );
 };
 

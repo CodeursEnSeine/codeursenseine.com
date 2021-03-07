@@ -5,9 +5,9 @@ import {
   Flex,
   Box,
   Image,
-  AspectRatioBox,
+  AspectRatio,
   IconButton,
-} from "@chakra-ui/core";
+} from "@chakra-ui/react";
 import { FaTwitter, FaGithub } from "react-icons/fa";
 import { Card } from "components/Card";
 import { MDXRenderer } from "gatsby-plugin-mdx";
@@ -27,9 +27,9 @@ export const SpeakerCard = ({ speaker }) => {
     <Card borderLeftWidth={2} borderLeftColor="brand.600">
       <Flex>
         <Box mr={4}>
-          <AspectRatioBox ratio={1} w="6em" maxW="100%">
+          <AspectRatio ratio={1} w="6em" maxW="100%">
             <Image src={publicURL} borderRadius={4} />
-          </AspectRatioBox>
+          </AspectRatio>
         </Box>
         <Box>
           <Heading fontSize="lg">{name}</Heading>
@@ -41,10 +41,10 @@ export const SpeakerCard = ({ speaker }) => {
               target="_blank"
               href={twitterLink}
               title={`${name} Twitter`}
-              icon={FaTwitter}
+              icon={<FaTwitter />}
               variant="ghost"
-              variantColor="brand"
-              size="md"
+              colorScheme="brand"
+              boxSize="md"
               d="inline-flex"
               rel="noopener noreferrer"
             />
@@ -56,10 +56,10 @@ export const SpeakerCard = ({ speaker }) => {
               target="_blank"
               href={githubLink}
               title={`${name} Github`}
-              icon={FaGithub}
+              icon={<FaGithub />}
               variant="ghost"
-              variantColor="brand"
-              size="md"
+              colorScheme="brand"
+              boxSize="md"
               d="inline-flex"
               rel="noopener noreferrer"
             />

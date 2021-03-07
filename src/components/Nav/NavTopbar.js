@@ -6,7 +6,7 @@ import {
   Flex,
   IconButton,
   useTheme,
-} from "@chakra-ui/core";
+} from "@chakra-ui/react";
 import { FiMenu } from "react-icons/fi";
 import { Logo } from "../Logo";
 import { graphql, useStaticQuery, Link } from "gatsby";
@@ -54,8 +54,8 @@ export const NavTopbar = ({ onNavOpen = () => {}, ...props }) => {
         variant="unstyled"
         aria-label="Menu"
         d="inline-flex"
-        icon={FiMenu}
-        size="lg"
+        icon={<FiMenu />}
+        boxSize="lg"
         onClick={() => onNavOpen()}
       />
     </Flex>

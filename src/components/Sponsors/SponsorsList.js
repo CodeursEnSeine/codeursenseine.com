@@ -1,11 +1,11 @@
 import React from "react";
 import {
-  AspectRatioBox,
+  AspectRatio,
   Heading,
   Image,
   SimpleGrid,
   Stack,
-} from "@chakra-ui/core";
+} from "@chakra-ui/react";
 import { graphql, useStaticQuery } from "gatsby";
 import { Card } from "components/Card";
 import slugify from "slugify";
@@ -61,13 +61,13 @@ export const SponsorsList = ({ ...props }) => {
             as="a"
             href={frontmatter.link}
           >
-            <AspectRatioBox ratio={320 / 190}>
+            <AspectRatio ratio={320 / 190}>
               <Image
                 src={frontmatter.logo?.publicURL}
                 alt={frontmatter.name}
                 objectFit="fit"
               />
-            </AspectRatioBox>
+            </AspectRatio>
           </Card>
         ))}
       </SimpleGrid>

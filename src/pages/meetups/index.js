@@ -1,7 +1,7 @@
 import React from "react";
 import parse from "html-react-parser";
 import { graphql, Link } from "gatsby";
-import { Box, Grid, Stack, Heading, Image, Flex, Text } from "@chakra-ui/core";
+import { Box, Grid, Stack, Heading, Image, Flex, Text } from "@chakra-ui/react";
 import Layout from "components/layout";
 
 import { Card } from "components/Card";

@@ -1,6 +1,6 @@
 import React from "react";
 import { useLocation } from "@reach/router";
-import { PseudoBox } from "@chakra-ui/core";
+import { Box } from "@chakra-ui/react";
 
 export const NavLink = ({
   children = null,
@@ -12,14 +12,8 @@ export const NavLink = ({
   const isActive = pathname === to;
 
   return (
-    <PseudoBox
-      role="group"
-      d="block"
-      textAlign={{ md: "right" }}
-      to={to}
-      {...rest}
-    >
-      <PseudoBox
+    <Box role="group" d="block" textAlign={{ md: "right" }} to={to} {...rest}>
+      <Box
         as="span"
         d="inline-flex"
         transition="0.2s"
@@ -43,7 +37,7 @@ export const NavLink = ({
         }
       >
         {children}
-      </PseudoBox>
-    </PseudoBox>
+      </Box>
+    </Box>
   );
 };
