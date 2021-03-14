@@ -27,7 +27,7 @@ export const NavTopbar = ({ onNavOpen = () => {}, ...props }) => {
   return (
     <Flex
       as="nav"
-      d={{ md: "none" }}
+      display={{ base: "flex", md: "none" }}
       background={theme.gradients.brand}
       justifyContent="space-between"
       color="white"
@@ -46,7 +46,7 @@ export const NavTopbar = ({ onNavOpen = () => {}, ...props }) => {
         <Text fontFamily="heading" fontSize="0.6rem">
           {theme.data.pretitle}
         </Text>
-        <Heading as="h4" fontSize="0.7rem">
+        <Heading as="h4" size="xs" fontSize="0.7rem">
           {theme.data.title}
         </Heading>
       </Box>
@@ -55,7 +55,7 @@ export const NavTopbar = ({ onNavOpen = () => {}, ...props }) => {
         aria-label="Menu"
         d="inline-flex"
         icon={<FiMenu />}
-        boxSize="lg"
+        size="lg"
         onClick={() => onNavOpen()}
       />
     </Flex>
