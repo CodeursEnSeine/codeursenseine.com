@@ -13,10 +13,9 @@ import {
   ModalBody,
   ModalCloseButton,
   useDisclosure,
-  AspectRatioBox,
-  Scale,
+  AspectRatio,
   Badge,
-} from "@chakra-ui/core";
+} from "@chakra-ui/react";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import { Card } from "components/Card";
 import { A } from "components/A";
@@ -61,9 +60,9 @@ export const SponsorCard = ({
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <AspectRatioBox ratio={320 / 190}>
+                <AspectRatio ratio={320 / 190}>
                   <Image src={logoSrc} alt={name} objectFit="fit" />
-                </AspectRatioBox>
+                </AspectRatio>
               </Link>
               <Divider />
             </>
@@ -102,25 +101,21 @@ export const SponsorCard = ({
           </Box>
         )}
       </Card>
-      <Scale in={isOpen}>
-        {(styles) => (
-          <Modal isOpen onClose={onClose} preserveScrollBarGap>
-            <ModalOverlay opacity={styles.opacity} />
-            <ModalContent {...styles}>
-              <ModalHeader fontSize="xl">
-                <Box>
-                  <Text>{name}</Text>
-                  {isDonator && <Badge>Mécénat</Badge>}
-                </Box>
-              </ModalHeader>
-              <ModalCloseButton />
-              <ModalBody>
-                <MDXRenderer>{children}</MDXRenderer>
-              </ModalBody>
-            </ModalContent>
-          </Modal>
-        )}
-      </Scale>
+      <Modal motionPreset="scale" isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader fontSize="xl">
+            <Box>
+              <Text>{name}</Text>
+              {isDonator && <Badge>Mécénat</Badge>}
+            </Box>
+          </ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            <MDXRenderer>{children}</MDXRenderer>
+          </ModalBody>
+        </ModalContent>
+      </Modal>
     </>
   );
 };

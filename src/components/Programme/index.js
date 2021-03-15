@@ -1,6 +1,6 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
-import { Stack, SimpleGrid } from "@chakra-ui/core";
+import { Stack, SimpleGrid } from "@chakra-ui/react";
 import dayjs from "dayjs";
 import "dayjs/locale/fr";
 import { ConferenceCard } from "components/Programme/_partials/ConferenceCard";

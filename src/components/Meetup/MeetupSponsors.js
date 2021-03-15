@@ -1,6 +1,6 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
-import { SimpleGrid } from "@chakra-ui/core";
+import { SimpleGrid } from "@chakra-ui/react";
 import { SponsorCard } from "components/Sponsors";
 
 export const MeetupSponsors = () => {

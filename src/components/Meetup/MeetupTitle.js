@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Heading } from "@chakra-ui/core";
+import { Heading } from "@chakra-ui/react";
 import parse from "html-react-parser";
 
 const propTypes = {

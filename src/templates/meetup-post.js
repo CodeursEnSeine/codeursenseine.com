@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
-import { Box, Stack } from "@chakra-ui/core";
+import { Box, Stack } from "@chakra-ui/react";
 import { MeetupRegistration, MeetupTitle } from "components/Meetup";
 import MeetupLayout from "components/Meetup/MeetupLayout";
 import { A } from "components/A";

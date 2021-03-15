@@ -7,8 +7,8 @@ import {
   Stack,
   Flex,
   IconButton,
-  AspectRatioBox,
-} from "@chakra-ui/core";
+  AspectRatio,
+} from "@chakra-ui/react";
 import { FaTwitter, FaGithub, FaLinkedin } from "react-icons/fa";
 import Layout from "../../components/layout";
 import SEO from "../../components/seo";
@@ -20,9 +20,9 @@ const Organisers = ({ pageContext }) => {
   const { organisers } = pageContext;
 
   const socials = [
-    { name: "twitter", icon: FaTwitter },
-    { name: "linkedin", icon: FaLinkedin },
-    { name: "github", icon: FaGithub },
+    { name: "twitter", icon: <FaTwitter /> },
+    { name: "linkedin", icon: <FaLinkedin /> },
+    { name: "github", icon: <FaGithub /> },
   ];
 
   return (
@@ -66,7 +66,7 @@ const Organisers = ({ pageContext }) => {
               alignItems="center"
               key={organiser.childMdx.frontmatter.name}
             >
-              <AspectRatioBox ratio={1} w="6em" maxW="100%">
+              <AspectRatio ratio={1} w="6em" maxW="100%">
                 <Image
                   fallbackSrc="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
                   src={organiser.childMdx.frontmatter.image.publicURL}
@@ -75,7 +75,7 @@ const Organisers = ({ pageContext }) => {
                   objectFit="cover"
                   borderRadius={4}
                 />
-              </AspectRatioBox>
+              </AspectRatio>
               <Text textAlign="center" fontSize="sm">
                 {organiser.childMdx.frontmatter.name}
               </Text>
@@ -91,7 +91,7 @@ const Organisers = ({ pageContext }) => {
                         aria-label={`${organiser.childMdx.frontmatter.name} ${social.name}`}
                         icon={social.icon}
                         variant="ghost"
-                        variantColor="brand"
+                        colorScheme="brand"
                         size="sm"
                         d="inline-flex"
                       />

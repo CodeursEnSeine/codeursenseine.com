@@ -1,11 +1,11 @@
 import React from "react";
 import {
-  AspectRatioBox,
+  AspectRatio,
   Heading,
   Image,
   SimpleGrid,
   Stack,
-} from "@chakra-ui/core";
+} from "@chakra-ui/react";
 import { graphql, useStaticQuery } from "gatsby";
 import { Card } from "components/Card";
 import slugify from "slugify";
@@ -21,7 +21,7 @@ export const SponsorsList = ({ ...props }) => {
       allFile(
         filter: {
           sourceInstanceName: { eq: "sponsors" }
-          childMdx: { frontmatter: { sponsor: { ne: null } } }
+          childMdx: { frontmatter: { sponsor: { ne: "disabled" } } }
         }
         sort: { fields: childMdx___frontmatter___name }
       ) {
@@ -41,8 +41,8 @@ export const SponsorsList = ({ ...props }) => {
     }
   `);
 
-  const meetupOnlineSponsors = data.allFile.nodes.filter(
-    (node) => node.childMdx.frontmatter.sponsor === "Meetup Online"
+  const sponsors = data.allFile.nodes.filter(
+    (node) => !!node.childMdx?.frontmatter?.sponsor
   );
 
   const year = data?.site?.siteMetadata?.currentYear;
@@ -50,10 +50,10 @@ export const SponsorsList = ({ ...props }) => {
   return (
     <Stack spacing={8} {...props}>
       <Heading as="h2" size="md">
-        Sponsors {year} : {meetupOnlineSponsors.length} sponsors.
+        Sponsors {year} : {sponsors.length} sponsors.
       </Heading>
       <SimpleGrid columns={{ base: 3, sm: 4, lg: 5 }} gap={4}>
-        {meetupOnlineSponsors.map(({ childMdx: { frontmatter } }) => (
+        {sponsors.map(({ childMdx: { frontmatter } }) => (
           <Card
             key={slugify(frontmatter.name)}
             p={0}
@@ -61,13 +61,13 @@ export const SponsorsList = ({ ...props }) => {
             as="a"
             href={frontmatter.link}
           >
-            <AspectRatioBox ratio={320 / 190}>
+            <AspectRatio ratio={320 / 190}>
               <Image
-                src={frontmatter.logo.publicURL}
+                src={frontmatter.logo?.publicURL}
                 alt={frontmatter.name}
                 objectFit="fit"
               />
-            </AspectRatioBox>
+            </AspectRatio>
           </Card>
         ))}
       </SimpleGrid>

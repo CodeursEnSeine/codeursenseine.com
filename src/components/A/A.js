@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "@chakra-ui/core";
+import { Link } from "@chakra-ui/react";
 
 /**
  * The `A` React component is named after the HTML tag `a`. This is to avoid

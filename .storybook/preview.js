@@ -1,5 +1,5 @@
 import React from "react";
-import { CSSReset, ThemeProvider } from "@chakra-ui/core";
+import { CSSReset, ThemeProvider } from "@chakra-ui/react";
 import themes from "../src/themes";
 
 export const globalTypes = {

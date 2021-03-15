@@ -10,7 +10,7 @@ import {
   Box,
   Divider,
   SimpleGrid,
-} from "@chakra-ui/core";
+} from "@chakra-ui/react";
 import Layout from "components/layout";
 import SEO from "components/seo";
 
@@ -107,7 +107,7 @@ const SponsorsPage = ({ pageContext }) => {
                 as="a"
                 href="https://drive.google.com/file/d/1ZRwEPKAw3WMtUOAoRbXqvu6mWGHySJr5/view?usp=sharing"
                 target="_blank"
-                variantColor="brand"
+                colorScheme="brand"
               >
                 Dossier de sponsoring
               </Button>
@@ -115,7 +115,7 @@ const SponsorsPage = ({ pageContext }) => {
                 as="a"
                 href="https://drive.google.com/file/d/1ROJCES_q8mklHQnw0V9gzigQx2DfUckR/view?usp=sharing"
                 target="_blank"
-                variantColor="brand"
+                colorScheme="brand"
                 variant="outline"
               >
                 Convention de sponsoring

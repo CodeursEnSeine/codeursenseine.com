@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Text } from "@chakra-ui/core";
+import { Button, Text } from "@chakra-ui/react";
 import PropTypes from "prop-types";
 import { Card } from "../Card";
 

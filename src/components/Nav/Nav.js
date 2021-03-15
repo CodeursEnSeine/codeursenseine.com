@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useStaticQuery, graphql, withPrefix } from "gatsby";
 import { useLocation } from "@reach/router";
-import { IconButton, useTheme, Stack, Flex } from "@chakra-ui/core";
+import { IconButton, useTheme, Stack, Flex } from "@chakra-ui/react";
 import { FiX } from "react-icons/fi";
 import { Logo } from "../Logo";
 import { NavSocial, NavPreviousYears, NavLink } from "./";
@@ -22,35 +22,8 @@ export const Nav = ({
           currentYear
         }
       }
-      allMdx(
-        filter: { frontmatter: { navigation: { eq: true } } }
-        sort: { fields: frontmatter___order }
-      ) {
-        nodes {
-          frontmatter {
-            title
-          }
-          parent {
-            ... on File {
-              id
-              name
-              relativeDirectory
-            }
-          }
-        }
-      }
     }
   `);
-
-  const groupedPages = data.allMdx.nodes.reduce((previousValues, current) => {
-    if (!previousValues[current.parent.relativeDirectory]) {
-      previousValues[current.parent.relativeDirectory] = [];
-    }
-
-    previousValues[current.parent.relativeDirectory].push(current);
-
-    return previousValues;
-  }, {});
 
   const currentYear = data.site.siteMetadata.currentYear;
 
@@ -80,7 +53,7 @@ export const Nav = ({
           variant="unstyled"
           aria-label="Menu"
           d={{ base: "inline-flex", [breakpoint]: "none" }}
-          icon={FiX}
+          icon={<FiX />}
           size="lg"
           position="absolute"
           top="0"
@@ -105,20 +78,17 @@ export const Nav = ({
             </NavLink>
             {pathname.startsWith(withPrefix(`/${currentYear}`)) && (
               <>
-                <NavLink as={Link} to={`/${currentYear}/programme`}>
+                {/* <NavLink as={Link} to={`/${currentYear}/programme`}>
                   Programme
-                </NavLink>
-                <NavLink as={Link} to={`/${currentYear}/speakers`}>
+                </NavLink> */}
+                {/* <NavLink as={Link} to={`/${currentYear}/speakers`}>
                   Intervenants
-                </NavLink>
+                </NavLink> */}
                 <NavLink as={Link} to={`/${currentYear}/sponsors`}>
                   Sponsors
                 </NavLink>
                 <NavLink as={Link} to={`/${currentYear}/organisateurs`}>
                   Organisateurs
-                </NavLink>
-                <NavLink as={Link} to={`/${currentYear}/review-2019`}>
-                  Review 2019
                 </NavLink>
                 <NavLink as={Link} to={`/${currentYear}/kit-de-presse`}>
                   Kit de presse
@@ -138,16 +108,6 @@ export const Nav = ({
                 <NavLink as={Link} to="/meetups/sponsors">
                   Sponsors
                 </NavLink>
-                {groupedPages["meetups"] &&
-                  groupedPages["meetups"].map((page) => (
-                    <NavLink
-                      key={page.name}
-                      as={Link}
-                      to={`/meetups/${page.name}`}
-                    >
-                      {page.childMdx.frontmatter.title}
-                    </NavLink>
-                  ))}
               </>
             )}
           </Stack>

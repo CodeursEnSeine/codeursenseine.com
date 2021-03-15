@@ -16,7 +16,7 @@ import {
   Badge,
   Icon,
   Grid,
-} from "@chakra-ui/core";
+} from "@chakra-ui/react";
 import { Link } from "gatsby";
 import dayjs from "dayjs";
 import "dayjs/locale/fr";
@@ -53,7 +53,7 @@ export const ConferenceCard = ({ conference }) => {
             <Icon display={["block", "none"]} name="chevron-down" ml={2} />
           </Stack>
           {conference.childMdx.frontmatter.isKeynote && (
-            <Badge variantColor="brand" width="fit-content">
+            <Badge colorScheme="brand" width="fit-content">
               Keynote
             </Badge>
           )}
@@ -68,18 +68,13 @@ export const ConferenceCard = ({ conference }) => {
             {conference.childMdx.frontmatter.title}
           </Heading>
           <Text mt={2}>{conference.childMdx.frontmatter.speaker}</Text>
-          <Button
-            variantColor="brand"
-            variant="link"
-            width="fit-content"
-            mt={2}
-          >
+          <Button colorScheme="brand" variant="link" width="fit-content" mt={2}>
             Voir les détails et s'inscrire
           </Button>
         </Card>
       </Grid>
 
-      <Drawer size="md" isOpen={isOpen} placement="right" onClose={onClose}>
+      <Drawer boxSize="md" isOpen={isOpen} placement="right" onClose={onClose}>
         <DrawerOverlay>
           <DrawerContent>
             <DrawerCloseButton />
@@ -97,7 +92,7 @@ export const ConferenceCard = ({ conference }) => {
                   <Badge
                     ml={3}
                     h="fit-content"
-                    variantColor="brand"
+                    colorScheme="brand"
                     width="fit-content"
                   >
                     Keynote
@@ -120,7 +115,7 @@ export const ConferenceCard = ({ conference }) => {
                   Fermer
                 </Button>
                 <Button
-                  variantColor="brand"
+                  colorScheme="brand"
                   as={Link}
                   target="_blank"
                   to={conference.childMdx.frontmatter.meetupLink}
