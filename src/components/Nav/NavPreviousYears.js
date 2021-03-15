@@ -10,7 +10,7 @@ import {
 } from "@chakra-ui/react";
 import { FiRewind } from "react-icons/fi";
 
-const years = [2013, 2014, 2015, 2016, 2017, 2018, 2019];
+const years = [2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020];
 
 const IconRewind = (props) => (
   <Box as={FiRewind} opacity="0.4" display="inline-block" mr="2" {...props} />
