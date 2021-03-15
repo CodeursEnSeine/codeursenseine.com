@@ -134,7 +134,7 @@ const SponsorsPage = ({ pageContext }) => {
           return (
             thisLevelSponsors.length > 0 && (
               <Stack spacing={6} key={level}>
-                <Heading boxSize="lg" color="brand.700" fontWeight="normal">
+                <Heading size="lg" color="brand.700" fontWeight="normal">
                   Sponsors {level}
                 </Heading>
                 <SimpleGrid columns={{ base: 1, sm: 2, lg: 3 }} gap={8}>
