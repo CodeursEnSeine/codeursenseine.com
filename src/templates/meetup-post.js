@@ -1,13 +1,14 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
-import { Box, Stack } from "@chakra-ui/react";
+import { Box, Button, Stack } from "@chakra-ui/react";
+import { FaGithub } from "react-icons/fa";
 import { MeetupRegistration, MeetupTitle } from "components/Meetup";
 import MeetupLayout from "components/Meetup/MeetupLayout";
 import { A } from "components/A";
 
 const MeetupPost = ({ data }) => {
-  const { body, frontmatter } = data.mdx;
+  const { body, frontmatter, parent } = data.mdx;
 
   return (
     <MeetupLayout title={frontmatter.title}>
@@ -21,6 +22,14 @@ const MeetupPost = ({ data }) => {
           <MDXRenderer>{body}</MDXRenderer>
         </Box>
         <MeetupRegistration metadata={frontmatter} />
+        <Button
+          variant="outline"
+          as="a"
+          href={`https://github.com/CodeursEnSeine/codeursenseine-new/edit/master/content/meetups/${parent.base}`}
+          leftIcon={<FaGithub />}
+        >
+          Modifier cette page
+        </Button>
       </Stack>
     </MeetupLayout>
   );
@@ -31,12 +40,18 @@ export const query = graphql`
     mdx(id: { eq: $id }) {
       body
       frontmatter {
-        title
         meetup_date(formatString: "dddd DD MMMM YYYY", locale: "fr-FR")
         meetup_end_time
         meetup_start_time
         meetup_location
         meetup_register_link
+        title
+      }
+      parent {
+        ... on File {
+          base
+          id
+        }
       }
     }
   }
