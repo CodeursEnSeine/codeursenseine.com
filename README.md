@@ -111,3 +111,28 @@ A quick look at the top-level files and directories you'll see in a Gatsby proje
 
 12. **`README.md`**: A text file containing useful reference information about your project.
 
+## 🐛 Troubleshooting
+
+### 🍎 arm64 Apple Hardware Architecture
+
+Some dependencies are not yet available to compile on M1 Apple hardware, so the
+best way to contribute on this project is to run Node.js in Rosetta mode (i386).
+
+#### Duplicate your terminal application
+
+In `Finder > Applications`, right click on your favorite terminal application
+and duplicate it.
+
+![iterm duplication](./docs/screenshots/duplicate_iterm.png)
+
+Rename the copy to something understandable (in my case **iterm x86**)
+
+![iterm copy rename](./docs/screenshots/rename_copy.png)
+
+#### Enable Rosetta mode on the copy
+
+Right click on the copy and check `Open using Rosetta`. Then, open this terminal
+and check the architecture is `i386` by entering `arch` in the terminal.
+
+Install Node.js (14 is the LTS at the moment of writing these lines).
+You can then install `yarn` using `npm install -g yarn` and then start to work.
