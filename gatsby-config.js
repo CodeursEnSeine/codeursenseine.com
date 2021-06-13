@@ -12,9 +12,7 @@ module.exports = {
     currentYear: `2021`,
   },
   plugins: [
-    {
-      resolve: `gatsby-alias-imports`,
-    },
+    `gatsby-alias-imports`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -72,8 +70,9 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-    `gatsby-transformer-sharp`,
+    `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-plugin-mdx`,
       options: {

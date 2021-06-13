@@ -1,6 +1,6 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
-import Img from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import {
   Button,
   Grid,
@@ -12,7 +12,7 @@ import {
   SimpleGrid,
 } from "@chakra-ui/react";
 import Layout from "components/layout";
-import SEO from "components/seo";
+import Seo from "components/seo";
 
 import { A } from "components/A";
 import { ButtonGroup } from "components/ButtonGroup";
@@ -23,14 +23,12 @@ const SponsorsPage = ({ pageContext }) => {
   const { sponsors } = pageContext;
 
   const data = useStaticQuery(graphql`
-    query {
+    {
       placeholderImage: file(
         relativePath: { eq: "ces/dossier-sponsoring.jpg" }
       ) {
         childImageSharp {
-          fluid(maxWidth: 250, quality: 80) {
-            ...GatsbyImageSharpFluid
-          }
+          gatsbyImageData(width: 250, quality: 80, layout: CONSTRAINED)
         }
       }
     }
@@ -39,7 +37,7 @@ const SponsorsPage = ({ pageContext }) => {
   return (
     <Layout theme="ces">
       <OGImage path="/images/ces/social.jpg" />
-      <SEO title="Sponsors" />
+      <Seo title="Sponsors" />
       <Heading as="h1" mb={8}>
         Devenir Sponsor
       </Heading>
@@ -55,8 +53,8 @@ const SponsorsPage = ({ pageContext }) => {
             title="Dossier de sponsoring"
             target="_blank"
           >
-            <Img
-              fluid={data.placeholderImage.childImageSharp.fluid}
+            <GatsbyImage
+              image={data.placeholderImage.childImageSharp.gatsbyImageData}
               alt="Première page du dossier de sponsoring"
             />
           </A>

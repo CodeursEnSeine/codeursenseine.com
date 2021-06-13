@@ -5,7 +5,7 @@ import { Box, Grid, Stack, Heading, Image, Flex, Text } from "@chakra-ui/react";
 import Layout from "components/layout";
 
 import { Card } from "components/Card";
-import SEO from "components/seo";
+import Seo from "components/seo";
 import { generateMeetupLink } from "utils/generateMeetupLink";
 import RedirectCodeursEnSeine from "components/RedirectCodeursEnSeine";
 
@@ -23,7 +23,7 @@ const Meetups = ({ data }) => {
 
   return (
     <Layout theme="meetups">
-      <SEO
+      <Seo
         title="Meetups"
         meta={[
           {

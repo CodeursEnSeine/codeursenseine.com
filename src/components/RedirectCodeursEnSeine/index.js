@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-export default ({ path }) => {
+export default function RedirectCodeursEnSeine({ path }) {
   useEffect(() => {
     if (process.env.GATSBY_ARCHIVE) {
       window.location.href = `https://www.codeursenseine.com${path}`;
@@ -8,4 +8,4 @@ export default ({ path }) => {
   }, [path]);
 
   return null;
-};
+}

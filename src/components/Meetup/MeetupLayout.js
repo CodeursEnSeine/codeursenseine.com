@@ -1,7 +1,7 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import { Box, Grid, Stack, Heading, Image, Flex } from "@chakra-ui/react";
-import SEO from "components/seo";
+import Seo from "components/seo";
 import Layout from "components/layout";
 import { Card } from "components/Card";
 
@@ -52,7 +52,7 @@ const MeetupLayout = ({ children, title }) => {
 
   return (
     <Layout theme="meetups">
-      <SEO title={title} />
+      <Seo title={title} />
       <Grid templateColumns={{ base: "1fr", md: "2.5fr 1fr" }} gap={8}>
         <Box>{children}</Box>
         <Stack spacing={10}>
