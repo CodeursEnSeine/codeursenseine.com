@@ -36,15 +36,6 @@ const SponsorsPage = ({ pageContext }) => {
     }
   `);
 
-  const sponsorLevels = [
-    "platinium",
-    "gold",
-    "silver",
-    "bronze",
-    "Meetup Online",
-    "Technique",
-  ];
-
   return (
     <Layout theme="ces">
       <OGImage path="/images/ces/social.jpg" />
@@ -126,36 +117,28 @@ const SponsorsPage = ({ pageContext }) => {
       </Grid>
       <Divider mb={6} />
       <Stack spacing={6}>
-        {sponsorLevels.map((level) => {
-          const thisLevelSponsors = sponsors.filter(
-            (sponsor) => sponsor.frontmatter.sponsor === level
-          );
-
-          return (
-            thisLevelSponsors.length > 0 && (
-              <Stack spacing={6} key={level}>
-                <Heading size="lg" color="brand.700" fontWeight="normal">
-                  Sponsors {level}
-                </Heading>
-                <SimpleGrid columns={{ base: 1, sm: 2, lg: 3 }} gap={8}>
-                  {thisLevelSponsors.map((sponsor, index) => (
-                    <SponsorCard
-                      key={index}
-                      name={sponsor.frontmatter.name}
-                      link={sponsor.frontmatter.link}
-                      logoSrc={sponsor.frontmatter?.logo?.publicURL}
-                      excerpt={sponsor.excerpt}
-                      isDonator={sponsor.frontmatter.isDonator}
-                    >
-                      {sponsor.body}
-                    </SponsorCard>
-                  ))}
-                </SimpleGrid>
-                <Divider />
-              </Stack>
-            )
-          );
-        })}
+        {sponsors.length > 0 && (
+          <Stack spacing={6}>
+            <Heading size="lg" color="brand.700" fontWeight="normal">
+              Sponsors
+            </Heading>
+            <SimpleGrid columns={{ base: 1, sm: 2, lg: 3 }} gap={8}>
+              {sponsors.map((sponsor, index) => (
+                <SponsorCard
+                  key={index}
+                  name={sponsor.frontmatter.name}
+                  link={sponsor.frontmatter.link}
+                  logoSrc={sponsor.frontmatter?.logo?.publicURL}
+                  excerpt={sponsor.excerpt}
+                  isDonator={sponsor.frontmatter.isDonator}
+                >
+                  {sponsor.body}
+                </SponsorCard>
+              ))}
+            </SimpleGrid>
+            <Divider />
+          </Stack>
+        )}
       </Stack>
     </Layout>
   );
