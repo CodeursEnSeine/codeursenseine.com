@@ -11,7 +11,7 @@ import {
 } from "@chakra-ui/react";
 import { FaTwitter, FaGithub, FaLinkedin } from "react-icons/fa";
 import Layout from "../../components/layout";
-import SEO from "../../components/seo";
+import Seo from "../../components/seo";
 
 import { A } from "../../components/A";
 import { OGImage } from "components/OG";
@@ -28,7 +28,7 @@ const Organisers = ({ pageContext }) => {
   return (
     <Layout theme="ces">
       <OGImage path="/images/ces/social.jpg" />
-      <SEO title="Organisateurs" />
+      <Seo title="Organisateurs" />
       <Heading as="h1" mb={8}>
         Organisateurs
       </Heading>

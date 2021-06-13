@@ -1,6 +1,6 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
-import Img from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import {
   Button,
   Grid,
@@ -12,7 +12,7 @@ import {
   SimpleGrid,
 } from "@chakra-ui/react";
 import Layout from "components/layout";
-import SEO from "components/seo";
+import Seo from "components/seo";
 
 import { A } from "components/A";
 import { ButtonGroup } from "components/ButtonGroup";
@@ -23,32 +23,21 @@ const SponsorsPage = ({ pageContext }) => {
   const { sponsors } = pageContext;
 
   const data = useStaticQuery(graphql`
-    query {
+    {
       placeholderImage: file(
         relativePath: { eq: "ces/dossier-sponsoring.jpg" }
       ) {
         childImageSharp {
-          fluid(maxWidth: 250, quality: 80) {
-            ...GatsbyImageSharpFluid
-          }
+          gatsbyImageData(width: 250, quality: 80, layout: CONSTRAINED)
         }
       }
     }
   `);
 
-  const sponsorLevels = [
-    "platinium",
-    "gold",
-    "silver",
-    "bronze",
-    "Meetup Online",
-    "Technique",
-  ];
-
   return (
     <Layout theme="ces">
       <OGImage path="/images/ces/social.jpg" />
-      <SEO title="Sponsors" />
+      <Seo title="Sponsors" />
       <Heading as="h1" mb={8}>
         Devenir Sponsor
       </Heading>
@@ -64,8 +53,8 @@ const SponsorsPage = ({ pageContext }) => {
             title="Dossier de sponsoring"
             target="_blank"
           >
-            <Img
-              fluid={data.placeholderImage.childImageSharp.fluid}
+            <GatsbyImage
+              image={data.placeholderImage.childImageSharp.gatsbyImageData}
               alt="Première page du dossier de sponsoring"
             />
           </A>
@@ -126,36 +115,28 @@ const SponsorsPage = ({ pageContext }) => {
       </Grid>
       <Divider mb={6} />
       <Stack spacing={6}>
-        {sponsorLevels.map((level) => {
-          const thisLevelSponsors = sponsors.filter(
-            (sponsor) => sponsor.frontmatter.sponsor === level
-          );
-
-          return (
-            thisLevelSponsors.length > 0 && (
-              <Stack spacing={6} key={level}>
-                <Heading size="lg" color="brand.700" fontWeight="normal">
-                  Sponsors {level}
-                </Heading>
-                <SimpleGrid columns={{ base: 1, sm: 2, lg: 3 }} gap={8}>
-                  {thisLevelSponsors.map((sponsor, index) => (
-                    <SponsorCard
-                      key={index}
-                      name={sponsor.frontmatter.name}
-                      link={sponsor.frontmatter.link}
-                      logoSrc={sponsor.frontmatter?.logo?.publicURL}
-                      excerpt={sponsor.excerpt}
-                      isDonator={sponsor.frontmatter.isDonator}
-                    >
-                      {sponsor.body}
-                    </SponsorCard>
-                  ))}
-                </SimpleGrid>
-                <Divider />
-              </Stack>
-            )
-          );
-        })}
+        {sponsors.length > 0 && (
+          <Stack spacing={6}>
+            <Heading size="lg" color="brand.700" fontWeight="normal">
+              Sponsors
+            </Heading>
+            <SimpleGrid columns={{ base: 1, sm: 2, lg: 3 }} gap={8}>
+              {sponsors.map((sponsor, index) => (
+                <SponsorCard
+                  key={index}
+                  name={sponsor.frontmatter.name}
+                  link={sponsor.frontmatter.link}
+                  logoSrc={sponsor.frontmatter?.logo?.publicURL}
+                  excerpt={sponsor.excerpt}
+                  isDonator={sponsor.frontmatter.isDonator}
+                >
+                  {sponsor.body}
+                </SponsorCard>
+              ))}
+            </SimpleGrid>
+            <Divider />
+          </Stack>
+        )}
       </Stack>
     </Layout>
   );

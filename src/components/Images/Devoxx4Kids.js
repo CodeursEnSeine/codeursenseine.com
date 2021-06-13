@@ -1,21 +1,23 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
-import Img from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 
 export const Devoxx4Kids = () => {
   const data = useStaticQuery(graphql`
-    query {
+    {
       placeholderImage: file(
         relativePath: { eq: "devoxx4kids/devoxx4kids.png" }
       ) {
         childImageSharp {
-          fluid(maxWidth: 300) {
-            ...GatsbyImageSharpFluid
-          }
+          gatsbyImageData(width: 300, layout: CONSTRAINED)
         }
       }
     }
   `);
 
-  return <Img fluid={data.placeholderImage.childImageSharp.fluid} />;
+  return (
+    <GatsbyImage
+      image={data.placeholderImage.childImageSharp.gatsbyImageData}
+    />
+  );
 };
