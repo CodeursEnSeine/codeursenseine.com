@@ -20,6 +20,7 @@
     "gatsby-plugin-offline": "4.7.1",
     "gatsby-plugin-react-helmet": "4.7.1",
     "gatsby-plugin-sharp": "3.7.1",
+    "gatsby-plugin-sitemap": "^4.3.1",
     "gatsby-remark-images": "5.4.1",
     "gatsby-source-filesystem": "3.7.1",
     "gatsby-transformer-sharp": "3.7.1",
