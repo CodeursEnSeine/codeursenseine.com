@@ -21,6 +21,7 @@
     "gatsby-plugin-mdx": "3.11.1",
     "gatsby-plugin-offline": "5.11.1",
     "gatsby-plugin-react-helmet": "5.11.0",
+    "gatsby-plugin-robots-txt": "1.7.0",
     "gatsby-plugin-sharp": "4.11.1",
     "gatsby-plugin-sitemap": "5.11.1",
     "gatsby-remark-images": "6.11.1",
