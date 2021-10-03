@@ -1,6 +1,6 @@
 import React from "react";
-import ReactTwitchEmbedVideo from "react-twitch-embed-video";
 import { Box, Stack, Heading } from "@chakra-ui/react";
+import { TwitchEmbed } from "react-twitch-embed";
 import Layout from "components/layout";
 
 import Seo from "components/seo";
@@ -28,7 +28,12 @@ const Meetups = ({ data }) => {
             Live Twitch
           </Heading>
         </Stack>
-        <ReactTwitchEmbedVideo channel="codeursenseine" width="100%" />
+        <TwitchEmbed
+          channel="codeursenseine"
+          id="codeursenseine"
+          theme="light"
+          width="100%"
+        />
       </Box>
     </Layout>
   );
