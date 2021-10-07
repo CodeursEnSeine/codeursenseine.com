@@ -1,4 +1,5 @@
 import React from "react";
+
 import { Box, Stack, Heading } from "@chakra-ui/react";
 import { TwitchEmbed } from "react-twitch-embed";
 import Layout from "components/layout";
@@ -6,19 +7,19 @@ import Layout from "components/layout";
 import Seo from "components/seo";
 import RedirectCodeursEnSeine from "components/RedirectCodeursEnSeine";
 
-const Meetups = ({ data }) => {
+const Live = () => {
   if (process.env.GATSBY_ARCHIVE) {
     return <RedirectCodeursEnSeine path="/live" />;
   }
 
   return (
-    <Layout theme="twitch">
+    <Layout theme="ces">
       <Seo
         title="Live"
         meta={[
           {
             property: `og:image`,
-            content: `${process.env.GATSBY_ORIGIN}/images/meetups/social.jpg`,
+            content: `${process.env.GATSBY_ORIGIN}/images/ces/social.jpg`,
           },
         ]}
       />
@@ -39,4 +40,4 @@ const Meetups = ({ data }) => {
   );
 };
 
-export default Meetups;
+export default Live;
