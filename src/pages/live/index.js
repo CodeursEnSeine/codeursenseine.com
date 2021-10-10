@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Box, Stack, Heading } from "@chakra-ui/react";
-import { TwitchEmbed } from "react-twitch-embed";
+import { TwitchPlayer, TwitchChat } from "react-twitch-embed";
 import Layout from "components/layout";
 
 import Seo from "components/seo";
@@ -29,9 +29,14 @@ const Live = () => {
             Live Twitch
           </Heading>
         </Stack>
-        <TwitchEmbed
+        <TwitchPlayer
           channel="codeursenseine"
           id="codeursenseine"
+          width="100%"
+        />
+        <TwitchChat
+          channel="codeursenseine"
+          id="codeursenseine-chat"
           theme="light"
           width="100%"
         />
