@@ -12,6 +12,8 @@ const Live = () => {
     return <RedirectCodeursEnSeine path="/live" />;
   }
 
+  const isBrowser = typeof window !== "undefined";
+
   return (
     <Layout theme="ces">
       <Seo
@@ -29,17 +31,21 @@ const Live = () => {
             Live Twitch
           </Heading>
         </Stack>
-        <TwitchPlayer
-          channel="codeursenseine"
-          id="codeursenseine"
-          width="100%"
-        />
-        <TwitchChat
-          channel="codeursenseine"
-          id="codeursenseine-chat"
-          theme="light"
-          width="100%"
-        />
+        {isBrowser && (
+          <>
+            <TwitchPlayer
+              channel="codeursenseine"
+              id="codeursenseine"
+              width="100%"
+            />
+            <TwitchChat
+              channel="codeursenseine"
+              id="codeursenseine-chat"
+              theme="light"
+              width="100%"
+            />
+          </>
+        )}
       </Box>
     </Layout>
   );
