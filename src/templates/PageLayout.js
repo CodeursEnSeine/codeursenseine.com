@@ -2,7 +2,7 @@ import React from "react";
 import Layout from "components/layout";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import Seo from "components/seo";
-import { OGURL } from "../components/OG";
+import { OgUrl } from "components/OG";
 
 const PageLayout = ({ pageContext }) => {
   const { body, title, theme, pagePath } = pageContext;
@@ -10,7 +10,7 @@ const PageLayout = ({ pageContext }) => {
   return (
     <Layout theme={theme}>
       <Seo title={title} />
-      <OGURL path={pagePath} />
+      <OgUrl path={pagePath} />
       <MDXRenderer>{body}</MDXRenderer>
     </Layout>
   );

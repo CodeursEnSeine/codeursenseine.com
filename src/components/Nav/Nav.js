@@ -112,6 +112,14 @@ export const Nav = ({
             )}
           </Stack>
           <Stack>
+            <NavLink isMain as={Link} to="/live" title="Live Twitch">
+              <span role="img" aria-label="Red circle">
+                🔴
+              </span>{" "}
+              Live Stream
+            </NavLink>
+          </Stack>
+          <Stack>
             <NavLink isMain as={Link} to="/devoxx4kids" title="Devoxx4Kids">
               Devoxx4Kids
             </NavLink>

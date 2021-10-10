@@ -49,9 +49,9 @@ const shadows = {
   brand: `0 0.25rem 1.25rem rgba(0, 167, 150, 0.2)`,
 };
 
-export default {
+const meetups = {
   ...theme,
-  themeName: "meetups",
+  themeName: "",
   data,
   colors,
   fonts,
@@ -59,3 +59,5 @@ export default {
   gradients,
   logos,
 };
+
+export default meetups;

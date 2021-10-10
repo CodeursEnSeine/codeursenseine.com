@@ -1,2 +1,2 @@
 export { OGImage } from "./OGImage";
-export { OGURL } from "./OGURL";
+export { OgUrl } from "./OGURL";

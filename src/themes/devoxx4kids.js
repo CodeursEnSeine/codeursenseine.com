@@ -49,7 +49,7 @@ const shadows = {
   brand: `0 0.25rem 1.25rem rgba(0, 102, 179, 0.2)`,
 };
 
-export default {
+const devoxx4kids = {
   ...theme,
   themeName: "devoxx4kids",
   data,
@@ -59,3 +59,5 @@ export default {
   gradients,
   logos,
 };
+
+export default devoxx4kids;
