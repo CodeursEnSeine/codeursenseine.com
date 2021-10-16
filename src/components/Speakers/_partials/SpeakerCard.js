@@ -36,7 +36,6 @@ export const SpeakerCard = ({ speaker }) => {
           <Heading fontSize="md">{company}</Heading>
           {twitterLink && (
             <IconButton
-              mt={2}
               as="a"
               target="_blank"
               href={twitterLink}
@@ -44,14 +43,11 @@ export const SpeakerCard = ({ speaker }) => {
               icon={<FaTwitter />}
               variant="ghost"
               colorScheme="brand"
-              boxSize="md"
-              d="inline-flex"
               rel="noopener noreferrer"
             />
           )}
           {githubLink && (
             <IconButton
-              mt={2}
               as="a"
               target="_blank"
               href={githubLink}
@@ -59,8 +55,6 @@ export const SpeakerCard = ({ speaker }) => {
               icon={<FaGithub />}
               variant="ghost"
               colorScheme="brand"
-              boxSize="md"
-              d="inline-flex"
               rel="noopener noreferrer"
             />
           )}

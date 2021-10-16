@@ -32,7 +32,7 @@ export const Speakers = () => {
 
   return (
     <Stack my={5}>
-      <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={5}>
+      <SimpleGrid columns={{ base: 1, lg: 1, xl: 2 }} spacing={5}>
         {speakers.map((speaker, index) => (
           <SpeakerCard key={`speaker-${index}`} speaker={speaker} />
         ))}

@@ -74,7 +74,7 @@ export const ConferenceCard = ({ conference }) => {
         </Card>
       </Grid>
 
-      <Drawer boxSize="md" isOpen={isOpen} placement="right" onClose={onClose}>
+      <Drawer size="md" isOpen={isOpen} placement="right" onClose={onClose}>
         <DrawerOverlay>
           <DrawerContent>
             <DrawerCloseButton />
@@ -111,7 +111,7 @@ export const ConferenceCard = ({ conference }) => {
 
             {conference.childMdx.frontmatter.meetupLink && (
               <DrawerFooter display="flex" flexDirection="column">
-                <Button variant="outline" mb={3} onClick={onClose}>
+                <Button isFullWidth variant="outline" mb={3} onClick={onClose}>
                   Fermer
                 </Button>
                 <Button
@@ -119,6 +119,7 @@ export const ConferenceCard = ({ conference }) => {
                   as={Link}
                   target="_blank"
                   to={conference.childMdx.frontmatter.meetupLink}
+                  isFullWidth
                 >
                   S'inscrire
                 </Button>

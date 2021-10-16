@@ -40,7 +40,7 @@ export const Programme = () => {
 
   return (
     <Stack mt={5}>
-      <SimpleGrid columns={[1, null, null, 2]}>
+      <SimpleGrid columns={[1, 1, 1, 1, 2]}>
         {conferences.map((conference, index) => (
           <ConferenceCard key={`conference-${index}`} conference={conference} />
         ))}

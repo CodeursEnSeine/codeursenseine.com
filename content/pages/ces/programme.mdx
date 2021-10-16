@@ -27,18 +27,20 @@ import { SponsorsList } from "components/Sponsors"
 
   <Programme />
 
-  <Card href="https://twitch.tv/codeursenseine" as="a" my={8} isLink variant="primary">
-    <Stack align="center">
-      <Text>
-        Suivez nous sur Twitch pour ne manquer aucune conférence.
-      </Text>
-      <Button
-        color="brand.600"
-      >
-        twitch.tv/codeursenseine
-      </Button>
-    </Stack>
-  </Card>
+  <Stack mt={5}>
+    <Card href="https://twitch.tv/codeursenseine" as="a" my={8} isLink variant="primary">
+      <Stack align="center">
+        <Text>
+          Suivez nous sur Twitch pour ne manquer aucune conférence.
+        </Text>
+        <Button
+          color="brand.600"
+        >
+          twitch.tv/codeursenseine
+        </Button>
+      </Stack>
+    </Card>
+  </Stack>
 </Stack>
 
 <SponsorsList />
