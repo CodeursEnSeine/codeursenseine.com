@@ -1,6 +1,6 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
-import { Stack, SimpleGrid } from "@chakra-ui/react";
+import { Stack } from "@chakra-ui/react";
 import dayjs from "dayjs";
 import "dayjs/locale/fr";
 import { ConferenceCard } from "components/Programme/_partials/ConferenceCard";
@@ -40,11 +40,9 @@ export const Programme = () => {
 
   return (
     <Stack mt={5}>
-      <SimpleGrid columns={[1, 1, 1, 1, 2]}>
-        {conferences.map((conference, index) => (
-          <ConferenceCard key={`conference-${index}`} conference={conference} />
-        ))}
-      </SimpleGrid>
+      {conferences.map((conference, index) => (
+        <ConferenceCard key={`conference-${index}`} conference={conference} />
+      ))}
     </Stack>
   );
 };

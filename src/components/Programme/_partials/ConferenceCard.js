@@ -12,10 +12,10 @@ import {
   Stack,
   Text,
   Button,
-  Flex,
-  Badge,
-  Icon,
   Grid,
+  Badge,
+  Flex,
+  Icon,
 } from "@chakra-ui/react";
 import { Link } from "gatsby";
 import dayjs from "dayjs";
@@ -32,25 +32,32 @@ export const ConferenceCard = ({ conference }) => {
   return (
     <Stack>
       <Grid
-        templateColumns={["repeat(1, 1fr)", "repeat(1, 1fr) repeat(1, 2fr)"]}
+        templateColumns={["repeat(1, 1fr)", "repeat(1, 1fr) repeat(1, 4fr)"]}
         mt={3}
       >
-        <Stack p={5}>
-          <Stack display={["flex", "block"]} flexDir="row" align="center">
-            <Flex align="center">
-              <Text mt={[2, 0]}>
-                {capitalizeFirstLetter(
-                  dayjs(conference.childMdx.frontmatter.eventDate).format(
-                    "dddd D MMM"
-                  )
-                )}
-              </Text>
-              <Icon display={["none", "block"]} name="chevron-right" ml={2} />
-            </Flex>
-            <Text ml={[2, 0]} mt={[2, 0]}>
+        <Stack mr={3}>
+          <Flex
+            display={["none", "flex"]}
+            flexDirection="column"
+            justifyContent="space-between"
+            h="100%"
+            borderColor="blue.50"
+            borderStyle="solid"
+            borderTopWidth={1}
+            borderBottomWidth={1}
+          >
+            <Text color="blue.600">
+              {conference.childMdx.frontmatter.startHour}
+            </Text>
+
+            <Text color="blue.600">
+              {conference.childMdx.frontmatter.endHour}
+            </Text>
+          </Flex>
+          <Stack display={["block", "none"]} mb={2}>
+            <Text color="blue.600">
               {`${conference.childMdx.frontmatter.startHour} - ${conference.childMdx.frontmatter.endHour}`}
             </Text>
-            <Icon display={["block", "none"]} name="chevron-down" ml={2} />
           </Stack>
           {conference.childMdx.frontmatter.isKeynote && (
             <Badge colorScheme="brand" width="fit-content">
@@ -62,6 +69,7 @@ export const ConferenceCard = ({ conference }) => {
           borderLeftWidth={2}
           borderLeftColor="brand.600"
           onClick={onOpen}
+          w="full"
           isLink
         >
           <Heading fontSize="md">
