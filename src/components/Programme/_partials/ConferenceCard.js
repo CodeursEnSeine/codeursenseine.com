@@ -15,7 +15,10 @@ import {
   Grid,
   Badge,
   Flex,
-  Icon,
+  Box,
+  AspectRatio,
+  Image,
+  Center,
 } from "@chakra-ui/react";
 import { Link } from "gatsby";
 import dayjs from "dayjs";
@@ -23,12 +26,35 @@ import "dayjs/locale/fr";
 import { Card } from "components/Card";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 
-export const ConferenceCard = ({ conference }) => {
+const SpeakerPreview = ({ speaker }) => (
+  <Flex mt={1} align="center">
+    <Box mr={4}>
+      <AspectRatio ratio={1} w="2rem" maxW="100%">
+        <Image src={speaker?.childMdx?.frontmatter?.image?.publicURL} borderRadius={4} />
+      </AspectRatio>
+    </Box>
+    <Text>{speaker?.childMdx?.frontmatter?.name}</Text>
+  </Flex>
+);
+
+export const ConferenceCard = ({ conference, speaker, speaker2 }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const capitalizeFirstLetter = (string) =>
     string.charAt(0).toUpperCase() + string.slice(1);
-
+  
+  if (conference?.childMdx?.frontmatter?.speaker === "break") {
+    return (
+      <Card variant="primary" mt={2}>
+        <Stack align="center">
+          <Text>
+            {conference?.childMdx?.frontmatter?.title}
+          </Text>
+        </Stack>
+      </Card>
+    )
+  }
+  
   return (
     <Stack>
       <Grid
@@ -75,10 +101,15 @@ export const ConferenceCard = ({ conference }) => {
           <Heading fontSize="md">
             {conference.childMdx.frontmatter.title}
           </Heading>
-          <Text mt={2}>{conference.childMdx.frontmatter.speaker}</Text>
-          <Button colorScheme="brand" variant="link" width="fit-content" mt={2}>
-            Voir les détails et s'inscrire
-          </Button>
+
+          <SpeakerPreview speaker={speaker} />
+          {speaker2 && speaker2.childMdx && <SpeakerPreview speaker={speaker2} />}
+          
+          <Center>
+            <Button colorScheme="brand" variant="link" width="fit-content" mt={2}>
+              Voir les détails et s'inscrire
+            </Button>
+          </Center>
         </Card>
       </Grid>
 
@@ -108,9 +139,11 @@ export const ConferenceCard = ({ conference }) => {
                 )}
               </Stack>
               <Text>{conference.childMdx.frontmatter.title}</Text>
-              <Text mt={2} fontSize="md">
-                {conference.childMdx.frontmatter.speaker}
-              </Text>
+
+              <Stack mt={3}>
+                <SpeakerPreview speaker={speaker} />
+                {speaker2 && speaker2.childMdx && <SpeakerPreview speaker={speaker2} />}
+              </Stack>
             </DrawerHeader>
 
             <DrawerBody overflow="auto">
