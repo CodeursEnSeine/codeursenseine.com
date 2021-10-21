@@ -2,7 +2,7 @@
 title: Programme
 navigation: true
 order: 2
-published: false
+published: true
 ---
 
 import {
@@ -24,26 +24,38 @@ import { SponsorsList } from "components/Sponsors"
   <Heading as="h1" mb={8}>
     Programme
   </Heading>
-  <Text>
-    Cette année, au vu du contexte actuel lié à l'épidémie du COVID, nous vous proposons une édition un peu particulière :
-    L'édition 2020 se déroulera sous forme de Meetups en ligne sur Twitch, au moins 2 fois par semaine pour le mois de novembre et pour un total de 9 meetups.
-    Nous vous accueillons à partir de 21h les mardis et jeudis sur Twitch !
-  </Text>
+
+  <Stack mt={5}>
+    <Card href="https://twitch.tv/codeursenseine" as="a" my={8} isLink variant="primary">
+      <Stack align="center">
+        <Text>
+          En direct sur Twitch le <strong>jeudi 18 novembre 2021</strong> !
+        </Text>
+        <Button
+          color="brand.600"
+        >
+          twitch.tv/codeursenseine
+        </Button>
+      </Stack>
+    </Card>
+  </Stack>
 
   <Programme />
 
-  <Card href="https://twitch.tv/codeursenseine" as="a" my={8} isLink variant="primary">
-    <Stack align="center">
-      <Text>
-        Suivez nous sur Twitch pour ne manquer aucune conférence.
-      </Text>
-      <Button
-        color="brand.600"
-      >
-        twitch.tv/codeursenseine
-      </Button>
-    </Stack>
-  </Card>
+  <Stack mt={5}>
+    <Card href="https://www.meetup.com/fr-FR/codeursenseine/events/281246952/" as="a" my={8} isLink variant="primary">
+      <Stack align="center">
+        <Text>
+          Inscrivez-vous à l'évènement Meetup pour ne rien rater !
+        </Text>
+        <Button
+          color="brand.600"
+        >
+          meetup.com/codeursenseine
+        </Button>
+      </Stack>
+    </Card>
+  </Stack>
 </Stack>
 
 <SponsorsList />

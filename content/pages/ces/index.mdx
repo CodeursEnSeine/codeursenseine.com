@@ -11,7 +11,6 @@ import { Newsletter } from "components/Newsletter"
 import { ButtonGroup } from "components/ButtonGroup"
 import { OGImage } from "components/OG"
 import { SponsorsList } from "components/Sponsors"
-import { CallForPaperButton } from "components/CallForPaperButton"
 
 <OGImage path="/images/ces/social.jpg" />
 <Stack spacing="16">
@@ -31,7 +30,7 @@ import { CallForPaperButton } from "components/CallForPaperButton"
         </Text>
         <Text>
           Cette année, pour cette édition particulière, retrouvez plusieurs
-          conférences sur la journée du <strong>jeudi 18 Novembre</strong>.
+          conférences sur la journée du <strong>jeudi 18 Novembre</strong> en direct sur <strong>Twitch</strong>.
         </Text>
       </Box>
       <Box
@@ -46,17 +45,9 @@ import { CallForPaperButton } from "components/CallForPaperButton"
           align="center"
           childProps={{ w: { base: 'full', xs: 'auto', lg: 'full'} }}
         >
-          {/* <Button as={Link} to="programme" color="brand.600">
+          <Button as={Link} to="programme" color="brand.600">
             Découvrir le programme
-          </Button> */}
-          <CallForPaperButton
-            startDate="2021-06-01"
-            endDate="2021-11-05"
-            cfpId="vscnEPlRHldY7dKQOXGU"
-            color="brand.600"
-          >
-            Call For Paper
-          </CallForPaperButton>
+          </Button>
         </ButtonGroup>
       </Box>
     </Flex>
@@ -65,7 +56,7 @@ import { CallForPaperButton } from "components/CallForPaperButton"
   <Stack isInline spacing="8" align="flex-start" justify="center">  
     <Stack maxW="60ch" spacing={4}>
       <Heading as="h3" size="md">
-        Plusieurs conférences par la communauté pour la communauté en novembre 2021
+        Rendez-vous le jeudi 18 novembre 2021 sur Twitch !
       </Heading>
       <Text>
         Nouveau format pour novembre 2021 : l'équipe Codeurs en Seine vous
@@ -100,6 +91,19 @@ import { CallForPaperButton } from "components/CallForPaperButton"
       </Text>
     </Stack>
   </Stack>
+
+  <Card href="https://www.meetup.com/fr-FR/codeursenseine/events/281246952/" as="a" isLink variant="primary">
+    <Stack align="center">
+      <Text>
+        Inscrivez-vous à l'évènement Meetup pour ne rien rater !
+      </Text>
+      <Button
+        color="brand.600"
+      >
+        meetup.com/codeursenseine
+      </Button>
+    </Stack>
+  </Card>
 
   <Stack spacing="4">
     <Newsletter />

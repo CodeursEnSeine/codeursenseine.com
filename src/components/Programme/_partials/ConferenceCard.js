@@ -12,10 +12,13 @@ import {
   Stack,
   Text,
   Button,
-  Flex,
-  Badge,
-  Icon,
   Grid,
+  Badge,
+  Flex,
+  Box,
+  AspectRatio,
+  Image,
+  Center,
 } from "@chakra-ui/react";
 import { Link } from "gatsby";
 import dayjs from "dayjs";
@@ -23,34 +26,64 @@ import "dayjs/locale/fr";
 import { Card } from "components/Card";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 
-export const ConferenceCard = ({ conference }) => {
+const SpeakerPreview = ({ speaker }) => (
+  <Flex mt={1} align="center">
+    <Box mr={4}>
+      <AspectRatio ratio={1} w="2rem" maxW="100%">
+        <Image src={speaker?.childMdx?.frontmatter?.image?.publicURL} borderRadius={4} />
+      </AspectRatio>
+    </Box>
+    <Text>{speaker?.childMdx?.frontmatter?.name}</Text>
+  </Flex>
+);
+
+export const ConferenceCard = ({ conference, speaker, speaker2 }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const capitalizeFirstLetter = (string) =>
     string.charAt(0).toUpperCase() + string.slice(1);
-
+  
+  if (conference?.childMdx?.frontmatter?.speaker === "break") {
+    return (
+      <Card variant="primary" mt={2}>
+        <Stack align="center">
+          <Text>
+            {conference?.childMdx?.frontmatter?.title}
+          </Text>
+        </Stack>
+      </Card>
+    )
+  }
+  
   return (
     <Stack>
       <Grid
-        templateColumns={["repeat(1, 1fr)", "repeat(1, 1fr) repeat(1, 2fr)"]}
+        templateColumns={["repeat(1, 1fr)", "repeat(1, 1fr) repeat(1, 4fr)"]}
         mt={3}
       >
-        <Stack p={5}>
-          <Stack display={["flex", "block"]} flexDir="row" align="center">
-            <Flex align="center">
-              <Text mt={[2, 0]}>
-                {capitalizeFirstLetter(
-                  dayjs(conference.childMdx.frontmatter.eventDate).format(
-                    "dddd D MMM"
-                  )
-                )}
-              </Text>
-              <Icon display={["none", "block"]} name="chevron-right" ml={2} />
-            </Flex>
-            <Text ml={[2, 0]} mt={[2, 0]}>
+        <Stack mr={3}>
+          <Flex
+            display={["none", "flex"]}
+            flexDirection="column"
+            justifyContent="space-between"
+            h="100%"
+            borderColor="blue.50"
+            borderStyle="solid"
+            borderTopWidth={1}
+            borderBottomWidth={1}
+          >
+            <Text color="blue.600">
+              {conference.childMdx.frontmatter.startHour}
+            </Text>
+
+            <Text color="blue.600">
+              {conference.childMdx.frontmatter.endHour}
+            </Text>
+          </Flex>
+          <Stack display={["block", "none"]} mb={2}>
+            <Text color="blue.600">
               {`${conference.childMdx.frontmatter.startHour} - ${conference.childMdx.frontmatter.endHour}`}
             </Text>
-            <Icon display={["block", "none"]} name="chevron-down" ml={2} />
           </Stack>
           {conference.childMdx.frontmatter.isKeynote && (
             <Badge colorScheme="brand" width="fit-content">
@@ -62,19 +95,25 @@ export const ConferenceCard = ({ conference }) => {
           borderLeftWidth={2}
           borderLeftColor="brand.600"
           onClick={onOpen}
+          w="full"
           isLink
         >
           <Heading fontSize="md">
             {conference.childMdx.frontmatter.title}
           </Heading>
-          <Text mt={2}>{conference.childMdx.frontmatter.speaker}</Text>
-          <Button colorScheme="brand" variant="link" width="fit-content" mt={2}>
-            Voir les détails et s'inscrire
-          </Button>
+
+          <SpeakerPreview speaker={speaker} />
+          {speaker2 && speaker2.childMdx && <SpeakerPreview speaker={speaker2} />}
+          
+          <Center>
+            <Button colorScheme="brand" variant="link" width="fit-content" mt={2}>
+              Voir les détails et s'inscrire
+            </Button>
+          </Center>
         </Card>
       </Grid>
 
-      <Drawer boxSize="md" isOpen={isOpen} placement="right" onClose={onClose}>
+      <Drawer size="md" isOpen={isOpen} placement="right" onClose={onClose}>
         <DrawerOverlay>
           <DrawerContent>
             <DrawerCloseButton />
@@ -100,9 +139,11 @@ export const ConferenceCard = ({ conference }) => {
                 )}
               </Stack>
               <Text>{conference.childMdx.frontmatter.title}</Text>
-              <Text mt={2} fontSize="md">
-                {conference.childMdx.frontmatter.speaker}
-              </Text>
+
+              <Stack mt={3}>
+                <SpeakerPreview speaker={speaker} />
+                {speaker2 && speaker2.childMdx && <SpeakerPreview speaker={speaker2} />}
+              </Stack>
             </DrawerHeader>
 
             <DrawerBody overflow="auto">
@@ -111,7 +152,7 @@ export const ConferenceCard = ({ conference }) => {
 
             {conference.childMdx.frontmatter.meetupLink && (
               <DrawerFooter display="flex" flexDirection="column">
-                <Button variant="outline" mb={3} onClick={onClose}>
+                <Button isFullWidth variant="outline" mb={3} onClick={onClose}>
                   Fermer
                 </Button>
                 <Button
@@ -119,6 +160,7 @@ export const ConferenceCard = ({ conference }) => {
                   as={Link}
                   target="_blank"
                   to={conference.childMdx.frontmatter.meetupLink}
+                  isFullWidth
                 >
                   S'inscrire
                 </Button>
