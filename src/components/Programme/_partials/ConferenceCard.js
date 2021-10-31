@@ -30,31 +30,32 @@ const SpeakerPreview = ({ speaker }) => (
   <Flex mt={1} align="center">
     <Box mr={4}>
       <AspectRatio ratio={1} w="2rem" maxW="100%">
-        <Image src={speaker?.childMdx?.frontmatter?.image?.publicURL} borderRadius={4} />
+        <Image
+          src={speaker?.childMdx?.frontmatter?.image?.publicURL}
+          borderRadius={4}
+        />
       </AspectRatio>
     </Box>
     <Text>{speaker?.childMdx?.frontmatter?.name}</Text>
   </Flex>
 );
 
-export const ConferenceCard = ({ conference, speaker, speaker2 }) => {
+export const ConferenceCard = ({ conference, speakers }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const capitalizeFirstLetter = (string) =>
     string.charAt(0).toUpperCase() + string.slice(1);
-  
-  if (conference?.childMdx?.frontmatter?.speaker === "break") {
+
+  if (conference?.childMdx?.frontmatter?.type === "break") {
     return (
       <Card variant="primary" mt={2}>
         <Stack align="center">
-          <Text>
-            {conference?.childMdx?.frontmatter?.title}
-          </Text>
+          <Text>{conference?.childMdx?.frontmatter?.title}</Text>
         </Stack>
       </Card>
-    )
+    );
   }
-  
+
   return (
     <Stack>
       <Grid
@@ -102,11 +103,20 @@ export const ConferenceCard = ({ conference, speaker, speaker2 }) => {
             {conference.childMdx.frontmatter.title}
           </Heading>
 
-          <SpeakerPreview speaker={speaker} />
-          {speaker2 && speaker2.childMdx && <SpeakerPreview speaker={speaker2} />}
-          
+          {speakers?.map((speaker) => (
+            <SpeakerPreview
+              key={speaker.childMdx.frontmatter.slug}
+              speaker={speaker}
+            />
+          ))}
+
           <Center>
-            <Button colorScheme="brand" variant="link" width="fit-content" mt={2}>
+            <Button
+              colorScheme="brand"
+              variant="link"
+              width="fit-content"
+              mt={2}
+            >
               Voir les détails et s'inscrire
             </Button>
           </Center>
@@ -141,8 +151,12 @@ export const ConferenceCard = ({ conference, speaker, speaker2 }) => {
               <Text>{conference.childMdx.frontmatter.title}</Text>
 
               <Stack mt={3}>
-                <SpeakerPreview speaker={speaker} />
-                {speaker2 && speaker2.childMdx && <SpeakerPreview speaker={speaker2} />}
+                {speakers?.map((speaker) => (
+                  <SpeakerPreview
+                    key={speaker.childMdx.frontmatter.slug}
+                    speaker={speaker}
+                  />
+                ))}
               </Stack>
             </DrawerHeader>
 

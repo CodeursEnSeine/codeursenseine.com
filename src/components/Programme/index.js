@@ -8,20 +8,19 @@ import { ConferenceCard } from "components/Programme/_partials/ConferenceCard";
 export const Programme = () => {
   const data = useStaticQuery(graphql`
     query {
-      conferences:allFile(
+      conferences: allFile(
         filter: { sourceInstanceName: { eq: "conferences" } }
         sort: { order: ASC, fields: childMdx___frontmatter___eventDate }
       ) {
         nodes {
           childMdx {
             frontmatter {
+              type
               title
               eventDate
               startHour
               endHour
-              speaker
-              speaker2
-              isKeynote
+              speakers
               meetupLink
             }
             body
@@ -29,7 +28,7 @@ export const Programme = () => {
         }
       }
 
-      speakers:allFile(
+      speakers: allFile(
         filter: { sourceInstanceName: { eq: "speakers" } }
         sort: { fields: childMdx___frontmatter___name }
       ) {
@@ -68,8 +67,11 @@ export const Programme = () => {
         <ConferenceCard
           key={`conference-${index}`}
           conference={conference}
-          speaker={speakers.nodes.find(speaker => speaker?.childMdx?.frontmatter?.slug === conference?.childMdx?.frontmatter?.speaker)}
-          speaker2={speakers.nodes.find(speaker => speaker?.childMdx?.frontmatter?.slug === conference?.childMdx?.frontmatter?.speaker2)}
+          speakers={speakers?.nodes.filter((speaker) =>
+            conference?.childMdx?.frontmatter?.speakers?.includes(
+              speaker?.childMdx?.frontmatter?.slug
+            )
+          )}
         />
       ))}
     </Stack>
