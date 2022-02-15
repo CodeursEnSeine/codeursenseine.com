@@ -91,6 +91,12 @@ const Meetups = ({ data }) => {
                 </Card>
               ))}
             </Grid>
+            <a href="https://www.devoxx.fr/" target= "_blank">
+              <Image
+                src="/images/meetups/devoxx-france-logo-2022-carre.png"
+                alt="Devoxx France 2022"
+              />
+            </a>
           </Stack>
           <Stack spacing={6}>
             <Heading as="h2" size="lg" fontWeight="normal" mb={8}>
