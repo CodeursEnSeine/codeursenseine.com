@@ -37,10 +37,10 @@ const H2 = ({ children, ...props }) => (
   />
 );
 const H3 = (props) => (
-  <Heading as="h3" fontWeight="normal" fontSize="xl" mb="0.5em" {...props} />
+  <Heading as="h3" fontWeight="normal" fontSize="xl" mb="0.75em" {...props} />
 );
 const H4 = (props) => (
-  <Heading as="h4" fontWeight="normal" fontSize="lg" mb="0.5em" {...props} />
+  <Heading as="h4" fontWeight="bold" fontSize="lg" mb="0.75em" {...props} />
 );
 const H5 = (props) => <Heading as="h5" fontSize="md" mb="0.5em" {...props} />;
 const H6 = (props) => <Heading as="h6" fontSize="xs" mb="0.5em" {...props} />;
