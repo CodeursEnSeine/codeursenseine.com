@@ -1,6 +1,6 @@
 import React from "react";
 import { MDXProvider } from "@mdx-js/react";
-import { Divider, Heading, Link, List, ListItem, Text } from "@chakra-ui/react";
+import { Divider, Heading, Link, List, ListItem, Text, Table } from "@chakra-ui/react";
 import slugify from "slugify";
 
 const A = (props) => (
@@ -37,10 +37,10 @@ const H2 = ({ children, ...props }) => (
   />
 );
 const H3 = (props) => (
-  <Heading as="h3" fontWeight="normal" fontSize="xl" mb="0.75em" {...props} />
+  <Heading as="h3" fontWeight="normal" fontSize="xl" mb="0.75em" mt="0.5em" {...props} />
 );
 const H4 = (props) => (
-  <Heading as="h4" fontWeight="bold" fontSize="lg" mb="0.75em" {...props} />
+  <Heading as="h4" fontWeight="bold" fontSize="lg" mb="0.75em" mt="0.5em" {...props} />
 );
 const H5 = (props) => <Heading as="h5" fontSize="md" mb="0.5em" {...props} />;
 const H6 = (props) => <Heading as="h6" fontSize="xs" mb="0.5em" {...props} />;
@@ -50,6 +50,9 @@ const UL = (props) => (
 );
 const LI = (props) => <ListItem {...props} />;
 const P = (props) => <Text mb="1em" {...props} />;
+
+
+const Table = (props) => <Table variant="striped" type="md" colorScheme="gray" mb="1em" {...props} />;
 
 const components = {
   a: A,
@@ -61,6 +64,7 @@ const components = {
   h6: H6,
   hr: HR,
   li: LI,
+  table: Table,
   p: P,
   ul: UL,
 };
