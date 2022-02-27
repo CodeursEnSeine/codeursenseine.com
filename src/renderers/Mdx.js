@@ -52,7 +52,7 @@ const LI = (props) => <ListItem {...props} />;
 const P = (props) => <Text mb="1em" {...props} />;
 
 
-const Table = (props) => <Table variant="striped" type="md" colorScheme="gray" mb="1em" {...props} />;
+const TABLE = (props) => <Table variant="striped" type="md" colorScheme="gray" mb="1em" {...props} />;
 
 const components = {
   a: A,
@@ -64,7 +64,7 @@ const components = {
   h6: H6,
   hr: HR,
   li: LI,
-  table: Table,
+  table: TABLE,
   p: P,
   ul: UL,
 };
