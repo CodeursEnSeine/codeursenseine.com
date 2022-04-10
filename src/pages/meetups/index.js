@@ -91,7 +91,7 @@ const Meetups = ({ data }) => {
                 </Card>
               ))}
             </Grid>
-            <a href="https://www.devoxx.fr/" target= "_blank">
+            <a href="https://www.devoxx.fr/" target="_blank" rel="noopener">
               <Image
                 src="/images/meetups/devoxx-france-logo-2022-carre.png"
                 alt="Devoxx France 2022"

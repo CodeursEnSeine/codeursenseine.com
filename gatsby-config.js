@@ -9,7 +9,7 @@ module.exports = {
     description: `Rencontre de codeuses & codeurs à Rouen`,
     siteUrl: `https://www.codeursenseine.com`,
     author: `@codeursenseine`,
-    currentYear: `2021`,
+    currentYear: `2022`,
   },
   plugins: [
     `gatsby-alias-imports`,
@@ -159,6 +159,6 @@ module.exports = {
         ],
       },
     },
-    `gatsby-plugin-sitemap`
+    `gatsby-plugin-sitemap`,
   ],
 };
