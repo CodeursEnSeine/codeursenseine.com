@@ -115,7 +115,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const sponsorsPageQuery = await graphql(`
     query {
       allMdx(
-        filter: { frontmatter: { sponsor: { eq: "2021" } } }
+        filter: { frontmatter: { sponsor: { eq: "2022" } } }
         sort: { order: ASC, fields: frontmatter___name }
       ) {
         nodes {
