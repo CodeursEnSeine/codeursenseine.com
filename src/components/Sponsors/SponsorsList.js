@@ -50,7 +50,8 @@ export const SponsorsList = ({ ...props }) => {
   return (
     <Stack spacing={8} {...props}>
       <Heading as="h2" size="md">
-        Sponsors {year} : {sponsors.length} sponsors.
+        Sponsors {year} : {sponsors.length} sponsor
+        {sponsors.length > 1 ? "s" : ""}.
       </Heading>
       <SimpleGrid columns={{ base: 3, sm: 4, lg: 5 }} gap={4}>
         {sponsors.map(({ childMdx: { frontmatter } }) => (

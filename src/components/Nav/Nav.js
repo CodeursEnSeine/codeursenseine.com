@@ -78,21 +78,21 @@ export const Nav = ({
             </NavLink>
             {pathname.startsWith(withPrefix(`/${currentYear}`)) && (
               <>
-                <NavLink as={Link} to={`/${currentYear}/programme`}>
+                {/* <NavLink as={Link} to={`/${currentYear}/programme`}>
                   Programme
                 </NavLink>
                 <NavLink as={Link} to={`/${currentYear}/speakers`}>
                   Intervenants
-                </NavLink>
+                </NavLink> */}
                 <NavLink as={Link} to={`/${currentYear}/sponsors`}>
                   Sponsors
                 </NavLink>
                 <NavLink as={Link} to={`/${currentYear}/organisateurs`}>
                   Organisateurs
                 </NavLink>
-                <NavLink as={Link} to={`/${currentYear}/kit-de-presse`}>
+                {/* <NavLink as={Link} to={`/${currentYear}/kit-de-presse`}>
                   Kit de presse
-                </NavLink>
+                </NavLink> */}
                 <NavLink as={Link} to={`/${currentYear}/code-of-conduct`}>
                   Code de conduite
                 </NavLink>

@@ -60,7 +60,7 @@
     "clean": "gatsby clean",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "archive:2020": "GATSBY_ARCHIVE=2020 yarn archive:build",
+    "archive:2021": "GATSBY_ARCHIVE=2021 yarn archive:build",
     "archive:build": "yarn clean && rm -rf ./public-archive/archive-$GATSBY_ARCHIVE && yarn build --prefix-paths && mkdir -p ./public-archive && cp -R ./public ./public-archive/archive-$GATSBY_ARCHIVE",
     "archive:serve": "npx http-server ./public-archive -c-1",
     "archive": "yarn archive:build && yarn archive:serve"

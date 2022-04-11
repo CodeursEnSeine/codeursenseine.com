@@ -1,11 +1,23 @@
 [[redirects]]
-  from = "/archive-2020/meetups*"
-  to = "https://www.codeursenseine.com/meetups/:splat"
-  status = 301
-  force = true
+force = true
+from = "/archive-2020/meetups*"
+status = 301
+to = "https://www.codeursenseine.com/meetups/:splat"
 
 [[redirects]]
-  from = "/archive-2020/devoxx4kids*"
-  to = "https://www.codeursenseine.com/devoxx4kids/:splat"
-  status = 301
-  force = true
+force = true
+from = "/archive-2020/devoxx4kids*"
+status = 301
+to = "https://www.codeursenseine.com/devoxx4kids/:splat"
+
+[[redirects]]
+force = true
+from = "/archive-2021/meetups*"
+status = 301
+to = "https://www.codeursenseine.com/meetups/:splat"
+
+[[redirects]]
+force = true
+from = "/archive-2021/devoxx4kids*"
+status = 301
+to = "https://www.codeursenseine.com/devoxx4kids/:splat"
