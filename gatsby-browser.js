@@ -4,6 +4,6 @@
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
 
-import "typeface-montserrat";
-import "typeface-lato";
+import "@fontsource/montserrat";
+import "@fontsource/lato";
 import "./src/styles/global.css";
