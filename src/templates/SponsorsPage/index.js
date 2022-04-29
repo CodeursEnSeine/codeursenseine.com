@@ -118,7 +118,7 @@ const SponsorsPage = ({ pageContext }) => {
                   variant="outline"
                   marginTop={4}
                 >
-                  🇬🇧 Sponsoring agreement
+                  🇬🇧 Sponsorship agreement
                 </Button>
               </Box>
             </ButtonGroup>
