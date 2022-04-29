@@ -49,7 +49,7 @@ const SponsorsPage = ({ pageContext }) => {
             boxShadow="brand"
             overflow="hidden"
             borderRadius="md"
-            href="https://drive.google.com/file/d/1OlEKB6-IyqZ6Img7Z6aFVy43nf3t84ry/view?usp=sharing"
+            href="https://drive.google.com/file/d/1zclVxBxeUZFUxX2kxVXCoAW8CnFr3p40/view?usp=sharing"
             title="Dossier de sponsoring"
             target="_blank"
           >
@@ -73,14 +73,14 @@ const SponsorsPage = ({ pageContext }) => {
             <Text>
               Si vous souhaitez soutenir l'événement, téléchargez{" "}
               <A
-                href="https://drive.google.com/file/d/1OlEKB6-IyqZ6Img7Z6aFVy43nf3t84ry/view?usp=sharing"
+                href="https://drive.google.com/file/d/1zclVxBxeUZFUxX2kxVXCoAW8CnFr3p40/view?usp=sharing"
                 target="_blank"
               >
                 le dossier de sponsoring
               </A>
               ,{" "}
               <A
-                href="https://docs.google.com/document/d/1Acijj9CtbmPbzrTGN3Omqcg6uOHPYFSI8GwntFYk7yg/edit?usp=sharing"
+                href="https://docs.google.com/document/d/14dtwH8QfzXuvPddlbo2fYgRy78RPtwwU1vPsH9tdgr4/edit?usp=sharing"
                 target="_blank"
               >
                 la convention de sponsoring
@@ -94,7 +94,7 @@ const SponsorsPage = ({ pageContext }) => {
             <ButtonGroup>
               <Button
                 as="a"
-                href="https://drive.google.com/file/d/1OlEKB6-IyqZ6Img7Z6aFVy43nf3t84ry/view?usp=sharing"
+                href="https://drive.google.com/file/d/1zclVxBxeUZFUxX2kxVXCoAW8CnFr3p40/view?usp=sharing"
                 target="_blank"
                 colorScheme="brand"
               >
@@ -102,7 +102,7 @@ const SponsorsPage = ({ pageContext }) => {
               </Button>
               <Button
                 as="a"
-                href="https://docs.google.com/document/d/1Acijj9CtbmPbzrTGN3Omqcg6uOHPYFSI8GwntFYk7yg/edit?usp=sharing"
+                href="https://docs.google.com/document/d/14dtwH8QfzXuvPddlbo2fYgRy78RPtwwU1vPsH9tdgr4/edit?usp=sharing"
                 target="_blank"
                 colorScheme="brand"
                 variant="outline"
