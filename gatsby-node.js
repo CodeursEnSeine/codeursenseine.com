@@ -114,22 +114,30 @@ exports.createPages = async ({ graphql, actions }) => {
   // -------------------- CREATING SPONSORS PAGE ---------------------
   const sponsorsPageQuery = await graphql(`
     query {
-      allMdx(
-        filter: { frontmatter: { sponsor: { eq: "2022" } } }
-        sort: { order: ASC, fields: frontmatter___name }
+      allFile(
+        filter: {
+          sourceInstanceName: { eq: "sponsors" }
+          childMdx: {
+            frontmatter: {
+              sponsor: { in: ["platinium", "gold", "silver", "bronze"] }
+            }
+          }
+        }
+        sort: { order: ASC, fields: childMdx___frontmatter___name }
       ) {
         nodes {
-          frontmatter {
-            name
-            link
-            logo {
-              publicURL
+          childMdx {
+            frontmatter {
+              name
+              link
+              logo {
+                publicURL
+              }
+              sponsor
             }
-            sponsor
-            isDonator
+            body
+            excerpt(pruneLength: 1000)
           }
-          body
-          excerpt(pruneLength: 1000)
         }
       }
     }
@@ -144,7 +152,9 @@ exports.createPages = async ({ graphql, actions }) => {
     component: require.resolve(`./src/templates/SponsorsPage/index.js`),
     context: {
       siteMetadata: metadataQuery.data.site.siteMetadata,
-      sponsors: sponsorsPageQuery.data.allMdx.nodes,
+      sponsors: sponsorsPageQuery.data.allFile.nodes.map(
+        (node) => node.childMdx
+      ),
     },
   });
 

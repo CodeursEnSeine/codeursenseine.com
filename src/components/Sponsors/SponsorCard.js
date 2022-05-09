@@ -14,20 +14,12 @@ import {
   ModalCloseButton,
   useDisclosure,
   AspectRatio,
-  Badge,
 } from "@chakra-ui/react";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import { Card } from "components/Card";
 import { A } from "components/A";
 
-export const SponsorCard = ({
-  logoSrc,
-  link,
-  name,
-  excerpt,
-  children,
-  isDonator,
-}) => {
+export const SponsorCard = ({ logoSrc, link, name, excerpt, children }) => {
   const containerRef = React.useRef();
   const contentRef = React.useRef();
   const [isExpandable, setIsExpandable] = React.useState(false);
@@ -71,7 +63,6 @@ export const SponsorCard = ({
             <A href={link} title={name} target="_blank">
               {name}
             </A>
-            {isDonator && <Badge ml={2}>Mécénat</Badge>}
           </Box>
           <Text fontSize="sm">{excerpt}</Text>
         </Box>
@@ -107,7 +98,6 @@ export const SponsorCard = ({
           <ModalHeader fontSize="xl">
             <Box>
               <Text>{name}</Text>
-              {isDonator && <Badge>Mécénat</Badge>}
             </Box>
           </ModalHeader>
           <ModalCloseButton />
