@@ -123,7 +123,7 @@ exports.createPages = async ({ graphql, actions }) => {
             }
           }
         }
-        sort: { order: ASC, fields: childMdx___frontmatter___name }
+        sort: { order: ASC, fields: name }
       ) {
         nodes {
           childMdx {
