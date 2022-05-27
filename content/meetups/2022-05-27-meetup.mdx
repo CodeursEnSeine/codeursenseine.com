@@ -1,0 +1,72 @@
+---
+layout: meetups-post
+group: meetups
+category: meetup
+
+slug: soiree-sobriete-numerique
+published: true
+
+title: "Soirée Sobriété Numérique"
+excerpt: "Un meetup dans le cadre des OFF du Tech 4 Good Tour organisé par la Latitudes, Make Sense et la Métropole de Rouen. Pour cette soirée, pas de table ronde, on cause code et technologies. C'est 100% pour les développeurs et les métiers autours."
+
+meetup_date:          2022-06-09
+meetup_start_time:    19h00
+meetup_end_time:      22h00
+meetup_location:     À Seine Innopolis, 72 Rue de la République, Le Petit Quevilly
+meetup_register_link: https://www.meetup.com/codeursenseine/events/286177618/
+
+---
+
+import { Stack } from "@chakra-ui/react";
+import { MeetupSpeaker } from "components/Meetup"
+
+## Soirée à thème
+
+Un meetup dans le cadre des OFF du Tech 4 Good Tour organisé par la Latitudes, Make Sense et la Métropole de Rouen. Les off sont des événements autours du tech 4 Good Tour organisés par l'écosystème local de chaque ville étape.
+
+Pour cette soirée, pas de table ronde, on cause code et technologies. C'est 100% pour les développeurs et les métiers autours.
+
+<img src="/images/meetups/tech4goodtour.svg" width="200" />
+
+## Le lieu
+
+Attention, pour ce meetup, on revient dans la grande salle à Seine Innopolis (la dernière fois c'était avant le confinement).
+
+## Découvrez Scaphandre avec Benoit Petit
+
+[Scaphandre](https://github.com/hubblo-org/scaphandre) est un agent de métrologie de mesure de l'énergie d'un serveur. Il est Open Source. Et vous savez quoi?  Son créateur et commiteur principale est français. 
+
+Nous avons demandé à Benoit de de nous faire une démonstration live de la mise en place scaphandre.
+
+  <MeetupSpeaker speaker={{
+    name: "Benoit Petit",
+    avatar: "/images/meetups/speakers/bpetit.jpg",
+    twitter: "bpetit_",
+    bio: `Benoit est fondateur de [Hubblo](https://hubblo.org/fr/) et membre du Collectif [Boavizta](https://www.boavizta.org/), un collectif de professionnels pour mesurer l’impact environnemental du numérique des organisations.`
+  }}/>
+
+
+## L'eco-conception, c'est bien, mais si on parlait un peu du backend ? - v2 version étendue -  Jérémie Drouet et Youen Chéné
+
+Cette présentation est une v2 de la présentation de Jérémie datant de novembre 2021. La présentation initiale était sur le langage. Cette v2 va plus loin en présentant une étude en cours en mettant en jeu, le langage, la base de donnée, le protocole de communication et l'impact d'une bonne ou une mauvaise conception.
+
+A l'heure actuelle, l'éco-conception des applications web est un domaine qui monte. Vous pouvez faire des tests de performance de vos pages web, savoir combien d'énergie les utilisateurs auront besoin pour utiliser votre interface, etc. Mais qu'en est-il du serveur ? Quelles sont les bonnes pratiques ? Faut il pour autant écrire mes scripts de déploiement en C ? Nous allons voir quelles métriques sont bonnes à regarder, quelles sont les personnes à convaincre pour faire de l’éco-conception côté serveur et avec quels arguments.
+
+Quelle partie a le plus d'impact sur la consommation énergétique d'un back end : le langage, les frameworks, les protocoles du communication, la base de donnée, hibernate, le niveau de formation en SQL du développeur? Vous en saurez plus lors de cette présentation.
+
+
+<Stack>
+  <MeetupSpeaker speaker={{
+    name: "Jérémie Drouet",
+    avatar: "/images/meetups/speakers/jeremie-drouet.jpeg",
+    twitter: "jeremiedrouet",
+    bio: `[Datadog](https://www.datadoghq.com/). Developer that develops. Sometimes I drink a coffee.`
+  }}/>
+
+  <MeetupSpeaker speaker={{
+    name: "Youen Chéné",
+    avatar: "/images/meetups/speakers/Youen.jpg",
+    twitter: "youen_chene",
+    bio: `Fondateur de [Webvert](https://www.lewebvert.fr/). Bénévole à Codeurs en Seine, Tech Rocks et Rouen French Tech.`
+  }} />
+</Stack>
