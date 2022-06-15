@@ -34,6 +34,8 @@ const SponsorsPage = ({ pageContext }) => {
     }
   `);
 
+  const sponsorLevels = ["platinium", "gold", "silver", "bronze"];
+
   return (
     <Layout theme="ces">
       <OGImage path="/images/ces/social.jpg" />
@@ -49,7 +51,7 @@ const SponsorsPage = ({ pageContext }) => {
             boxShadow="brand"
             overflow="hidden"
             borderRadius="md"
-            href="https://drive.google.com/file/d/1OlEKB6-IyqZ6Img7Z6aFVy43nf3t84ry/view?usp=sharing"
+            href="https://drive.google.com/file/d/1zclVxBxeUZFUxX2kxVXCoAW8CnFr3p40/view?usp=sharing"
             title="Dossier de sponsoring"
             target="_blank"
           >
@@ -73,14 +75,14 @@ const SponsorsPage = ({ pageContext }) => {
             <Text>
               Si vous souhaitez soutenir l'événement, téléchargez{" "}
               <A
-                href="https://drive.google.com/file/d/1OlEKB6-IyqZ6Img7Z6aFVy43nf3t84ry/view?usp=sharing"
+                href="https://drive.google.com/file/d/1zclVxBxeUZFUxX2kxVXCoAW8CnFr3p40/view?usp=sharing"
                 target="_blank"
               >
                 le dossier de sponsoring
               </A>
               ,{" "}
               <A
-                href="https://docs.google.com/document/d/1Acijj9CtbmPbzrTGN3Omqcg6uOHPYFSI8GwntFYk7yg/edit?usp=sharing"
+                href="https://docs.google.com/document/d/14dtwH8QfzXuvPddlbo2fYgRy78RPtwwU1vPsH9tdgr4/edit?usp=sharing"
                 target="_blank"
               >
                 la convention de sponsoring
@@ -94,49 +96,69 @@ const SponsorsPage = ({ pageContext }) => {
             <ButtonGroup>
               <Button
                 as="a"
-                href="https://drive.google.com/file/d/1OlEKB6-IyqZ6Img7Z6aFVy43nf3t84ry/view?usp=sharing"
+                href="https://drive.google.com/file/d/1zclVxBxeUZFUxX2kxVXCoAW8CnFr3p40/view?usp=sharing"
                 target="_blank"
                 colorScheme="brand"
               >
                 Dossier de sponsoring
               </Button>
-              <Button
-                as="a"
-                href="https://docs.google.com/document/d/1Acijj9CtbmPbzrTGN3Omqcg6uOHPYFSI8GwntFYk7yg/edit?usp=sharing"
-                target="_blank"
-                colorScheme="brand"
-                variant="outline"
-              >
-                Convention de sponsoring
-              </Button>
+              <Box display="flex" flexDir="column">
+                <Button
+                  as="a"
+                  href="https://docs.google.com/document/d/14dtwH8QfzXuvPddlbo2fYgRy78RPtwwU1vPsH9tdgr4/edit?usp=sharing"
+                  target="_blank"
+                  colorScheme="brand"
+                  variant="outline"
+                >
+                  Convention de sponsoring
+                </Button>
+                <Button
+                  as="a"
+                  href="https://docs.google.com/document/d/1oI6vAZBttTuSgxHH__LCVS1XV8j7wdiozc1TEzuVEhk/edit?usp=sharing"
+                  target="_blank"
+                  colorScheme="brand"
+                  variant="outline"
+                  marginTop={4}
+                >
+                  🇬🇧 Sponsorship agreement
+                </Button>
+              </Box>
             </ButtonGroup>
           </Stack>
         </Box>
       </Grid>
       <Divider mb={6} />
       <Stack spacing={6}>
-        {sponsors.length > 0 && (
-          <Stack spacing={6}>
-            <Heading size="lg" color="brand.700" fontWeight="normal">
-              Sponsors
-            </Heading>
-            <SimpleGrid columns={{ base: 1, sm: 2, lg: 3 }} gap={8}>
-              {sponsors.map((sponsor, index) => (
-                <SponsorCard
-                  key={index}
-                  name={sponsor.frontmatter.name}
-                  link={sponsor.frontmatter.link}
-                  logoSrc={sponsor.frontmatter?.logo?.publicURL}
-                  excerpt={sponsor.excerpt}
-                  isDonator={sponsor.frontmatter.isDonator}
-                >
-                  {sponsor.body}
-                </SponsorCard>
-              ))}
-            </SimpleGrid>
-            <Divider />
-          </Stack>
-        )}
+        {sponsorLevels.map((level) => {
+          const thisLevelSponsors = sponsors.filter(
+            (sponsor) => sponsor.frontmatter.sponsor === level
+          );
+
+          return (
+            thisLevelSponsors.length > 0 && (
+              <Stack spacing={6} key={level}>
+                <Heading size="lg" color="brand.700" fontWeight="normal">
+                  Sponsors {level}
+                </Heading>
+                <SimpleGrid columns={{ base: 1, sm: 2, lg: 3 }} gap={8}>
+                  {thisLevelSponsors.map((sponsor, index) => (
+                    <SponsorCard
+                      key={index}
+                      name={sponsor.frontmatter.name}
+                      link={sponsor.frontmatter.link}
+                      logoSrc={sponsor.frontmatter?.logo?.publicURL}
+                      excerpt={sponsor.excerpt}
+                      isDonator={sponsor.frontmatter.isDonator}
+                    >
+                      {sponsor.body}
+                    </SponsorCard>
+                  ))}
+                </SimpleGrid>
+                <Divider />
+              </Stack>
+            )
+          );
+        })}
       </Stack>
     </Layout>
   );

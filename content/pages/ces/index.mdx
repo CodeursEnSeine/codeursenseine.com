@@ -7,6 +7,7 @@ import { Text, Stack, Flex, Box, Heading, Button, Image } from "@chakra-ui/react
 import { Link } from "gatsby"
 import { A } from "components/A"
 import { Card } from "components/Card"
+import { CallForPaperButton } from "components/CallForPaperButton"
 import { Newsletter } from "components/Newsletter"
 import { ButtonGroup } from "components/ButtonGroup"
 import { OGImage } from "components/OG"
@@ -28,7 +29,7 @@ import { SponsorsList } from "components/Sponsors"
           <strong>jeudi 17 Novembre</strong>.
         </Text>
       </Box>
-      {/* <Box
+      <Box
         ml={{ lg: 'auto' }}
         pt={{ base: 4, lg: 0 }}
         pl={{ lg: 4 }}
@@ -40,11 +41,12 @@ import { SponsorsList } from "components/Sponsors"
           align="center"
           childProps={{ w: { base: 'full', xs: 'auto', lg: 'full'} }}
         >
-          <Button as={Link} to="programme" color="brand.600">
+        <CallForPaperButton startDate="2022-06-01" endDate="2022-09-16" cfpId="Uv6XULhgmt7z2YuoJ8nq" color="brand.600" />
+          {/* <Button as={Link} to="programme" color="brand.600">
             Découvrir le programme
-          </Button>
+          </Button> */}
         </ButtonGroup>
-      </Box> */}
+      </Box>
     </Flex>
   </Card>
 
@@ -61,7 +63,7 @@ import { SponsorsList } from "components/Sponsors"
     </Stack>
   </Stack>
 
-  <Card href="https://www.meetup.com/fr-FR/codeursenseine/events/281246952/" as="a" isLink variant="primary">
+  <Card href="https://www.meetup.com/fr-FR/codeursenseine/events/286310113/" as="a" isLink variant="primary">
     <Stack align="center">
       <Text>
         Inscrivez-vous à l'évènement Meetup pour ne rien rater !

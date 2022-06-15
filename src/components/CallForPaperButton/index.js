@@ -12,6 +12,8 @@ export const CallForPaperButton = ({ startDate, endDate, cfpId, ...rest }) => {
     <Button
       as="a"
       href={`https://conference-hall.io/public/event/${cfpId}`}
+      target="_blank"
+      rel="noopener noreferrer"
       {...rest}
     >
       Call For Paper
