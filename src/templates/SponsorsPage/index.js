@@ -51,7 +51,7 @@ const SponsorsPage = ({ pageContext }) => {
             boxShadow="brand"
             overflow="hidden"
             borderRadius="md"
-            href="https://drive.google.com/file/d/1u-z5u7WlMngTTnLRUnB3CZOAqmm1rZ9E/view?usp=sharing"
+            href="https://drive.google.com/file/d/1zclVxBxeUZFUxX2kxVXCoAW8CnFr3p40/view?usp=sharing"
             title="Dossier de sponsoring"
             target="_blank"
           >
