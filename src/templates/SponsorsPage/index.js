@@ -34,7 +34,7 @@ const SponsorsPage = ({ pageContext }) => {
     }
   `);
 
-  const sponsorLevels = ["platinium", "gold", "silver", "bronze"];
+  const sponsorLevels = ["platinium", "gold", "silver", "bronze", "partners"];
 
   return (
     <Layout theme="ces">
@@ -138,7 +138,8 @@ const SponsorsPage = ({ pageContext }) => {
             thisLevelSponsors.length > 0 && (
               <Stack spacing={6} key={level}>
                 <Heading size="lg" color="brand.700" fontWeight="normal">
-                  Sponsors {level}
+                  Sponsors{" "}
+                  {level === "partners" ? "partenaire logistique" : level}
                 </Heading>
                 <SimpleGrid columns={{ base: 1, sm: 2, lg: 3 }} gap={8}>
                   {thisLevelSponsors.map((sponsor, index) => (

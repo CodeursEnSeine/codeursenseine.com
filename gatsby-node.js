@@ -119,7 +119,9 @@ exports.createPages = async ({ graphql, actions }) => {
           sourceInstanceName: { eq: "sponsors" }
           childMdx: {
             frontmatter: {
-              sponsor: { in: ["platinium", "gold", "silver", "bronze"] }
+              sponsor: {
+                in: ["platinium", "gold", "silver", "bronze", "partners"]
+              }
             }
           }
         }
