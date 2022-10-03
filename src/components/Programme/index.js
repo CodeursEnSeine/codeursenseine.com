@@ -10,18 +10,17 @@ export const Programme = () => {
     query {
       conferences: allFile(
         filter: { sourceInstanceName: { eq: "conferences" } }
-        sort: { order: ASC, fields: childMdx___frontmatter___eventDate }
+        sort: { order: ASC, fields: childMdx___frontmatter___start }
       ) {
         nodes {
           childMdx {
             frontmatter {
               type
               title
-              eventDate
-              startHour
-              endHour
+              start
+              end
               speakers
-              meetupLink
+              room
             }
             body
           }
@@ -38,7 +37,9 @@ export const Programme = () => {
               slug
               name
               image {
-                publicURL
+                childImageSharp {
+                  gatsbyImageData(width: 200, placeholder: BLURRED)
+                }
               }
               company
               twitterLink
