@@ -74,7 +74,7 @@ import { SponsorsList } from "components/Sponsors"
       </Button>
     </Stack>
   </Card> */}
-  <Stack isInline spacing="8" align="flex-start" justify="center">  
+  <Flex direction={{ base: "column-reverse", md: "row"}} gap="4" align={{ base: "center", md: "flex-start"}} justify="center">  
     <Stack maxW="60ch" spacing={4}>
       <Heading as="h3" size="md">
         Une journée par la communauté pour la communauté
@@ -93,7 +93,7 @@ import { SponsorsList } from "components/Sponsors"
       alt="Le Kindarena de Rouen"
       borderRadius={4}
     />
-  </Stack>
+  </Flex>
 
   <Stack spacing="4">
     <Newsletter />
