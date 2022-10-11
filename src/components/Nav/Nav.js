@@ -78,6 +78,9 @@ export const Nav = ({
             </NavLink>
             {pathname.startsWith(withPrefix(`/${currentYear}`)) && (
               <>
+                <NavLink as={Link} to={`/${currentYear}/inscription`}>
+                  Inscription
+                </NavLink>
                 {/* <NavLink as={Link} to={`/${currentYear}/programme`}>
                   Programme
                 </NavLink>
@@ -116,10 +119,7 @@ export const Nav = ({
           </Stack>
           <Stack>
             <NavLink isMain as={Link} to="/live" title="Live Twitch">
-              <span role="img" aria-label="Red circle">
-                🔴
-              </span>{" "}
-              Live Stream
+              Stream
             </NavLink>
           </Stack>
           <Stack>
