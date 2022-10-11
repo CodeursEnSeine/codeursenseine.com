@@ -111,6 +111,15 @@ exports.createPages = async ({ graphql, actions }) => {
     },
   });
 
+  createPage({
+    path: `/${metadataQuery.data.site.siteMetadata.currentYear}/inscription`,
+    component: require.resolve(`./src/templates/Inscription/index.js`),
+    context: {
+      organisers: organisersQuery.data.allFile.nodes,
+      siteMetadata: metadataQuery.data.site.siteMetadata,
+    },
+  });
+
   // -------------------- CREATING SPONSORS PAGE ---------------------
   const sponsorsPageQuery = await graphql(`
     query {
