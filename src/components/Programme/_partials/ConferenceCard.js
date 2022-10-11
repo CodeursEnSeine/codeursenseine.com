@@ -22,11 +22,14 @@ import {
 } from "@chakra-ui/react";
 import { Link } from "gatsby";
 import dayjs from "dayjs";
+import duration from "dayjs/plugin/duration";
 import "dayjs/locale/fr";
 import { Card } from "components/Card";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { FiGithub, FiTwitter } from "react-icons/fi";
+
+dayjs.extend(duration);
 
 export const ConferenceCard = ({ conference, speakers }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -54,20 +57,75 @@ export const ConferenceCard = ({ conference, speakers }) => {
         w="full"
         h="full"
         isLink
+        p="4"
       >
-        <Heading fontSize="md" flexGrow="1">
+        <Flex
+          justifyContent="space-between"
+          display={{ base: "flex", md: "none" }}
+        >
+          <HStack spacing="1">
+            <Text
+              as="time"
+              datetime={conference.childMdx.frontmatter.start}
+              fontWeight="bold"
+              fontSize="sm"
+              color="gray.600"
+            >
+              {dayjs(conference.childMdx.frontmatter.start).format("HH:mm")}
+            </Text>
+            <span>-</span>
+            <Text
+              as="time"
+              datetime={conference.childMdx.frontmatter.end}
+              fontWeight="bold"
+              fontSize="sm"
+              color="gray.600"
+            >
+              {dayjs(conference.childMdx.frontmatter.end).format("HH:mm")}
+            </Text>
+            <Text fontWeight="bold" fontSize="xs" color="gray.600" as="span">
+              (
+              {dayjs
+                .duration(
+                  dayjs(conference.childMdx.frontmatter.end).diff(
+                    conference.childMdx.frontmatter.start
+                  )
+                )
+                .format("H[h]mm")}
+              )
+            </Text>
+          </HStack>
+          <Box>
+            {["quicky", "atelier"].includes(
+              conference.childMdx.frontmatter?.type
+            ) && (
+              <Badge colorScheme="brand" fontSize="xs">
+                {conference.childMdx.frontmatter?.type}
+              </Badge>
+            )}
+          </Box>
+        </Flex>
+
+        <Heading fontSize={{ base: "md", md: "sm" }} flexGrow="1">
           {conference.childMdx.frontmatter.title}
         </Heading>
-
-        <Text>
+        <Text fontSize="sm" color="gray.600" pt="1">
           {speakers
             ?.map((speaker) => speaker?.childMdx?.frontmatter?.name)
             .join(", ")}
         </Text>
+        <HStack spacing="1" fontSize="sm" pt="2">
+          <Text color="brand.700">
+            Salle {conference.childMdx.frontmatter.room}
+          </Text>
 
-        <Text fontSize="sm" color="brand.700">
-          Salle {conference.childMdx.frontmatter.room}
-        </Text>
+          <HStack spacing="1" display={{ base: "none", md: "flex" }}>
+            <span>-</span>
+            <Text textTransform="capitalize">
+              {conference.childMdx.frontmatter?.type}
+            </Text>
+          </HStack>
+        </HStack>
       </Card>
 
       <Drawer size="md" isOpen={isOpen} placement="right" onClose={onClose}>
