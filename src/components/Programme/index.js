@@ -86,8 +86,6 @@ export const Programme = () => {
     return accumulator;
   }, {});
 
-  console.log(confs);
-
   return (
     <Grid
       templateColumns={{

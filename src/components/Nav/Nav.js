@@ -81,12 +81,12 @@ export const Nav = ({
                 <NavLink as={Link} to={`/${currentYear}/inscription`}>
                   Inscription
                 </NavLink>
-                {/* <NavLink as={Link} to={`/${currentYear}/programme`}>
+                <NavLink as={Link} to={`/${currentYear}/programme`}>
                   Programme
                 </NavLink>
                 <NavLink as={Link} to={`/${currentYear}/speakers`}>
                   Intervenants
-                </NavLink> */}
+                </NavLink>
                 <NavLink as={Link} to={`/${currentYear}/sponsors`}>
                   Sponsors
                 </NavLink>
