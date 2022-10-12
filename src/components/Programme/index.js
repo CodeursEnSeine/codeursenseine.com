@@ -6,7 +6,6 @@ import "dayjs/locale/fr";
 import { ConferenceCard } from "components/Programme/_partials/ConferenceCard";
 import { PauseCard } from "./_partials/PauseCard";
 import { PleniereCard } from "./_partials/PleniereCard";
-import { KeynoteCard } from "./_partials/KeynoteCard";
 
 export const Programme = () => {
   const data = useStaticQuery(graphql`
