@@ -67,10 +67,10 @@ export const Programme = () => {
   const { conferences, speakers } = data;
 
   const ROOM_GRID = {
-    A: { base: 1, md: 2 },
-    B: { base: 1, md: 3 },
-    C: { base: 1, md: 4 },
-    D: { base: 1, md: 5 },
+    A: { base: 1, lg: 2 },
+    B: { base: 1, lg: 3 },
+    C: { base: 1, lg: 4 },
+    D: { base: 1, lg: 5 },
   };
 
   // TODO check if better way.
@@ -90,7 +90,8 @@ export const Programme = () => {
     <Grid
       templateColumns={{
         base: "1fr",
-        md: "6rem repeat(4, 1fr)",
+        lg: "2.8rem repeat(4, 1fr)",
+        xl: "6rem repeat(4, 1fr)",
       }}
       gap="4"
     >
@@ -99,7 +100,7 @@ export const Programme = () => {
           <GridItem
             textAlign="right"
             pt="4"
-            display={{ base: "none", md: "block" }}
+            display={{ base: "none", lg: "block" }}
           >
             <Text as="time" datetime={start} fontWeight="bold" color="gray.500">
               {dayjs(start).format("HH:mm")}
@@ -108,12 +109,12 @@ export const Programme = () => {
           {conferences.map((conference) => (
             <Fragment key={conference?.id}>
               {conference?.childMdx?.frontmatter?.type === "pause" && (
-                <GridItem colSpan={{ base: "1", md: "4" }}>
+                <GridItem colSpan={{ base: "1", lg: "4" }}>
                   <PauseCard title={conference?.childMdx?.frontmatter?.title} />
                 </GridItem>
               )}
               {conference?.childMdx?.frontmatter?.type === "pleniere" && (
-                <GridItem colSpan={{ base: "1", md: "4" }}>
+                <GridItem colSpan={{ base: "1", lg: "4" }}>
                   <PleniereCard
                     title={conference?.childMdx?.frontmatter?.title}
                     room={conference?.childMdx?.frontmatter?.room}
@@ -124,7 +125,7 @@ export const Programme = () => {
                 <GridItem
                   colSpan={{
                     base: "1",
-                    md: conference?.childMdx?.frontmatter?.columns ?? "4",
+                    lg: conference?.childMdx?.frontmatter?.columns ?? "4",
                   }}
                 >
                   <ConferenceCard

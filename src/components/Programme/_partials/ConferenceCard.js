@@ -61,7 +61,7 @@ export const ConferenceCard = ({ conference, speakers }) => {
       >
         <Flex
           justifyContent="space-between"
-          display={{ base: "flex", md: "none" }}
+          display={{ base: "flex", lg: "none" }}
         >
           <HStack spacing="1">
             <Text
@@ -106,7 +106,7 @@ export const ConferenceCard = ({ conference, speakers }) => {
           </Box>
         </Flex>
 
-        <Heading fontSize={{ base: "md", md: "sm" }} flexGrow="1">
+        <Heading fontSize={{ base: "md", lg: "sm" }} flexGrow="1">
           {conference.childMdx.frontmatter.title}
         </Heading>
         <Text fontSize="sm" color="gray.600" pt="1">
@@ -119,7 +119,7 @@ export const ConferenceCard = ({ conference, speakers }) => {
             Salle {conference.childMdx.frontmatter.room}
           </Text>
 
-          <HStack spacing="1" display={{ base: "none", md: "flex" }}>
+          <HStack spacing="1" display={{ base: "none", lg: "flex" }}>
             <span>-</span>
             <Text textTransform="capitalize">
               {conference.childMdx.frontmatter?.type}
