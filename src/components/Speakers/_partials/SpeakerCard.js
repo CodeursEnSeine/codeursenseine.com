@@ -1,7 +1,6 @@
 import React from "react";
 import "dayjs/locale/fr";
 import {
-  Heading,
   Flex,
   Box,
   AspectRatio,

@@ -1,6 +1,6 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
-import { Stack, SimpleGrid, Box } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import { SpeakerCard } from "components/Speakers/_partials/SpeakerCard";
 
 export const Speakers = () => {

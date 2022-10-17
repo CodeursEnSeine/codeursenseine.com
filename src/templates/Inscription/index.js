@@ -1,10 +1,11 @@
 import React from "react";
-import Helmet from "react-helmet";
+
 import { Box, Heading, Text } from "@chakra-ui/react";
 import Layout from "../../components/layout";
 import Seo from "../../components/seo";
 
 import { OGImage } from "components/OG";
+import { Script } from "gatsby";
 
 const Inscription = () => (
   <Layout theme="ces">
@@ -43,12 +44,15 @@ const Inscription = () => (
       Vente de billets en ligne
     </a>
 
-    <Helmet>
-      <script
-        type="text/javascript"
-        src="https://www.billetweb.fr/js/export.js"
-      ></script>
-    </Helmet>
+    <Script
+      type="text/javascript"
+      src="https://www.billetweb.fr/js/export.js"
+      onLoad={() => {
+        if (window.shop_frame) {
+          window.shop_frame.init();
+        }
+      }}
+    />
   </Layout>
 );
 
