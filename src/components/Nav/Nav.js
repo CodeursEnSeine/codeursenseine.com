@@ -73,45 +73,77 @@ export const Nav = ({
             </Link>
           </Flex>
           <Stack>
-            <NavLink isMain as={Link} to={`/${currentYear}`}>
+            <NavLink isMain as={Link} to={`/${currentYear}`} fontWeight="bold">
               Édition {currentYear}
             </NavLink>
             {pathname.startsWith(withPrefix(`/${currentYear}`)) && (
               <>
-                <NavLink as={Link} to={`/${currentYear}/inscription`}>
+                <NavLink
+                  as={Link}
+                  to={`/${currentYear}/inscription`}
+                  fontWeight="bold"
+                >
                   Inscription
                 </NavLink>
-                <NavLink as={Link} to={`/${currentYear}/programme`}>
+                <NavLink
+                  as={Link}
+                  to={`/${currentYear}/programme`}
+                  fontWeight="bold"
+                >
                   Programme
                 </NavLink>
-                <NavLink as={Link} to={`/${currentYear}/speakers`}>
+                <NavLink
+                  as={Link}
+                  to={`/${currentYear}/speakers`}
+                  fontWeight="bold"
+                >
                   Intervenants
                 </NavLink>
-                <NavLink as={Link} to={`/${currentYear}/sponsors`}>
+                <NavLink
+                  as={Link}
+                  to={`/${currentYear}/sponsors`}
+                  fontWeight="bold"
+                >
                   Sponsors
                 </NavLink>
-                <NavLink as={Link} to={`/${currentYear}/organisateurs`}>
+                <NavLink
+                  as={Link}
+                  to={`/${currentYear}/organisateurs`}
+                  fontWeight="bold"
+                >
                   Organisateurs
                 </NavLink>
-                <NavLink as={Link} to={`/${currentYear}/kit-de-presse`}>
+                <NavLink
+                  as={Link}
+                  to={`/${currentYear}/kit-de-presse`}
+                  fontWeight="bold"
+                >
                   Kit de presse
                 </NavLink>
-                <NavLink as={Link} to={`/${currentYear}/code-of-conduct`}>
+                <NavLink
+                  as={Link}
+                  to={`/${currentYear}/code-of-conduct`}
+                  fontWeight="bold"
+                >
                   Code de conduite
                 </NavLink>
-                <NavLink as={Link} to={`/${currentYear}/review-2020-2021`}>
+                <NavLink
+                  as={Link}
+                  to={`/${currentYear}/review-2020-2021`}
+                  fontWeight="bold"
+                >
                   Review 2020-2021
                 </NavLink>
               </>
             )}
           </Stack>
           <Stack spacing="0">
-            <NavLink isMain as={Link} to="/meetups">
+            <NavLink isMain as={Link} to="/meetups" fontWeight="bold">
               Meetups
             </NavLink>
             {pathname.startsWith(withPrefix("/meetups")) && (
               <>
-                <NavLink as={Link} to="/meetups/sponsors">
+                <NavLink as={Link} to="/meetups/sponsors" fontWeight="bold">
                   Sponsors
                 </NavLink>
               </>
@@ -123,7 +155,13 @@ export const Nav = ({
             </NavLink>
           </Stack> */}
           <Stack>
-            <NavLink isMain as={Link} to="/devoxx4kids" title="Devoxx4Kids">
+            <NavLink
+              isMain
+              as={Link}
+              to="/devoxx4kids"
+              title="Devoxx4Kids"
+              fontWeight="bold"
+            >
               Devoxx4Kids
             </NavLink>
           </Stack>
