@@ -36,26 +36,26 @@ import { SponsorsList } from "components/Sponsors"
         maxW={{ lg: '16rem' }}
         w="full"
       >
-        <ButtonGroup
-          spacing={4}
+        <Stack
+          spacing="4"
           justify="center"
-          childProps={{ w: { base: 'full', xs: 'auto', lg: 'full'} }}
+          direction={{base: 'column', sm: 'row', md: 'column'}}
         >
           <CallForPaperButton startDate="2022-06-01" endDate="2022-09-16" cfpId="Uv6XULhgmt7z2YuoJ8nq" color="brand.600" />
-          {/* <Button as={Link} to="programme" color="brand.600">
+          <Button as={Link} to="programme" color="brand.600">
             Découvrir le programme
-          </Button> */}
-          <Box textAlign="center">
-            <Button
-              color="brand.600"
-              as={Link}
-              to="/2022/inscription"
-            >
-              Je m'inscris
-            </Button>
-            <Text mt={2} fontSize={12}>Inscription 100% gratuite possible grâce <A color="white" href="/2022/sponsors">à nos sponsors</A></Text>
-          </Box>
-        </ButtonGroup>
+          </Button>
+          <Button
+            color="brand.600"
+            as={Link}
+            to="/2022/inscription"
+          >
+            Je m'inscris
+          </Button>
+        </Stack>
+        <Box textAlign="center">
+          <Text mt={2} fontSize={12}>Inscription 100% gratuite possible grâce <A color="white" href="/2022/sponsors">à nos sponsors</A></Text>
+        </Box>
       </Box>
     </Flex>
   </Card>
