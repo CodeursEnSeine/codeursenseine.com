@@ -3,13 +3,15 @@ import {
   Grid,
   Heading,
   Text,
-  Image,
   Stack,
   Flex,
   IconButton,
   AspectRatio,
+  Box,
 } from "@chakra-ui/react";
 import { FaTwitter, FaGithub, FaLinkedin } from "react-icons/fa";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
+
 import Layout from "../../components/layout";
 import Seo from "../../components/seo";
 
@@ -61,45 +63,47 @@ const Organisers = ({ pageContext }) => {
           Codeurs en Seine est propulsé par une équipe de bénévoles passionnés :
         </Text>
         <Grid templateColumns="repeat(auto-fit, minmax(6rem, 1fr))" gap={6}>
-          {organisers.map((organiser) => (
-            <Stack
-              alignItems="center"
-              key={organiser.childMdx.frontmatter.name}
-            >
-              <AspectRatio ratio={1} w="6em" maxW="100%">
-                <Image
-                  fallbackSrc="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
-                  src={organiser.childMdx.frontmatter.image.publicURL}
-                  alt={organiser.childMdx.frontmatter.name}
-                  boxShadow="brand"
-                  objectFit="cover"
-                  borderRadius={4}
-                />
-              </AspectRatio>
-              <Text textAlign="center" fontSize="sm">
-                {organiser.childMdx.frontmatter.name}
-              </Text>
-              <Flex flexWrap="wrap">
-                {socials.map(
-                  (social) =>
-                    organiser.childMdx.frontmatter[social.name] && (
-                      <IconButton
-                        key={social.name}
-                        as="a"
-                        target="_blank"
-                        href={organiser.childMdx.frontmatter[social.name]}
-                        aria-label={`${organiser.childMdx.frontmatter.name} ${social.name}`}
-                        icon={social.icon}
-                        variant="ghost"
-                        colorScheme="brand"
-                        size="sm"
-                        d="inline-flex"
-                      />
-                    )
-                )}
-              </Flex>
-            </Stack>
-          ))}
+          {organisers.map((organiser) => {
+            const image = getImage(organiser.childMdx.frontmatter.image);
+            return (
+              <Stack
+                alignItems="center"
+                key={organiser.childMdx.frontmatter.name}
+              >
+                <Box borderRadius="4">
+                  <AspectRatio ratio={1} w="6em" maxW="100%">
+                    <GatsbyImage
+                      image={image}
+                      alt={organiser.childMdx.frontmatter.name}
+                    />
+                  </AspectRatio>
+                </Box>
+
+                <Text textAlign="center" fontSize="sm">
+                  {organiser.childMdx.frontmatter.name}
+                </Text>
+                <Flex flexWrap="wrap">
+                  {socials.map(
+                    (social) =>
+                      organiser.childMdx.frontmatter[social.name] && (
+                        <IconButton
+                          key={social.name}
+                          as="a"
+                          target="_blank"
+                          href={organiser.childMdx.frontmatter[social.name]}
+                          aria-label={`${organiser.childMdx.frontmatter.name} ${social.name}`}
+                          icon={social.icon}
+                          variant="ghost"
+                          colorScheme="brand"
+                          size="sm"
+                          d="inline-flex"
+                        />
+                      )
+                  )}
+                </Flex>
+              </Stack>
+            );
+          })}
         </Grid>
       </Stack>
     </Layout>

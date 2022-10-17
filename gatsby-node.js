@@ -86,7 +86,13 @@ exports.createPages = async ({ graphql, actions }) => {
             frontmatter {
               name
               image {
-                publicURL
+                childImageSharp {
+                  gatsbyImageData(
+                    width: 100
+                    placeholder: BLURRED
+                    formats: [AUTO, WEBP, AVIF]
+                  )
+                }
               }
               twitter
               github
