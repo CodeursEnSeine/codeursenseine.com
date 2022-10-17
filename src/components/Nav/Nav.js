@@ -117,11 +117,11 @@ export const Nav = ({
               </>
             )}
           </Stack>
-          <Stack>
+          {/* <Stack>
             <NavLink isMain as={Link} to="/live" title="Live Twitch">
               Stream
             </NavLink>
-          </Stack>
+          </Stack> */}
           <Stack>
             <NavLink isMain as={Link} to="/devoxx4kids" title="Devoxx4Kids">
               Devoxx4Kids
