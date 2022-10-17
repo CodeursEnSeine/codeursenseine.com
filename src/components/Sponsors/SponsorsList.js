@@ -1,14 +1,9 @@
 import React from "react";
-import {
-  AspectRatio,
-  Heading,
-  Image,
-  SimpleGrid,
-  Stack,
-} from "@chakra-ui/react";
+import { AspectRatio, Heading, SimpleGrid, Stack } from "@chakra-ui/react";
 import { graphql, useStaticQuery } from "gatsby";
 import { Card } from "components/Card";
 import slugify from "slugify";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 export const SponsorsList = ({ ...props }) => {
   const data = useStaticQuery(graphql`
@@ -32,7 +27,13 @@ export const SponsorsList = ({ ...props }) => {
               link
               sponsor
               logo {
-                publicURL
+                childImageSharp {
+                  gatsbyImageData(
+                    width: 320
+                    placeholder: BLURRED
+                    formats: [AUTO, WEBP, AVIF]
+                  )
+                }
               }
             }
           }
@@ -54,23 +55,23 @@ export const SponsorsList = ({ ...props }) => {
         {sponsors.length > 1 ? "s" : ""}.
       </Heading>
       <SimpleGrid columns={{ base: 3, sm: 4, lg: 5 }} gap={4}>
-        {sponsors.map(({ childMdx: { frontmatter } }) => (
-          <Card
-            key={slugify(frontmatter.name)}
-            p={0}
-            isLink
-            as="a"
-            href={frontmatter.link}
-          >
-            <AspectRatio ratio={320 / 190}>
-              <Image
-                src={frontmatter.logo?.publicURL}
-                alt={frontmatter.name}
-                objectFit="fit"
-              />
-            </AspectRatio>
-          </Card>
-        ))}
+        {sponsors.map(({ childMdx: { frontmatter } }) => {
+          const image = getImage(frontmatter.logo);
+
+          return (
+            <Card
+              key={slugify(frontmatter.name)}
+              p={0}
+              isLink
+              as="a"
+              href={frontmatter.link}
+            >
+              <AspectRatio ratio={320 / 190}>
+                <GatsbyImage image={image} alt={frontmatter.name} />
+              </AspectRatio>
+            </Card>
+          );
+        })}
       </SimpleGrid>
     </Stack>
   );

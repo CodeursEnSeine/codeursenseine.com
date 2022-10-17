@@ -14,16 +14,19 @@ import {
   Flex,
   Badge,
   Icon,
+  Divider,
 } from "@chakra-ui/react"
 import { Link } from "gatsby"
 import { Speakers} from "components/Speakers"
 import { SponsorsList } from "components/Sponsors"
 
-<Stack>
+<Stack >
   <Heading as="h1" mb={8}>
     Intervenants
   </Heading>
   <Speakers />
 </Stack>
+
+<Divider my="8" />
 
 <SponsorsList />

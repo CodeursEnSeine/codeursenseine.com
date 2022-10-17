@@ -14,48 +14,22 @@ import {
   Flex,
   Badge,
   Icon,
+  Divider,
 } from "@chakra-ui/react"
 import { Link } from "gatsby"
 import { Card } from "components/Card"
 import { Programme } from "components/Programme"
 import { SponsorsList } from "components/Sponsors"
 
-<Stack>
+<Stack mb="8">
   <Heading as="h1" mb={8}>
     Programme
   </Heading>
 
-  <Stack mt={5}>
-    <Card href="https://twitch.tv/codeursenseine" as="a" my={8} isLink variant="primary">
-      <Stack align="center">
-        <Text>
-          En direct sur Twitch le <strong>jeudi 18 novembre 2021</strong> !
-        </Text>
-        <Button
-          color="brand.600"
-        >
-          twitch.tv/codeursenseine
-        </Button>
-      </Stack>
-    </Card>
-  </Stack>
-
   <Programme />
 
-  <Stack mt={5}>
-    <Card href="https://www.meetup.com/fr-FR/codeursenseine/events/281246952/" as="a" my={8} isLink variant="primary">
-      <Stack align="center">
-        <Text>
-          Inscrivez-vous à l'évènement Meetup pour ne rien rater !
-        </Text>
-        <Button
-          color="brand.600"
-        >
-          meetup.com/codeursenseine
-        </Button>
-      </Stack>
-    </Card>
-  </Stack>
 </Stack>
+
+<Divider my="8" />
 
 <SponsorsList />

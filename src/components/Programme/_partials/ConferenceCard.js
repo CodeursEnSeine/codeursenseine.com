@@ -12,39 +12,27 @@ import {
   Stack,
   Text,
   Button,
-  Grid,
   Badge,
   Flex,
+  Divider,
   Box,
-  AspectRatio,
-  Image,
-  Center,
+  IconButton,
+  HStack,
+  StackDivider,
 } from "@chakra-ui/react";
 import { Link } from "gatsby";
 import dayjs from "dayjs";
+import duration from "dayjs/plugin/duration";
 import "dayjs/locale/fr";
 import { Card } from "components/Card";
 import { MDXRenderer } from "gatsby-plugin-mdx";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { FiGithub, FiTwitter } from "react-icons/fi";
 
-const SpeakerPreview = ({ speaker }) => (
-  <Flex mt={1} align="center">
-    <Box mr={4}>
-      <AspectRatio ratio={1} w="2rem" maxW="100%">
-        <Image
-          src={speaker?.childMdx?.frontmatter?.image?.publicURL}
-          borderRadius={4}
-        />
-      </AspectRatio>
-    </Box>
-    <Text>{speaker?.childMdx?.frontmatter?.name}</Text>
-  </Flex>
-);
+dayjs.extend(duration);
 
 export const ConferenceCard = ({ conference, speakers }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-
-  const capitalizeFirstLetter = (string) =>
-    string.charAt(0).toUpperCase() + string.slice(1);
 
   if (conference?.childMdx?.frontmatter?.type === "break") {
     return (
@@ -56,72 +44,89 @@ export const ConferenceCard = ({ conference, speakers }) => {
     );
   }
 
+  const formatHour = (hour) => {
+    return dayjs(hour).format("HH:mm");
+  };
+
   return (
-    <Stack>
-      <Grid
-        templateColumns={["repeat(1, 1fr)", "repeat(1, 1fr) repeat(1, 4fr)"]}
-        mt={3}
+    <>
+      <Card
+        borderLeftWidth={2}
+        borderLeftColor="brand.600"
+        onClick={onOpen}
+        w="full"
+        h="full"
+        isLink
+        p="4"
       >
-        <Stack mr={3}>
-          <Flex
-            display={["none", "flex"]}
-            flexDirection="column"
-            justifyContent="space-between"
-            h="100%"
-            borderColor="blue.50"
-            borderStyle="solid"
-            borderTopWidth={1}
-            borderBottomWidth={1}
-          >
-            <Text color="blue.600">
-              {conference.childMdx.frontmatter.startHour}
-            </Text>
-
-            <Text color="blue.600">
-              {conference.childMdx.frontmatter.endHour}
-            </Text>
-          </Flex>
-          <Stack display={["block", "none"]} mb={2}>
-            <Text color="blue.600">
-              {`${conference.childMdx.frontmatter.startHour} - ${conference.childMdx.frontmatter.endHour}`}
-            </Text>
-          </Stack>
-          {conference.childMdx.frontmatter.isKeynote && (
-            <Badge colorScheme="brand" width="fit-content">
-              Keynote
-            </Badge>
-          )}
-        </Stack>
-        <Card
-          borderLeftWidth={2}
-          borderLeftColor="brand.600"
-          onClick={onOpen}
-          w="full"
-          isLink
+        <Flex
+          justifyContent="space-between"
+          display={{ base: "flex", lg: "none" }}
         >
-          <Heading fontSize="md">
-            {conference.childMdx.frontmatter.title}
-          </Heading>
-
-          {speakers?.map((speaker) => (
-            <SpeakerPreview
-              key={speaker.childMdx.frontmatter.slug}
-              speaker={speaker}
-            />
-          ))}
-
-          <Center>
-            <Button
-              colorScheme="brand"
-              variant="link"
-              width="fit-content"
-              mt={2}
+          <HStack spacing="1">
+            <Text
+              as="time"
+              datetime={conference.childMdx.frontmatter.start}
+              fontWeight="bold"
+              fontSize="sm"
+              color="gray.600"
             >
-              Voir les détails et s'inscrire
-            </Button>
-          </Center>
-        </Card>
-      </Grid>
+              {dayjs(conference.childMdx.frontmatter.start).format("HH:mm")}
+            </Text>
+            <span>-</span>
+            <Text
+              as="time"
+              datetime={conference.childMdx.frontmatter.end}
+              fontWeight="bold"
+              fontSize="sm"
+              color="gray.600"
+            >
+              {dayjs(conference.childMdx.frontmatter.end).format("HH:mm")}
+            </Text>
+            <Text fontWeight="bold" fontSize="xs" color="gray.600" as="span">
+              (
+              {dayjs
+                .duration(
+                  dayjs(conference.childMdx.frontmatter.end).diff(
+                    conference.childMdx.frontmatter.start
+                  )
+                )
+                .format("H[h]mm")}
+              )
+            </Text>
+          </HStack>
+          <Box>
+            {["quicky", "atelier"].includes(
+              conference.childMdx.frontmatter?.type
+            ) && (
+              <Badge colorScheme="brand" fontSize="xs">
+                {conference.childMdx.frontmatter?.type}
+              </Badge>
+            )}
+          </Box>
+        </Flex>
+
+        <Heading fontSize={{ base: "md", lg: "sm" }} flexGrow="1">
+          {conference.childMdx.frontmatter.title}
+        </Heading>
+        <Text fontSize="sm" color="gray.600" pt="1">
+          {speakers
+            ?.map((speaker) => speaker?.childMdx?.frontmatter?.name)
+            .join(", ")}
+        </Text>
+        <HStack spacing="1" fontSize="sm" pt="2">
+          <Text color="brand.700">
+            Salle {conference.childMdx.frontmatter.room}
+          </Text>
+
+          <HStack spacing="1" display={{ base: "none", lg: "flex" }}>
+            <span>-</span>
+            <Text textTransform="capitalize">
+              {conference.childMdx.frontmatter?.type}
+            </Text>
+          </HStack>
+        </HStack>
+      </Card>
 
       <Drawer size="md" isOpen={isOpen} placement="right" onClose={onClose}>
         <DrawerOverlay>
@@ -129,13 +134,13 @@ export const ConferenceCard = ({ conference, speakers }) => {
             <DrawerCloseButton />
             <DrawerHeader>
               <Stack alignItems="center" display="flex" flexDirection="row">
-                <Text fontSize="sm" mt={2}>
-                  {capitalizeFirstLetter(
-                    dayjs(conference.childMdx.frontmatter.eventDate).format(
-                      "dddd D MMM"
-                    )
+                <Text fontSize="sm" mt={2} textTransform="capitalize">
+                  {dayjs(conference.childMdx.frontmatter.start).format(
+                    "dddd D MMM"
                   )}{" "}
-                  {`${conference.childMdx.frontmatter.startHour} - ${conference.childMdx.frontmatter.endHour}`}
+                  {`${formatHour(
+                    conference.childMdx.frontmatter.start
+                  )} - ${formatHour(conference.childMdx.frontmatter.end)}`}
                 </Text>
                 {conference.childMdx.frontmatter.isKeynote && (
                   <Badge
@@ -149,40 +154,91 @@ export const ConferenceCard = ({ conference, speakers }) => {
                 )}
               </Stack>
               <Text>{conference.childMdx.frontmatter.title}</Text>
-
-              <Stack mt={3}>
-                {speakers?.map((speaker) => (
-                  <SpeakerPreview
-                    key={speaker.childMdx.frontmatter.slug}
-                    speaker={speaker}
-                  />
-                ))}
-              </Stack>
             </DrawerHeader>
-
             <DrawerBody overflow="auto">
               <MDXRenderer>{conference.childMdx.body}</MDXRenderer>
+              <Divider borderColor="brand.100" />
+              {speakers.length > 0 && (
+                <Stack mt="4" spacing="4" divider={<StackDivider />}>
+                  {speakers?.map((speaker) => {
+                    const image = getImage(speaker.childMdx.frontmatter.image);
+                    return (
+                      <Stack key={speaker.childMdx.frontmatter.slug}>
+                        <Flex gap="4">
+                          <Box w="6rem" borderRadius={8} overflow="hidden">
+                            <GatsbyImage
+                              image={image}
+                              alt={speaker.childMdx.frontmatter.name}
+                            />
+                          </Box>
+                          <Flex justify="space-between" flex="1">
+                            <Stack spacing="1">
+                              <Text fontSize="lg" fontWeight="semibold">
+                                {speaker.childMdx.frontmatter.name}
+                              </Text>
+                              <Text fontSize="sm" color="gray.700">
+                                {speaker.childMdx.frontmatter.company}
+                              </Text>
+                              <HStack>
+                                {speaker.childMdx.frontmatter.twitterLink && (
+                                  <Box>
+                                    <IconButton
+                                      as="a"
+                                      href={
+                                        speaker.childMdx.frontmatter.twitterLink
+                                      }
+                                      target="_blank"
+                                      rel="noopenner"
+                                      colorScheme="brand"
+                                      icon={<FiTwitter />}
+                                    />
+                                  </Box>
+                                )}
+                                {speaker.childMdx.frontmatter.githubLink && (
+                                  <Box>
+                                    <IconButton
+                                      as="a"
+                                      href={
+                                        speaker.childMdx.frontmatter.githubLink
+                                      }
+                                      target="_blank"
+                                      rel="noopenner"
+                                      colorScheme="brand"
+                                      icon={<FiGithub />}
+                                    />
+                                  </Box>
+                                )}
+                              </HStack>
+                            </Stack>
+                          </Flex>
+                        </Flex>
+                        <Box>
+                          <MDXRenderer>{speaker.childMdx.body}</MDXRenderer>
+                        </Box>
+                      </Stack>
+                    );
+                  })}
+                </Stack>
+              )}
             </DrawerBody>
 
-            {conference.childMdx.frontmatter.meetupLink && (
-              <DrawerFooter display="flex" flexDirection="column">
-                <Button isFullWidth variant="outline" mb={3} onClick={onClose}>
-                  Fermer
-                </Button>
-                <Button
-                  colorScheme="brand"
-                  as={Link}
-                  target="_blank"
-                  to={conference.childMdx.frontmatter.meetupLink}
-                  isFullWidth
-                >
-                  S'inscrire
-                </Button>
-              </DrawerFooter>
-            )}
+            <DrawerFooter display="flex" flexDirection="column">
+              <Button width="full" variant="outline" mb={3} onClick={onClose}>
+                Fermer
+              </Button>
+              <Button
+                colorScheme="brand"
+                as={Link}
+                target="_blank"
+                to="/2022/inscription"
+                width="full"
+              >
+                S'inscrire
+              </Button>
+            </DrawerFooter>
           </DrawerContent>
         </DrawerOverlay>
       </Drawer>
-    </Stack>
+    </>
   );
 };

@@ -4,61 +4,70 @@ import {
   Heading,
   Flex,
   Box,
-  Image,
   AspectRatio,
   IconButton,
+  HStack,
+  Text,
+  Stack,
 } from "@chakra-ui/react";
 import { FaTwitter, FaGithub } from "react-icons/fa";
 import { Card } from "components/Card";
 import { MDXRenderer } from "gatsby-plugin-mdx";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
-export const SpeakerCard = ({ speaker }) => {
-  const {
-    name,
-    image: { publicURL },
-    company,
-    twitterLink,
-    githubLink,
-  } = speaker?.childMdx?.frontmatter;
+export const SpeakerCard = ({ speaker, ...rest }) => {
+  const { name, company, twitterLink, githubLink } =
+    speaker?.childMdx?.frontmatter;
 
   const { body } = speaker?.childMdx;
 
+  const image = getImage(speaker?.childMdx?.frontmatter?.image);
+
   return (
-    <Card borderLeftWidth={2} borderLeftColor="brand.600">
+    <Card borderLeftWidth={2} borderLeftColor="brand.600" {...rest}>
       <Flex>
-        <Box mr={4}>
+        <Box mr={4} borderRadius="4" overflow="hidden">
           <AspectRatio ratio={1} w="6em" maxW="100%">
-            <Image src={publicURL} borderRadius={4} />
+            <GatsbyImage
+              image={image}
+              alt={speaker.childMdx.frontmatter.name}
+            />
           </AspectRatio>
         </Box>
-        <Box>
-          <Heading fontSize="lg">{name}</Heading>
-          <Heading fontSize="md">{company}</Heading>
-          {twitterLink && (
-            <IconButton
-              as="a"
-              target="_blank"
-              href={twitterLink}
-              title={`${name} Twitter`}
-              icon={<FaTwitter />}
-              variant="ghost"
-              colorScheme="brand"
-              rel="noopener noreferrer"
-            />
-          )}
-          {githubLink && (
-            <IconButton
-              as="a"
-              target="_blank"
-              href={githubLink}
-              title={`${name} Github`}
-              icon={<FaGithub />}
-              variant="ghost"
-              colorScheme="brand"
-              rel="noopener noreferrer"
-            />
-          )}
-        </Box>
+        <Stack spacing="0">
+          <Text fontSize="lg" fontWeight="bold">
+            {name}
+          </Text>
+          <Text fontSize="md" color="gray.600">
+            {company}
+          </Text>
+          <HStack>
+            {twitterLink && (
+              <IconButton
+                as="a"
+                target="_blank"
+                href={twitterLink}
+                title={`${name} Twitter`}
+                icon={<FaTwitter />}
+                variant="ghost"
+                colorScheme="brand"
+                rel="noopener noreferrer"
+              />
+            )}
+            {githubLink && (
+              <IconButton
+                as="a"
+                target="_blank"
+                href={githubLink}
+                title={`${name} Github`}
+                icon={<FaGithub />}
+                variant="ghost"
+                colorScheme="brand"
+                rel="noopener noreferrer"
+              />
+            )}
+          </HStack>
+        </Stack>
       </Flex>
       {body && (
         <Box mt={4}>

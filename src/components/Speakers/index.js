@@ -1,21 +1,36 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
-import { Stack, SimpleGrid } from "@chakra-ui/react";
+import { Stack, SimpleGrid, Box } from "@chakra-ui/react";
 import { SpeakerCard } from "components/Speakers/_partials/SpeakerCard";
 
 export const Speakers = () => {
   const data = useStaticQuery(graphql`
     query {
-      allFile(
-        filter: { sourceInstanceName: { eq: "speakers" } }
-        sort: { fields: childMdx___frontmatter___name }
+      conferences: allFile(
+        filter: { sourceInstanceName: { eq: "conferences" } }
       ) {
         nodes {
           childMdx {
             frontmatter {
+              speakers
+            }
+          }
+        }
+      }
+      speakers: allFile(
+        filter: { sourceInstanceName: { eq: "speakers" } }
+        sort: { fields: childMdx___frontmatter___slug }
+      ) {
+        nodes {
+          id
+          childMdx {
+            frontmatter {
+              slug
               name
               image {
-                publicURL
+                childImageSharp {
+                  gatsbyImageData(width: 200, placeholder: BLURRED)
+                }
               }
               company
               twitterLink
@@ -28,15 +43,21 @@ export const Speakers = () => {
     }
   `);
 
-  const speakers = data.allFile.nodes.filter((speaker) => speaker.childMdx);
+  const speakers = data.speakers.nodes.filter(
+    (speaker) =>
+      speaker.childMdx &&
+      data.conferences.nodes.some((conference) =>
+        conference.childMdx?.frontmatter?.speakers?.includes(
+          speaker.childMdx?.frontmatter?.slug
+        )
+      )
+  );
 
   return (
-    <Stack my={5}>
-      <SimpleGrid columns={{ base: 1, lg: 1, xl: 2 }} spacing={5}>
-        {speakers.map((speaker, index) => (
-          <SpeakerCard key={`speaker-${index}`} speaker={speaker} />
-        ))}
-      </SimpleGrid>
-    </Stack>
+    <Box w="full" sx={{ columnCount: { base: 1, md: 2 }, columnGap: "4" }}>
+      {speakers.map((speaker) => (
+        <SpeakerCard mb="4" key={speaker.id} speaker={speaker} />
+      ))}
+    </Box>
   );
 };

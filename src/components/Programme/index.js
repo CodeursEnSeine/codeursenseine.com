@@ -1,33 +1,42 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { graphql, useStaticQuery } from "gatsby";
-import { Stack } from "@chakra-ui/react";
+import { Grid, GridItem, Text } from "@chakra-ui/react";
 import dayjs from "dayjs";
 import "dayjs/locale/fr";
 import { ConferenceCard } from "components/Programme/_partials/ConferenceCard";
+import { PauseCard } from "./_partials/PauseCard";
+import { PleniereCard } from "./_partials/PleniereCard";
 
 export const Programme = () => {
   const data = useStaticQuery(graphql`
     query {
       conferences: allFile(
         filter: { sourceInstanceName: { eq: "conferences" } }
-        sort: { order: ASC, fields: childMdx___frontmatter___eventDate }
+        sort: {
+          order: ASC
+          fields: [
+            childMdx___frontmatter___start
+            childMdx___frontmatter___room
+          ]
+        }
       ) {
         nodes {
+          id
           childMdx {
             frontmatter {
               type
               title
-              eventDate
-              startHour
-              endHour
+              start
+              end
               speakers
-              meetupLink
+              room
+              columns
+              rows
             }
             body
           }
         }
       }
-
       speakers: allFile(
         filter: { sourceInstanceName: { eq: "speakers" } }
         sort: { fields: childMdx___frontmatter___name }
@@ -38,7 +47,9 @@ export const Programme = () => {
               slug
               name
               image {
-                publicURL
+                childImageSharp {
+                  gatsbyImageData(width: 200, placeholder: BLURRED)
+                }
               }
               company
               twitterLink
@@ -55,25 +66,128 @@ export const Programme = () => {
 
   const { conferences, speakers } = data;
 
-  const conferencesData = conferences.nodes.sort(
-    (a, b) =>
-      new Date(a.childMdx.frontmatter.eventDate) -
-      new Date(b.childMdx.frontmatter.eventDate)
-  );
+  const ROOM_GRID = {
+    A: { base: 1, lg: 2 },
+    B: { base: 1, lg: 3 },
+    C: { base: 1, lg: 4 },
+    D: { base: 1, lg: 5 },
+  };
+
+  // TODO check if better way.
+  const confs = conferences.nodes.reduce((accumulator, currentConference) => {
+    if (!accumulator[currentConference?.childMdx?.frontmatter?.start]) {
+      accumulator[currentConference?.childMdx?.frontmatter?.start] = [];
+    }
+
+    accumulator[currentConference?.childMdx?.frontmatter?.start].push(
+      currentConference
+    );
+
+    return accumulator;
+  }, {});
 
   return (
-    <Stack mt={5}>
-      {conferencesData.map((conference, index) => (
-        <ConferenceCard
-          key={`conference-${index}`}
-          conference={conference}
-          speakers={speakers?.nodes.filter((speaker) =>
-            conference?.childMdx?.frontmatter?.speakers?.includes(
-              speaker?.childMdx?.frontmatter?.slug
-            )
-          )}
-        />
+    <Grid
+      templateColumns={{
+        base: "1fr",
+        lg: "2.8rem repeat(4, 1fr)",
+        xl: "6rem repeat(4, 1fr)",
+      }}
+      gap="4"
+    >
+      {Object.entries(confs).map(([start, conferences]) => (
+        <Fragment key={start}>
+          <GridItem
+            textAlign="right"
+            pt="4"
+            display={{ base: "none", lg: "block" }}
+          >
+            <Text as="time" datetime={start} fontWeight="bold" color="gray.500">
+              {dayjs(start).format("HH:mm")}
+            </Text>
+          </GridItem>
+          {conferences.map((conference) => (
+            <Fragment key={conference?.id}>
+              {conference?.childMdx?.frontmatter?.type === "pause" && (
+                <GridItem colSpan={{ base: "1", lg: "4" }}>
+                  <PauseCard title={conference?.childMdx?.frontmatter?.title} />
+                </GridItem>
+              )}
+              {conference?.childMdx?.frontmatter?.type === "pleniere" && (
+                <GridItem colSpan={{ base: "1", lg: "4" }}>
+                  <PleniereCard
+                    title={conference?.childMdx?.frontmatter?.title}
+                    room={conference?.childMdx?.frontmatter?.room}
+                  />
+                </GridItem>
+              )}
+              {conference?.childMdx?.frontmatter?.type === "keynote" && (
+                <GridItem
+                  colSpan={{
+                    base: "1",
+                    lg: conference?.childMdx?.frontmatter?.columns ?? "4",
+                  }}
+                >
+                  <ConferenceCard
+                    conference={conference}
+                    speakers={speakers?.nodes.filter((speaker) =>
+                      conference?.childMdx?.frontmatter?.speakers?.includes(
+                        speaker?.childMdx?.frontmatter?.slug
+                      )
+                    )}
+                  />
+                </GridItem>
+              )}
+              {conference?.childMdx?.frontmatter?.type === "conference" && (
+                <GridItem
+                  colSpan="1"
+                  colStart={ROOM_GRID[conference?.childMdx?.frontmatter?.room]}
+                >
+                  <ConferenceCard
+                    conference={conference}
+                    speakers={speakers?.nodes.filter((speaker) =>
+                      conference?.childMdx?.frontmatter?.speakers?.includes(
+                        speaker?.childMdx?.frontmatter?.slug
+                      )
+                    )}
+                  />
+                </GridItem>
+              )}
+              {conference?.childMdx?.frontmatter?.type === "quicky" && (
+                <GridItem
+                  colSpan="1"
+                  colStart={ROOM_GRID[conference?.childMdx?.frontmatter?.room]}
+                >
+                  <ConferenceCard
+                    conference={conference}
+                    speakers={speakers?.nodes.filter((speaker) =>
+                      conference?.childMdx?.frontmatter?.speakers?.includes(
+                        speaker?.childMdx?.frontmatter?.slug
+                      )
+                    )}
+                  />
+                </GridItem>
+              )}
+              {conference?.childMdx?.frontmatter?.type === "atelier" && (
+                <GridItem
+                  colStart={ROOM_GRID[conference?.childMdx?.frontmatter?.room]}
+                  colSpan="1"
+                  rowSpan={conference?.childMdx?.frontmatter?.rows}
+                >
+                  <ConferenceCard
+                    conference={conference}
+                    speakers={speakers?.nodes.filter((speaker) =>
+                      conference?.childMdx?.frontmatter?.speakers?.includes(
+                        speaker?.childMdx?.frontmatter?.slug
+                      )
+                    )}
+                  />
+                </GridItem>
+              )}
+            </Fragment>
+          ))}
+        </Fragment>
       ))}
-    </Stack>
+    </Grid>
   );
 };
