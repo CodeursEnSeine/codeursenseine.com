@@ -4,7 +4,7 @@ import { Heading, Image, Stack, Text, Box } from "@chakra-ui/react";
 import { Remarkable } from "remarkable";
 import { A } from "components/A";
 
-export const MeetupSpeaker = ({ speaker, ...props }) => {
+export const MeetupSpeaker = ({ speaker, children, ...props }) => {
   const md = new Remarkable("full", {
     html: true,
   });
@@ -24,7 +24,7 @@ export const MeetupSpeaker = ({ speaker, ...props }) => {
     return result;
   };
 
-  const bio = md.render(speaker.bio);
+  const bio = md.render(speaker.bio ?? children);
 
   return (
     <Stack spacing={2} {...props}>
