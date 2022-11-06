@@ -19,6 +19,7 @@ import {
   IconButton,
   HStack,
   StackDivider,
+  Icon,
 } from "@chakra-ui/react";
 import { Link } from "gatsby";
 import dayjs from "dayjs";
@@ -28,6 +29,7 @@ import { Card } from "components/Card";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { FiGithub, FiTwitter } from "react-icons/fi";
+import { MdHearingDisabled } from "react-icons/md";
 
 dayjs.extend(duration);
 
@@ -114,18 +116,28 @@ export const ConferenceCard = ({ conference, speakers }) => {
             ?.map((speaker) => speaker?.childMdx?.frontmatter?.name)
             .join(", ")}
         </Text>
-        <HStack spacing="1" fontSize="sm" pt="2">
-          <Text color="brand.700">
-            Salle {conference.childMdx.frontmatter.room}
-          </Text>
 
-          <HStack spacing="1" display={{ base: "none", lg: "flex" }}>
-            <span>-</span>
-            <Text textTransform="capitalize">
-              {conference.childMdx.frontmatter?.type}
+        <Stack spacing={0} pt="2">
+          {conference.childMdx.frontmatter.subtitled && (
+            <Box>
+              <Icon
+                as={MdHearingDisabled}
+                title="Icône sourds et malentendants"
+              />
+            </Box>
+          )}
+          <HStack spacing="1" fontSize="sm">
+            <Text color="brand.700">
+              Salle {conference.childMdx.frontmatter.room}
             </Text>
+
+            <HStack spacing="1" display={{ base: "none", lg: "flex" }}>
+              <Text textTransform="capitalize">
+                {conference.childMdx.frontmatter?.type}
+              </Text>
+            </HStack>
           </HStack>
-        </HStack>
+        </Stack>
       </Card>
 
       <Drawer size="md" isOpen={isOpen} placement="right" onClose={onClose}>
@@ -156,6 +168,15 @@ export const ConferenceCard = ({ conference, speakers }) => {
               <Text>{conference.childMdx.frontmatter.title}</Text>
             </DrawerHeader>
             <DrawerBody overflow="auto">
+              {conference.childMdx.frontmatter.subtitled && (
+                <HStack spacing="2" mb="4" color="brand.700" fontWeight="bold">
+                  <Icon
+                    as={MdHearingDisabled}
+                    title="Icône sourds et malentendants"
+                  />
+                  <Text as="em">Accessible aux sourds et malentendants</Text>
+                </HStack>
+              )}
               <MDXRenderer>{conference.childMdx.body}</MDXRenderer>
               <Divider borderColor="brand.100" />
               {speakers.length > 0 && (

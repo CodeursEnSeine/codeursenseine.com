@@ -32,6 +32,7 @@ export const Programme = () => {
               room
               columns
               rows
+              subtitled
             }
             body
           }
