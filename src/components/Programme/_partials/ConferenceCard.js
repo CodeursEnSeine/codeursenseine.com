@@ -122,7 +122,7 @@ export const ConferenceCard = ({ conference, speakers }) => {
           <HStack spacing="1" display={{ base: "none", lg: "flex" }}>
             <span>-</span>
             <Text textTransform="capitalize">
-              {conference.childMdx.frontmatter?.type} - {conference.childMdx.frontmatter.subtitled}
+              {conference.childMdx.frontmatter?.type}
             </Text>
           </HStack>
           { conference.childMdx.frontmatter.subtitled &&
