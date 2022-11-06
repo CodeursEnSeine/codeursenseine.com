@@ -122,10 +122,10 @@ export const ConferenceCard = ({ conference, speakers }) => {
           <HStack spacing="1" display={{ base: "none", lg: "flex" }}>
             <span>-</span>
             <Text textTransform="capitalize">
-              {conference.childMdx.frontmatter?.type} {conference.childMdx.frontmatter.subtitled}
+              {conference.childMdx.frontmatter?.type} - {conference.childMdx.frontmatter.subtitled}
             </Text>
           </HStack>
-          { conference.childMdx.frontmatter.subtitled == true &&
+          { conference.childMdx.frontmatter.subtitled &&
             <HStack spacing="1" display={{ base: "none", lg: "flex" }}>
               <span>-</span>
               <img src="https://img.icons8.com/ios/16/null/not-hearing.png" width="16" height="16" />
@@ -160,7 +160,7 @@ export const ConferenceCard = ({ conference, speakers }) => {
                 )}
               </Stack>
               <Text>{conference.childMdx.frontmatter.title}</Text>
-              { conference.childMdx.frontmatter.subtitled == true &&
+              { conference.childMdx.frontmatter.subtitled &&
             <HStack spacing="1" display={{ base: "none", lg: "flex" }}>
               <Image src="https://img.icons8.com/ios/16/null/not-hearing.png" width="16" height="16" alt="Icône sourds et malentendants"/> <Text>Accessible aux sourds et malentendants</Text>
             </HStack>
