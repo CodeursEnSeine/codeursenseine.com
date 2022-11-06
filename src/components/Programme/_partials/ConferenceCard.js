@@ -119,19 +119,19 @@ export const ConferenceCard = ({ conference, speakers }) => {
             Salle {conference.childMdx.frontmatter.room}
           </Text>
 
-          <HStack spacing="1" display={{ base: "none", lg: "flex" }}>
+          <HStack spacing="1" display={{ base: "flex", lg: "flex" }}>
             <span>-</span>
             <Text textTransform="capitalize">
               {conference.childMdx.frontmatter?.type}
             </Text>
-          </HStack>
-          { conference.childMdx.frontmatter.subtitled &&
-            <HStack spacing="1" display={{ base: "none", lg: "flex" }}>
+          </HStack>  
+        </HStack>
+        { conference.childMdx.frontmatter.subtitled &&
+            <HStack spacing="1" display={{ base: "flex", lg: "flex" }}>
               <span>-</span>
               <img src="https://img.icons8.com/ios/16/null/not-hearing.png" width="16" height="16" alt="Accessible sourds et malentendants"/>
             </HStack>
           }
-        </HStack>
       </Card>
 
       <Drawer size="md" isOpen={isOpen} placement="right" onClose={onClose}>
@@ -160,13 +160,13 @@ export const ConferenceCard = ({ conference, speakers }) => {
                 )}
               </Stack>
               <Text>{conference.childMdx.frontmatter.title}</Text>
-              { conference.childMdx.frontmatter.subtitled &&
+            </DrawerHeader>
+            <DrawerBody overflow="auto">
+            { conference.childMdx.frontmatter.subtitled &&
             <HStack spacing="1" display={{ base: "none", lg: "flex" }}>
               <img src="https://img.icons8.com/ios/16/null/not-hearing.png" width="16" height="16" alt="Icône sourds et malentendants"/> <Text>Accessible aux sourds et malentendants</Text>
             </HStack>
             }
-            </DrawerHeader>
-            <DrawerBody overflow="auto">
               <MDXRenderer>{conference.childMdx.body}</MDXRenderer>
               <Divider borderColor="brand.100" />
               {speakers.length > 0 && (
