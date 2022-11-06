@@ -125,6 +125,12 @@ export const ConferenceCard = ({ conference, speakers }) => {
               {conference.childMdx.frontmatter?.type}
             </Text>
           </HStack>
+          { conference.childMdx.frontmatter.subtitled == true &&
+            <HStack spacing="1" display={{ base: "none", lg: "flex" }}>
+              <span>-</span>
+              <img src="https://img.icons8.com/ios/16/null/not-hearing.png" width="16" height="16" />
+            </HStack>
+          }
         </HStack>
       </Card>
 
@@ -154,6 +160,12 @@ export const ConferenceCard = ({ conference, speakers }) => {
                 )}
               </Stack>
               <Text>{conference.childMdx.frontmatter.title}</Text>
+              { conference.childMdx.frontmatter.subtitled == true &&
+            <HStack spacing="1" display={{ base: "none", lg: "flex" }}>
+              <span>-</span>
+              <img src="https://img.icons8.com/ios/16/null/not-hearing.png" width="16" height="16" /> Accessible aux sourds et malentendants
+            </HStack>
+            }
             </DrawerHeader>
             <DrawerBody overflow="auto">
               <MDXRenderer>{conference.childMdx.body}</MDXRenderer>
