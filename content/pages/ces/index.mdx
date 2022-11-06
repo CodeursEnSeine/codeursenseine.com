@@ -3,7 +3,7 @@ title: Édition 2022
 order: 1
 ---
 
-import { Text, Stack, Flex, Box, Heading, Button, Image } from "@chakra-ui/react"
+import { Text, Stack, HStack, Flex, Box, Heading, Button, Image } from "@chakra-ui/react"
 import { Link } from "gatsby"
 import { A } from "components/A"
 import { Card } from "components/Card"
@@ -12,6 +12,7 @@ import { Newsletter } from "components/Newsletter"
 import { ButtonGroup } from "components/ButtonGroup"
 import { OGImage } from "components/OG"
 import { SponsorsList } from "components/Sponsors"
+
 
 <OGImage path="/images/ces/social.jpg" />
 <Stack spacing="16">
@@ -106,7 +107,16 @@ import { SponsorsList } from "components/Sponsors"
     />
   </Flex>
 
-  <Flex direction={{ base: "column-reverse", md: "row-reverse"}} gap="4" align={{ base: "center", md: "flex-start"}} justify="center">  
+  <HStack justify="center">
+    <Box>
+      <Image
+        width="150px"
+        height="150px"
+        objectFit="cover"
+        src="https://img.icons8.com/ios/150/null/not-hearing.png"
+        alt="Icône sourds et malentendants"
+      />
+    </Box>
     <Stack maxW="60ch" spacing={4}>
       <Heading as="h3" size="md">
         La salle principale accessible aux sourds et aux malentendants
@@ -116,16 +126,7 @@ import { SponsorsList } from "components/Sponsors"
         C'est la salle ou se dérouleront les plénières. En plus de rendre accessible un premier lot de conférences aux sourds et malentendants, cela permet à tous de rattraper une idée quand l'attention s'est perdu dans un téléphone.
       </Text>
     </Stack>
-    <Image
-      width="150px"
-      height="150px"
-      objectFit="cover"
-      src="https://img.icons8.com/ios/150/null/not-hearing.png"
-      alt="Icône sourds et malentendants"
-      borderRadius={4}
-    />
-    <img src=""/>
-  </Flex>
+  </HStack>
 
   <Stack spacing="4">
     <Newsletter />
