@@ -78,6 +78,7 @@ exports.createPages = async ({ graphql, actions }) => {
         filter: {
           sourceInstanceName: { eq: "organisers" }
           extension: { eq: "mdx" }
+          childMdx: { frontmatter: { active: { eq: true } } }
         }
         sort: { fields: childMdx___frontmatter___name }
       ) {

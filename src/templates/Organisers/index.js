@@ -70,7 +70,7 @@ const Organisers = ({ pageContext }) => {
                 alignItems="center"
                 key={organiser.childMdx.frontmatter.name}
               >
-                <Box borderRadius="4">
+                <Box borderRadius="md" overflow="hidden">
                   <AspectRatio ratio={1} w="6em" maxW="100%">
                     <GatsbyImage
                       image={image}
