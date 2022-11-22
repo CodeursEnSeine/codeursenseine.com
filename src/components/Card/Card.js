@@ -14,7 +14,7 @@ export const Card = forwardRef(({ isLink, variant, ...props }, ref) => {
     <Box
       ref={ref}
       position="relative"
-      d="flex"
+      display="flex"
       flexDirection="column"
       p={6}
       borderRadius="md"

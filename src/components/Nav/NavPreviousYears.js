@@ -24,7 +24,7 @@ export const NavPreviousYears = (props) => {
           as={Button}
           size="xs"
           variant="unstyled"
-          d="inline-flex"
+          display="inline-flex"
           alignItems="center"
           leftIcon={<IconRewind />}
         >

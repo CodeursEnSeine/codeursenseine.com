@@ -96,7 +96,7 @@ const Organisers = ({ pageContext }) => {
                           variant="ghost"
                           colorScheme="brand"
                           size="sm"
-                          d="inline-flex"
+                          display="inline-flex"
                         />
                       )
                   )}

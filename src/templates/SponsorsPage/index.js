@@ -47,7 +47,7 @@ const SponsorsPage = ({ pageContext }) => {
       <Grid templateColumns={["1fr", "1fr", "1fr 2fr"]} gap={8} mb={8}>
         <Box maxWidth="250px">
           <A
-            d="block"
+            display="block"
             boxShadow="brand"
             overflow="hidden"
             borderRadius="md"

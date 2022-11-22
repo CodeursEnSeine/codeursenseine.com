@@ -52,7 +52,7 @@ export const Nav = ({
         <IconButton
           variant="unstyled"
           aria-label="Menu"
-          d={{ base: "inline-flex", [breakpoint]: "none" }}
+          display={{ base: "inline-flex", [breakpoint]: "none" }}
           icon={<FiX />}
           size="lg"
           position="absolute"
@@ -78,13 +78,13 @@ export const Nav = ({
             </NavLink>
             {pathname.startsWith(withPrefix(`/${currentYear}`)) && (
               <>
-                <NavLink
+                {/* <NavLink
                   as={Link}
                   to={`/${currentYear}/inscription`}
                   fontWeight="bold"
                 >
                   Inscription
-                </NavLink>
+                </NavLink> */}
                 <NavLink
                   as={Link}
                   to={`/${currentYear}/programme`}

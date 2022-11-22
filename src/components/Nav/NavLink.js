@@ -12,10 +12,16 @@ export const NavLink = ({
   const isActive = pathname === to;
 
   return (
-    <Box role="group" d="block" textAlign={{ md: "right" }} to={to} {...rest}>
+    <Box
+      role="group"
+      display="block"
+      textAlign={{ md: "right" }}
+      to={to}
+      {...rest}
+    >
       <Box
         as="span"
-        d="inline-flex"
+        display="inline-flex"
         transition="0.2s"
         borderRadius="md"
         py="1"
