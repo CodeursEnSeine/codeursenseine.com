@@ -44,9 +44,9 @@ export const PageHeader = () => {
         return (
           <ButtonGroup justifyContent="center" flexGrow={{ base: 1, md: 0 }}>
             {donationButton}
-            <Button colorScheme="brand" as={Link} to="/2022/inscription">
+            {/* <Button colorScheme="brand" as={Link} to="/2022/inscription">
               Inscription
-            </Button>
+            </Button> */}
           </ButtonGroup>
         );
     }

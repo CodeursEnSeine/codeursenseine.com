@@ -103,7 +103,7 @@ export const Programme = () => {
             pt="4"
             display={{ base: "none", lg: "block" }}
           >
-            <Text as="time" datetime={start} fontWeight="bold" color="gray.500">
+            <Text as="time" dateTime={start} fontWeight="bold" color="gray.500">
               {dayjs(start).format("HH:mm")}
             </Text>
           </GridItem>
