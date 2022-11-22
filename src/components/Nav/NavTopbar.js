@@ -53,7 +53,7 @@ export const NavTopbar = ({ onNavOpen = () => {}, ...props }) => {
       <IconButton
         variant="unstyled"
         aria-label="Menu"
-        d="inline-flex"
+        display="inline-flex"
         icon={<FiMenu />}
         size="lg"
         onClick={() => onNavOpen()}

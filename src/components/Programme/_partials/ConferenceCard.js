@@ -68,7 +68,7 @@ export const ConferenceCard = ({ conference, speakers }) => {
           <HStack spacing="1">
             <Text
               as="time"
-              datetime={conference.childMdx.frontmatter.start}
+              dateTime={conference.childMdx.frontmatter.start}
               fontWeight="bold"
               fontSize="sm"
               color="gray.600"
@@ -78,7 +78,7 @@ export const ConferenceCard = ({ conference, speakers }) => {
             <span>-</span>
             <Text
               as="time"
-              datetime={conference.childMdx.frontmatter.end}
+              dateTime={conference.childMdx.frontmatter.end}
               fontWeight="bold"
               fontSize="sm"
               color="gray.600"

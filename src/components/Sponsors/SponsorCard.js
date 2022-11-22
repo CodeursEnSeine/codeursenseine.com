@@ -46,7 +46,7 @@ export const SponsorCard = ({ logoSrc, link, name, excerpt, children }) => {
           {logoSrc && (
             <>
               <Link
-                d="block"
+                display="block"
                 href={link}
                 title={name}
                 target="_blank"
@@ -59,7 +59,7 @@ export const SponsorCard = ({ logoSrc, link, name, excerpt, children }) => {
               <Divider />
             </>
           )}
-          <Box d="flex" alignItems="baseline">
+          <Box display="flex" alignItems="baseline">
             <A href={link} title={name} target="_blank">
               {name}
             </A>
@@ -79,7 +79,7 @@ export const SponsorCard = ({ logoSrc, link, name, excerpt, children }) => {
             <Button
               onClick={onOpen}
               variant="unstyled"
-              d="inline-block"
+              display="inline-block"
               fontSize="sm"
               h="auto"
               m={4}

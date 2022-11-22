@@ -62,8 +62,7 @@ const socialLinks = [
   {
     name: "iTunes",
     icon: <FaItunesNote />,
-    link:
-      "https://itunes.apple.com/fr/podcast/codeurs-en-seine/id1454150414?mt=2",
+    link: "https://itunes.apple.com/fr/podcast/codeurs-en-seine/id1454150414?mt=2",
   },
 ];
 
@@ -89,7 +88,7 @@ export const NavSocial = (props) => {
               icon={social.icon}
               variant="unstyled"
               size="md"
-              d="inline-flex"
+              display="inline-flex"
             />
           </Tooltip>
         ))}

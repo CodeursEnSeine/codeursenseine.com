@@ -18,6 +18,7 @@ export const Devoxx4Kids = () => {
   return (
     <GatsbyImage
       image={data.placeholderImage.childImageSharp.gatsbyImageData}
+      alt="Devoxx4Kids"
     />
   );
 };
