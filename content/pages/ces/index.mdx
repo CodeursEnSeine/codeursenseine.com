@@ -3,7 +3,7 @@ title: Édition 2022
 order: 1
 ---
 
-import { Text, Stack, HStack, Flex, Box, Heading, Button, Image } from "@chakra-ui/react"
+import { Text, Stack, HStack, Flex, Box, Heading, Button, Image, SimpleGrid } from "@chakra-ui/react"
 import { Link } from "gatsby"
 import { A } from "components/A"
 import { Card } from "components/Card"
@@ -12,10 +12,49 @@ import { Newsletter } from "components/Newsletter"
 import { ButtonGroup } from "components/ButtonGroup"
 import { OGImage } from "components/OG"
 import { SponsorsList } from "components/Sponsors"
+import { Benevoles } from "components/Images/Benevoles"
 
 
 <OGImage path="/images/ces/social.jpg" />
 <Stack spacing="16">
+  <Stack>
+    <SimpleGrid columns={{ base: 1, md: 2 }} gap="4">
+      <Box rounded="md" overflow="hidden">
+        <Benevoles />
+      </Box>
+      <Stack justify="space-around">
+        <Text>Retrouvez les photos de l'événement Codeurs en Seine 2022</Text>
+        <Button
+          colorScheme="brand"
+          as="a"
+          href="https://drive.google.com/drive/folders/1U1EAqulWmO5567uQIoRNrMALDp49hy_z?usp=share_link"
+        >
+          Photo de Cédric Munsch
+        </Button>
+        <Button
+          colorScheme="brand"
+          as="a"
+          href="https://drive.google.com/drive/folders/1ONNu9szbirIWUjmzjNa9vnFx_khSmvIl?usp=share_link"
+        >
+          Photo de Frédéric Bisson
+        </Button>
+        <Button
+          colorScheme="brand"
+          as="a"
+          href="https://drive.google.com/drive/folders/1ZxXTP29W_N_IHQ824K9BME-z0gB_NlST?usp=share_link"
+        >
+          Photo de Matthieu Coulon
+        </Button>
+        <Button
+          colorScheme="brand"
+          as="a"
+          href="https://drive.google.com/drive/folders/1gTpaL4V4zm_5mjC8iPURklXsbyxO6Bvf?usp=share_link"
+        >
+          Photo de Thibault Dandré
+        </Button>
+      </Stack>
+    </SimpleGrid>
+  </Stack>
   <Card variant="primary">
     <Flex align="center" justify="center" direction={{ base: 'column', lg: 'row'}}>
       <Box maxW="60ch">
@@ -47,17 +86,7 @@ import { SponsorsList } from "components/Sponsors"
           <Button as={Link} to="programme" color="brand.600">
             Découvrir le programme
           </Button>
-          <Button
-            color="brand.600"
-            as={Link}
-            to="/2022/inscription"
-          >
-            Je m'inscris
-          </Button>
         </Stack>
-        <Box textAlign="center">
-          <Text mt={2} fontSize={12}>Inscription 100% gratuite possible grâce <A color="white" href="/2022/sponsors">à nos sponsors</A></Text>
-        </Box>
       </Box>
     </Flex>
   </Card>
