@@ -59,18 +59,14 @@ import { Benevoles } from "components/Images/Benevoles"
     <Flex align="center" justify="center" direction={{ base: 'column', lg: 'row'}}>
       <Box maxW="60ch">
         <Heading fontSize="2xl">
-          Édition 2022
+          Édition 2023
         </Heading>
         <Text>
-          Codeurs en Seine revient cette année en physique au Kindarena
-        </Text>
-        <Text>
-          Cette année, retrouvez plusieurs conférences sur la journée du{" "}
-          <strong>jeudi 17 Novembre</strong>.
+          Codeurs en Seine aura de nouveau lieu cette année en physique au Kindarena
         </Text>
         <Image src="/images/ces/logo-kindarena.svg" width="13rem" alt="Logo Kindarena" mt={5} />
       </Box>
-      <Box
+      {/* <Box
         ml={{ lg: 'auto' }}
         pt={{ base: 4, lg: 0 }}
         pl={{ lg: 4 }}
@@ -87,34 +83,10 @@ import { Benevoles } from "components/Images/Benevoles"
             Découvrir le programme
           </Button>
         </Stack>
-      </Box>
+      </Box> */}
     </Flex>
   </Card>
 
-  <Stack isInline spacing="8" align="flex-start" justify="center">  
-    <Stack maxW="60ch" spacing={4}>
-      <Heading as="h3" size="md">
-        Rendez-vous le jeudi 17 novembre 2022 au Kindarena de Rouen !
-      </Heading>
-      <Text>
-        Retour du format physique pour novembre 2022 : l'équipe Codeurs en Seine
-        vous propose une journée complète le jeudi 17 novembre sur des
-        conférences aux thèmes divers et variés : Web, Devops, UX, Securité etc.
-      </Text>
-    </Stack>
-  </Stack>
-  {/* <Card href="https://www.meetup.com/fr-FR/codeursenseine/events/286467281/" as="a" isLink variant="primary">
-    <Stack align="center">
-      <Text>
-        Inscrivez-vous à l'évènement Meetup pour ne rien rater !
-      </Text>
-      <Button
-        color="brand.600"
-      >
-        meetup.com/codeursenseine
-      </Button>
-    </Stack>
-  </Card> */}
   <Flex direction={{ base: "column-reverse", md: "row"}} gap="4" align={{ base: "center", md: "flex-start"}} justify="center">  
     <Stack maxW="60ch" spacing={4}>
       <Heading as="h3" size="md">
@@ -135,27 +107,6 @@ import { Benevoles } from "components/Images/Benevoles"
       borderRadius={4}
     />
   </Flex>
-
-  <HStack justify="center">
-    <Box>
-      <Image
-        width="150px"
-        height="150px"
-        objectFit="cover"
-        src="https://img.icons8.com/ios/150/null/not-hearing.png"
-        alt="Icône sourds et malentendants"
-      />
-    </Box>
-    <Stack maxW="60ch" spacing={4}>
-      <Heading as="h3" size="md">
-        La salle principale accessible aux sourds et aux malentendants
-      </Heading>
-      <Text>
-        La plus grande salle, la salle A, est sous titré en direct par <A href="https://www.lemessageur.com/">Le Messageur</A>.
-        C'est la salle ou se dérouleront les plénières. En plus de rendre accessible un premier lot de conférences aux sourds et malentendants, cela permet à tous de rattraper une idée quand l'attention s'est perdu dans un téléphone.
-      </Text>
-    </Stack>
-  </HStack>
 
   <Stack spacing="4">
     <Newsletter />

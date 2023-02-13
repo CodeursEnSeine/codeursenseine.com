@@ -85,20 +85,20 @@ export const Nav = ({
                 >
                   Inscription
                 </NavLink> */}
-                <NavLink
+                {/* <NavLink
                   as={Link}
                   to={`/${currentYear}/programme`}
                   fontWeight="bold"
                 >
                   Programme
-                </NavLink>
-                <NavLink
+                </NavLink> */}
+                {/* <NavLink
                   as={Link}
                   to={`/${currentYear}/speakers`}
                   fontWeight="bold"
                 >
                   Intervenants
-                </NavLink>
+                </NavLink> */}
                 <NavLink
                   as={Link}
                   to={`/${currentYear}/sponsors`}

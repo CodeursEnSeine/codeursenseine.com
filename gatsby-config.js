@@ -18,7 +18,7 @@ module.exports = {
     description: `Rencontre de codeuses & codeurs à Rouen`,
     siteUrl,
     author: `@codeursenseine`,
-    currentYear: `2022`,
+    currentYear: `2023`,
   },
   plugins: [
     `gatsby-alias-imports`,
