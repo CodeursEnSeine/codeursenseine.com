@@ -74,7 +74,7 @@ const Meetups = ({ data }) => {
             <Heading as="h2" size="lg" fontWeight="normal" mb={8}>
               Sponsors meetups
             </Heading>
-            <a href="https://www.devoxx.fr" target="_blank"><img 
+            <a href="https://www.devoxx.fr" target="_blank" style="margin-left: 5px;"><img 
                     src="/images/meetups/devoxx-2023.jpg" 
                     alt="devoxx france 2023, 11ème édition, du 12 au 14 avril, illustration de robot steam punk"
                   /></a>
