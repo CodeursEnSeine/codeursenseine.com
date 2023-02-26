@@ -127,6 +127,13 @@ export const Nav = ({
                 >
                   Code de conduite
                 </NavLink>
+                <NavLink
+                    as={Link}
+                    to={`/${currentYear}/review-2022`}
+                    fontWeight="bold"
+                >
+                  Review 2022
+                </NavLink>
               </>
             )}
           </Stack>
