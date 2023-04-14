@@ -96,7 +96,7 @@ const SponsorsPage = ({ pageContext }) => {
             <ButtonGroup>
               <Button
                 as="a"
-                href="https://drive.google.com/file/d/1zclVxBxeUZFUxX2kxVXCoAW8CnFr3p40/view?usp=sharing"
+                href="https://drive.google.com/file/d/1DiJViRo4s8PxlcD7yklEOSEZ2lnFb-f0/view?usp=share_link"
                 target="_blank"
                 colorScheme="brand"
               >
@@ -105,7 +105,7 @@ const SponsorsPage = ({ pageContext }) => {
               <Box display="flex" flexDir="column">
                 <Button
                   as="a"
-                  href="https://docs.google.com/document/d/14dtwH8QfzXuvPddlbo2fYgRy78RPtwwU1vPsH9tdgr4/edit?usp=sharing"
+                  href="https://docs.google.com/document/d/166Nwbe7Z19wAQhVh1i8Y1UUjLhloeiwRJ1oF87YDfGE/edit?usp=share_link"
                   target="_blank"
                   colorScheme="brand"
                   variant="outline"
@@ -114,7 +114,7 @@ const SponsorsPage = ({ pageContext }) => {
                 </Button>
                 <Button
                   as="a"
-                  href="https://docs.google.com/document/d/1oI6vAZBttTuSgxHH__LCVS1XV8j7wdiozc1TEzuVEhk/edit?usp=sharing"
+                  href="https://docs.google.com/document/d/1GR7_HU9-WQwtNa7ZNi6_vKXj3zTSNNq8trwPaIIQbmU/edit?usp=sharing"
                   target="_blank"
                   colorScheme="brand"
                   variant="outline"
