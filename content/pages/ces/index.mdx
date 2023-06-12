@@ -3,7 +3,7 @@ title: Édition 2023
 order: 1
 ---
 
-import { Text, Stack, HStack, Flex, Box, Heading, Button, Image, SimpleGrid } from "@chakra-ui/react"
+import { Text, Stack, HStack, Flex, Box, Heading, Button, Image, SimpleGrid, chakra } from "@chakra-ui/react"
 import { Link } from "gatsby"
 import { A } from "components/A"
 import { Card } from "components/Card"
@@ -62,11 +62,13 @@ import { Benevoles } from "components/Images/Benevoles"
           Édition 2023
         </Heading>
         <Text>
-          Codeurs en Seine aura de nouveau lieu cette année en physique au Kindarena
+          Codeurs en Seine aura de nouveau lieu cette année en physique au Kindarena,
+          avec cette année un peu d'avance. Nous vous donnons rendez vous le{" "}
+          <chakra.strong>26 octobre 2023</chakra.strong>.
         </Text>
         <Image src="/images/ces/logo-kindarena.svg" width="13rem" alt="Logo Kindarena" mt={5} />
       </Box>
-      {/* <Box
+      <Box
         ml={{ lg: 'auto' }}
         pt={{ base: 4, lg: 0 }}
         pl={{ lg: 4 }}
@@ -78,12 +80,12 @@ import { Benevoles } from "components/Images/Benevoles"
           justify="center"
           direction={{base: 'column', sm: 'row', md: 'column'}}
         >
-          <CallForPaperButton startDate="2022-06-01" endDate="2022-09-16" cfpId="Uv6XULhgmt7z2YuoJ8nq" color="brand.600" />
-          <Button as={Link} to="programme" color="brand.600">
+          <CallForPaperButton cfpId="77LWxBRFiJ13EdvlEE8X" />
+          {/* <Button as={Link} to="programme" color="brand.600">
             Découvrir le programme
-          </Button>
+          </Button> */}
         </Stack>
-      </Box> */}
+      </Box>
     </Flex>
   </Card>
 
@@ -107,6 +109,17 @@ import { Benevoles } from "components/Images/Benevoles"
       borderRadius={4}
     />
   </Flex>
+
+  <Stack spacing={4}>
+    <Heading as="h3" size="md">
+      Rendez-vous le jeudi 26 octobre 2023 au Kindarena de Rouen !
+    </Heading>
+    <Text>
+      Encore une édition en physique : l'équipe Codeurs en Seine vous propose
+      une journée complète le jeudi 26 octobre sur des conférences aux thèmes
+      divers et variés : Web, Devops, UX, Securité, Langages etc.
+    </Text>
+  </Stack>
 
   <Stack spacing="4">
     <Newsletter />
