@@ -1,17 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Box, Heading, Image } from "@chakra-ui/react";
+import { Box, Heading, Image, Stack, HStack, Text } from "@chakra-ui/react";
 import { A } from "components/A";
-import { StackInline } from "components/StackInline";
 
 export const MeetupSpeakers = ({ speakers, ...props }) => (
-  <StackInline spacing={10} {...props}>
-    {speakers &&
-      speakers.map((speaker) => (
-        <Box key={speaker.twitter}>
-          <Heading as="h5" size="sm" color="brand.900">
-            {speaker.name}
-          </Heading>
+  <Stack spacing={10} {...props}>
+    {speakers?.map((speaker) => (
+      <Box key={speaker.twitter}>
+        <HStack align="start" spacing="4">
           <Image
             boxSize="7.5rem"
             objectFit="cover"
@@ -19,16 +15,25 @@ export const MeetupSpeakers = ({ speakers, ...props }) => (
             alt={speaker.name}
             fallbackSrc="/default.jpg"
             borderRadius={4}
-            mt={2}
           />
-          {speaker.twitter && (
-            <A href={`https://twitter.com/${speaker.twitter}`} target="_blank">
-              @{speaker.twitter}
-            </A>
-          )}
-        </Box>
-      ))}
-  </StackInline>
+          <Stack>
+            <Heading as="h5" size="sm" color="brand.900">
+              {speaker.name}
+            </Heading>
+            {!!speaker.bio && <Text>{speaker.bio}</Text>}
+            {!!speaker.twitter && (
+              <A
+                href={`https://twitter.com/${speaker.twitter}`}
+                target="_blank"
+              >
+                @{speaker.twitter}
+              </A>
+            )}
+          </Stack>
+        </HStack>
+      </Box>
+    ))}
+  </Stack>
 );
 
 MeetupSpeakers.propTypes = {
