@@ -55,23 +55,29 @@ export const SponsorsList = ({ ...props }) => {
         {sponsors.length > 1 ? "s" : ""}.
       </Heading>
       <SimpleGrid columns={{ base: 3, sm: 4, lg: 5 }} gap={4}>
-        {sponsors.map(({ childMdx: { frontmatter } }) => {
-          const image = getImage(frontmatter.logo);
+        {sponsors
+          .sort((a, b) =>
+            a.childMdx.frontmatter.name.localeCompare(
+              b.childMdx.frontmatter.name
+            )
+          )
+          .map(({ childMdx: { frontmatter } }) => {
+            const image = getImage(frontmatter.logo);
 
-          return (
-            <Card
-              key={slugify(frontmatter.name)}
-              p={0}
-              isLink
-              as="a"
-              href={frontmatter.link}
-            >
-              <AspectRatio ratio={320 / 190}>
-                <GatsbyImage image={image} alt={frontmatter.name} />
-              </AspectRatio>
-            </Card>
-          );
-        })}
+            return (
+              <Card
+                key={slugify(frontmatter.name)}
+                p={0}
+                isLink
+                as="a"
+                href={frontmatter.link}
+              >
+                <AspectRatio ratio={320 / 190}>
+                  <GatsbyImage image={image} alt={frontmatter.name} />
+                </AspectRatio>
+              </Card>
+            );
+          })}
       </SimpleGrid>
     </Stack>
   );
