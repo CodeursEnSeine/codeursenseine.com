@@ -37,7 +37,7 @@ yarn new:organiser
 
 #### Redirection
 
-Add year-1 redirection in `publib-archive/netlify.toml`.
+Add year-1 redirection in `public-archive/netlify.toml`.
 
 #### Build Archive
 
