@@ -1,5 +1,5 @@
-import React from "react";
-import { Tooltip, Stack, Link, IconButton } from "@chakra-ui/react";
+import React from 'react';
+import { Tooltip, Stack, Link, IconButton } from '@chakra-ui/react';
 import {
   FaTwitter,
   FaYoutube,
@@ -11,58 +11,58 @@ import {
   FaRss,
   FaSpotify,
   FaItunesNote,
-} from "react-icons/fa";
+} from 'react-icons/fa';
 
 const socialLinks = [
   {
-    name: "Twitter",
+    name: 'Twitter',
     icon: <FaTwitter />,
-    link: "http://twitter.com/codeursenseine",
+    link: 'http://twitter.com/codeursenseine',
   },
   {
-    name: "Youtube",
+    name: 'Youtube',
     icon: <FaYoutube />,
-    link: "https://www.youtube.com/channel/UCWujmG5rANxJI0nHbMFs08w/playlists",
+    link: 'https://www.youtube.com/channel/UCWujmG5rANxJI0nHbMFs08w/playlists',
   },
   {
-    name: "Twitch",
+    name: 'Twitch',
     icon: <FaTwitch />,
-    link: "https://www.twitch.tv/codeursenseine/",
+    link: 'https://www.twitch.tv/codeursenseine/',
   },
   {
-    name: "GitHub",
+    name: 'GitHub',
     icon: <FaGithub />,
-    link: "https://github.com/CodeursEnSeine/",
+    link: 'https://github.com/CodeursEnSeine/',
   },
   {
-    name: "Facebook",
+    name: 'Facebook',
     icon: <FaFacebook />,
-    link: "https://www.facebook.com/codeursenseine",
+    link: 'https://www.facebook.com/codeursenseine',
   },
   {
-    name: "Linkedin",
+    name: 'Linkedin',
     icon: <FaLinkedin />,
-    link: "https://www.linkedin.com/company/codeurs-en-seine",
+    link: 'https://www.linkedin.com/company/codeurs-en-seine',
   },
   {
-    name: "Slack",
+    name: 'Slack',
     icon: <FaSlack />,
-    link: "https://go.codeursenseine.com/slack",
+    link: 'https://go.codeursenseine.com/slack',
   },
   {
-    name: "Flux RSS",
+    name: 'Flux RSS',
     icon: <FaRss />,
-    link: "https://www.spreaker.com/show/3365517/episodes/feed",
+    link: 'https://www.spreaker.com/show/3365517/episodes/feed',
   },
   {
-    name: "Spotify",
+    name: 'Spotify',
     icon: <FaSpotify />,
-    link: "https://open.spotify.com/show/28UM8IYvMF68hMm0IqO0M3",
+    link: 'https://open.spotify.com/show/28UM8IYvMF68hMm0IqO0M3',
   },
   {
-    name: "iTunes",
+    name: 'iTunes',
     icon: <FaItunesNote />,
-    link: "https://itunes.apple.com/fr/podcast/codeurs-en-seine/id1454150414?mt=2",
+    link: 'https://itunes.apple.com/fr/podcast/codeurs-en-seine/id1454150414?mt=2',
   },
 ];
 

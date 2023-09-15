@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   Box,
   Text,
@@ -6,28 +6,19 @@ import {
   Flex,
   IconButton,
   useTheme,
-} from "@chakra-ui/react";
-import { FiMenu } from "react-icons/fi";
-import { Logo } from "../Logo";
-import { graphql, useStaticQuery, Link } from "gatsby";
+} from '@chakra-ui/react';
+import { FiMenu } from 'react-icons/fi';
+import { Logo } from '../Logo';
+import { currentYear } from '@/constants/site';
+import Link from 'next/link';
 
 export const NavTopbar = ({ onNavOpen = () => {}, ...props }) => {
   const theme = useTheme();
 
-  const data = useStaticQuery(graphql`
-    query NavTopbarQuery {
-      site {
-        siteMetadata {
-          currentYear
-        }
-      }
-    }
-  `);
-
   return (
     <Flex
       as="nav"
-      display={{ base: "flex", md: "none" }}
+      display={{ base: 'flex', md: 'none' }}
       background={theme.gradients.brand}
       justifyContent="space-between"
       color="white"
@@ -39,7 +30,7 @@ export const NavTopbar = ({ onNavOpen = () => {}, ...props }) => {
       align="center"
       {...props}
     >
-      <Link to={`/${data.site.siteMetadata.currentYear}`}>
+      <Link href={`/${currentYear}`}>
         <Logo w="4.5" h="2.5rem" pl="2" />
       </Link>
       <Box textAlign="center">

@@ -1,0 +1,44 @@
+'use client';
+
+import React from 'react';
+import { Box, forwardRef, useTheme } from '@chakra-ui/react';
+
+export const Card = forwardRef(({ isLink, variant, ...props }, ref) => {
+  const theme = useTheme();
+
+  const primary = {
+    background: theme.gradients.brand,
+    color: 'white',
+  };
+
+  return (
+    <Box
+      ref={ref}
+      position="relative"
+      display="flex"
+      flexDirection="column"
+      p={6}
+      borderRadius="md"
+      boxShadow="brand"
+      border="1px solid transparent"
+      overflow="hidden"
+      _hover={
+        isLink
+          ? {
+              borderColor: 'brand.600',
+              cursor: 'pointer',
+            }
+          : {}
+      }
+      _focus={
+        isLink
+          ? {
+              borderColor: 'brand.600',
+            }
+          : {}
+      }
+      {...(variant === 'primary' ? primary : {})}
+      {...props}
+    />
+  );
+});
