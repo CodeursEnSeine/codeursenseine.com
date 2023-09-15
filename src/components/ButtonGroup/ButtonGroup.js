@@ -1,5 +1,5 @@
-import React from "react";
-import { StackInline } from "components/StackInline";
+import React from 'react';
+import { StackInline } from '@/components/StackInline';
 
 export const ButtonGroup = ({ childProps = {}, ...rest }) => {
   return (

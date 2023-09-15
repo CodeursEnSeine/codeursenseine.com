@@ -1,9 +1,9 @@
-import React from "react";
-import { Flex, useTheme } from "@chakra-ui/react";
+import React from 'react';
+import { Flex, useTheme } from '@chakra-ui/react';
 
 export const StackInline = ({
   children,
-  spacing = "2",
+  spacing = '2',
   childProps = {},
   ...rest
 }) => {

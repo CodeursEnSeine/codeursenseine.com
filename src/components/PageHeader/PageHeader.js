@@ -1,9 +1,9 @@
-import React from "react";
-import { Link } from "gatsby";
-import { useTheme, Box, Button, Flex, Text, Heading } from "@chakra-ui/react";
-import { ButtonGroup } from "components/ButtonGroup";
-import { Card } from "components/Card";
-import { StackInline } from "components/StackInline";
+import React from 'react';
+import { useTheme, Box, Button, Flex, Text, Heading } from '@chakra-ui/react';
+import { ButtonGroup } from '@/components/ButtonGroup';
+import { Card } from '@/components/Card';
+import { StackInline } from '@/components/StackInline';
+import Link from 'next/link';
 
 export const PageHeader = () => {
   const { themeName, data } = useTheme();
@@ -23,17 +23,17 @@ export const PageHeader = () => {
     );
 
     switch (themeName) {
-      case "meetups":
+      case 'meetups':
         return (
           <ButtonGroup justifyContent="center" flexGrow={{ base: 1, md: 0 }}>
-            <Button as={Link} to="/meetups/sponsors" colorScheme="brand">
+            <Button as={Link} href="/meetups/sponsors" colorScheme="brand">
               Devenir sponsor
             </Button>
             {donationButton}
           </ButtonGroup>
         );
 
-      case "devoxx4kids":
+      case 'devoxx4kids':
         return (
           <ButtonGroup justifyContent="center" flexGrow={{ base: 1, md: 0 }}>
             {donationButton}
@@ -44,7 +44,7 @@ export const PageHeader = () => {
         return (
           <ButtonGroup justifyContent="center" flexGrow={{ base: 1, md: 0 }}>
             {donationButton}
-            {/* <Button colorScheme="brand" as={Link} to="/2022/inscription">
+            {/* <Button colorScheme="brand" as={Link} href="/2022/inscription">
               Inscription
             </Button> */}
           </ButtonGroup>
@@ -58,9 +58,9 @@ export const PageHeader = () => {
         alignItems="center"
         justify="space-between"
         pb={5}
-        my={{ base: 0, md: "4vh" }}
+        my={{ base: 0, md: '4vh' }}
       >
-        <Box display={{ base: "none", md: "block" }} color="brand.800">
+        <Box display={{ base: 'none', md: 'block' }} color="brand.800">
           <Text fontFamily="heading" fontSize="sm">
             {data.pretitle}
           </Text>
@@ -70,11 +70,11 @@ export const PageHeader = () => {
         </Box>
         {getButtons()}
       </Flex>
-      {process.env.GATSBY_ARCHIVE && (
+      {process.env.NEXT_PUBLIC_ARCHIVE_YEAR && (
         <Card bg="red.600" color="white" mb={8}>
           <StackInline alignItems="center">
             <Text fontWeight="bold" flex={1} fontSize="lg">
-              Vous visitez le site d'une édition précédente.
+              Vous visitez le site d&apos;une édition précédente.
             </Text>
             <Button
               as="a"
@@ -82,7 +82,7 @@ export const PageHeader = () => {
               href="https://www.codeursenseine.com"
               color="brand.600"
             >
-              Voir l'édition actuelle
+              Voir l&apos;édition actuelle
             </Button>
           </StackInline>
         </Card>
