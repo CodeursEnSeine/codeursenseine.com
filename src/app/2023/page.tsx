@@ -51,7 +51,7 @@ export default function Home() {
                 alt="Logo Kindarena"
               />
             </Box>
-            <Box
+            {/* <Box
               ml={{ lg: 'auto' }}
               pt={{ base: 4, lg: 0 }}
               pl={{ lg: 4 }}
@@ -64,11 +64,11 @@ export default function Home() {
                 direction={{ base: 'column', sm: 'row', md: 'column' }}
               >
                 <CallForPaperButton cfpId="77LWxBRFiJ13EdvlEE8X" />
-                {/* <Button as={Link} to="programme" color="brand.600">
+                <Button as={Link} to="programme" color="brand.600">
             Découvrir le programme
-          </Button> */}
+          </Button> 
               </Stack>
-            </Box>
+            </Box> */}
           </Flex>
         </Card>
 
