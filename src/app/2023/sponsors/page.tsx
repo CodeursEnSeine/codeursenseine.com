@@ -4,9 +4,7 @@ import { SponsorCard } from '@/components/Sponsors';
 import {
   Box,
   Button,
-  ButtonGroup,
   Divider,
-  Grid,
   Heading,
   Link,
   SimpleGrid,
@@ -40,7 +38,7 @@ export default function Sponsors() {
         Devenir Sponsor
       </Heading>
 
-      <Stack direction={{ base: 'column', md:'row'}} spacing="8" mb="8">
+      <Stack direction={{ base: 'column', md: 'row' }} spacing="8" mb="8">
         <Box maxWidth="250px" minW="200px" flex="none">
           <Link
             isExternal
@@ -98,7 +96,7 @@ export default function Sponsors() {
                 href="https://drive.google.com/file/d/1DiJViRo4s8PxlcD7yklEOSEZ2lnFb-f0/view?usp=share_link"
                 target="_blank"
                 colorScheme="brand"
-                w={{base: 'full', lg: 'auto'}}
+                w={{ base: 'full', lg: 'auto' }}
               >
                 Dossier de sponsoring
               </Button>
@@ -109,7 +107,7 @@ export default function Sponsors() {
                 target="_blank"
                 colorScheme="brand"
                 variant="outline"
-                w={{base: 'full', lg: 'auto'}}
+                w={{ base: 'full', lg: 'auto' }}
               >
                 Convention de sponsoring
               </Button>
@@ -119,11 +117,10 @@ export default function Sponsors() {
                 target="_blank"
                 colorScheme="brand"
                 variant="outline"
-                w={{base: 'full', lg: 'auto'}}
+                w={{ base: 'full', lg: 'auto' }}
               >
                 🇬🇧 Sponsorship agreement
               </Button>
-
             </Wrap>
           </Stack>
         </Box>
