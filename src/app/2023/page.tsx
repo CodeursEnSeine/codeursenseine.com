@@ -92,7 +92,7 @@ export default function Home() {
             <Image
               width="300"
               height="200"
-              objectFit="cover"
+              style={{ objectFit: 'cover' }}
               src="/images/ces/kindarena.jpg"
               alt="Le Kindarena de Rouen"
             />

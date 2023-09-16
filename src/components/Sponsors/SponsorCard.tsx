@@ -63,7 +63,7 @@ export const SponsorCard = ({ sponsor }: SponsorCardProps) => {
                     height={190}
                     src={sponsor.logoSrc}
                     alt={sponsor.name}
-                    objectFit="cover"
+                    style={{ objectFit: 'cover' }}
                   />
                 </AspectRatio>
               </Link>
