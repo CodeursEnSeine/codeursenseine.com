@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTheme, Box, Button, Flex, Text, Heading } from '@chakra-ui/react';
 import { Card } from '@/components/Card';
+import Link from 'next/link';
 
 export const PageHeader = () => {
   const { data } = useTheme();
@@ -23,14 +24,14 @@ export const PageHeader = () => {
         </Box>
 
         <Flex justifyContent="end" gap="2" flex="1">
-          {/* <Button
+          <Button
             colorScheme="brand"
             as={Link}
             href="/2023/inscription"
             w={{ base: 'full', md: 'auto' }}
           >
             Inscription
-          </Button> */}
+          </Button>
           <Button
             variant="outline"
             colorScheme="brand"
