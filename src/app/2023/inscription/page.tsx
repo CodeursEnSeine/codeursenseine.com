@@ -1,8 +1,6 @@
 import { InscriptionTropEvent } from '@/components/InscriptionTropEvent';
-import { Box, Heading, Stack, Text } from '@chakra-ui/react';
+import { Heading, Stack, Text } from '@chakra-ui/react';
 import { Metadata, ResolvingMetadata } from 'next';
-import Script from 'next/script';
-// import Script from 'next/script';
 
 export async function generateMetadata(
   _: unknown,
@@ -15,7 +13,7 @@ export async function generateMetadata(
   };
 }
 
-export default function CoC() {
+export default function InscriptionPage() {
   return (
     <>
       <Heading as="h1" mb={8}>
