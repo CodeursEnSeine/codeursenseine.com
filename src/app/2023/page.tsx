@@ -51,7 +51,7 @@ export default function Home() {
                 alt="Logo Kindarena"
               />
             </Box>
-            {/* <Box
+            <Box
               ml={{ lg: 'auto' }}
               pt={{ base: 4, lg: 0 }}
               pl={{ lg: 4 }}
@@ -63,12 +63,15 @@ export default function Home() {
                 justify="center"
                 direction={{ base: 'column', sm: 'row', md: 'column' }}
               >
-                <CallForPaperButton cfpId="77LWxBRFiJ13EdvlEE8X" />
-                <Button as={Link} to="programme" color="brand.600">
-            Découvrir le programme
-          </Button> 
+                {/* <CallForPaperButton cfpId="77LWxBRFiJ13EdvlEE8X" /> */}
+                <Button as={Link} href="/2023/inscription" color="brand.600">
+                  Je m&apos;inscris
+                </Button>
+                {/* <Button as={Link} href="/2023/programme" color="brand.600">
+                  Découvrir le programme
+                </Button> */}
               </Stack>
-            </Box> */}
+            </Box>
           </Flex>
         </Card>
 
