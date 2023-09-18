@@ -1,5 +1,5 @@
 import { InscriptionTropEvent } from '@/components/InscriptionTropEvent';
-import { Box, Heading, Text } from '@chakra-ui/react';
+import { Box, Heading, Stack, Text } from '@chakra-ui/react';
 import { Metadata, ResolvingMetadata } from 'next';
 import Script from 'next/script';
 // import Script from 'next/script';
@@ -22,7 +22,11 @@ export default function CoC() {
         Inscription
       </Heading>
 
-      <Box mb={5}>
+      <Stack mb={5}>
+        <Text>
+          Codeurs en Seine aura lieu le <strong>26 octobre 2023</strong> au{' '}
+          <strong>Kindarena de Rouen</strong>
+        </Text>
         <Text>
           <strong>
             L&apos;accès reste gratuit mais l&apos;inscription obligatoire
@@ -32,10 +36,10 @@ export default function CoC() {
           <strong>indiquer le montant auquel vous désirez participer</strong>{' '}
           lors de votre commande.
         </Text>
-        <Text textAlign="right" mt={5} fontStyle="italic">
+        <Text textAlign="right" fontStyle="italic">
           L&apos;équipe Codeurs en Seine
         </Text>
-      </Box>
+      </Stack>
 
       <InscriptionTropEvent />
     </>
