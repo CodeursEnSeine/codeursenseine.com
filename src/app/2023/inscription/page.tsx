@@ -1,5 +1,11 @@
 import { InscriptionTropEvent } from '@/components/InscriptionTropEvent';
-import { Heading, Stack, Text } from '@chakra-ui/react';
+import {
+  Alert,
+  AlertDescription,
+  Heading,
+  Stack,
+  Text,
+} from '@chakra-ui/react';
 import { Metadata, ResolvingMetadata } from 'next';
 
 export async function generateMetadata(
@@ -37,6 +43,11 @@ export default function InscriptionPage() {
           <strong>indiquer le montant auquel vous désirez participer</strong>{' '}
           lors de votre commande.
         </Text>
+        <Alert colorScheme="brand">
+          <AlertDescription>
+            Le programme sera disponible en fin de semaine
+          </AlertDescription>
+        </Alert>
         <Text textAlign="right" fontStyle="italic">
           L&apos;équipe Codeurs en Seine
         </Text>
