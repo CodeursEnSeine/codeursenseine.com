@@ -1,4 +1,5 @@
 import { MdxContent } from '@/components/MdxContent';
+import { DEFAULT_AVATAR } from '@/constants/default';
 import {
   AspectRatio,
   Box,
@@ -30,16 +31,12 @@ export const SpeakerCard = ({ speaker, ...rest }: SpeakerCardProps) => {
       <Flex>
         <Box mr={4} borderRadius="4" overflow="hidden">
           <AspectRatio ratio={1} w="6em" maxW="100%">
-            {speaker.image ? (
-              <Image
-                src={speaker.imageSrc}
-                alt={speaker.name}
-                width={100}
-                height={100}
-              />
-            ) : (
-              <Box />
-            )}
+            <Image
+              src={speaker.image ? speaker.imageSrc : DEFAULT_AVATAR}
+              alt={speaker.name}
+              width={100}
+              height={100}
+            />
           </AspectRatio>
         </Box>
 

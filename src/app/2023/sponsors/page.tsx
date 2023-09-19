@@ -18,10 +18,10 @@ export async function generateMetadata(
   _: unknown,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
-  const previousTitle = 'Sponsors | ' + (await parent).title?.absolute;
+  const title = 'Sponsors | ' + (await parent).title?.absolute;
 
   return {
-    title: previousTitle,
+    title,
     alternates: {
       canonical: 'sponsors',
     },

@@ -1,4 +1,3 @@
-import { ProgrammeInformation } from '@/components/ProgrammeInformation';
 import { InscriptionTropEvent } from '@/components/InscriptionTropEvent';
 import { Heading, Stack, Text } from '@chakra-ui/react';
 import { Metadata, ResolvingMetadata } from 'next';
@@ -38,7 +37,6 @@ export default function InscriptionPage() {
           <strong>indiquer le montant auquel vous désirez participer</strong>{' '}
           lors de votre commande.
         </Text>
-        <ProgrammeInformation />
         <Text textAlign="right" fontStyle="italic">
           L&apos;équipe Codeurs en Seine
         </Text>

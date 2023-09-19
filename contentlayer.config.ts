@@ -94,7 +94,7 @@ export const Speaker = defineDocumentType(() => ({
   contentType: 'mdx',
   fields: {
     name: { type: 'string', required: true },
-    slug: { type: 'string' },
+    slug: { type: 'string', required: true },
     image: { type: 'string' },
     twitter: { type: 'string' },
     github: { type: 'string' },
@@ -105,10 +105,60 @@ export const Speaker = defineDocumentType(() => ({
       type: 'string',
       resolve: (doc) => `/images/speakers/${doc.image}`,
     },
+    twitterHref: {
+      type: 'string',
+      resolve: (doc) =>
+        doc.twitter ? `https://twitter.com/${doc.twitter}` : undefined,
+    },
+    githubHref: {
+      type: 'string',
+      resolve: (doc) =>
+        doc.github ? `https://github.com/${doc.github}` : undefined,
+    },
+  },
+}));
+
+export const Talk = defineDocumentType(() => ({
+  name: 'Talk',
+  filePathPattern: 'talks/**/*.mdx',
+  contentType: 'mdx',
+  fields: {
+    kind: {
+      type: 'enum',
+      options: [
+        'pause',
+        'keynote',
+        'quicky',
+        'conference',
+        'atelier',
+        'pleniere',
+        'sponsor',
+      ],
+      required: true,
+    },
+    title: { type: 'string', required: true },
+    start: { type: 'date', required: true },
+    end: { type: 'date' },
+    room: {
+      type: 'enum',
+      options: ['A', 'B', 'C', 'D'],
+      required: false,
+    },
+    rows: {
+      type: 'number',
+      required: false,
+    },
+    columns: {
+      type: 'number',
+      required: false,
+    },
+    speakers: { type: 'list', of: { type: 'string' } },
+    subtitled: { type: 'boolean', default: false, required: false },
+    feedback: { type: 'string', required: false },
   },
 }));
 
 export default makeSource({
   contentDirPath: 'content',
-  documentTypes: [Sponsor, Organiser, Meetup, Association, Speaker],
+  documentTypes: [Sponsor, Organiser, Meetup, Association, Speaker, Talk],
 });
