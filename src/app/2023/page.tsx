@@ -3,6 +3,8 @@ import { Card } from '@/components/Card';
 import { Newsletter } from '@/components/Newsletter';
 import { SponsorsList } from '@/components/Sponsors/SponsorsList';
 import {
+  Alert,
+  AlertDescription,
   Box,
   Button,
   Flex,
@@ -13,6 +15,7 @@ import {
   Text,
 } from '@chakra-ui/react';
 import Image from 'next/image';
+import { ProgrammeInformation } from '@/components/ProgrammeInformation';
 
 export async function generateMetadata(
   _: unknown,
@@ -32,6 +35,8 @@ export default function Home() {
   return (
     <>
       <Stack spacing="16">
+        <ProgrammeInformation />
+
         <Card variant="primary">
           <Flex
             align="center"
