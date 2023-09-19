@@ -88,7 +88,27 @@ export const Meetup = defineDocumentType(() => ({
   },
 }));
 
+export const Speaker = defineDocumentType(() => ({
+  name: 'Speaker',
+  filePathPattern: 'speakers/**/*.mdx',
+  contentType: 'mdx',
+  fields: {
+    name: { type: 'string', required: true },
+    slug: { type: 'string' },
+    image: { type: 'string' },
+    twitter: { type: 'string' },
+    github: { type: 'string' },
+    company: { type: 'string' },
+  },
+  computedFields: {
+    imageSrc: {
+      type: 'string',
+      resolve: (doc) => `/images/speakers/${doc.image}`,
+    },
+  },
+}));
+
 export default makeSource({
   contentDirPath: 'content',
-  documentTypes: [Sponsor, Organiser, Meetup, Association],
+  documentTypes: [Sponsor, Organiser, Meetup, Association, Speaker],
 });
