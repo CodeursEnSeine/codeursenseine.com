@@ -10,6 +10,9 @@ export async function generateMetadata(
 
   return {
     title: previousTitle,
+    alternates: {
+      canonical: 'code-of-conduct',
+    },
   };
 }
 

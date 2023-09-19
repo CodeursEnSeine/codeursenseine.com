@@ -16,6 +16,9 @@ export async function generateMetadata(
   return {
     title,
     description,
+    alternates: {
+      canonical: 'meetups',
+    },
     openGraph: {
       title,
       description,

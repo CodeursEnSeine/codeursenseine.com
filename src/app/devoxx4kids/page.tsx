@@ -33,6 +33,9 @@ export async function generateMetadata(
         },
       ],
     },
+    alternates: {
+      canonical: 'devoxx4kids',
+    },
   };
 }
 

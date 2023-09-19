@@ -1,5 +1,4 @@
 import { Metadata, ResolvingMetadata } from 'next';
-import { CallForPaperButton } from '@/components/CallForPaperButton';
 import { Card } from '@/components/Card';
 import { Newsletter } from '@/components/Newsletter';
 import { SponsorsList } from '@/components/Sponsors/SponsorsList';
@@ -23,6 +22,9 @@ export async function generateMetadata(
 
   return {
     title: previousTitle,
+    alternates: {
+      canonical: '2023',
+    },
   };
 }
 
