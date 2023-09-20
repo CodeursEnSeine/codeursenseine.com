@@ -6,6 +6,7 @@ export const formatHour = (hour: string | undefined) => {
   return new Intl.DateTimeFormat('fr-FR', {
     hour: 'numeric',
     minute: 'numeric',
+    timeZone: 'GMT',
   }).format(Date.parse(hour));
 };
 
