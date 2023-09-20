@@ -91,15 +91,12 @@ export default function ProgrammePage() {
                 <Fragment key={conference?._id}>
                   {conference?.kind === 'pause' && (
                     <GridItem colSpan={{ base: 1, lg: 4 }}>
-                      <PauseCard title={conference?.title} />
+                      <PauseCard pause={conference} />
                     </GridItem>
                   )}
                   {conference?.kind === 'pleniere' && (
                     <GridItem colSpan={{ base: 1, lg: 4 }}>
-                      <PleniereCard
-                        title={conference?.title}
-                        room={conference?.room}
-                      />
+                      <PleniereCard pleniere={conference} />
                     </GridItem>
                   )}
                   {conference?.kind === 'sponsor' && (

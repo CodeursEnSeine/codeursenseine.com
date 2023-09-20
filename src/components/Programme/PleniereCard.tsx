@@ -1,10 +1,13 @@
 import React from 'react';
-import { Stack, StackProps, Text } from '@chakra-ui/react';
+import { HStack, Stack, StackProps, Text } from '@chakra-ui/react';
 import { Talk } from 'contentlayer/generated';
+import { formatHour, getDiff } from '@/utils/dates';
 
-export type PleniereCardProps = StackProps & Pick<Talk, 'title' | 'room'>;
+export type PleniereCardProps = StackProps & {
+  pleniere: Pick<Talk, 'title' | 'room' | 'start' | 'end'>;
+};
 
-export const PleniereCard = ({ title, room, ...rest }: PleniereCardProps) => {
+export const PleniereCard = ({ pleniere, ...rest }: PleniereCardProps) => {
   return (
     <Stack
       bg="gray.50"
@@ -15,14 +18,38 @@ export const PleniereCard = ({ title, room, ...rest }: PleniereCardProps) => {
       spacing="1"
       {...rest}
     >
+      <HStack display={{ base: 'flex', lg: 'none' }}>
+        <Text
+          as="time"
+          dateTime={pleniere.start}
+          fontWeight="bold"
+          fontSize="sm"
+          color="gray.600"
+        >
+          {formatHour(pleniere.start)}
+        </Text>
+        <span>-</span>
+        <Text
+          as="time"
+          dateTime={pleniere.end}
+          fontWeight="bold"
+          fontSize="sm"
+          color="gray.600"
+        >
+          {formatHour(pleniere.end)}
+        </Text>
+        <Text fontWeight="bold" fontSize="xs" color="gray.600" as="span">
+          ({getDiff(pleniere.end, pleniere.start)})
+        </Text>
+      </HStack>
       <Text fontWeight="bold" color="brand.800">
-        {title}
+        {pleniere.title}
       </Text>
       <Text fontSize="sm" color="gray.600">
         Accueil par l&apos;équipe de Codeurs en Seine
       </Text>
       <Text fontSize="sm" color="gray.600" fontWeight="semibold">
-        Salle {room}
+        Salle {pleniere.room}
       </Text>
     </Stack>
   );
