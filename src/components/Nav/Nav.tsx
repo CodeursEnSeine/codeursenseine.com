@@ -92,24 +92,22 @@ export const Nav = ({
               >
                 Inscription
               </NavLink>
-              {/* <NavLink
-                  as={Link}
-          onClick={() => onNavClose()}
-
-                  href={`/${currentYear}/programme`}
-                  fontWeight="bold"
-                >
-                  Programme
-                </NavLink> */}
-              {/* <NavLink
-                  as={Link}
-          onClick={() => onNavClose()}
-
-                  href={`/${currentYear}/speakers`}
-                  fontWeight="bold"
-                >
-                  Intervenants
-                </NavLink> */}
+              <NavLink
+                as={Link}
+                onClick={() => onNavClose()}
+                href={`/${currentYear}/programme`}
+                fontWeight="bold"
+              >
+                Programme
+              </NavLink>
+              <NavLink
+                as={Link}
+                onClick={() => onNavClose()}
+                href={`/${currentYear}/speakers`}
+                fontWeight="bold"
+              >
+                Intervenants
+              </NavLink>
               <NavLink
                 as={Link}
                 onClick={() => onNavClose()}
