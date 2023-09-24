@@ -25,12 +25,12 @@ export const getDiff = (
     return;
   }
 
-  const diff = new Date(date1).getTime() - new Date(date2).getTime();
+  const diff = Math.abs(new Date(date1).getTime() - new Date(date2).getTime());
 
   const hours = Math.floor(diff / (1000 * 60 * 60));
   const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
 
-  return `${hours < 10 ? '0' : ''}${hours}:${
+  return `${hours < 10 ? '0' : ''}${hours} h ${
     minutes < 10 ? '0' : ''
-  }${minutes}`;
+  }${minutes} min`;
 };

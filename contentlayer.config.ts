@@ -156,6 +156,14 @@ export const Talk = defineDocumentType(() => ({
     subtitled: { type: 'boolean', default: false, required: false },
     feedback: { type: 'string', required: false },
   },
+  computedFields: {
+    slug: {
+      type: 'string',
+      resolve: (doc) => {
+        return doc._raw.sourceFileName.replaceAll('.mdx', '');
+      },
+    },
+  },
 }));
 
 export default makeSource({
