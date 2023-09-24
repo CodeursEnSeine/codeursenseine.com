@@ -71,9 +71,9 @@ export default function Home() {
                 <Button as={Link} href="/2023/inscription" color="brand.600">
                   Je m&apos;inscris
                 </Button>
-                {/* <Button as={Link} href="/2023/programme" color="brand.600">
+                <Button as={Link} href="/2023/programme" color="brand.600">
                   Découvrir le programme
-                </Button> */}
+                </Button>
               </Stack>
             </Box>
           </Flex>
