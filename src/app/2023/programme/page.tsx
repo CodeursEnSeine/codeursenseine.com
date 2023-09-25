@@ -63,7 +63,7 @@ export default function ProgrammePage() {
 
           return new Date(start1).getTime() - new Date(start2).getTime();
         })
-        .map(([start, conferences]) => (
+        .map(([start, talks]) => (
           <Fragment key={start}>
             <GridItem
               textAlign="right"
@@ -79,89 +79,79 @@ export default function ProgrammePage() {
                 {formatHour(start)}
               </Text>
             </GridItem>
-            {[...conferences]
-              .sort((conference1, conference2) => {
+            {[...talks]
+              .sort((talk1, talk2) => {
                 const ROOMS: Array<Talk['room']> = ['A', 'B', 'C', 'D'];
-                return (
-                  ROOMS.indexOf(conference1.room) -
-                  ROOMS.indexOf(conference2.room)
-                );
+                return ROOMS.indexOf(talk1.room) - ROOMS.indexOf(talk2.room);
               })
-              .map((conference) => (
-                <Fragment key={conference?._id}>
-                  {conference?.kind === 'pause' && (
+              .map((talk) => (
+                <Fragment key={talk?._id}>
+                  {talk?.kind === 'pause' && (
                     <GridItem colSpan={{ base: 1, lg: 4 }}>
-                      <PauseCard pause={conference} />
+                      <PauseCard pause={talk} />
                     </GridItem>
                   )}
-                  {conference?.kind === 'pleniere' && (
+                  {talk?.kind === 'pleniere' && (
                     <GridItem colSpan={{ base: 1, lg: 4 }}>
-                      <PleniereCard pleniere={conference} />
+                      <PleniereCard pleniere={talk} />
                     </GridItem>
                   )}
-                  {conference?.kind === 'sponsor' && (
+                  {talk?.kind === 'sponsor' && (
                     <GridItem colSpan={{ base: 1, lg: 4 }}>
-                      <SponsorCard
-                        title={conference?.title}
-                        room={conference?.room}
-                      />
+                      <SponsorCard title={talk?.title} room={talk?.room} />
                     </GridItem>
                   )}
-                  {conference?.kind === 'keynote' && (
+                  {talk?.kind === 'keynote' && (
                     <GridItem
                       colSpan={{
                         base: 1,
-                        lg: conference?.columns ?? 4,
+                        lg: talk?.columns ?? 4,
                       }}
                     >
                       <ConferenceCard
-                        conference={conference}
+                        talk={talk}
                         speakers={speakers?.filter(
-                          (speaker) =>
-                            conference?.speakers?.includes(speaker?.slug)
+                          (speaker) => talk?.speakers?.includes(speaker?.slug)
                         )}
                       />
                     </GridItem>
                   )}
-                  {conference?.kind === 'conference' && (
+                  {talk?.kind === 'conference' && (
                     <GridItem
                       colSpan={1}
-                      colStart={ROOM_GRID[conference?.room ?? 'A']}
+                      colStart={ROOM_GRID[talk?.room ?? 'A']}
                     >
                       <ConferenceCard
-                        conference={conference}
+                        talk={talk}
                         speakers={speakers.filter(
-                          (speaker) =>
-                            conference?.speakers?.includes(speaker.slug)
+                          (speaker) => talk?.speakers?.includes(speaker.slug)
                         )}
                       />
                     </GridItem>
                   )}
-                  {conference?.kind === 'quicky' && (
+                  {talk?.kind === 'quicky' && (
                     <GridItem
                       colSpan={1}
-                      colStart={ROOM_GRID[conference?.room ?? 'A']}
+                      colStart={ROOM_GRID[talk?.room ?? 'A']}
                     >
                       <ConferenceCard
-                        conference={conference}
+                        talk={talk}
                         speakers={speakers?.filter(
-                          (speaker) =>
-                            conference?.speakers?.includes(speaker?.slug)
+                          (speaker) => talk?.speakers?.includes(speaker?.slug)
                         )}
                       />
                     </GridItem>
                   )}
-                  {conference?.kind === 'atelier' && (
+                  {talk?.kind === 'atelier' && (
                     <GridItem
-                      colStart={ROOM_GRID[conference?.room ?? 'A']}
+                      colStart={ROOM_GRID[talk?.room ?? 'A']}
                       colSpan={1}
-                      rowSpan={conference?.rows}
+                      rowSpan={talk?.rows}
                     >
                       <ConferenceCard
-                        conference={conference}
+                        talk={talk}
                         speakers={speakers.filter(
-                          (speaker) =>
-                            conference?.speakers?.includes(speaker?.slug)
+                          (speaker) => talk?.speakers?.includes(speaker?.slug)
                         )}
                       />
                     </GridItem>
