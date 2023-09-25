@@ -1,12 +1,13 @@
 import { allSpeakers, allTalks } from 'contentlayer/generated';
 import { notFound } from 'next/navigation';
 import { Metadata, ResolvingMetadata } from 'next';
-import { Button, Stack } from '@chakra-ui/react';
+import { Box, Button, Stack } from '@chakra-ui/react';
 import { FaGithub } from 'react-icons/fa';
 import { SponsorsList } from '@/components/Sponsors';
 import { TalkContent } from '@/components/TalkContent';
 import Link from 'next/link';
 import { currentYear } from '@/constants/site';
+import { LuArrowLeft } from 'react-icons/lu';
 
 export async function generateMetadata(
   { params }: { params: { slug: string } },
@@ -40,11 +41,14 @@ export default function MeetupPage({ params }: { params: { slug: string } }) {
   return (
     <Stack spacing={8} align="star">
       <Button
-        variant="link"
+        variant="outline"
         as={Link}
         href={`/${currentYear}/programme`}
         alignSelf="flex-start"
       >
+        <Box mr={2}>
+          <LuArrowLeft />
+        </Box>
         Retour au programme
       </Button>
       <TalkContent talk={talk} speakers={speakers} />
