@@ -10,6 +10,14 @@
     npm install
     ```
 
+1.  **Copy .env.example file**
+
+    Copy the file and update the environment variables that need to be updated
+
+    ```shell
+    cp .env.example .env
+    ```
+
 1.  **Start developing.**
 
     ```shell
