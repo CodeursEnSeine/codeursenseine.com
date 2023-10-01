@@ -30,6 +30,10 @@ export const getDiff = (
   const hours = Math.floor(diff / (1000 * 60 * 60));
   const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
 
+  if (hours === 0) {
+    return `${minutes < 10 ? '0' : ''}${minutes} min`;
+  }
+
   return `${hours < 10 ? '0' : ''}${hours} h ${
     minutes < 10 ? '0' : ''
   }${minutes} min`;

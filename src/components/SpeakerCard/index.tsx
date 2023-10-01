@@ -1,25 +1,31 @@
 import { MdxContent } from '@/components/MdxContent';
 import { DEFAULT_AVATAR } from '@/constants/default';
+import { currentYear } from '@/constants/site';
 import {
   AspectRatio,
   Box,
   Card,
   CardProps,
+  Divider,
   Flex,
   HStack,
   IconButton,
+  Link as ChakraLink,
   Stack,
   Text,
 } from '@chakra-ui/react';
-import { Speaker } from 'contentlayer/generated';
+import { Speaker, Talk } from 'contentlayer/generated';
 import Image from 'next/image';
+import Link from 'next/link';
+import { Fragment } from 'react';
 import { FaGithub, FaTwitter } from 'react-icons/fa';
 
 type SpeakerCardProps = CardProps & {
   speaker: Speaker;
+  talks: Array<Talk>;
 };
 
-export const SpeakerCard = ({ speaker, ...rest }: SpeakerCardProps) => {
+export const SpeakerCard = ({ speaker, talks, ...rest }: SpeakerCardProps) => {
   return (
     <Card
       borderLeftWidth={2}
@@ -79,6 +85,23 @@ export const SpeakerCard = ({ speaker, ...rest }: SpeakerCardProps) => {
       </Flex>
 
       <MdxContent>{speaker.body.code}</MdxContent>
+
+      <Divider borderColor="gray.200" />
+
+      <Text fontWeight="bold">
+        {talks.length} conférence{talks.length > 1 ? 's' : ''}&nbsp;:
+      </Text>
+      {talks.map((talk) => (
+        <Fragment key={talk._id}>
+          <ChakraLink
+            color="brand.800"
+            as={Link}
+            href={`/${currentYear}/programme/${talk.slug}`}
+          >
+            {talk.title}
+          </ChakraLink>
+        </Fragment>
+      ))}
     </Card>
   );
 };

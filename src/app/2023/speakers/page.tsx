@@ -1,6 +1,6 @@
 import { SpeakerCard } from '@/components/SpeakerCard';
 import { Box, Heading, SimpleGrid, Stack } from '@chakra-ui/react';
-import { allSpeakers } from 'contentlayer/generated';
+import { allSpeakers, allTalks } from 'contentlayer/generated';
 import { Metadata, ResolvingMetadata } from 'next';
 
 export async function generateMetadata(
@@ -19,6 +19,7 @@ export async function generateMetadata(
 
 export default function SpeakerPage() {
   const speakers = allSpeakers;
+  const talks = allTalks;
 
   return (
     <Stack>
@@ -28,7 +29,13 @@ export default function SpeakerPage() {
       <Stack my={5}>
         <SimpleGrid columns={{ base: 1, lg: 1, xl: 2 }} spacing="6">
           {speakers?.map((speaker) => (
-            <SpeakerCard key={speaker._id} speaker={speaker} />
+            <SpeakerCard
+              key={speaker._id}
+              speaker={speaker}
+              talks={talks.filter(
+                (talk) => talk.speakers?.includes(speaker.slug)
+              )}
+            />
           ))}
         </SimpleGrid>
       </Stack>
