@@ -7,19 +7,29 @@ import { FaGithub } from 'react-icons/fa';
 import { MeetupRegistration, MeetupTitle } from '@/components/Meetup';
 import { MdxContent } from '@/components/MdxContent';
 import { RedirectCodeursEnSeine } from '@/components/RedirectCodeursEnSeine';
+import slugify from 'slugify';
 
 export async function generateMetadata(
   { params }: { params: { slug: string } },
   parent: ResolvingMetadata
 ): Promise<Metadata> {
-  const meetup = allMeetups.find((meetup) => meetup.slug === params.slug);
+  const meetup = allMeetups.find(
+    (meetup) =>
+      slugify(meetup.slug, {
+        strict: true,
+        lower: true,
+      }) === params.slug
+  );
 
   const previousTitle = `${meetup?.title} | ` + (await parent).title?.absolute;
 
   return {
     title: previousTitle,
     alternates: {
-      canonical: `meetups/events/${meetup?.slug}`,
+      canonical: `meetups/events/${slugify(meetup?.slug ?? '', {
+        strict: true,
+        lower: true,
+      })}`,
     },
   };
 }
