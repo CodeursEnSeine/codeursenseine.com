@@ -1,20 +1,18 @@
 ---
-layout: meetups-post
 group: meetups
 category: meetup
 
 slug: url-du-meetup
 published: false
 
-title: "Nom du meetup"
-excerpt: "Une courte phrase de description pour le meetup (optionnel)"
+title: 'Nom du meetup'
+excerpt: 'Une courte phrase de description pour le meetup (optionnel)'
 
-meetup_date:          2001-01-01
-meetup_start_time:    19h00
-meetup_end_time:      22h00
-meetup_location:      À Seine Innopolis, 72 Rue de la République, Le Petit Quevilly
+meetup_date: 2001-01-01
+meetup_start_time: 19h00
+meetup_end_time: 22h00
+meetup_location: À Seine Innopolis, 72 Rue de la République, Le Petit Quevilly
 meetup_register_link: https://www.google.com
-
 ---
 
 ## Les sujets de la soirée

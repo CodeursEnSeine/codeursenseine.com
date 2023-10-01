@@ -63,8 +63,6 @@ export const Meetup = defineDocumentType(() => ({
   filePathPattern: 'meetups/**/*.{md,mdx}',
   contentType: 'mdx',
   fields: {
-    // This is a legacy field, check to remove it
-    layout: { type: 'string' },
     // This looks like a legacy field, check to remove it
     group: { type: 'string' },
     // This looks like a legacy field, check to remove it
