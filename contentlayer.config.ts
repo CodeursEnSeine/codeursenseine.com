@@ -64,8 +64,6 @@ export const Meetup = defineDocumentType(() => ({
   contentType: 'mdx',
   fields: {
     // This looks like a legacy field, check to remove it
-    group: { type: 'string' },
-    // This looks like a legacy field, check to remove it
     category: { type: 'enum', options: ['meetup'] },
     slug: { type: 'string', required: true },
     published: { type: 'boolean' },

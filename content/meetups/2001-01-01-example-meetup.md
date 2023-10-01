@@ -1,5 +1,4 @@
 ---
-group: meetups
 category: meetup
 
 slug: url-du-meetup
