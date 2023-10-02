@@ -4,6 +4,9 @@ import { MdxContent } from '@/components/MdxContent';
 import { DEFAULT_AVATAR } from '@/constants/default';
 import { formatHour, getDiff } from '@/utils/dates';
 import {
+  Alert,
+  AlertDescription,
+  AlertIcon,
   Badge,
   Box,
   Divider,
@@ -34,6 +37,16 @@ export const TalkContent = ({ talk, speakers }: TalkProps) => {
       )}
 
       <Stack spacing="8">
+        {talk.kind === 'atelier' && (
+          <Alert borderRadius="md">
+            <AlertIcon />
+            <AlertDescription>
+              Les inscriptions pour les ateliers (qui ont un nombre de place
+              limités) arriveront une semaine avant l&apos;événement par email
+              aux inscrits.
+            </AlertDescription>
+          </Alert>
+        )}
         <Stack>
           <Heading as="h2" fontSize="xl">
             {talk.title}
