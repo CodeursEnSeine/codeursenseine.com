@@ -1,5 +1,6 @@
 'use client';
 
+import { FavoriteButton } from '@/components/FavoriteButton';
 import { MdxContent } from '@/components/MdxContent';
 import { DEFAULT_AVATAR } from '@/constants/default';
 import { formatHour, getDiff } from '@/utils/dates';
@@ -22,6 +23,7 @@ import {
 } from '@chakra-ui/react';
 import { Speaker, Talk } from 'contentlayer/generated';
 import Image from 'next/image';
+import { FaGithub } from 'react-icons/fa';
 import { FiGithub, FiTwitter } from 'react-icons/fi';
 import { MdHearingDisabled } from 'react-icons/md';
 import { VscFeedback } from 'react-icons/vsc';
@@ -64,21 +66,29 @@ export const TalkContent = ({ talk, speakers }: TalkProps) => {
           )}
         </Stack>
 
-        <Box>
+        <Box mb="4">
           <MdxContent>{talk.body.code}</MdxContent>
-          {talk.feedback && (
+          <Stack spacing="4" direction={{ base: 'column', md: 'row' }}>
+            <FavoriteButton slug={talk.slug} />
+            {talk.feedback && (
+              <Button
+                variant="outline"
+                leftIcon={<Icon as={VscFeedback} />}
+                as="a"
+                href={talk.feedback}
+              >
+                Faire un retour sur cette conférence
+              </Button>
+            )}
             <Button
-              mb="4"
-              w="full"
-              variant="link"
-              colorScheme="brand"
-              leftIcon={<Icon as={VscFeedback} />}
+              variant="outline"
               as="a"
-              href={talk.feedback}
+              href={`https://github.com/CodeursEnSeine/codeursenseine.com/edit/master/content/${talk._raw.sourceFilePath}`}
+              leftIcon={<FaGithub />}
             >
-              Faire un retour sur cette conférence
+              Modifier le contenu
             </Button>
-          )}
+          </Stack>
         </Box>
       </Stack>
       <Divider borderColor="brand.100" />

@@ -2,7 +2,6 @@ import { allSpeakers, allTalks } from 'contentlayer/generated';
 import { notFound } from 'next/navigation';
 import { Metadata, ResolvingMetadata } from 'next';
 import { Box, Button, Stack } from '@chakra-ui/react';
-import { FaGithub } from 'react-icons/fa';
 import { SponsorsList } from '@/components/Sponsors';
 import { TalkContent } from '@/components/TalkContent';
 import Link from 'next/link';
@@ -52,14 +51,7 @@ export default function MeetupPage({ params }: { params: { slug: string } }) {
         Retour au programme
       </Button>
       <TalkContent talk={talk} speakers={speakers} />
-      <Button
-        variant="outline"
-        as="a"
-        href={`https://github.com/CodeursEnSeine/codeursenseine.com/edit/master/content/${talk._raw.sourceFilePath}`}
-        leftIcon={<FaGithub />}
-      >
-        Modifier le contenu
-      </Button>
+
       <SponsorsList />
     </Stack>
   );
