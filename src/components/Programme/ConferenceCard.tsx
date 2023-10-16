@@ -11,7 +11,7 @@ import {
   HStack,
   Icon,
   Card,
-  Hide,
+  Show,
 } from '@chakra-ui/react';
 
 import { MdHearingDisabled } from 'react-icons/md';
@@ -119,7 +119,7 @@ export const ConferenceCard = ({ talk, speakers }: ConferenceCardProps) => {
           </HStack>
         </Stack>
       </Stack>
-      <Hide above="md">
+      <Show below="md">
         <FavoriteButton
           position="absolute"
           slug={talk.slug}
@@ -129,7 +129,7 @@ export const ConferenceCard = ({ talk, speakers }: ConferenceCardProps) => {
           right={2}
           zIndex={1}
         />
-      </Hide>
+      </Show>
     </Card>
   );
 };
