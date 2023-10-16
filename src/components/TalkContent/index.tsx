@@ -9,6 +9,7 @@ import {
   AlertIcon,
   Badge,
   Box,
+  Button,
   Divider,
   Flex,
   HStack,
@@ -23,6 +24,7 @@ import { Speaker, Talk } from 'contentlayer/generated';
 import Image from 'next/image';
 import { FiGithub, FiTwitter } from 'react-icons/fi';
 import { MdHearingDisabled } from 'react-icons/md';
+import { VscFeedback } from 'react-icons/vsc';
 
 type TalkProps = { talk: Talk; speakers: Array<Speaker> };
 
@@ -64,6 +66,19 @@ export const TalkContent = ({ talk, speakers }: TalkProps) => {
 
         <Box>
           <MdxContent>{talk.body.code}</MdxContent>
+          {talk.feedback && (
+            <Button
+              mb="4"
+              w="full"
+              variant="link"
+              colorScheme="brand"
+              leftIcon={<Icon as={VscFeedback} />}
+              as="a"
+              href={talk.feedback}
+            >
+              Faire un retour sur cette conférence
+            </Button>
+          )}
         </Box>
       </Stack>
       <Divider borderColor="brand.100" />
