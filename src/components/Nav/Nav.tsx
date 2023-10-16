@@ -127,6 +127,14 @@ export const Nav = ({
               <NavLink
                 as={Link}
                 onClick={() => onNavClose()}
+                href={`/${currentYear}/infos`}
+                fontWeight="bold"
+              >
+                Infos
+              </NavLink>
+              <NavLink
+                as={Link}
+                onClick={() => onNavClose()}
                 href={`/${currentYear}/kit-de-presse`}
                 fontWeight="bold"
               >

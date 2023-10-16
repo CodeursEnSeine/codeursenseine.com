@@ -3,8 +3,6 @@ import { Card } from '@/components/Card';
 import { Newsletter } from '@/components/Newsletter';
 import { SponsorsList } from '@/components/Sponsors/SponsorsList';
 import {
-  Alert,
-  AlertDescription,
   Box,
   Button,
   Flex,
