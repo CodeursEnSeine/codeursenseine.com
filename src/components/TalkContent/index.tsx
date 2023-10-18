@@ -68,14 +68,15 @@ export const TalkContent = ({ talk, speakers }: TalkProps) => {
 
         <Box mb="4">
           <MdxContent>{talk.body.code}</MdxContent>
-          <Stack spacing="4" direction={{ base: 'column', md: 'row' }}>
-            <FavoriteButton slug={talk.slug} />
+          <Stack spacing="4" direction={{ base: 'column', lg: 'row' }}>
+            <FavoriteButton slug={talk.slug} size="sm" />
             {talk.feedback && (
               <Button
                 variant="outline"
                 leftIcon={<Icon as={VscFeedback} />}
                 as="a"
                 href={talk.feedback}
+                size="sm"
               >
                 Faire un retour sur cette conférence
               </Button>
@@ -85,6 +86,7 @@ export const TalkContent = ({ talk, speakers }: TalkProps) => {
               as="a"
               href={`https://github.com/CodeursEnSeine/codeursenseine.com/edit/master/content/${talk._raw.sourceFilePath}`}
               leftIcon={<FaGithub />}
+              size="sm"
             >
               Modifier le contenu
             </Button>
