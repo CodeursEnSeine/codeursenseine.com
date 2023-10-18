@@ -54,10 +54,6 @@ export default function ProgrammePage() {
           Cette année, rendez-vous le <strong>jeudi 26 octobre</strong> au
           Kindarena. Ouverture des portes à <strong>8h00</strong>.
         </Text>
-        <Text fontSize="sm">
-          Les inscriptions pour les ateliers arriveront une semaine avant par
-          email aux inscrits.
-        </Text>
       </Stack>
       <Grid
         templateColumns={{

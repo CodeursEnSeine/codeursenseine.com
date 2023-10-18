@@ -41,16 +41,6 @@ export const TalkContent = ({ talk, speakers }: TalkProps) => {
       )}
 
       <Stack spacing="8">
-        {talk.kind === 'atelier' && (
-          <Alert borderRadius="md">
-            <AlertIcon />
-            <AlertDescription>
-              Les inscriptions pour les ateliers (qui ont un nombre de places
-              limité) arriveront une semaine avant l&apos;événement par email
-              aux inscrits.
-            </AlertDescription>
-          </Alert>
-        )}
         <Stack>
           <Heading as="h2" fontSize="xl">
             {talk.title}
