@@ -45,9 +45,12 @@ export const TalkContent = ({ talk, speakers }: TalkProps) => {
           <Heading as="h2" fontSize="xl">
             {talk.title}
           </Heading>
-          <Text>
-            ({formatHour(talk.start)} - {getDiff(talk.start, talk.end)})
-          </Text>
+          <HStack>
+            <Text color="brand.700">Salle {talk.room}</Text>
+            <Text>
+              ({formatHour(talk.start)} - {getDiff(talk.start, talk.end)})
+            </Text>
+          </HStack>
 
           {talk.kind === 'keynote' && (
             <Badge h="fit-content" colorScheme="brand" width="fit-content">
