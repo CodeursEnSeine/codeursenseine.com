@@ -57,8 +57,8 @@ export const ConferenceCard = ({ talk, speakers }: ConferenceCardProps) => {
       }}
       p="4"
     >
-      <CardBody p={0}>
-        <Stack spacing={0} as={Link} href={`programme/${talk.slug}`}>
+      <CardBody p={0} as={Link} href={`programme/${talk.slug}`}>
+        <Stack spacing={0}>
           <Flex
             justifyContent="space-between"
             display={{ base: 'flex', lg: 'none' }}

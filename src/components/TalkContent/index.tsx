@@ -5,9 +5,6 @@ import { MdxContent } from '@/components/MdxContent';
 import { DEFAULT_AVATAR } from '@/constants/default';
 import { formatHour, getDiff } from '@/utils/dates';
 import {
-  Alert,
-  AlertDescription,
-  AlertIcon,
   Badge,
   Box,
   Button,
