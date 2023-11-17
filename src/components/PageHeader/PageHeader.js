@@ -24,14 +24,14 @@ export const PageHeader = () => {
         </Box>
 
         <Flex justifyContent="end" gap="2" flex="1">
-          <Button
+          {/* <Button
             colorScheme="brand"
             as={Link}
             href="/2023/inscription"
             w={{ base: 'full', md: 'auto' }}
           >
             Inscription
-          </Button>
+          </Button> */}
           <Button
             variant="outline"
             colorScheme="brand"
