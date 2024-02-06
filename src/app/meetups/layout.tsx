@@ -26,24 +26,36 @@ export default function MeetupLayout(props: { children: ReactNode }) {
             </Heading>
             <Grid templateColumns="1fr 1fr" gap={4}>
               {sponsors.map((sponsor) => (
-                <Card
-                  isLink
-                  as="a"
-                  href={sponsor.link}
-                  title={sponsor.name}
-                  key={sponsor.name}
-                  p={0}
-                  m="auto"
-                >
-                  <Image
-                    src={sponsor.logoSrc}
-                    alt={sponsor.name}
-                    width="200"
-                    height="100"
-                  />
-                </Card>
+                  <Card
+                      isLink
+                      as="a"
+                      href={sponsor.link}
+                      title={sponsor.name}
+                      key={sponsor.name}
+                      p={0}
+                      m="auto"
+                  >
+                    <Image
+                        src={sponsor.logoSrc}
+                        alt={sponsor.name}
+                        width="200"
+                        height="100"
+                    />
+                  </Card>
               ))}
             </Grid>
+            <a
+                href="https://www.devoxx.fr/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+              <Image
+                  src="/images/meetups/devoxx-france-logo-2024-carre.png"
+                  alt="Devoxx France 2024"
+                  width="250"
+                  height="100"
+              />
+            </a>
           </Stack>
           <Stack spacing={6}>
             <Heading as="h2" size="lg" fontWeight="normal">
@@ -51,9 +63,9 @@ export default function MeetupLayout(props: { children: ReactNode }) {
             </Heading>
             <Grid templateColumns="1fr 1fr" gap={4}>
               {associations.map((association) => (
-                <Card
-                  isLink
-                  as="a"
+                  <Card
+                      isLink
+                      as="a"
                   href={association.link}
                   title={association.name}
                   key={association.name}
