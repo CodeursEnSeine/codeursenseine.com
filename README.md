@@ -41,8 +41,8 @@ Add year-1 redirection in `public-archive/netlify.toml`.
 Run the following commands with the correct year:
 
 ```shell
-NEXT_PUBLIC_ARCHIVE_YEAR=2023 npm run build:archive
-npm run start:archive # Serve the archive, and go to the archive-2023 folder
+NEXT_PUBLIC_ARCHIVE_YEAR=2024 npm run build:archive
+npm run start:archive # Serve the archive, and go to the archive-2024 folder
 ```
 
 #### Tag
