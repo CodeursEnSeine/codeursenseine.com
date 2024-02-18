@@ -18,12 +18,12 @@ export async function generateMetadata(
   _: unknown,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
-  const previousTitle = 'Édition 2023 | ' + (await parent).title?.absolute;
+  const previousTitle = 'Édition 2024 | ' + (await parent).title?.absolute;
 
   return {
     title: previousTitle,
     alternates: {
-      canonical: '2023',
+      canonical: '2024',
     },
   };
 }

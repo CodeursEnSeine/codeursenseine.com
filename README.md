@@ -56,7 +56,7 @@ Tag the latest commit.
 #### Clean the content
 
 Change the `currentYear` in `src/constants/site.ts`.
-Change the `src/app/2023` (year) folder name to the new year and edit the content of the pages.
+Change the `src/app/2024` (year) folder name to the new year and edit the content of the pages.
 
 #### Create Netlify redirect
 
