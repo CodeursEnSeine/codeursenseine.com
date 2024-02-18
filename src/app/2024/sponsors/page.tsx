@@ -1,18 +1,7 @@
+import { Box, Heading, Stack, Text } from '@chakra-ui/react';
 import { allSponsors } from 'contentlayer/generated';
 import { Metadata, ResolvingMetadata } from 'next';
-import { SponsorCard } from '@/components/Sponsors';
-import {
-  Box,
-  Button,
-  Divider,
-  Heading,
-  Link,
-  SimpleGrid,
-  Stack,
-  Text,
-  Wrap,
-} from '@chakra-ui/react';
-import Image from 'next/image';
+import Link from 'next/link';
 
 export async function generateMetadata(
   _: unknown,
@@ -42,7 +31,7 @@ export default function Sponsors() {
       </Heading>
 
       <Stack direction={{ base: 'column', md: 'row' }} spacing="8" mb="8">
-        <Box maxWidth="250px" minW="200px" flex="none">
+        {/* <Box maxWidth="250px" minW="200px" flex="none">
           <Link
             isExternal
             display="block"
@@ -58,7 +47,7 @@ export default function Sponsors() {
               height="350"
             />
           </Link>
-        </Box>
+        </Box> */}
         <Box flex="1">
           <Stack spacing={8}>
             <Text>
@@ -71,6 +60,13 @@ export default function Sponsors() {
               d&apos;une politique de recrutement.
             </Text>
             <Text>
+              Notre dossier de sponsoring n&apos;est pas encore disponible, mais
+              vous pouvez d&apos;ores et déjà nous contacter à l&apos;adresse{' '}
+              <Link href="mailto:contact@codeursenseine.com">
+                contact@codeursenseine.com
+              </Link>
+            </Text>
+            {/* <Text>
               Si vous souhaitez soutenir l&apos;événement, téléchargez{' '}
               <Link
                 href="https://drive.google.com/file/d/1zclVxBxeUZFUxX2kxVXCoAW8CnFr3p40/view?usp=sharing"
@@ -124,11 +120,11 @@ export default function Sponsors() {
               >
                 🇬🇧 Sponsorship agreement
               </Button>
-            </Wrap>
+            </Wrap> */}
           </Stack>
         </Box>
       </Stack>
-      <Divider mb="6" />
+      {/* <Divider mb="6" />
       <Stack spacing="6">
         {sponsorLevels.map((level) => {
           const thisLevelSponsors = sponsors.filter(
@@ -152,7 +148,7 @@ export default function Sponsors() {
             )
           );
         })}
-      </Stack>
+      </Stack> */}
     </>
   );
 }
