@@ -1,29 +1,20 @@
-import { Metadata, ResolvingMetadata } from 'next';
 import { Card } from '@/components/Card';
 import { Newsletter } from '@/components/Newsletter';
-import { SponsorsList } from '@/components/Sponsors/SponsorsList';
-import {
-  Box,
-  Button,
-  Flex,
-  Heading,
-  Link,
-  SimpleGrid,
-  Stack,
-  Text,
-} from '@chakra-ui/react';
+import { SponsorsList } from '@/components/Sponsors';
+import { Box, Flex, Heading, Link, Stack, Text } from '@chakra-ui/react';
+import { Metadata, ResolvingMetadata } from 'next';
 import Image from 'next/image';
 
 export async function generateMetadata(
   _: unknown,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
-  const previousTitle = 'Édition 2023 | ' + (await parent).title?.absolute;
+  const previousTitle = 'Édition 2024 | ' + (await parent).title?.absolute;
 
   return {
     title: previousTitle,
     alternates: {
-      canonical: '2023',
+      canonical: '2024',
     },
   };
 }
@@ -38,12 +29,12 @@ export default function Home() {
           direction={{ base: 'column', lg: 'row' }}
         >
           <Box maxW="60ch">
-            <Heading fontSize="2xl">26 octobre 2023</Heading>
+            {/* <Heading fontSize="2xl">26 octobre 2023</Heading> */}
+            <Heading fontSize="2xl">Édition 2024</Heading>
             <Text mb="5">
-              Codeurs en Seine aura de nouveau lieu cette année en physique au{' '}
-              <strong>Kindarena&nbsp;de&nbsp;Rouen</strong>, avec cette année un
-              peu d&apos;avance. Nous vous donnons rendez vous le{' '}
-              <strong>26&nbsp;octobre&nbsp;2023</strong>.
+              Codeurs en Seine aura de nouveau lieu cette année au{' '}
+              <strong>Kindarena&nbsp;de&nbsp;Rouen</strong>, nous vous donnons
+              rendez-vous normalement en novembre (date à confirmer).
             </Text>
             <Image
               src="/images/ces/logo-kindarena.svg"
@@ -68,9 +59,9 @@ export default function Home() {
               {/* <Button as={Link} href="/2023/inscription" color="brand.600">
                   Je m&apos;inscris
                 </Button> */}
-              <Button as={Link} href="/2023/programme" color="brand.600">
+              {/* <Button as={Link} href="/2023/programme" color="brand.600">
                 Découvrir le programme
-              </Button>
+              </Button> */}
             </Stack>
           </Box>
         </Flex>
@@ -105,12 +96,13 @@ export default function Home() {
 
       <Stack spacing={4}>
         <Heading as="h3" size="md">
-          Rendez-vous le jeudi 26 octobre 2023 au Kindarena de Rouen !
+          Rendez-vous en novembre 2024 au Kindarena de Rouen !
         </Heading>
         <Text>
           Encore une édition en physique : l&apos;équipe Codeurs en Seine vous
-          propose une journée complète le jeudi 26 octobre sur des conférences
-          aux thèmes divers et variés : Web, Devops, UX, Securité, Langages etc.
+          propose une journée complète en novembre (date à confirmer) sur des
+          conférences aux thèmes divers et variés : Web, Devops, UX, Securité,
+          Langages etc.
         </Text>
       </Stack>
 
@@ -145,7 +137,8 @@ export default function Home() {
         </Text>
       </Stack>
 
-      <SimpleGrid columns={{ base: 1, md: 2 }} gap="4">
+      {/* TODO: Rajoutez les photos 2023 */}
+      {/* <SimpleGrid columns={{ base: 1, md: 2 }} gap="4">
         <Box rounded="md" overflow="hidden" textAlign="center">
           <Image
             src="/images/ces/benevoles.jpg"
@@ -156,7 +149,7 @@ export default function Home() {
         </Box>
         <Stack justify="space-around">
           <Text>
-            Retrouvez les photos de l&apos;événement Codeurs en Seine 2022
+            Retrouvez les photos de l&apos;événement Codeurs en Seine 2023
           </Text>
           <Button
             colorScheme="brand"
@@ -187,7 +180,7 @@ export default function Home() {
             Photo de Thibault Dandré
           </Button>
         </Stack>
-      </SimpleGrid>
+      </SimpleGrid> */}
 
       <SponsorsList />
 

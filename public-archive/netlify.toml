@@ -33,3 +33,15 @@ force = true
 from = "/archive-2022/devoxx4kids*"
 status = 301
 to = "https://www.codeursenseine.com/devoxx4kids/:splat"
+
+[[redirects]]
+force = true
+from = "/archive-2023/meetups*"
+status = 301
+to = "https://www.codeursenseine.com/meetups/:splat"
+
+[[redirects]]
+force = true
+from = "/archive-2023/devoxx4kids*"
+status = 301
+to = "https://www.codeursenseine.com/devoxx4kids/:splat"

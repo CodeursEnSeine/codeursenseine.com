@@ -1,12 +1,12 @@
-import React, { Fragment } from 'react';
-import { Grid, GridItem, Stack, Text } from '@chakra-ui/react';
-import { Talk, allSpeakers, allTalks } from 'contentlayer/generated';
 import { ConferenceCard } from '@/components/Programme/ConferenceCard';
-import { formatHour } from '@/utils/dates';
+import { PauseCard } from '@/components/Programme/PauseCard';
 import { PleniereCard } from '@/components/Programme/PleniereCard';
 import { SponsorCard } from '@/components/Programme/SponsorCard';
-import { PauseCard } from '@/components/Programme/PauseCard';
+import { formatHour } from '@/utils/dates';
+import { Grid, GridItem, Stack, Text } from '@chakra-ui/react';
+import { Talk, allSpeakers, allTalks } from 'contentlayer/generated';
 import { Metadata, ResolvingMetadata } from 'next';
+import { Fragment } from 'react';
 
 export async function generateMetadata(
   _: unknown,

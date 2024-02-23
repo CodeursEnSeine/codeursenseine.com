@@ -1,17 +1,16 @@
-import React from 'react';
+import { currentYear } from '@/constants/site';
 import {
-  IconButton,
-  useTheme,
-  Stack,
   Flex,
   FlexProps,
+  IconButton,
+  Stack,
   ThemeTypings,
+  useTheme,
 } from '@chakra-ui/react';
-import { FiX } from 'react-icons/fi';
-import { Logo } from '../Logo';
-import { NavSocial, NavPreviousYears, NavLink } from '.';
 import Link from 'next/link';
-import { currentYear } from '@/constants/site';
+import { FiX } from 'react-icons/fi';
+import { NavLink, NavPreviousYears, NavSocial } from '.';
+import { Logo } from '../Logo';
 
 type NavProps = {
   breakpoint: ThemeTypings['breakpoints'];
@@ -92,7 +91,7 @@ export const Nav = ({
               >
                 Inscription
               </NavLink> */}
-              <NavLink
+              {/* <NavLink
                 as={Link}
                 onClick={() => onNavClose()}
                 href={`/${currentYear}/programme`}
@@ -107,7 +106,7 @@ export const Nav = ({
                 fontWeight="bold"
               >
                 Intervenants
-              </NavLink>
+              </NavLink> */}
               <NavLink
                 as={Link}
                 onClick={() => onNavClose()}
@@ -124,14 +123,14 @@ export const Nav = ({
               >
                 Organisateurs
               </NavLink>
-              <NavLink
+              {/* <NavLink
                 as={Link}
                 onClick={() => onNavClose()}
                 href={`/${currentYear}/infos`}
                 fontWeight="bold"
               >
                 Infos
-              </NavLink>
+              </NavLink> */}
               <NavLink
                 as={Link}
                 onClick={() => onNavClose()}
@@ -151,10 +150,10 @@ export const Nav = ({
               <NavLink
                 as={Link}
                 onClick={() => onNavClose()}
-                href={`/${currentYear}/review-2022`}
+                href={`/${currentYear}/review-2023`}
                 fontWeight="bold"
               >
-                Review 2022
+                Review 2023
               </NavLink>
             </Stack>
             <Stack spacing="0">
