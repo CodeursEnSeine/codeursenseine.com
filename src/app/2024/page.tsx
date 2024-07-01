@@ -1,3 +1,4 @@
+import { CallForPaperButton } from '@/components/CallForPaperButton';
 import { Card } from '@/components/Card';
 import { Newsletter } from '@/components/Newsletter';
 import { SponsorsList } from '@/components/Sponsors';
@@ -29,12 +30,11 @@ export default function Home() {
           direction={{ base: 'column', lg: 'row' }}
         >
           <Box maxW="60ch">
-            {/* <Heading fontSize="2xl">26 octobre 2023</Heading> */}
-            <Heading fontSize="2xl">Édition 2024</Heading>
+            <Heading fontSize="2xl">21 Novembre 2024</Heading>
             <Text mb="5">
               Codeurs en Seine aura de nouveau lieu cette année au{' '}
               <strong>Kindarena&nbsp;de&nbsp;Rouen</strong>, nous vous donnons
-              rendez-vous normalement en novembre (date à confirmer).
+              rendez-vous le Jeudi 21 Novembre 2024 !
             </Text>
             <Image
               src="/images/ces/logo-kindarena.svg"
@@ -55,11 +55,11 @@ export default function Home() {
               justify="center"
               direction={{ base: 'column', sm: 'row', md: 'column' }}
             >
-              {/* <CallForPaperButton cfpId="77LWxBRFiJ13EdvlEE8X" /> */}
-              {/* <Button as={Link} href="/2023/inscription" color="brand.600">
+              <CallForPaperButton cfpId="Su6sfM6SAhoHmg3GWKHS" />
+              {/* <Button as={Link} href="/2024/inscription" color="brand.600">
                   Je m&apos;inscris
                 </Button> */}
-              {/* <Button as={Link} href="/2023/programme" color="brand.600">
+              {/* <Button as={Link} href="/2024/programme" color="brand.600">
                 Découvrir le programme
               </Button> */}
             </Stack>
