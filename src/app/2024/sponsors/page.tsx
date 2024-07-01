@@ -1,7 +1,6 @@
-import { Box, Heading, Stack, Text } from '@chakra-ui/react';
+import { Box, Button, Heading, Image, Link, Stack, Text, Wrap } from '@chakra-ui/react';
 import { allSponsors } from 'contentlayer/generated';
 import { Metadata, ResolvingMetadata } from 'next';
-import Link from 'next/link';
 
 export async function generateMetadata(
   _: unknown,
@@ -31,14 +30,14 @@ export default function Sponsors() {
       </Heading>
 
       <Stack direction={{ base: 'column', md: 'row' }} spacing="8" mb="8">
-        {/* <Box maxWidth="250px" minW="200px" flex="none">
+        <Box maxWidth="250px" minW="200px" flex="none">
           <Link
             isExternal
             display="block"
             boxShadow="brand"
             overflow="hidden"
             borderRadius="md"
-            href="https://drive.google.com/file/d/1zclVxBxeUZFUxX2kxVXCoAW8CnFr3p40/view?usp=sharing"
+            href="https://drive.google.com/file/d/1pX8qVQ7COljaAeniotRgnQmchog8Efuv/view?usp=sharing"
           >
             <Image
               src="/images/ces/dossier-sponsoring.jpg"
@@ -47,7 +46,7 @@ export default function Sponsors() {
               height="350"
             />
           </Link>
-        </Box> */}
+        </Box>
         <Box flex="1">
           <Stack spacing={8}>
             <Text>
@@ -66,10 +65,10 @@ export default function Sponsors() {
                 contact@codeursenseine.com
               </Link>
             </Text>
-            {/* <Text>
+            <Text>
               Si vous souhaitez soutenir l&apos;événement, téléchargez{' '}
               <Link
-                href="https://drive.google.com/file/d/1zclVxBxeUZFUxX2kxVXCoAW8CnFr3p40/view?usp=sharing"
+                href="https://drive.google.com/file/d/1pX8qVQ7COljaAeniotRgnQmchog8Efuv/view?usp=sharing"
                 isExternal
                 textDecoration="underline"
               >
@@ -77,7 +76,7 @@ export default function Sponsors() {
               </Link>
               ,{' '}
               <Link
-                href="https://docs.google.com/document/d/14dtwH8QfzXuvPddlbo2fYgRy78RPtwwU1vPsH9tdgr4/edit?usp=sharing"
+                href="https://drive.google.com/file/d/1yjCg97BdpefMg3peHsDkyKn8w2ietb3P/view?usp=sharing"
                 isExternal
                 textDecoration="underline"
               >
@@ -92,7 +91,7 @@ export default function Sponsors() {
             <Wrap>
               <Button
                 as="a"
-                href="https://drive.google.com/file/d/1DiJViRo4s8PxlcD7yklEOSEZ2lnFb-f0/view?usp=share_link"
+                href="https://drive.google.com/file/d/1pX8qVQ7COljaAeniotRgnQmchog8Efuv/view?usp=share_link"
                 target="_blank"
                 colorScheme="brand"
                 w={{ base: 'full', lg: 'auto' }}
@@ -102,7 +101,7 @@ export default function Sponsors() {
 
               <Button
                 as="a"
-                href="https://docs.google.com/document/d/166Nwbe7Z19wAQhVh1i8Y1UUjLhloeiwRJ1oF87YDfGE/edit?usp=share_link"
+                href="https://drive.google.com/file/d/1yjCg97BdpefMg3peHsDkyKn8w2ietb3P/view?usp=share_link"
                 target="_blank"
                 colorScheme="brand"
                 variant="outline"
@@ -112,7 +111,7 @@ export default function Sponsors() {
               </Button>
               <Button
                 as="a"
-                href="https://docs.google.com/document/d/1GR7_HU9-WQwtNa7ZNi6_vKXj3zTSNNq8trwPaIIQbmU/edit?usp=sharing"
+                href="https://drive.google.com/file/d/1MiTGC8ZU4EfEVgueYe2LEWeIkKsrzztZ/view?usp=sharing"
                 target="_blank"
                 colorScheme="brand"
                 variant="outline"
@@ -120,7 +119,7 @@ export default function Sponsors() {
               >
                 🇬🇧 Sponsorship agreement
               </Button>
-            </Wrap> */}
+            </Wrap>
           </Stack>
         </Box>
       </Stack>
