@@ -123,7 +123,7 @@ export default function Sponsors() {
           </Stack>
         </Box>
       </Stack>
-      {/* <Divider mb="6" />
+      <Divider mb="6" />
       <Stack spacing="6">
         {sponsorLevels.map((level) => {
           const thisLevelSponsors = sponsors.filter(
@@ -147,7 +147,7 @@ export default function Sponsors() {
             )
           );
         })}
-      </Stack> */}
+      </Stack>
     </>
   );
 }
