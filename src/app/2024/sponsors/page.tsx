@@ -1,4 +1,3 @@
-import { SponsorCard } from '@/components/Sponsors';
 import { Box, Button, Divider, Heading, Image, Link, SimpleGrid, Stack, Text, Wrap } from '@chakra-ui/react';
 import { allSponsors } from 'contentlayer/generated';
 import { Metadata, ResolvingMetadata } from 'next';
