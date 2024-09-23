@@ -6,7 +6,7 @@ import Image from 'next/image';
 export const SponsorsList = ({ ...props }) => {
   // changer ça pour afficher ou non la liste des sponsors
   // sur toutes les pages lorsqu'on en aura
-  const isDown = true;
+  const isDown = false;
 
   const sponsors = allSponsors
     .filter((sponsor) => sponsor.sponsor !== 'disabled')
