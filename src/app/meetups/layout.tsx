@@ -44,6 +44,7 @@ export default function MeetupLayout(props: { children: ReactNode }) {
                   </Card>
               ))}
             </Grid>
+            {/*
             <a
                 href="https://www.devoxx.fr/"
                 target="_blank"
@@ -56,6 +57,7 @@ export default function MeetupLayout(props: { children: ReactNode }) {
                   height="100"
               />
             </a>
+            */}
           </Stack>
           <Stack spacing={6}>
             <Heading as="h2" size="lg" fontWeight="normal">
