@@ -1,5 +1,4 @@
 import { Box, Button, Divider, Heading, Image, Link, SimpleGrid, Stack, Text, Wrap } from '@chakra-ui/react';
-import { SponsorCard } from '@/components/Sponsors/SponsorCard';
 import { allSponsors } from 'contentlayer/generated';
 import { Metadata, ResolvingMetadata } from 'next';
 
@@ -38,7 +37,7 @@ export default function Sponsors() {
             boxShadow="brand"
             overflow="hidden"
             borderRadius="md"
-            href="https://drive.google.com/file/d/1pX8qVQ7COljaAeniotRgnQmchog8Efuv/view?usp=sharing"
+            href="https://drive.google.com/file/d/1WP6AZ5RIvPfyBC-k_tdqaqTNoVU7ocoW/view?usp=sharing"
           >
             <Image
               src="/images/ces/dossier-sponsoring.jpg"
@@ -69,7 +68,7 @@ export default function Sponsors() {
             <Text>
               Si vous souhaitez soutenir l&apos;événement, téléchargez{' '}
               <Link
-                href="https://drive.google.com/file/d/1pX8qVQ7COljaAeniotRgnQmchog8Efuv/view?usp=sharing"
+                href="https://drive.google.com/file/d/1WP6AZ5RIvPfyBC-k_tdqaqTNoVU7ocoW/view?usp=sharing"
                 isExternal
                 textDecoration="underline"
               >
@@ -77,7 +76,7 @@ export default function Sponsors() {
               </Link>
               ,{' '}
               <Link
-                href="https://drive.google.com/file/d/1yjCg97BdpefMg3peHsDkyKn8w2ietb3P/view?usp=sharing"
+                href="https://drive.google.com/file/d/1bhG3vWewbLd8x7X8wUiq89IiqJl-dhNe/view?usp=sharing"
                 isExternal
                 textDecoration="underline"
               >
@@ -92,7 +91,7 @@ export default function Sponsors() {
             <Wrap>
               <Button
                 as="a"
-                href="https://drive.google.com/file/d/1pX8qVQ7COljaAeniotRgnQmchog8Efuv/view?usp=share_link"
+                href="https://drive.google.com/file/d/1WP6AZ5RIvPfyBC-k_tdqaqTNoVU7ocoW/view?usp=sharing"
                 target="_blank"
                 colorScheme="brand"
                 w={{ base: 'full', lg: 'auto' }}
@@ -102,7 +101,7 @@ export default function Sponsors() {
 
               <Button
                 as="a"
-                href="https://drive.google.com/file/d/1yjCg97BdpefMg3peHsDkyKn8w2ietb3P/view?usp=share_link"
+                href="https://drive.google.com/file/d/1bhG3vWewbLd8x7X8wUiq89IiqJl-dhNe/view?usp=sharing"
                 target="_blank"
                 colorScheme="brand"
                 variant="outline"
@@ -112,7 +111,7 @@ export default function Sponsors() {
               </Button>
               <Button
                 as="a"
-                href="https://drive.google.com/file/d/1MiTGC8ZU4EfEVgueYe2LEWeIkKsrzztZ/view?usp=sharing"
+                href="https://drive.google.com/file/d/1gYC75ad8iIPm7hE8nICMxXmnRwUNAHwP/view?usp=sharing"
                 target="_blank"
                 colorScheme="brand"
                 variant="outline"
