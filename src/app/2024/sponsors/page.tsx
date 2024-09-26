@@ -60,10 +60,9 @@ export default function Sponsors() {
               d&apos;une politique de recrutement.
             </Text>
             <Text>
-              Notre dossier de sponsoring n&apos;est pas encore disponible, mais
-              vous pouvez d&apos;ores et déjà nous contacter à l&apos;adresse{' '}
-              <Link href="mailto:contact@codeursenseine.com">
-                contact@codeursenseine.com
+              Si vous avez des questions contactez nous à l&apos;adresse{' '}
+              <Link href="mailto:sponsors@codeursenseine.com">
+                sponsors@codeursenseine.com
               </Link>
             </Text>
             <Text>
@@ -84,8 +83,8 @@ export default function Sponsors() {
                 la convention de sponsoring
               </Link>{' '}
               et contactez-nous à l&apos;adresse{' '}
-              <Link href="mailto:contact@codeursenseine.com">
-                contact@codeursenseine.com
+              <Link href="mailto:sponsors@codeursenseine.com">
+                sponsors@codeursenseine.com
               </Link>
               .
             </Text>
