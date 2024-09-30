@@ -61,32 +61,13 @@ export default function Sponsors() {
             </Text>
             <Text>
               Si vous avez des questions contactez nous à l&apos;adresse{' '}
-              <Link href="mailto:sponsors@codeursenseine.com">
+              <Link href="mailto:sponsors@codeursenseine.com"
+                    textDecoration="underline">
                 sponsors@codeursenseine.com
               </Link>
             </Text>
             <Text>
-              Si vous souhaitez soutenir l&apos;événement, téléchargez{' '}
-              <Link
-                href="https://drive.google.com/file/d/1WP6AZ5RIvPfyBC-k_tdqaqTNoVU7ocoW/view?usp=sharing"
-                isExternal
-                textDecoration="underline"
-              >
-                le dossier de sponsoring
-              </Link>
-              ,{' '}
-              <Link
-                href="https://drive.google.com/file/d/1bhG3vWewbLd8x7X8wUiq89IiqJl-dhNe/view?usp=sharing"
-                isExternal
-                textDecoration="underline"
-              >
-                la convention de sponsoring
-              </Link>{' '}
-              et contactez-nous à l&apos;adresse{' '}
-              <Link href="mailto:sponsors@codeursenseine.com">
-                sponsors@codeursenseine.com
-              </Link>
-              .
+              Si vous souhaitez soutenir l&apos;événement, téléchargez le dossier et la convention de sponsoring ci-dessous :
             </Text>
             <Wrap>
               <Button
@@ -98,7 +79,6 @@ export default function Sponsors() {
               >
                 Dossier de sponsoring
               </Button>
-
               <Button
                 as="a"
                 href="https://drive.google.com/file/d/1bhG3vWewbLd8x7X8wUiq89IiqJl-dhNe/view?usp=sharing"
@@ -108,6 +88,17 @@ export default function Sponsors() {
                 w={{ base: 'full', lg: 'auto' }}
               >
                 Convention de sponsoring
+              </Button>
+              </Wrap>
+              <Wrap>
+                <Button
+                as="a"
+                href="https://drive.google.com/file/d/1LBOCvlVZnUpHNe3h2Cs3OO_02_yxsa10/view?usp=sharing"
+                target="_blank"
+                colorScheme="brand"
+                w={{ base: 'full', lg: 'auto' }}
+              >
+                🇬🇧  Sponsorship file
               </Button>
               <Button
                 as="a"

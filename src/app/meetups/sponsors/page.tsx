@@ -38,21 +38,27 @@ export default function MeetupSponsors() {
         recrutement.
       </Text>
       <Text>
-        Si vous souhaitez soutenir l&apos;événement, téléchargez le{' '}
+        Si vous souhaitez soutenir l&apos;événement, téléchargez{' '}
         <Link
-          href="https://drive.google.com/file/d/1DiJViRo4s8PxlcD7yklEOSEZ2lnFb-f0/view?usp=share_link"
+          href="https://drive.google.com/file/d/1WP6AZ5RIvPfyBC-k_tdqaqTNoVU7ocoW/view?usp=sharing"
           isExternal
+          textDecoration="underline"
         >
-          dossier de sponsoring
+          le dossier de sponsoring
         </Link>
-        , la{' '}
+        ,{' '}
         <Link
-          href="https://docs.google.com/document/d/166Nwbe7Z19wAQhVh1i8Y1UUjLhloeiwRJ1oF87YDfGE/edit?usp=share_link"
+          href="https://drive.google.com/file/d/1bhG3vWewbLd8x7X8wUiq89IiqJl-dhNe/view?usp=sharing"
           isExternal
+          textDecoration="underline"
         >
-          convention de sponsoring
+          la convention de sponsoring
         </Link>{' '}
-        et contactez-nous.
+        et contactez-nous à l&apos;adresse{' '}
+              <Link href="mailto:sponsors@codeursenseine.com"
+                    textDecoration="underline">
+                sponsors@codeursenseine.com
+              </Link>
       </Text>
       <SimpleGrid columns={{ base: 1, sm: 2 }} gap={8}>
         {sponsors.map((sponsor) => (
