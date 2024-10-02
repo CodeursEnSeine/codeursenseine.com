@@ -10,8 +10,8 @@ export const InscriptionTropEvent = () => {
         title="Tropevent.com"
         target="_tropevent"
         className="tropevent-embedded"
-        href="https://www.tropevent.com/event/Codeurs-en-Seine-2023"
-        data-src="https://www.tropevent.com/event/Codeurs-en-Seine-2023/booking-embedded"
+        href="https://www.tropevent.com/event/Codeurs-en-Seine-2024"
+        data-src="https://www.tropevent.com/event/Codeurs-en-Seine-2024/booking-embedded"
       >
         <Box
           textAlign="center"
