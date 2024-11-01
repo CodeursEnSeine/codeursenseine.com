@@ -20,12 +20,13 @@ export default function InfoPage() {
         <Heading as="h2" fontSize="xl">
           Plan de Codeurs en Seine
         </Heading>
-        <Image
+        <Box><Text>En préparation ...</Text></Box>
+        {/*<Image
           src="/images/ces/plan-sponsors.png"
           alt="Plan de Codeurs en Seine"
           width={1200}
           height={1000}
-        />
+        /> */}
       </Stack>
 
       <Stack as="section">
@@ -144,7 +145,7 @@ export default function InfoPage() {
           jour même sur{' '}
           <Link
             color="brand.700"
-            href="https://openfeedback.io/codeursenseine2023/2023-10-26"
+            href="https://openfeedback.io/codeursenseine2024"
             isExternal
           >
             OpenFeedback <Icon as={FiExternalLink} mx="1" />
