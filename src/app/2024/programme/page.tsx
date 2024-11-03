@@ -40,10 +40,8 @@ export default function ProgrammePage() {
       if (!accumulator[currentConference?.start]) {
         accumulator[currentConference?.start] = [];
       }
-
       accumulator[currentConference?.start].push(currentConference);
     }
-
     return accumulator;
   }, INIT);
 
@@ -51,7 +49,7 @@ export default function ProgrammePage() {
     <Stack spacing="8">
       <Stack>
         <Text>
-          Cette année, rendez-vous le <strong>jeudi 26 octobre</strong> au
+          Cette année, rendez-vous le <strong>Jeudi 21 Novembre</strong> au
           Kindarena. Ouverture des portes à <strong>8h00</strong>.
         </Text>
       </Stack>
@@ -94,7 +92,7 @@ export default function ProgrammePage() {
                 .map((talk) => (
                   <Fragment key={talk?._id}>
                     {talk?.kind === 'pause' && (
-                      <GridItem colSpan={{ base: 1, lg: 4 }}>
+                      <GridItem colSpan={{ base: 1, lg: talk.columns ?? 4 }}>
                         <PauseCard pause={talk} />
                       </GridItem>
                     )}
