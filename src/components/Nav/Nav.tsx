@@ -91,7 +91,7 @@ export const Nav = ({
               >
                 Inscription
               </NavLink>}
-              {/* <NavLink
+              <NavLink
                 as={Link}
                 onClick={() => onNavClose()}
                 href={`/${currentYear}/programme`}
@@ -106,7 +106,7 @@ export const Nav = ({
                 fontWeight="bold"
               >
                 Intervenants
-              </NavLink> */}
+              </NavLink>
               <NavLink
                 as={Link}
                 onClick={() => onNavClose()}
@@ -123,14 +123,14 @@ export const Nav = ({
               >
                 Organisateurs
               </NavLink>
-              {/* <NavLink
+              <NavLink
                 as={Link}
                 onClick={() => onNavClose()}
                 href={`/${currentYear}/infos`}
                 fontWeight="bold"
               >
                 Infos
-              </NavLink> */}
+              </NavLink>
               <NavLink
                 as={Link}
                 onClick={() => onNavClose()}
