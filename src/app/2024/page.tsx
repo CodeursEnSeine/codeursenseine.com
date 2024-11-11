@@ -35,8 +35,8 @@ export default function Home() {
               Codeurs en Seine aura de nouveau lieu cette année au{' '}
               <strong>Kindarena&nbsp;de&nbsp;Rouen</strong>, nous vous donnons
               rendez-vous le Jeudi 21 Novembre 2024 !
-              <br/>
-              Le Call For Paper est maintenant fermé, découvrez le programme très bientôt
+              { /*<br/>
+              Le Call For Paper est maintenant fermé, découvrez le programme très bientôt */ }
             </Text>
             <Image
               src="/images/ces/logo-kindarena.svg"
