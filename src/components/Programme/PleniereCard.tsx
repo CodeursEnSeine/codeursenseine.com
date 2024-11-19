@@ -4,7 +4,7 @@ import { Talk } from 'contentlayer/generated';
 import { formatHour, getDiff } from '@/utils/dates';
 
 export type PleniereCardProps = StackProps & {
-  pleniere: Pick<Talk, 'title' | 'room' | 'start' | 'end'>;
+  pleniere: Pick<Talk, 'title' | 'feedback' | 'room' | 'start' | 'end'>;
 };
 
 export const PleniereCard = ({ pleniere, ...rest }: PleniereCardProps) => {
@@ -46,7 +46,7 @@ export const PleniereCard = ({ pleniere, ...rest }: PleniereCardProps) => {
         {pleniere.title}
       </Text>
       <Text fontSize="sm" color="gray.600">
-        Accueil par l&apos;équipe de Codeurs en Seine
+        {pleniere.feedback}
       </Text>
       <Text fontSize="sm" color="gray.600" fontWeight="semibold">
         Salle {pleniere.room}
