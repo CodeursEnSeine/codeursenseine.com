@@ -1,5 +1,4 @@
-import { SponsorCard } from '@/components/Sponsors';
-import { Box, Button, Divider, Heading, Image, Link, SimpleGrid, Stack, Text, Wrap } from '@chakra-ui/react';
+import { Box, Button, Heading, Image, Link, Stack, Text, Wrap } from '@chakra-ui/react';
 import { allSponsors } from 'contentlayer/generated';
 import { Metadata, ResolvingMetadata } from 'next';
 
@@ -114,7 +113,7 @@ export default function Sponsors() {
           </Stack>
         </Box>
       </Stack>
-      <Divider mb="6" />
+      {/* <Divider mb="6" />
       <Stack spacing="6">
         {sponsorLevels.map((level) => {
           const thisLevelSponsors = sponsors.filter(
@@ -138,7 +137,7 @@ export default function Sponsors() {
             )
           );
         })}
-      </Stack>
+      </Stack> */}
     </>
   );
 }
