@@ -1,8 +1,7 @@
-import { CallForPaperButton } from '@/components/CallForPaperButton';
 import { Card } from '@/components/Card';
 import { Newsletter } from '@/components/Newsletter';
 import { SponsorsList } from '@/components/Sponsors';
-import { Box, Button, Flex, Heading, Link, Stack, Text } from '@chakra-ui/react';
+import { Box, Flex, Heading, Link, Stack, Text } from '@chakra-ui/react';
 import { Metadata, ResolvingMetadata } from 'next';
 import Image from 'next/image';
 
@@ -10,12 +9,12 @@ export async function generateMetadata(
   _: unknown,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
-  const previousTitle = 'Édition 2024 | ' + (await parent).title?.absolute;
+  const previousTitle = 'Édition 2025 | ' + (await parent).title?.absolute;
 
   return {
     title: previousTitle,
     alternates: {
-      canonical: '2024',
+      canonical: '2025',
     },
   };
 }
@@ -30,13 +29,12 @@ export default function Home() {
           direction={{ base: 'column', lg: 'row' }}
         >
           <Box maxW="60ch">
-            <Heading fontSize="2xl">21 Novembre 2024</Heading>
+            {/* <Heading fontSize="2xl">21 novembre 2024</Heading> */}
+            <Heading fontSize="2xl">Édition 2025</Heading>
             <Text mb="5">
               Codeurs en Seine aura de nouveau lieu cette année au{' '}
               <strong>Kindarena&nbsp;de&nbsp;Rouen</strong>, nous vous donnons
-              rendez-vous le Jeudi 21 Novembre 2024 !
-              { /*<br/>
-              Le Call For Paper est maintenant fermé, découvrez le programme très bientôt */ }
+              rendez-vous normalement en novembre (date à confirmer).
             </Text>
             <Image
               src="/images/ces/logo-kindarena.svg"
@@ -57,13 +55,13 @@ export default function Home() {
               justify="center"
               direction={{ base: 'column', sm: 'row', md: 'column' }}
             >
-              { /* <CallForPaperButton cfpId="Su6sfM6SAhoHmg3GWKHS" /> */ }
-              { <Button as={Link} href="/2024/inscription" color="brand.600">
+              {/* <CallForPaperButton cfpId="77LWxBRFiJ13EdvlEE8X" /> */}
+              {/* <Button as={Link} href="/2023/inscription" color="brand.600">
                   Je m&apos;inscris
-                </Button> }
-                <Button as={Link} href="/2024/programme" color="brand.600">
+                </Button> */}
+              {/* <Button as={Link} href="/2023/programme" color="brand.600">
                 Découvrir le programme
-              </Button>
+              </Button> */}
             </Stack>
           </Box>
         </Flex>
@@ -98,7 +96,7 @@ export default function Home() {
 
       <Stack spacing={4}>
         <Heading as="h3" size="md">
-          Rendez-vous en novembre 2024 au Kindarena de Rouen !
+          Rendez-vous en novembre 2025 au Kindarena de Rouen !
         </Heading>
         <Text>
           Encore une édition en physique : l&apos;équipe Codeurs en Seine vous
@@ -115,9 +113,9 @@ export default function Home() {
           <Link
             isExternal
             textDecoration="underline"
-            href="https://twitter.com/codeursenseine"
+            href="https://x.com/codeursenseine"
           >
-            Twitter
+            X
           </Link>
           ,{' '}
           <Link

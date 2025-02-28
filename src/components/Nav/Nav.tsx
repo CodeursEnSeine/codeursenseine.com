@@ -83,7 +83,7 @@ export const Nav = ({
                 Édition {currentYear}
               </NavLink>
 
-              { <NavLink
+              {/* { <NavLink
                 as={Link}
                 onClick={() => onNavClose()}
                 href={`/${currentYear}/inscription`}
@@ -106,7 +106,7 @@ export const Nav = ({
                 fontWeight="bold"
               >
                 Intervenants
-              </NavLink>
+              </NavLink> */}
               <NavLink
                 as={Link}
                 onClick={() => onNavClose()}
@@ -147,14 +147,14 @@ export const Nav = ({
               >
                 Code de conduite
               </NavLink>
-              <NavLink
+              {/* <NavLink
                 as={Link}
                 onClick={() => onNavClose()}
-                href={`/${currentYear}/review-2023`}
+                href={`/${currentYear}/review-2024`}
                 fontWeight="bold"
               >
-                Review 2023
-              </NavLink>
+                Review 2024
+              </NavLink> */}
             </Stack>
             <Stack spacing="0">
               <NavLink

@@ -17,7 +17,7 @@ export const SponsorsList = ({ ...props }) => {
   return (
     <Stack spacing={8} {...props}>
       <Heading as="h2" size="md">
-        Sponsors 2024 : {sponsors.length} sponsor
+        Sponsors 2025 : {sponsors.length} sponsor
         {sponsors.length > 1 ? 's' : ''}.
       </Heading>
       <SimpleGrid columns={{ base: 3, sm: 4, lg: 5 }} gap={4}>
