@@ -80,7 +80,7 @@ export default function Sponsors() {
               </Button>
               <Button
                 as="a"
-                href="https://drive.google.com/file/d/1bhG3vWewbLd8x7X8wUiq89IiqJl-dhNe/view?usp=sharing"
+                href="https://drive.google.com/file/d/1Y_HxWAeEbL874qMV15cF5O9Kv1KZQABH/view?usp=drive_link"
                 target="_blank"
                 colorScheme="brand"
                 variant="outline"
@@ -101,7 +101,7 @@ export default function Sponsors() {
               </Button>
               <Button
                 as="a"
-                href="https://drive.google.com/file/d/1gYC75ad8iIPm7hE8nICMxXmnRwUNAHwP/view?usp=sharing"
+                href="https://drive.google.com/file/d/1so_fN6Nou2YXfbyhwdHtlPGGplMuvSrP/view?usp=drive_link"
                 target="_blank"
                 colorScheme="brand"
                 variant="outline"
