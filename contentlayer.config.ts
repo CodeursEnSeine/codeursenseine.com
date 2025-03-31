@@ -1,4 +1,4 @@
-import { defineDocumentType, makeSource } from 'contentlayer/source-files';
+import { defineDocumentType, makeSource } from 'contentlayer2/source-files';
 
 export const Sponsor = defineDocumentType(() => ({
   name: 'Sponsor',
@@ -94,6 +94,7 @@ export const Speaker = defineDocumentType(() => ({
     image: { type: 'string' },
     twitter: { type: 'string' },
     github: { type: 'string' },
+    linkedin: { type: 'string' },
     company: { type: 'string' },
   },
   computedFields: {

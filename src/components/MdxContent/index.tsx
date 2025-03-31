@@ -1,6 +1,6 @@
 'use client';
 
-import { useMDXComponent } from 'next-contentlayer/hooks';
+import { useMDXComponent } from 'next-contentlayer2/hooks';
 import { components } from '@/renderers/mdx';
 import { MeetupSpeakers, MeetupSpeaker } from '@/components/Meetup';
 

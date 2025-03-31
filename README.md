@@ -65,3 +65,35 @@ Create past year redirection in `./netlify.toml`.
 #### Add the past year in the Nav
 
 Add the past year in the `src/constants/site.ts` file.
+
+## Other tooling
+
+### Slugifying files names
+
+`mdx` files name are used in the urls and thus matters for SEO. This means those files names should match the content and have a format compatible with URLs.
+
+For this reason the `_tools\slugify.ts` script will read the file content and create a filename compatible with URLs, and matching content.
+
+From the project root you can run : 
+
+```bash
+ts-node _tools/slugify.ts
+```
+This will notify the necessary changes.
+
+If you want to apply the changes please run with `--force` option.
+
+### Update MDX types
+
+Due to library contentlayer not being maintained, we switched to its fork contentlayer2. 
+
+This also means that some checks are made against the files content and if missing or erroneous, some types have to be changed. To do so we have the `_tools\update_mdx_types.ts` script.
+
+From the project root you can run : 
+
+```bash
+ts-node _tools\update_mdx_types.ts
+```
+This will make the necessary changes.
+
+(Note: default dry run + force flag to save could be added like on slugify script).
