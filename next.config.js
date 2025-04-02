@@ -10,14 +10,18 @@ const nextConfig = {
   basePath: isBuildArchiveMode ? `/archive-${buildArchiveYear}` : undefined,
   output: isBuildArchiveMode ? 'export' : undefined,
   reactStrictMode: true,
-  swcMinify: true,
   images: isBuildArchiveMode
     ? {
         loader: 'custom',
         loaderFile: './archive.ts',
       }
     : {
-        domains: ['pbs.twimg.com'],
+        remotePatterns: [
+          {
+            protocol: 'https',
+            hostname: 'pbs.twimg.com',
+          },
+        ],
       },
 };
 
