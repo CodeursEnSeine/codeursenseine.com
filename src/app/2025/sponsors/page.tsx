@@ -31,21 +31,21 @@ export default function Sponsors() {
 
       <Stack direction={{ base: 'column', md: 'row' }} spacing="8" mb="8">
         <Box maxWidth="250px" minW="200px" flex="none">
-          {/*<Link
+          <Link
             isExternal
             display="block"
             boxShadow="brand"
             overflow="hidden"
             borderRadius="md"
-            href="https://drive.google.com/file/d/1WP6AZ5RIvPfyBC-k_tdqaqTNoVU7ocoW/view?usp=sharing"
-          >*/}
+            href="https://drive.google.com/file/d/1ilpPPOqAvq80llkHbghkrv9Mp3xJPcUd/view?usp=sharing"
+          >
             <Image
               src="/images/ces/dossier-sponsoring.jpg"
               alt="Première page du dossier de sponsoring de Codeurs en Seine"
               width="250"
               height="350"
             />
-          {/*</Link>*/}
+          </Link>
         </Box>
         <Box flex="1">
           <Stack spacing={8}>
@@ -66,21 +66,21 @@ export default function Sponsors() {
               </Link>
             </Text>
             <Text>
-              Si vous souhaitez soutenir l&apos;événement, téléchargez {/*le dossier et*/} la convention de sponsoring {/*ci-dessous*/}:
+              Si vous souhaitez soutenir l&apos;événement, téléchargez le dossier et la convention de sponsoring ci-dessous:
             </Text>
             <Wrap>
-              {/*<Button
+              <Button
                 as="a"
-                href="https://drive.google.com/file/d/1WP6AZ5RIvPfyBC-k_tdqaqTNoVU7ocoW/view?usp=sharing"
+                href="https://drive.google.com/file/d/1ilpPPOqAvq80llkHbghkrv9Mp3xJPcUd/view?usp=sharing"   
                 target="_blank"
                 colorScheme="brand"
                 w={{ base: 'full', lg: 'auto' }}
               >
                 Dossier de sponsoring
-              </Button>*/}
+              </Button>
               <Button
                 as="a"
-                href="https://drive.google.com/file/d/1Y_HxWAeEbL874qMV15cF5O9Kv1KZQABH/view?usp=drive_link"
+                href="https://drive.google.com/file/d/1Y_HxWAeEbL874qMV15cF5O9Kv1KZQABH/view?usp=sharing"
                 target="_blank"
                 colorScheme="brand"
                 variant="outline"
@@ -90,18 +90,18 @@ export default function Sponsors() {
               </Button>
               </Wrap>
               <Wrap>
-                {/*<Button
+                <Button
                 as="a"
-                href="https://drive.google.com/file/d/1LBOCvlVZnUpHNe3h2Cs3OO_02_yxsa10/view?usp=sharing"
+                href="https://drive.google.com/file/d/1RfFVp1JS97L63ikyRgdGdT8_d7CMq3dT/view?usp=sharing"
                 target="_blank"
                 colorScheme="brand"
                 w={{ base: 'full', lg: 'auto' }}
               >
                 🇬🇧  Sponsorship file
-              </Button>*/}
+              </Button>
               <Button
                 as="a"
-                href="https://drive.google.com/file/d/1so_fN6Nou2YXfbyhwdHtlPGGplMuvSrP/view?usp=drive_link"
+                href="https://drive.google.com/file/d/1so_fN6Nou2YXfbyhwdHtlPGGplMuvSrP/view?usp=sharing"
                 target="_blank"
                 colorScheme="brand"
                 variant="outline"
