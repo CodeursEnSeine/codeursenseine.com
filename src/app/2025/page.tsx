@@ -1,3 +1,4 @@
+import { CallForPaperButton } from '@/components/CallForPaperButton';
 import { Card } from '@/components/Card';
 import { Newsletter } from '@/components/Newsletter';
 import { SponsorsList } from '@/components/Sponsors';
@@ -54,7 +55,7 @@ export default function Home() {
               justify="center"
               direction={{ base: 'column', sm: 'row', md: 'column' }}
             >
-              {/* <CallForPaperButton cfpId="77LWxBRFiJ13EdvlEE8X" /> */}
+              <CallForPaperButton cfpId="codeurs-en-seine-20-novembre-2025" />
               {/* <Button as={Link} href="/2023/inscription" color="brand.600">
                   Je m&apos;inscris
                 </Button> */}

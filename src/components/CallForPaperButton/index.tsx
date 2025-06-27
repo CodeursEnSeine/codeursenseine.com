@@ -1,4 +1,3 @@
-import React from 'react';
 import { Button, ButtonProps, Link } from '@chakra-ui/react';
 
 export type CallForPaperButtonProps = { cfpId: string } & ButtonProps;
@@ -11,12 +10,12 @@ export const CallForPaperButton = ({
     <Button
       as={Link}
       _hover={{ textDecoration: 'none' }}
-      href={`https://conference-hall.io/public/event/${cfpId}`}
+      href={`https://conference-hall.io/${cfpId}`}
       isExternal
       color="brand.600"
       {...rest}
     >
-      Call For Paper
+      Appel à orateurs
     </Button>
   );
 };
