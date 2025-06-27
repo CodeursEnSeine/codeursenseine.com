@@ -29,12 +29,11 @@ export default function Home() {
           direction={{ base: 'column', lg: 'row' }}
         >
           <Box maxW="60ch">
-            {/* <Heading fontSize="2xl">21 novembre 2024</Heading> */}
-            <Heading fontSize="2xl">Édition 2025</Heading>
+            <Heading fontSize="2xl">20 Novembre 2025</Heading>
             <Text mb="5">
               Codeurs en Seine aura de nouveau lieu cette année au{' '}
               <strong>Kindarena&nbsp;de&nbsp;Rouen</strong>, nous vous donnons
-              rendez-vous normalement en novembre (date à confirmer).
+              rendez-vous le 20 Novembre 2025.
             </Text>
             <Image
               src="/images/ces/logo-kindarena.svg"
@@ -96,11 +95,11 @@ export default function Home() {
 
       <Stack spacing={4}>
         <Heading as="h3" size="md">
-          Rendez-vous en novembre 2025 au Kindarena de Rouen !
+          Rendez-vous en Novembre 2025 au Kindarena de Rouen !
         </Heading>
         <Text>
           Encore une édition en physique : l&apos;équipe Codeurs en Seine vous
-          propose une journée complète en novembre (date à confirmer) sur des
+          propose une journée complète le 20 Novembre 2025 sur des
           conférences aux thèmes divers et variés : Web, Devops, UX, Securité,
           Langages etc.
         </Text>
