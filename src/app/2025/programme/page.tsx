@@ -49,7 +49,7 @@ export default function ProgrammePage() {
     <Stack spacing="8">
       <Stack>
         <Text>
-          Cette année, rendez-vous le <strong>Jeudi 21 Novembre</strong> au
+          Cette année, rendez-vous le <strong>Jeudi 20 Novembre</strong> au
           Kindarena. Ouverture des portes à <strong>8h00</strong>.
         </Text>
       </Stack>

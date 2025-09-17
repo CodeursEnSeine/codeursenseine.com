@@ -2,7 +2,7 @@ import { CallForPaperButton } from '@/components/CallForPaperButton';
 import { Card } from '@/components/Card';
 import { Newsletter } from '@/components/Newsletter';
 import { SponsorsList } from '@/components/Sponsors';
-import { Box, Flex, Heading, Link, Stack, Text } from '@chakra-ui/react';
+import { Box, Button, Flex, Heading, Link, Stack, Text } from '@chakra-ui/react';
 import { Metadata, ResolvingMetadata } from 'next';
 import Image from 'next/image';
 
@@ -55,11 +55,11 @@ export default function Home() {
               justify="center"
               direction={{ base: 'column', sm: 'row', md: 'column' }}
             >
-              <CallForPaperButton cfpId="codeurs-en-seine-20-novembre-2025" />
-              {/* <Button as={Link} href="/2023/inscription" color="brand.600">
+              {/*<CallForPaperButton cfpId="codeurs-en-seine-20-novembre-2025" />*/}
+              <Button as={Link} href="/2025/inscription" color="brand.600">
                   Je m&apos;inscris
-                </Button> */}
-              {/* <Button as={Link} href="/2023/programme" color="brand.600">
+              </Button>
+              {/* <Button as={Link} href="/2025/programme" color="brand.600">
                 Découvrir le programme
               </Button> */}
             </Stack>

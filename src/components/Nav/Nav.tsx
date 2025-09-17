@@ -82,15 +82,15 @@ export const Nav = ({
               >
                 Édition {currentYear}
               </NavLink>
-
-              {/* { <NavLink
+              <NavLink
                 as={Link}
                 onClick={() => onNavClose()}
                 href={`/${currentYear}/inscription`}
                 fontWeight="bold"
               >
                 Inscription
-              </NavLink>}
+              </NavLink>
+              {/* {
               <NavLink
                 as={Link}
                 onClick={() => onNavClose()}
