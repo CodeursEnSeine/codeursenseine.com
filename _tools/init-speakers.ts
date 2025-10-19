@@ -5,7 +5,7 @@ import path from 'path';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const speakersTxt = path.join(__dirname, './speakers.txt');
-const templatePath = path.join(__dirname, '../content/templates/speaker-template.mdx');
+const templatePath = path.join(__dirname, '../content/templates/speaker.tpl');
 const outputDir = path.join(__dirname, '../content/speakers');
 
 async function main() {
@@ -27,11 +27,8 @@ async function main() {
     const nameValue = `${cap(first)} ${cap(last)}`;
     const slugValue = `${first.toLowerCase()}-${last.toLowerCase().replace(/\s+/g, '-')}`;
 
-    // TODO Replace type: by Speaker
-
     // Replace name and slug in template
-    let content = template.replace(/type: Speaker-template/, `type: Speaker`)
-      .replace(/name: Speaker Template/, `name: ${nameValue}`)
+    let content = template.replace(/name: Speaker Template/, `name: ${nameValue}`)
       .replace(/slug: speaker-template/, `slug: ${slugValue}`)
       .replace(/image: speaker-template.png/, `image: ${slugValue}.jpg`);
 
