@@ -3,12 +3,12 @@ import * as path from 'path';
 import * as glob from 'glob';
 
 const getTypeForFile = (filename: string): string => {
-  return filename === 'speaker-template.mdx' ? 'Speaker' : 'Talk';
+  return filename === 'speaker.tpl' ? 'Speaker' : 'Talk';
 };
 
 const updateMdxFiles = () => {
   const projectDir = process.cwd();
-  const templatesPath = path.join(projectDir, 'content/templates/*.mdx');
+  const templatesPath = path.join(projectDir, 'content/templates/*.tpl');
   console.log(`Looking for template files in: ${templatesPath}`);
 
   const files = glob.sync(templatesPath);

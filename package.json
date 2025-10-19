@@ -5,7 +5,8 @@
   "scripts": {
     "preinstall": "npx only-allow npm",
     "postinstall": "npm run build:content",
-    "dev": "run-p dev:*",
+    "clean": "rm -rf .contentlayer .next node_modules",
+    "dev": "npm run clean && npm i && run-p dev:*",
     "dev:next": "next dev",
     "dev:content": "contentlayer2 dev",
     "build": "run-s build:content build:next",

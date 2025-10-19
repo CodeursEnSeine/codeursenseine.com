@@ -1,5 +1,5 @@
 ---
-type: Speaker-template
+type: Speaker
 name: Speaker Template
 slug: speaker-template
 image: speaker-template.png
