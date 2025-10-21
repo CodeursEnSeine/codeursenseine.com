@@ -64,7 +64,7 @@ const extractMetadata = (content: string): FileMetadata => {
 };
 
 const processFiles = (force: boolean): void => {
-  const filesPath = 'content/talks/**/*.mdx';
+  const filesPath = '../content/talks/**/*.mdx';
   console.log(`Slugifying files in [${filesPath}]`);
   const files = glob.sync(filesPath);
   const filesData = new Map<string, ProcessedFile>();
