@@ -17,13 +17,29 @@ import {
 import { Speaker, Talk } from 'contentlayer/generated';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Fragment } from 'react';
-import { FaGithub, FaTwitter } from 'react-icons/fa';
+import { Fragment, ReactElement } from 'react';
+import { FaGithub, FaTwitter, FaLinkedin, FaYoutube, FaTiktok, FaSpeakerDeck } from 'react-icons/fa';
+import { SiBluesky } from "@icons-pack/react-simple-icons";
 
 type SpeakerCardProps = CardProps & {
   speaker: Speaker;
   talks: Array<Talk>;
 };
+
+type Social = {
+  name: Extract<keyof Speaker, 'twitter' | 'linkedin' | 'github' | 'youtube' | 'bluesky' | 'tiktok'>;
+  icon: ReactElement;
+  href: Extract<keyof Speaker, 'twitterHref' | 'linkedinHref' | 'githubHref' | 'youtubeHref' | 'blueskyHref' | 'tiktokHref'>;
+};
+
+const socials: Array<Social> = [
+  { name: 'twitter', icon: <FaTwitter />, href: 'twitterHref' },
+  { name: 'linkedin', icon: <FaLinkedin />, href: 'linkedinHref' },
+  { name: 'github', icon: <FaGithub />, href: 'githubHref' },
+  { name: 'youtube', icon: <FaYoutube />, href: 'youtubeHref' },
+  { name: 'bluesky', icon: <SiBluesky />, href: 'blueskyHref' },
+  { name: 'tiktok', icon: <FaTiktok />, href: 'tiktokHref' },
+];
 
 export const SpeakerCard = ({ speaker, talks, ...rest }: SpeakerCardProps) => {
   return (
@@ -54,31 +70,22 @@ export const SpeakerCard = ({ speaker, talks, ...rest }: SpeakerCardProps) => {
             {speaker.company}
           </Text>
           <HStack>
-            {speaker.twitter && (
-              <IconButton
-                as="a"
-                target="_blank"
-                href={`https://www.twitter.com/${speaker.twitter}`}
-                title={`${speaker.name} Twitter`}
-                icon={<FaTwitter />}
-                variant="ghost"
-                colorScheme="brand"
-                rel="noopener noreferrer"
-                aria-label="Lien Twitter du speaker"
-              />
-            )}
-            {speaker.github && (
-              <IconButton
-                as="a"
-                target="_blank"
-                href={`https://www.github.com/${speaker.github}`}
-                title={`${speaker.name} Github`}
-                icon={<FaGithub />}
-                variant="ghost"
-                colorScheme="brand"
-                rel="noopener noreferrer"
-                aria-label="Lien GitHub du speaker"
-              />
+            {socials.map(
+              (social) =>
+                !!speaker[social.name] && (
+                  <IconButton
+                    key={social.name}
+                    as="a"
+                    target="_blank"
+                    href={speaker[social.href]}
+                    title={`${speaker.name} Twitter`}
+                    icon={social.icon}
+                    variant="ghost"
+                    colorScheme="brand"
+                    rel="noopener noreferrer"
+                    aria-label="Lien Twitter du speaker"
+                  />
+                )
             )}
           </HStack>
         </Stack>
