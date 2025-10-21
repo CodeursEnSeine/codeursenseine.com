@@ -90,7 +90,6 @@ export const Nav = ({
               >
                 Inscription
               </NavLink>
-              {/*
               <NavLink
                 as={Link}
                 onClick={() => onNavClose()}
@@ -99,7 +98,6 @@ export const Nav = ({
               >
                 Programme
               </NavLink>
-              */}
               <NavLink
                 as={Link}
                 onClick={() => onNavClose()}
