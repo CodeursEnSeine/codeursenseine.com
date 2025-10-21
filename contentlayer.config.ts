@@ -46,6 +46,9 @@ export const Organiser = defineDocumentType(() => ({
     name: { type: 'string', required: true },
     image: { type: 'string' },
     twitter: { type: 'string' },
+    bluesky: { type: 'string' },
+    youtube: { type: 'string' },
+    tiktok: { type: 'string' },
     github: { type: 'string' },
     linkedin: { type: 'string' },
     active: { type: 'boolean' },
@@ -93,6 +96,9 @@ export const Speaker = defineDocumentType(() => ({
     slug: { type: 'string', required: true },
     image: { type: 'string' },
     twitter: { type: 'string' },
+    bluesky: { type: 'string' },
+    youtube: { type: 'string' },
+    tiktok: { type: 'string' },
     github: { type: 'string' },
     linkedin: { type: 'string' },
     company: { type: 'string' },
@@ -107,10 +113,30 @@ export const Speaker = defineDocumentType(() => ({
       resolve: (doc) =>
         doc.twitter ? `https://twitter.com/${doc.twitter}` : undefined,
     },
+    blueskyHref: {
+      type: 'string',
+      resolve: (doc) =>
+        doc.bluesky ? `https://bsky.app/profile/${doc.bluesky}` : undefined,
+    },
+    youtubeHref: {
+      type: 'string',
+      resolve: (doc) =>
+        doc.youtube ? `https://youtube.com/@${doc.youtube}` : undefined,
+    },
+    tiktokHref: {
+      type: 'string',
+      resolve: (doc) =>
+        doc.tiktok ? `https://tiktok.com/@${doc.tiktok}` : undefined,
+    },
     githubHref: {
       type: 'string',
       resolve: (doc) =>
         doc.github ? `https://github.com/${doc.github}` : undefined,
+    },
+    linkedinHref: {
+      type: 'string',
+      resolve: (doc) =>
+        doc.linkedin ? `https://linkedin.com/in/${doc.linkedin}` : undefined,
     },
   },
 }));
