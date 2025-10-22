@@ -1,5 +1,6 @@
 import { IconBase, type IconBaseProps } from "react-icons";
-import { siBluesky } from "simple-icons";const FiBluesky = (props: IconBaseProps) => (
+import { siBluesky } from "simple-icons";
+const FiBluesky = (props: IconBaseProps) => (
   <IconBase viewBox="-3 0 27 26" {...props}>
     <path
       d={siBluesky.path}

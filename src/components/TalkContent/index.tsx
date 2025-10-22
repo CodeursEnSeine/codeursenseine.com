@@ -36,7 +36,8 @@ type SocialHref = `${SocialName}Href`;
 type Social = {
   name: SocialName;
   icon: ReactElement;
-  href: SocialHref;};
+  href: SocialHref;
+};
 
 const socials: Array<Social> = [
   { name: 'twitter', icon: <FiTwitter />, href: 'twitterHref' },

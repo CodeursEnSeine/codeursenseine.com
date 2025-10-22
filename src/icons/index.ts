@@ -1,1 +1,1 @@
-export { FiBluesky } from "./FiBluesky";
+export { default as FiBluesky } from "./FiBluesky";
