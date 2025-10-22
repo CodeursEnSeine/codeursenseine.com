@@ -20,12 +20,32 @@ import {
 } from '@chakra-ui/react';
 import { Speaker, Talk } from 'contentlayer/generated';
 import Image from 'next/image';
+import { ReactElement } from 'react';
 import { FaGithub } from 'react-icons/fa';
-import { FiGithub, FiTwitter } from 'react-icons/fi';
+import { FiGithub, FiTwitter, FiLinkedin, FiYoutube } from 'react-icons/fi';
+import { SiTiktok } from '@icons-pack/react-simple-icons';
+import { default as FiBluesky } from 'src/icons/FiBluesky';
 import { MdHearingDisabled } from 'react-icons/md';
 import { VscFeedback } from 'react-icons/vsc';
 
 type TalkProps = { talk: Talk; speakers: Array<Speaker> };
+
+type SocialName = 'twitter' | 'linkedin' | 'github' | 'youtube' | 'bluesky' | 'tiktok';
+type SocialHref = `${SocialName}Href`;
+
+type Social = {
+  name: SocialName;
+  icon: ReactElement;
+  href: SocialHref;};
+
+const socials: Array<Social> = [
+  { name: 'twitter', icon: <FiTwitter />, href: 'twitterHref' },
+  { name: 'linkedin', icon: <FiLinkedin />, href: 'linkedinHref' },
+  { name: 'github', icon: <FiGithub />, href: 'githubHref' },
+  { name: 'youtube', icon: <FiYoutube />, href: 'youtubeHref' },
+  { name: 'bluesky', icon: <FiBluesky />, href: 'blueskyHref' },
+  { name: 'tiktok', icon: <SiTiktok />, href: 'tiktokHref' },
+];
 
 export const TalkContent = ({ talk, speakers }: TalkProps) => {
   return (
@@ -107,31 +127,22 @@ export const TalkContent = ({ talk, speakers }: TalkProps) => {
                         {speaker.company}
                       </Text>
                       <HStack>
-                        {speaker.twitterHref && (
-                          <Box>
-                            <IconButton
-                              as="a"
-                              aria-label={`Lien vers le Twitter de ${speaker.name}`}
-                              href={speaker.twitterHref}
-                              target="_blank"
-                              rel="noopenner"
-                              colorScheme="brand"
-                              icon={<FiTwitter />}
-                            />
-                          </Box>
-                        )}
-                        {speaker.github && (
-                          <Box>
-                            <IconButton
-                              as="a"
-                              aria-label={`Lien vers le GitHub de ${speaker.name}`}
-                              href={speaker.githubHref}
-                              target="_blank"
-                              rel="noopenner"
-                              colorScheme="brand"
-                              icon={<FiGithub />}
-                            />
-                          </Box>
+                        {socials.map(
+                          (social) =>
+                            !!speaker[social.name] && (
+                                <IconButton
+                                  key={social.name}
+                                  as="a"
+                                  target="_blank"
+                                  href={speaker[social.href]}
+                                  title={`${speaker.name} ${social.name}`}
+                                  icon={social.icon}
+                                  variant="ghost"
+                                  colorScheme="brand"
+                                  rel="noopener noreferrer"
+                                  aria-label={`Lien ${social.name} du speaker`}
+                                />
+                            )
                         )}
                       </HStack>
                     </Stack>

@@ -78,12 +78,12 @@ export const SpeakerCard = ({ speaker, talks, ...rest }: SpeakerCardProps) => {
                     as="a"
                     target="_blank"
                     href={speaker[social.href]}
-                    title={`${speaker.name} Twitter`}
+                    title={`${speaker.name} ${social.name}`}
                     icon={social.icon}
                     variant="ghost"
                     colorScheme="brand"
                     rel="noopener noreferrer"
-                    aria-label="Lien Twitter du speaker"
+                    aria-label={`Lien ${social.name} du speaker`}
                   />
                 )
             )}
