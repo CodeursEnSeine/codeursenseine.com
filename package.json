@@ -38,6 +38,7 @@
     "react-icons": "4.11.0",
     "remarkable": "2.0.1",
     "sharp": "0.32.6",
+    "simple-icons": "^15.17.0",
     "slugify": "1.6.6",
     "typescript": "^5.8.2",
     "zod": "3.22.3"
