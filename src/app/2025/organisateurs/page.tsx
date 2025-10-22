@@ -35,10 +35,13 @@ export default function Organisers() {
   const organisers = allOrganisers
     .filter((organiser) => organiser.active)
     .sort((a, b) => a.name.localeCompare(b.name));
+
+  type SocialName = 'twitter' | 'linkedin' | 'github' | 'youtube' | 'bluesky' | 'tiktok';
+  type SocialHref = `${SocialName}Href`;
   type Social = {
-    name: Extract<keyof Organiser, 'twitter' | 'linkedin' | 'github' | 'youtube' | 'bluesky' | 'tiktok'>;
+    name: SocialName;
     icon: ReactElement;
-    href: Extract<keyof Organiser, 'twitterHref' | 'linkedinHref' | 'githubHref' | 'youtubeHref' | 'blueskyHref' | 'tiktokHref'>;
+    href: SocialHref;
   };
 
   const socials: Array<Social> = [
