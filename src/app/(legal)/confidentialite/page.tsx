@@ -1,4 +1,4 @@
-import { Heading, Link, Stack, Text } from '@chakra-ui/react';
+import { Heading, Link, Stack, Text, List, ListItem } from '@chakra-ui/react';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -23,29 +23,52 @@ export default function ConfidentialitePage() {
       </Heading>
       <Stack spacing={4}>
         <Text>
-          Le site <strong>codeursenseine.com</strong> collecte uniquement les
-          adresses e-mail des personnes souhaitant recevoir la newsletter de
-          l'association. Cette collecte se fait via un formulaire géré par le
-          service <strong>Brevo (Sendinblue SAS)</strong>, situé : 106 boulevard
-          Haussmann, 75008 Paris, France.
+          Le site <strong>codeursenseine.com</strong> collecte uniquement deux
+          types de données :
         </Text>
-        <Text>
-          Les adresses sont utilisées exclusivement pour l'envoi d'informations
-          liées aux événements Codeurs en Seine et ne sont ni vendues ni
-          transmises à des tiers. Elles sont supprimées sur demande ou à la fin
-          de leur utilisation.
-        </Text>
+        <List spacing={4} pl="4">
+          <ListItem>
+            <Text as="span" fontWeight="bold">
+              Adresses e-mail
+            </Text>{' '}
+            pour l'envoi de la newsletter, via le service{' '}
+            <strong>Brevo (Sendinblue SAS)</strong>, 106 boulevard Haussmann,
+            75008 Paris, France. Ces adresses sont utilisées exclusivement pour
+            diffuser des informations sur les évènements Codeurs en Seine. Elles
+            ne sont ni revendues ni partagées et sont supprimées sur demande ou
+            à la fin de leur usage.
+          </ListItem>
+          <ListItem>
+            <Text as="span" fontWeight="bold">
+              Données d'inscription a l'évènement
+            </Text>{' '}
+            (nom, prénom, adresse e-mail) fournies par la plateforme{' '}
+            <strong>Tropevent.com</strong>. Ces données sont communiquées a
+            Codeurs en Seine uniquement afin de vérifier les droits d'entrée et
+            de garantir la sécurité le jour J. Elles ne sont{' '}
+            <strong>ni conservées, ni réutilisées, ni transmises</strong> après
+            l'évènement. Les utilisateurs sont invités à consulter la{' '}
+            <Link
+              href="https://tropevent.com/privacy"
+              isExternal
+              textDecoration="underline"
+            >
+              politique de confidentialité de Tropevent
+            </Link>{' '}
+            pour plus d'informations sur leur propre traitement des données.
+          </ListItem>
+        </List>
         <Text>
           Conformément au Règlement Général sur la Protection des Données
-          (RGPD), vous pouvez exercer vos droits d'accès, de rectification et de
-          suppression en écrivant à{' '}
+          (RGPD), vous pouvez exercer vos droits d'accès, de rectification ou de
+          suppression en écrivant a{' '}
           <Link href="mailto:contact@codeursenseine.com">
             contact@codeursenseine.com
           </Link>
           .
         </Text>
         <Text>
-          Aucun cookie ou traceur d'audience n'est déposé sur votre appareil
+          Aucun cookie ni traceur d'audience n'est déposé sur votre appareil
           lors de la navigation sur le site.
         </Text>
       </Stack>
