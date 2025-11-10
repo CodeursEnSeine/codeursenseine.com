@@ -192,7 +192,7 @@ export const Nav = ({
         <Stack mt="auto" p="4" mb="2">
           <NavSocial />
           <NavPreviousYears />
-          <NavLegal />
+          <NavLegal onNavigate={onNavClose} />
         </Stack>
       </Flex>
     </Flex>
