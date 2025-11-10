@@ -49,7 +49,7 @@ export default function ConfidentialitePage() {
             <strong>ni conservées, ni réutilisées, ni transmises</strong> après
             l'évènement. Les utilisateurs sont invités à consulter la{' '}
             <Link
-              href="https://tropevent.com/privacy"
+              href="https://www.tropevent.com/fr/info/privacy"
               isExternal
               textDecoration="underline"
             >
