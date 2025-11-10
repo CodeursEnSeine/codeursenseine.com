@@ -14,7 +14,7 @@ import {
 import type { Organiser } from 'contentlayer/generated';
 import Image from 'next/image';
 import { ReactElement } from 'react';
-import { FaGithub, FaLinkedin, FaTwitter, FaYoutube, FaTiktok } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaTwitter, FaYoutube, FaTiktok, FaInstagram } from 'react-icons/fa';
 import { SiBluesky } from "@icons-pack/react-simple-icons";
 
 export async function generateMetadata(
@@ -36,7 +36,7 @@ export default function Organisers() {
     .filter((organiser) => organiser.active)
     .sort((a, b) => a.name.localeCompare(b.name));
 
-  type SocialName = 'twitter' | 'linkedin' | 'github' | 'youtube' | 'bluesky' | 'tiktok';
+  type SocialName = 'twitter' | 'linkedin' | 'github' | 'youtube' | 'bluesky' | 'instagram' | 'tiktok';
   type SocialHref = `${SocialName}Href`;
   type Social = {
     name: SocialName;
@@ -50,6 +50,7 @@ export default function Organisers() {
     { name: 'github', icon: <FaGithub />, href: 'githubHref' },
     { name: 'youtube', icon: <FaYoutube />, href: 'youtubeHref' },
     { name: 'bluesky', icon: <SiBluesky />, href: 'blueskyHref' },
+    { name: 'instagram', icon: <FaInstagram />, href: 'instagramHref' },
     { name: 'tiktok', icon: <FaTiktok />, href: 'tiktokHref' },
   ];
 
