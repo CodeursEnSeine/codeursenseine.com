@@ -1,7 +1,6 @@
-import { Card } from '@/components/Card';
-import { AspectRatio, Heading, SimpleGrid, Stack } from '@chakra-ui/react';
+import { Heading, SimpleGrid, Stack } from '@chakra-ui/react';
 import { allSponsors } from 'contentlayer/generated';
-import Image from 'next/image';
+import { SponsorCard } from "@/components/Sponsors/SponsorCard";
 
 export const SponsorsList = ({ ...props }) => {
   // changer ça pour afficher ou non la liste des sponsors
@@ -20,20 +19,25 @@ export const SponsorsList = ({ ...props }) => {
         Sponsors 2025 : {sponsors.length} sponsor
         {sponsors.length > 1 ? 's' : ''}.
       </Heading>
-      <SimpleGrid columns={{ base: 3, sm: 4, lg: 5 }} gap={4}>
+      <SimpleGrid columns={{base: 1, sm: 2, lg: 3}} gap={8}>
         {sponsors.map((sponsor) => (
-          <Card key={sponsor._id} p={0} isLink as="a" href={sponsor.link}>
-            <AspectRatio ratio={320 / 190}>
-              <Image
-                src={sponsor.logoSrc ?? ''}
-                width={320}
-                height={190}
-                alt={sponsor.name}
-              />
-            </AspectRatio>
-          </Card>
+          <SponsorCard key={sponsor._id} sponsor={sponsor}/>
         ))}
       </SimpleGrid>
+      {/*<SimpleGrid columns={{base: 3, sm: 4, lg: 5}} gap={4}>*/}
+      {/*  {sponsors.map((sponsor) => (*/}
+      {/*    <Card key={sponsor._id} p={0} isLink as="a" href={sponsor.link}>*/}
+      {/*      <AspectRatio ratio={320 / 190}>*/}
+      {/*        <Image*/}
+      {/*          src={sponsor.logoSrc ?? ''}*/}
+      {/*          width={320}*/}
+      {/*          height={190}*/}
+      {/*          alt={sponsor.name}*/}
+      {/*        />*/}
+      {/*      </AspectRatio>*/}
+      {/*    </Card>*/}
+      {/*  ))}*/}
+      {/*</SimpleGrid>*/}
     </Stack>
   );
 };
