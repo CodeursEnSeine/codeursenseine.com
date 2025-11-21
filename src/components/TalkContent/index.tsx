@@ -22,7 +22,7 @@ import { Speaker, Talk } from 'contentlayer/generated';
 import Image from 'next/image';
 import { ReactElement } from 'react';
 import { FaGithub } from 'react-icons/fa';
-import { FiGithub, FiTwitter, FiLinkedin, FiYoutube } from 'react-icons/fi';
+import { FiGithub, FiTwitter, FiLinkedin, FiYoutube, FiInstagram } from 'react-icons/fi';
 import { SiTiktok } from '@icons-pack/react-simple-icons';
 import { default as FiBluesky } from 'src/icons/FiBluesky';
 import { MdHearingDisabled } from 'react-icons/md';
@@ -30,7 +30,7 @@ import { VscFeedback } from 'react-icons/vsc';
 
 type TalkProps = { talk: Talk; speakers: Array<Speaker> };
 
-type SocialName = 'twitter' | 'linkedin' | 'github' | 'youtube' | 'bluesky' | 'tiktok';
+type SocialName = 'twitter' | 'linkedin' | 'github' | 'youtube' | 'bluesky' | 'instagram' | 'tiktok';
 type SocialHref = `${SocialName}Href`;
 
 type Social = {
@@ -45,6 +45,7 @@ const socials: Array<Social> = [
   { name: 'github', icon: <FiGithub />, href: 'githubHref' },
   { name: 'youtube', icon: <FiYoutube />, href: 'youtubeHref' },
   { name: 'bluesky', icon: <FiBluesky />, href: 'blueskyHref' },
+  { name: 'instagram', icon: <FiInstagram />, href: 'instagramHref' },
   { name: 'tiktok', icon: <SiTiktok />, href: 'tiktokHref' },
 ];
 
