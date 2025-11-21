@@ -47,6 +47,7 @@ export const Organiser = defineDocumentType(() => ({
     image: { type: 'string' },
     twitter: { type: 'string' },
     bluesky: { type: 'string' },
+    instagram: { type: 'string' },
     youtube: { type: 'string' },
     tiktok: { type: 'string' },
     github: { type: 'string' },
@@ -97,6 +98,7 @@ export const Speaker = defineDocumentType(() => ({
     image: { type: 'string' },
     twitter: { type: 'string' },
     bluesky: { type: 'string' },
+    instagram: { type: 'string' },
     youtube: { type: 'string' },
     tiktok: { type: 'string' },
     github: { type: 'string' },
@@ -117,6 +119,11 @@ export const Speaker = defineDocumentType(() => ({
       type: 'string',
       resolve: (doc) =>
         doc.bluesky ? `https://bsky.app/profile/${doc.bluesky}` : undefined,
+    },
+    instagramHref: {
+      type: 'string',
+      resolve: (doc) =>
+        doc.instagram ? `https://instagram.com/${doc.instagram}` : undefined,
     },
     youtubeHref: {
       type: 'string',

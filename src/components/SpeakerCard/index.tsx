@@ -18,7 +18,7 @@ import { Speaker, Talk } from 'contentlayer/generated';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Fragment, ReactElement } from 'react';
-import { FaGithub, FaTwitter, FaLinkedin, FaYoutube, FaTiktok, FaSpeakerDeck } from 'react-icons/fa';
+import { FaGithub, FaTwitter, FaLinkedin, FaYoutube, FaTiktok, FaInstagram } from 'react-icons/fa';
 import { SiBluesky } from "@icons-pack/react-simple-icons";
 
 type SpeakerCardProps = CardProps & {
@@ -27,9 +27,9 @@ type SpeakerCardProps = CardProps & {
 };
 
 type Social = {
-  name: Extract<keyof Speaker, 'twitter' | 'linkedin' | 'github' | 'youtube' | 'bluesky' | 'tiktok'>;
+  name: Extract<keyof Speaker, 'twitter' | 'linkedin' | 'github' | 'youtube' | 'bluesky' | 'instagram' | 'tiktok'>;
   icon: ReactElement;
-  href: Extract<keyof Speaker, 'twitterHref' | 'linkedinHref' | 'githubHref' | 'youtubeHref' | 'blueskyHref' | 'tiktokHref'>;
+  href: Extract<keyof Speaker, 'twitterHref' | 'linkedinHref' | 'githubHref' | 'youtubeHref' | 'blueskyHref' | 'instagramHref' | 'tiktokHref'>;
 };
 
 const socials: Array<Social> = [
@@ -38,6 +38,7 @@ const socials: Array<Social> = [
   { name: 'github', icon: <FaGithub />, href: 'githubHref' },
   { name: 'youtube', icon: <FaYoutube />, href: 'youtubeHref' },
   { name: 'bluesky', icon: <SiBluesky />, href: 'blueskyHref' },
+  { name: 'instagram', icon: <FaInstagram />, href: 'instagramHref' },
   { name: 'tiktok', icon: <FaTiktok />, href: 'tiktokHref' },
 ];
 

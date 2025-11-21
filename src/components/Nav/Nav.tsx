@@ -10,6 +10,7 @@ import {
 import Link from 'next/link';
 import { FiX } from 'react-icons/fi';
 import { NavLink, NavPreviousYears, NavSocial } from '.';
+import { NavLegal } from './NavLegal';
 import { Logo } from '../Logo';
 
 type NavProps = {
@@ -191,6 +192,7 @@ export const Nav = ({
         <Stack mt="auto" p="4" mb="2">
           <NavSocial />
           <NavPreviousYears />
+          <NavLegal onNavigate={onNavClose} />
         </Stack>
       </Flex>
     </Flex>
