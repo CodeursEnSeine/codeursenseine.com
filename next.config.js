@@ -17,7 +17,12 @@ const nextConfig = {
         loaderFile: './archive.ts',
       }
     : {
-        domains: ['pbs.twimg.com'],
+        remotePatterns: [
+          {
+            protocol: 'https',
+            hostname: 'pbs.twimg.com',
+          },
+        ],
       },
 };
 
