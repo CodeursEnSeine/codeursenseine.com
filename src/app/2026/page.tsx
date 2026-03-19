@@ -10,12 +10,12 @@ export async function generateMetadata(
   _: unknown,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
-  const previousTitle = 'Édition 2025 | ' + (await parent).title?.absolute;
+  const previousTitle = 'Édition 2026 | ' + (await parent).title?.absolute;
 
   return {
     title: previousTitle,
     alternates: {
-      canonical: '2025',
+      canonical: '2026',
     },
   };
 }
@@ -30,11 +30,11 @@ export default function Home() {
           direction={{ base: 'column', lg: 'row' }}
         >
           <Box maxW="60ch">
-            <Heading fontSize="2xl">20 Novembre 2025</Heading>
+            <Heading fontSize="2xl">19 Novembre 2026</Heading>
             <Text mb="5">
               Codeurs en Seine aura de nouveau lieu cette année au{' '}
               <strong>Kindarena&nbsp;de&nbsp;Rouen</strong>, nous vous donnons
-              rendez-vous le 20 Novembre 2025.
+              rendez-vous le 19 Novembre 2026.
             </Text>
             <Image
               src="/images/ces/logo-kindarena.svg"
@@ -43,7 +43,7 @@ export default function Home() {
               alt="Logo Kindarena"
             />
           </Box>
-          <Box
+          {/* <Box
             ml={{ lg: 'auto' }}
             pt={{ base: 4, lg: 0 }}
             pl={{ lg: 4 }}
@@ -55,15 +55,15 @@ export default function Home() {
               justify="center"
               direction={{ base: 'column', sm: 'row', md: 'column' }}
             >
-              {/*<CallForPaperButton cfpId="codeurs-en-seine-20-novembre-2025" />*/}
-              <Button as={Link} href="/2025/inscription" color="brand.600">
+              <CallForPaperButton cfpId="codeurs-en-seine-19-novembre-2026" />
+              <Button as={Link} href="/2026/inscription" color="brand.600">
                   Je m&apos;inscris
               </Button>
-              {/* <Button as={Link} href="/2025/programme" color="brand.600">
+              <Button as={Link} href="/2026/programme" color="brand.600">
                 Découvrir le programme
-              </Button> */}
+              </Button>
             </Stack>
-          </Box>
+          </Box> */}
         </Flex>
       </Card>
 
@@ -96,13 +96,13 @@ export default function Home() {
 
       <Stack spacing={4}>
         <Heading as="h3" size="md">
-          Rendez-vous en Novembre 2025 au Kindarena de Rouen !
+          Rendez-vous en Novembre 2026 au Kindarena de Rouen !
         </Heading>
         <Text>
           Encore une édition en physique : l&apos;équipe Codeurs en Seine vous
-          propose une journée complète le 20 Novembre 2025 sur des
-          conférences aux thèmes divers et variés : Web, Devops, UX, Securité,
-          Langages etc.
+          propose une journée complète le 19 Novembre 2026 sur des
+          conférences aux thèmes divers et variés : Web, Devops, IA, UX,
+          Securité, Langages etc.
         </Text>
       </Stack>
 
@@ -136,44 +136,6 @@ export default function Home() {
           pour connaître rapidement toutes les news.
         </Text>
       </Stack>
-
-      {new Date() < new Date('2026-05-01') && (
-        <Card>
-          <Flex
-            align="center"
-            justify="center"
-            direction={{ base: 'column', sm: 'row' }}
-            gap="6"
-          >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/images/devoxx-france.svg"
-              alt="Logo Devoxx France"
-              style={{ width: '250px', flexShrink: 0 }}
-            />
-            <Box>
-              <Heading as="h3" size="sm">
-                Devoxx France 2026 — 22 au 24 Avril
-              </Heading>
-              <Text fontSize="sm" mt="1">
-                La plus grande conférence indépendante de développement en
-                Europe, au Palais des Congrès de Paris. En tant que JUG, Codeurs
-                en Seine soutient la communauté !
-              </Text>
-            </Box>
-            <Button
-              as={Link}
-              isExternal
-              href="https://www.devoxx.fr/"
-              colorScheme="brand"
-              flexShrink={0}
-              _hover={{ textDecoration: 'none' }}
-            >
-              Découvrir
-            </Button>
-          </Flex>
-        </Card>
-      )}
 
       {/* TODO: Rajoutez les photos 2023 */}
       {/* <SimpleGrid columns={{ base: 1, md: 2 }} gap="4">

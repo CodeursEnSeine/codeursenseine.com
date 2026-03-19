@@ -25,7 +25,7 @@ export default function InscriptionPage() {
 
       <Stack mb={5}>
         <Text>
-          Codeurs en Seine aura lieu le <strong>20 novembre 2025</strong> au{' '}
+          Codeurs en Seine aura lieu le <strong>19 novembre 2026</strong> au{' '}
           <strong>Kindarena de Rouen</strong>
         </Text>
         <Text>
