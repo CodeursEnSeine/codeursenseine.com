@@ -144,7 +144,7 @@ export default function InfoPage() {
           jour même sur{' '}
           <Link
             color="brand.700"
-            href="https://openfeedback.io/jLatxj2p4GVAkWoMLDnl/2025-11-20"
+            href="https://openfeedback.io/jLatxj2p4GVAkWoMLDnl/2026-11-19"
             isExternal
           >
             OpenFeedback <Icon as={FiExternalLink} mx="1" />

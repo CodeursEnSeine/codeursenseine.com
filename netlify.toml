@@ -70,6 +70,12 @@ from = "/2024*"
 status = 301
 to = "https://archives-codeurs-en-seine.netlify.app/archive-2024/2024/:splat"
 
+[[redirects]]
+force = true
+from = "/2025*"
+status = 301
+to = "https://archives-codeurs-en-seine.netlify.app/archive-2025/2025/:splat"
+
 [[headers]]
 for = "/*"
 [headers.values]
