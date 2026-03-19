@@ -137,6 +137,44 @@ export default function Home() {
         </Text>
       </Stack>
 
+      {new Date() < new Date('2026-05-01') && (
+        <Card>
+          <Flex
+            align="center"
+            justify="center"
+            direction={{ base: 'column', sm: 'row' }}
+            gap="6"
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/devoxx-france.svg"
+              alt="Logo Devoxx France"
+              style={{ width: '250px', flexShrink: 0 }}
+            />
+            <Box>
+              <Heading as="h3" size="sm">
+                Devoxx France 2026 — 22 au 24 Avril
+              </Heading>
+              <Text fontSize="sm" mt="1">
+                La plus grande conférence indépendante de développement en
+                Europe, au Palais des Congrès de Paris. En tant que JUG, Codeurs
+                en Seine soutient la communauté !
+              </Text>
+            </Box>
+            <Button
+              as={Link}
+              isExternal
+              href="https://www.devoxx.fr/"
+              colorScheme="brand"
+              flexShrink={0}
+              _hover={{ textDecoration: 'none' }}
+            >
+              Découvrir
+            </Button>
+          </Flex>
+        </Card>
+      )}
+
       {/* TODO: Rajoutez les photos 2023 */}
       {/* <SimpleGrid columns={{ base: 1, md: 2 }} gap="4">
         <Box rounded="md" overflow="hidden" textAlign="center">
