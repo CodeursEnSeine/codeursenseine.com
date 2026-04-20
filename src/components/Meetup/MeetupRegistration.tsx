@@ -19,11 +19,14 @@ export const MeetupRegistration = ({
   metadata,
   ...props
 }: MeetupRegistrationProps) => {
+  const hasRegisterLink = Boolean(metadata.meetup_register_link);
+
   return (
     <Card
       alignItems="center"
-      as="a"
-      href={metadata.meetup_register_link}
+      {...(hasRegisterLink
+        ? { as: 'a', href: metadata.meetup_register_link }
+        : {})}
       variant="primary"
       {...props}
     >
@@ -35,15 +38,17 @@ export const MeetupRegistration = ({
         de {metadata.meetup_start_time} à {metadata.meetup_end_time}
       </Text>
       <Text color="white">{metadata.meetup_location}</Text>
-      <Button
-        as="div"
-        variant="outline"
-        background="white"
-        color="brand.600"
-        mt={4}
-      >
-        Inscrivez-vous !
-      </Button>
+      {hasRegisterLink && (
+        <Button
+          as="div"
+          variant="outline"
+          background="white"
+          color="brand.600"
+          mt={4}
+        >
+          Inscrivez-vous !
+        </Button>
+      )}
     </Card>
   );
 };
