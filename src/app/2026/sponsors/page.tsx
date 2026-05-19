@@ -37,7 +37,7 @@ export default function Sponsors() {
             boxShadow="brand"
             overflow="hidden"
             borderRadius="md"
-            href="https://drive.google.com/file/d/10a0nuwUEcKbr6hWQnRX4Jd2NYpwDW1XA/view?usp=sharing"
+            href="https://drive.google.com/file/d/10a0nuwUEcKbr6hWQnRX4Jd2NYpwDW1XA/view"
           >
             <Image
               src="/images/ces/dossier-sponsoring.jpg"
@@ -71,7 +71,7 @@ export default function Sponsors() {
             <Wrap>
               <Button
                 as="a"
-                href="https://drive.google.com/file/d/10a0nuwUEcKbr6hWQnRX4Jd2NYpwDW1XA/view?usp=sharing"
+                href="https://drive.google.com/file/d/10a0nuwUEcKbr6hWQnRX4Jd2NYpwDW1XA/view"
                 target="_blank"
                 colorScheme="brand"
                 w={{ base: 'full', lg: 'auto' }}
@@ -80,7 +80,7 @@ export default function Sponsors() {
               </Button>
               <Button
                 as="a"
-                href="https://drive.google.com/file/d/1roOQR2w_K_F1bA6DjgEFwaz3GNmqq0qg/view?usp=sharing"
+                href="https://drive.google.com/file/d/1roOQR2w_K_F1bA6DjgEFwaz3GNmqq0qg/view"
                 target="_blank"
                 colorScheme="brand"
                 variant="outline"
@@ -92,7 +92,7 @@ export default function Sponsors() {
               <Wrap>
                 <Button
                 as="a"
-                href="https://drive.google.com/file/d/1J9zA8NFugcwvt6ox9LNTv8Ry5oe3u6xQ/view?usp=sharing"
+                href="https://drive.google.com/file/d/1J9zA8NFugcwvt6ox9LNTv8Ry5oe3u6xQ/view"
                 target="_blank"
                 colorScheme="brand"
                 w={{ base: 'full', lg: 'auto' }}
@@ -101,7 +101,7 @@ export default function Sponsors() {
               </Button>
               <Button
                 as="a"
-                href="https://drive.google.com/file/d/1jXOtzlBv-4mgAu-HAZ5XW2m-p_GKNSLT/view?usp=sharing"
+                href="https://drive.google.com/file/d/18D6JCGNN9h96-WF20nJ2esS6NQF1E_vw/view"
                 target="_blank"
                 colorScheme="brand"
                 variant="outline"
