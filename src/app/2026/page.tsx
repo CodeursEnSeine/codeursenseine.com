@@ -23,24 +23,37 @@ export async function generateMetadata(
 export default function Home() {
   return (
     <Stack spacing="16">
-      <Card variant="primary">
+      <Card bg="transparent" boxShadow="none" border="0" p={0}>
         <Flex
           align="center"
           justify="center"
           direction={{ base: 'column', lg: 'row' }}
         >
-          <Box maxW="60ch">
-            <Heading fontSize="2xl">19 Novembre 2026</Heading>
-            <Text mb="5">
-              Codeurs en Seine aura de nouveau lieu cette année au{' '}
-              <strong>Kindarena&nbsp;de&nbsp;Rouen</strong>, nous vous donnons
-              rendez-vous le 19 Novembre 2026.
-            </Text>
+          <Box maxW={{ base: '100%', lg: '48rem' }} w="full">
+            {/* <Box maxW="60ch">
+              <Heading fontSize="2xl">19 Novembre 2026</Heading>
+              <Text mb="5">
+                Codeurs en Seine aura de nouveau lieu cette année au{' '}
+                <strong>Kindarena&nbsp;de&nbsp;Rouen</strong>, nous vous donnons
+                rendez-vous le 19 Novembre 2026.
+              </Text>
+              <Image
+                src="/images/ces/logo-kindarena.svg"
+                width={208}
+                height={50}
+                alt="Logo Kindarena"
+              />
+            </Box> */}
             <Image
-              src="/images/ces/logo-kindarena.svg"
-              width={208}
-              height={50}
-              alt="Logo Kindarena"
+              src="/images/ces/teaser-2026.png"
+              width={1200}
+              height={805}
+              alt="Teaser Codeurs en Seine 2026"
+              style={{
+              width: '100%',
+                height: 'auto',
+                maxWidth: '48rem',
+              }}
             />
           </Box>
           {/* <Box
@@ -96,11 +109,11 @@ export default function Home() {
 
       <Stack spacing={4}>
         <Heading as="h3" size="md">
-          Rendez-vous en Novembre 2026 au Kindarena de Rouen !
+          Rendez-vous en 2026 au Kindarena de Rouen !
         </Heading>
         <Text>
           Encore une édition en physique : l&apos;équipe Codeurs en Seine vous
-          propose une journée complète le 19 Novembre 2026 sur des
+          propose une journée complète en 2026 sur des
           conférences aux thèmes divers et variés : Web, Devops, IA, UX,
           Securité, Langages etc.
         </Text>
