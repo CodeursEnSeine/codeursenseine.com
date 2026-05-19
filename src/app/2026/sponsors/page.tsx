@@ -71,7 +71,7 @@ export default function Sponsors() {
             <Wrap>
               <Button
                 as="a"
-                href="https://drive.google.com/file/d/10a0nuwUEcKbr6hWQnRX4Jd2NYpwDW1XA/view?usp=sharing"   
+                href="https://drive.google.com/file/d/10a0nuwUEcKbr6hWQnRX4Jd2NYpwDW1XA/view?usp=sharing"
                 target="_blank"
                 colorScheme="brand"
                 w={{ base: 'full', lg: 'auto' }}
@@ -89,10 +89,10 @@ export default function Sponsors() {
                 Convention de sponsoring
               </Button>
               </Wrap>
-              {/* <Wrap>
+              <Wrap>
                 <Button
                 as="a"
-                href="https://drive.google.com/file/d/1RfFVp1JS97L63ikyRgdGdT8_d7CMq3dT/view?usp=sharing"
+                href="https://drive.google.com/file/d/1J9zA8NFugcwvt6ox9LNTv8Ry5oe3u6xQ/view?usp=sharing"
                 target="_blank"
                 colorScheme="brand"
                 w={{ base: 'full', lg: 'auto' }}
@@ -101,7 +101,7 @@ export default function Sponsors() {
               </Button>
               <Button
                 as="a"
-                href="https://drive.google.com/file/d/1so_fN6Nou2YXfbyhwdHtlPGGplMuvSrP/view?usp=sharing"
+                href="https://drive.google.com/file/d/1jXOtzlBv-4mgAu-HAZ5XW2m-p_GKNSLT/view?usp=sharing"
                 target="_blank"
                 colorScheme="brand"
                 variant="outline"
@@ -109,7 +109,7 @@ export default function Sponsors() {
               >
                 🇬🇧 Sponsorship agreement
               </Button>
-            </Wrap> */}
+            </Wrap>
           </Stack>
         </Box>
       </Stack>
