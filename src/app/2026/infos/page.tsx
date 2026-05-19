@@ -16,7 +16,7 @@ import { FiExternalLink } from 'react-icons/fi';
 export default function InfoPage() {
   return (
     <Stack spacing="8">
-      <Stack as="section">
+      {/*<Stack as="section">
         <Heading as="h2" fontSize="xl">
           Plan de Codeurs en Seine
         </Heading>
@@ -26,7 +26,7 @@ export default function InfoPage() {
           width={1200}
           height={1000}
         />
-      </Stack>
+      </Stack>*/}
 
       <Stack as="section">
         <Heading as="h2" fontSize="xl">
