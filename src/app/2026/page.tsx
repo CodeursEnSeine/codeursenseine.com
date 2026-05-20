@@ -202,7 +202,7 @@ export default function Home() {
           <Image
             width={114}
             height={50}
-            src="https://www.netlify.com/img/global/badges/netlify-light.svg"
+            src="https://www.netlify.com/assets/badges/netlify-badge-light.svg"
             alt="Deploys by Netlify"
           />
         </a>
