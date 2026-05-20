@@ -14,16 +14,16 @@ const logos = {
 const colors = {
   ...theme.colors,
   brand: {
-    50: '#E1EEFA',
-    100: '#BAD3F3',
-    200: '#8BB9F2',
-    300: '#68A2E4',
-    400: '#418EDE',
-    500: '#247BCE',
-    600: '#0066B3',
-    700: '#004081',
-    800: '#082348',
-    900: '#050C1B',
+    50: '#F4E9FB',
+    100: '#DEC7F3',
+    200: '#C59FEA',
+    300: '#AA73DE',
+    400: '#8F4FD0',
+    500: '#7736B8',
+    600: '#612997',
+    700: '#481F71',
+    800: '#30144B',
+    900: '#180924',
   },
 };
 
@@ -33,7 +33,7 @@ const fonts = {
 };
 
 const gradients = {
-  brand: `linear-gradient(45deg, #007dc5, #034ea2)`,
+  brand: `linear-gradient(145deg, #8F4FD0, #481F71)`,
 };
 
 const shadows = {
@@ -46,7 +46,7 @@ const shadows = {
     rgba(32, 47, 71, 0.04) 0px -0.25rem 0.5rem -0.125rem,
     rgba(32, 47, 71, 0.03) 0px 0px 0px 0.0625rem;
   `,
-  brand: `0 0.25rem 1.25rem rgba(0, 102, 179, 0.2)`,
+  brand: `0 0.25rem 1.25rem rgba(97, 41, 151, 0.24)`,
 };
 
 const ces = {
