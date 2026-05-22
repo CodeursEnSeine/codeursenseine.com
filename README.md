@@ -1,5 +1,9 @@
 # Codeurs en Seine Website
 
+## Prerequisites
+
+Make sure you understand both our [Code of Conduct](CODE_OF_CONDUCT.md) and our [Contribution guidelines](CONTRIBUTING.md).
+
 ## 🚀 Quick start
 
 1.  **Install dependencies**
