@@ -40,20 +40,13 @@ Make sure you understand both our [Code of Conduct](CODE_OF_CONDUCT.md) and our 
 
 Add year-1 redirection in `public-archive/netlify.toml`.
 
-#### Build Archive
-
-Run the following commands with the correct year:
-
-```shell
-NEXT_PUBLIC_ARCHIVE_YEAR=2024 npm run build:archive
-npm run start:archive # Serve the archive, and go to the archive-2024 folder
-```
-
 #### Tag
 
 Tag the latest commit.
 
 `git tag -a archive-XXXX -m "Archive XXXX"`
+
+
 
 ### Initialize the new year website
 
@@ -69,6 +62,38 @@ Create past year redirection in `./netlify.toml`.
 #### Add the past year in the Nav
 
 Add the past year in the `src/constants/site.ts` file.
+
+#### Build Archive
+
+Run the following commands with the correct year:
+
+```shell
+NEXT_PUBLIC_ARCHIVE_YEAR=2025 npm run build:archive
+npm run start:archive # Serve the archive, and go to the archive-2024 folder
+```
+
+It will create a folder "archive-XXXX" in folder public-archive
+
+
+Go to Netlify,
+
+https://app.netlify.com/projects/archives-codeurs-en-seine/overview
+
+In production deploys, get the last build (normally the one from the previous year).
+
+Click on Options and Download Deployed files
+![Netflify Archive](docs/netlify-archive.png)
+
+on the zip downloaded and extracted, you will have a list or archives.
+Copy the folder "archive-XXXX" in that list of file 
+
+![List Archives](docs/list-archives.png)
+
+Then, recreate the zip including all archives.
+
+On netlify, please upload the new zip in that drag & drop area.
+
+![Upload Drag & Drop](docs/archive-drag-drop.png)
 
 ## Other tooling
 
