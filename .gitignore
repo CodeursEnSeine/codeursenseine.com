@@ -40,3 +40,6 @@ next-env.d.ts
 
 .env
 .idea
+
+# Claude Code — paramètres locaux de session (ne pas committer)
+.claude/settings.local.json
