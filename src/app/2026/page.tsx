@@ -27,56 +27,52 @@ export default function Home() {
         <Flex
           align="center"
           justify="center"
+          gap={{ base: 6, lg: 8 }}
           direction={{ base: 'column', lg: 'row' }}
         >
-          <Box maxW={{ base: '100%', lg: '48rem' }} w="full">
-            {/* <Box maxW="60ch">
-              <Heading fontSize="2xl">19 Novembre 2026</Heading>
-              <Text mb="5">
-                Codeurs en Seine aura de nouveau lieu cette année au{' '}
-                <strong>Kindarena&nbsp;de&nbsp;Rouen</strong>, nous vous donnons
-                rendez-vous le 19 Novembre 2026.
-              </Text>
-              <Image
-                src="/images/ces/logo-kindarena.svg"
-                width={208}
-                height={50}
-                alt="Logo Kindarena"
+          <Stack maxW={{ base: '100%', lg: '30rem' }} spacing="5">
+            <Heading fontSize="2xl">19 Novembre 2026</Heading>
+            <Text>
+              Codeurs en Seine aura de nouveau lieu cette année au{' '}
+              <strong>Kindarena&nbsp;de&nbsp;Rouen</strong>, nous vous donnons
+              rendez-vous le 19 Novembre 2026.
+            </Text>
+            <Image
+              src="/images/ces/logo-kindarena.svg"
+              width={208}
+              height={50}
+              alt="Logo Kindarena"
+            />
+            <Stack
+              spacing="4"
+              pt="2"
+              direction={{ base: 'column', sm: 'row' }}
+            >
+              <CallForPaperButton
+                cfpId="codeurs-en-seine-19-novembre-2026"
+                size="lg"
               />
-            </Box> */}
+              {/* <Button as={Link} href="/2026/inscription" color="brand.600">
+                  Je m&apos;inscris
+              </Button>
+              <Button as={Link} href="/2026/programme" color="brand.600">
+                Découvrir le programme
+              </Button> */}
+            </Stack>
+          </Stack>
+          <Box maxW={{ base: '100%', lg: '40rem' }} w="full">
             <Image
               src="/images/ces/teaser-2026.png"
               width={1200}
               height={805}
               alt="Teaser Codeurs en Seine 2026"
               style={{
-              width: '100%',
+                width: '100%',
                 height: 'auto',
-                maxWidth: '48rem',
+                maxWidth: '40rem',
               }}
             />
           </Box>
-          {/* <Box
-            ml={{ lg: 'auto' }}
-            pt={{ base: 4, lg: 0 }}
-            pl={{ lg: 4 }}
-            maxW={{ lg: '16rem' }}
-            w="full"
-          >
-            <Stack
-              spacing="4"
-              justify="center"
-              direction={{ base: 'column', sm: 'row', md: 'column' }}
-            >
-              <CallForPaperButton cfpId="codeurs-en-seine-19-novembre-2026" />
-              <Button as={Link} href="/2026/inscription" color="brand.600">
-                  Je m&apos;inscris
-              </Button>
-              <Button as={Link} href="/2026/programme" color="brand.600">
-                Découvrir le programme
-              </Button>
-            </Stack>
-          </Box> */}
         </Flex>
       </Card>
 
