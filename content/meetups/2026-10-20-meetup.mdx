@@ -2,7 +2,7 @@
 category: meetup
 
 slug: meetup-academy-2026
-published: false
+published: true
 
 title: "Meetup Academy 2026"
 excerpt: "Meetup Academy 2026"
@@ -11,41 +11,83 @@ meetup_date: 2026-10-20
 meetup_start_time: 18h30
 meetup_end_time: 21h00
 meetup_location: Campus CESI du Madrillet, Rouen
-# meetup_register_link: # lien meetup.com à venir pour l'inscription des participants
+meetup_register_link: https://www.meetup.com/codeursenseine/events/316746385/
 ---
 
 📢 Meetup Academy
 
-Tu as toujours rêvé de prendre la parole en public, mais tu n'as jamais osé franchir le pas ? Codeurs en Seine t'invite à participer à Meetup Academy, une soirée spécialement conçue pour celles et ceux qui souhaitent faire leur première conférence dans un cadre bienveillant et convivial !
-
-🗓️ Au programme :
-
-- 🔥 4 quickies (présentations de 15 ou 20 minutes)
-- 🎤 Une occasion unique de partager tes connaissances, une expérience ou un sujet qui te passionne
-- 🤝 Un public bienveillant et des organisateurs à l'écoute pour t'accompagner
+Meetup Academy, c'est une soirée spécialement conçue pour celles et ceux qui font leur première conférence, dans un cadre bienveillant et convivial : 4 quickies de 15 à 20 minutes pour découvrir de nouveaux sujets et de nouveaux speakers !
 
 Nous vous attendons nombreux le **Mardi 20 Octobre 2026 à 18h30** au **Campus CESI du Madrillet à Rouen**.
 
-## Appel à Orateurs 🎤
+## Au programme
 
-Tu as toujours hésité à devenir speaker, et le format long et les grandes conférences te font peur, c'est le moment parfait pour te lancer ! Aucun prérequis nécessaire, juste l'envie de partager.
+### Le prof et le dev : comment j'ai codé l'outil que mes profs auraient voulu avoir (Louise Ducrocq)
 
-💡 Intéressé·e ? Propose ton sujet dès maintenant **avant le 31 août minuit** :
+Et si le meilleur cahier des charges venait d'une conversation avec vos utilisateurs plutôt que d'une spec technique ?
 
-<div style={{ display: 'flex', justifyContent: 'center', margin: '1.5em 0' }}>
-  <Button as="a" href="https://conference-hall.io/meetup-academy-2026" colorScheme="brand" size="lg" target="_blank" rel="noopener noreferrer" display="inline-flex" alignItems="center">Soumettre un sujet</Button>
-</div>
+En développant cleoEd, une application pour aider les enseignants à préparer leurs cours, générer des QCM et planifier leurs séquences pédagogiques, j'ai appris une leçon que personne ne m'avait vraiment enseignée : coder vite ne sert à rien si on ne comprend pas d'abord le problème humain derrière.
 
-Viens tenter l'aventure Meetup Academy et fais entendre ta voix ! 🚀
+Dans ce retour d'expérience, je vous partage comment j'ai interrogé de vrais profs pour identifier leurs vraies douleurs (pas celles que j'imaginais), comment l'IA a tout simplifié... et tout compliqué à la fois, et ce que ça change de construire un outil pour des gens qu'on connaît.
+
+### Outillage interne : comment construire des outils que vos équipes utiliseront vraiment ? (Gildéric Deruette)
+
+2015 : React commence à se faire connaître, l'écosystème est en pleine expansion mais pas vraiment mature. Il y a plein de choses à faire et l'idée de créer notre propre librairie émerge : capitaliser sur le travail des uns et des autres pour ne pas réinventer la roue à chaque projet.
+
+Une équipe dédiée se met en place, les plus investis et les plus motivés. On ajoute le marketing dans la boucle, on crée un logo, un discours. Les commerciaux essaient d'embarquer les clients avec des promesses de gains de temps incroyables. La direction impose l'outil à toutes et tous.
+
+Six mois plus tard : les retards s'accumulent sur les projets, les lead tech hurlent, l'équipe framework essaie de maintenir la face — mais au fond, plus personne n'y croit. Les projets qui démarrent se tournent vers des librairies grand public.
+
+L'équipe framework complète démissionne. Le projet est laissé en plan.
+
+### Tu peux pas me test ! (Jean Lecordier)
+
+Marre de casser la prod à la moindre modif ? Tu voudrais bien tester ton code, mais la fonction legacy fait 3000 lignes, fetch 3 APIs et fait des insertions dans 2 bases de données ?
+
+Les Seams et l'Injection de Dépendance à la rescousse ! Dans ce talk, on verra comment les concepts du Clean Code et de l'Architecture Hexagonale peuvent nous aider à refactoriser du code legacy.
+
+### Mental Poker — la cryptographie cachée derrière un jeu de cartes (Faiza Haddadi)
+
+En Master SSI, on m'a donné comme projet : du poker. J'ai cherché sur YouTube — presque rien. Alors j'ai creusé.
+
+Ce que j'ai trouvé derrière ce titre bizarre, c'est l'un des protocoles cryptographiques les plus élégants qui existent — inventé en 1981 par les créateurs de RSA, et pourtant quasi inconnu.
+
+Dans ce talk, je vous emmène dans ma découverte : comment Bitcoin et la blockchain répondent au problème du tiers de confiance, comment le chiffrement commutatif permet de distribuer des cartes sans dealer, comment les Zero-Knowledge Proofs permettent de prouver sans révéler — avec l'exemple de Où est Charlie — et comment le Multi-Party Computation permet à des joueurs de coopérer sans jamais dévoiler leur jeu.
+
+Et pour que ça reste concret : on l'a implémenté. Huit étudiants, un jeu de la Bataille, zéro serveur central, des simulations d'attaques, et un protocole qui tient.
+
+Un talk pour tous les curieux de la tech — pas besoin d'être cryptographe pour comprendre pourquoi ces idées sont partout autour de vous.
 
 ## Les speakers
 
-{/*
 <MeetupSpeaker
   speaker={{
-    name: 'Speaker',
-    avatar: '/images/meetups/speakers/john_doe.jpg',
+    name: 'Louise Ducrocq',
+    avatar: '/images/meetups/speakers/louise-ducrocq.jpg',
     bio: ''
   }}
 ></MeetupSpeaker>
-*/}
+---
+<MeetupSpeaker
+  speaker={{
+    name: 'Gildéric Deruette',
+    avatar: '/images/meetups/speakers/gilderic-deruette.jpg',
+    bio: ''
+  }}
+></MeetupSpeaker>
+---
+<MeetupSpeaker
+  speaker={{
+    name: 'Faiza Haddadi',
+    avatar: '/images/meetups/speakers/faiza-haddadi.jpg',
+    bio: ''
+  }}
+></MeetupSpeaker>
+---
+<MeetupSpeaker
+  speaker={{
+    name: 'Jean Lecordier',
+    avatar: '/images/meetups/speakers/jean-lecordier.jpg',
+    bio: ''
+  }}
+></MeetupSpeaker>
