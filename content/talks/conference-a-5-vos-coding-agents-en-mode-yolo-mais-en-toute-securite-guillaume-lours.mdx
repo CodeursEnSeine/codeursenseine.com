@@ -11,13 +11,9 @@ subtitled: false
 ---
 
 Il existe ce que l’on appelle la permission fatigue : à force de valider des demandes, on finit par accepter sans vraiment regarder ce que notre coding agent s’apprête à exécuter.
-
 Pour contourner cela, les outils proposent aujourd’hui des modes YOLO (trust-all-tools, bypass permissions…), donnant aux agents une autonomie totale.
-
 Mais cette autonomie a un coût : ces modes permettent aux agents d’effectuer n’importe quelle opération sur la machine du développeur. Les retours de développeurs ayant perdu du travail ou vu leur environnement local altéré se multiplient .
-
 La question devient : comment offrir un maximum d’autonomie aux agents sans mettre en danger la machine hôte ?
 
 En combinant VMs et conteneurs, Docker Sandboxes permet d’exécuter des agents IA dans des environnements réellement isolés. Les agents peuvent installer des outils, modifier leur environnement et lancer des workloads complexes en s’appuyant sur un engine Docker isolé, sans accès direct au host.
-
 Le trafic réseau sortant est contrôlé via les règles d’entreprise, et les agents n’ont accès ni aux clés d’API ni aux credentials, offrant une solution pour exécuter des coding agents en mode YOLO, mais en toute sécurité.
