@@ -55,9 +55,9 @@ export default function Home() {
               <Button as={Link} href="/2026/inscription" color="brand.600" size="lg">
                 Je m&apos;inscris
               </Button>
-              {/* <Button as={Link} href="/2026/programme" color="brand.600">
+              <Button as={Link} href="/2026/programme" color="brand.600" size="lg">
                 Découvrir le programme
-              </Button> */}
+              </Button>
             </Stack>
           </Stack>
           <Box maxW={{ base: '100%', lg: '40rem' }} w="full">

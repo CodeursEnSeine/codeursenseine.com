@@ -1,0 +1,38 @@
+---
+kind: conference
+title: 'Stop au code parano : la programmation défensive n''est pas celle que vous croyez !'
+start: 2026-11-19T10:50:00.000+01:00
+end: 2026-11-19T11:40:00.000+01:00
+speakers:
+  - guillaume-saint-etienne
+room: B
+rows: 1
+subtitled: false
+---
+
+La programmation défensive “classique” est bruyante : des if partout, des try/catch en cascade, des null vérifiés dix fois, une paranoïa diffuse qui alourdit le code sans jamais le rendre vraiment fiable.
+
+Et si on arrêtait ? Plutôt que de se défendre contre les mauvaises données, rendons les mauvaises données impossibles à représenter.
+
+Deux piliers :
+
+L’always valid model : un objet ne peut exister que dans un état valide. On parse aux frontières, on construit des value objects qui refusent de naître invalides, et le reste du code n’a plus rien à vérifier.
+
+Les systèmes de types évolués (ADT, types sommes, Result, états explicites) : les échecs attendus vivent dans les signatures, pas dans des exceptions invisibles. Le type checker devient votre filet de sécurité, pas votre discipline personnelle.
+
+Le résultat : moins de code défensif, plus de confiance.
+
+Le chemin nominal redevient lisible, les chemins d’erreur deviennent explicites, et la robustesse passe du runtime au design.
+
+Les chemins de votre code se parsèment d'aiguillages. Efficaces, lisibles, sécurisés.
+
+Ces principes ne sont pas propres à un langage : ils s’appliquent à tout langage orienté objet doté d’un système de types expressif. 
+
+Avec une conviction simple : la meilleure ligne de code défensive est celle que vous n’avez plus besoin d’écrire.
+
+Ce que les participants repartiront avec : 
+ - Reconnaître et supprimer le code défensif redondant
+ - Concevoir des value objects “always valid” qui se refusent à exister invalides
+ - Encoder les échecs attendus dans les types (Result, ADT) plutôt que dans des exceptions invisibles
+ - Modéliser un domaine pour rendre les états illégaux impossibles à construire
+ - Appliquer ces principes au-delà d’un seul langage, dans tout écosystème OO typé
