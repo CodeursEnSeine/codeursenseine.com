@@ -10,8 +10,8 @@ export const InscriptionTropEvent = () => {
         title="Tropevent.com"
         target="_tropevent"
         className="tropevent-embedded"
-        href="https://www.tropevent.com/event/2025-Codeurs-en-Seine-2025"
-        data-src="https://www.tropevent.com/event/2025-Codeurs-en-Seine-2025/booking-embedded"
+        href="https://www.tropevent.com/event/2026-Codeurs-en-Seine-2026"
+        data-src="https://www.tropevent.com/event/2026-Codeurs-en-Seine-2026/booking-embedded"
       >
         <Box
           textAlign="center"
@@ -27,7 +27,7 @@ export const InscriptionTropEvent = () => {
       <Script
         defer
         type="text/javascript"
-        src={`https://www.tropevent.com/wro/widget.js?update=${new Date().toISOString()}`}
+        src={`https://www.tropevent.com/widget.js?update=${new Date().toISOString()}`}
       />
     </div>
   );
