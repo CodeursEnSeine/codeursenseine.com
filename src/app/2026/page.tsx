@@ -48,14 +48,14 @@ export default function Home() {
               pt="2"
               direction={{ base: 'column', sm: 'row' }}
             >
-              <CallForPaperButton
+              {/* <CallForPaperButton
                 cfpId="codeurs-en-seine-19-novembre-2026"
                 size="lg"
-              />
-              {/* <Button as={Link} href="/2026/inscription" color="brand.600">
-                  Je m&apos;inscris
+              /> */}
+              <Button as={Link} href="/2026/inscription" color="brand.600" size="lg">
+                Je m&apos;inscris
               </Button>
-              <Button as={Link} href="/2026/programme" color="brand.600">
+              {/* <Button as={Link} href="/2026/programme" color="brand.600">
                 Découvrir le programme
               </Button> */}
             </Stack>
