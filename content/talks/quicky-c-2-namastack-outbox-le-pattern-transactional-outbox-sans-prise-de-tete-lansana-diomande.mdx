@@ -1,0 +1,21 @@
+---
+kind: quicky
+title: 'Namastack Outbox : le pattern Transactional Outbox sans prise de tête'
+start: 2026-11-19T14:00:00.000+01:00
+end: 2026-11-19T14:15:00.000+01:00
+speakers:
+  - lansana-diomande
+room: C
+rows: 1
+subtitled: false
+---
+
+Écrire en base et déclencher une action externe, ça paraît assez simple. Jusqu’au jour où les deux opérations ne se passent pas comme prévu : la transaction est validée mais l’appel échoue, ou l’appel réussit alors que la transaction est finalement annulée. La donnée et l’action se retrouvent désynchronisées.
+
+C’est le fameux dual-write problem. On le rencontre évidemment avec Kafka, RabbitMQ ou SNS, mais aussi avec un simple appel HTTP vers un autre service. Et le problème peut rester complètement invisible jusqu’à produire des incohérences difficiles à comprendre.
+
+Le Transactional Outbox Pattern permet de résoudre ce problème : on enregistre ce qui doit être fait dans la même transaction que les données métier, puis on se charge de l’exécuter une fois le commit effectué.
+
+Sur le papier, c’est simple. En pratique, dès qu’on veut quelque chose de fiable en production, il faut gérer les retries, le backoff, les workers concurrents, l’ordering, le scaling, les métriques, les traces… et on se retrouve vite à maintenir une petite infrastructure maison.
+
+Nous allons voir comment éviter tout ça avec Namastack Outbox.
