@@ -10,8 +10,8 @@ rows: 1
 subtitled: false
 ---
 
-Classifier et extraire les données de milliers, voire de millions de documents, c'était **6 mois de développement**, une équipe de ML engineers et d'annotateurs externes, des dizaines de milliers d'images annotées et un budget à six chiffres.
+Un nouveau document arrive, un fournisseur change son template, une réglementation impose un nouveau champ : et c’est reparti pour un tour de réannotation et de réentraînement. Pour une équipe qui gère des dizaines de types de documents, ce cycle ne s’arrête jamais, mobilisant plusieurs ingénieurs ML pendant des mois pour un gain marginal.
 
-Aujourd'hui, un LLM multimodal fait le même travail en **quelques jours**, sans dataset et sans entraînement.
+Ce cycle vient du deep learning classique, qui doit réapprendre chaque mise en page avant de pouvoir la lire. Les LLM multimodaux savent déjà lire un document. Le travail change de nature : on n’entraîne plus de modèles sur de gros GPU, mais on configure un LLM avec un prompt, un schéma de sortie et des règles métier.
 
-Trop beau pour être vrai ? Dans cette **démo live**, je vous montre exactement comment ça fonctionne sur un cas réel de KYC bancaire, par exemple CNI, passeports, justificatifs, RIB, et surtout, comment on évite que le modèle **hallucine** sur vos données les plus sensibles.
+À partir d’un cas réel de vérification d’identité bancaire (KYC) et d’une démo live, vous repartirez avec une méthode pour traiter un nouveau type de document sans dessiner un seul rectangle : un prompt versionné comme du code, un schéma et des règles métier qui rattrapent les erreurs du modèle, puis le monitoring et la revue humaine qui rendent le tout fiable en production. De quoi passer d’un projet de six mois à moins d’un mois, mise en production comprise.
