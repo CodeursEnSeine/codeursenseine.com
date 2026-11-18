@@ -32,7 +32,8 @@ export const PageHeader = () => {
           >
             Inscription
           </Button> */}
-          <Button
+          {/* TODO: réafficher avec le lien TropEvent */}
+          {/* <Button
             variant="outline"
             colorScheme="brand"
             as="a"
@@ -42,7 +43,7 @@ export const PageHeader = () => {
             href="https://www.helloasso.com/associations/codeurs-en-seine/formulaires/1/widget"
           >
             Faire un don
-          </Button>
+          </Button> */}
         </Flex>
       </Flex>
       {process.env.NEXT_PUBLIC_ARCHIVE_YEAR && (
